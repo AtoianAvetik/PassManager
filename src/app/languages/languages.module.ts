@@ -4,12 +4,12 @@ import { LanguageSwitcherComponent } from './language-switcher/language-switcher
 import { LanguagesService } from './_services/languages.service';
 import { MatSelectModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient){
+export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
 }
 
@@ -39,4 +39,7 @@ export function HttpLoaderFactory(http: HttpClient){
     ]
 })
 export class LanguagesModule {
+    constructor( private $translate: TranslateService ) {
+        this.$translate.setDefaultLang('en');
+    }
 }

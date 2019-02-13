@@ -6,17 +6,16 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguagesService {
     selected: Language;
     languages: Language[] = [
-        new Language('nl', 'Dutch'),
-        new Language('nl-be', 'Flemish Dutch'),
-        new Language('fr', 'French')
+        new Language('en', 'English'),
+        new Language('ru', 'Russian')
     ];
 
-    constructor(private $translate: TranslateService){
+    constructor(private $translate: TranslateService) {
         this.setDefault();
     }
 
     setDefault() {
-        const defaultLanguge = 'nl';
+        const defaultLanguge = 'en';
         this.$translate.setDefaultLang(defaultLanguge);
         this.setLanguage(defaultLanguge);
     }
