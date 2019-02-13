@@ -1,0 +1,133 @@
+<style>
+@font-face {
+	font-family: 'iconFont';
+	src: url('iconFont.eot?1550091472');
+	src: url('iconFont.eot?1550091472#iefix') format('embedded-opentype'),
+		 url('iconFont.svg?1550091472#iconFont') format('svg'),
+		 url('iconFont.woff?1550091472') format('woff'),
+		 url('iconFont.woff?1550091472') format('woff2'),
+		 url('iconFont.ttf?1550091472') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+.font-demo-table {
+	border: 2px solid #cccccc;
+	border-radius: 4px;
+	border-collapse: collapse;
+	max-width: 800px;
+	margin: 0 auto;
+}
+.font-demo-table thead {
+	border-bottom: 2px solid #cccccc;
+}
+.font-demo-table tr {
+	border-bottom: 1px solid #cecece;
+}
+.font-demo-table tr:last-child {
+	border: none;
+}
+.font-demo-table td, .font-demo-table th {
+	width: 50%;
+	padding: 10px;
+	text-align: center;
+	font-size: 24px;
+	border-right: 1px solid #cecece;
+}
+.font-demo-table td:last-child, .font-demo-table th:last-child {
+	border: none;
+}
+.font-demo-icon:before {
+	display: inline;
+	font-size: 50px;
+	font-family: iconFont;
+	font-style: normal;
+}
+
+[data-icon]:before {
+	font-family: "iconFont" !important;
+	content: attr(data-icon);
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+	font-family: "iconFont" !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*----icon classes-----*/
+
+.icon-facebook:before { content: "\E000"; }
+.icon-googleplus:before { content: "\E001"; }
+.icon-instagram:before { content: "\E002"; }
+.icon-linkedin:before { content: "\E003"; }
+.icon-pinterest:before { content: "\E004"; }
+.icon-twitter:before { content: "\E005"; }
+.icon-vimeo:before { content: "\E006"; }
+.icon-youtube:before { content: "\E007"; }
+.icon-arrow-down:before { content: "\E008"; }
+.icon-arrow-left:before { content: "\E009"; }
+.icon-arrow-right:before { content: "\E00A"; }
+.icon-arrow-right-2:before { content: "\E00B"; }
+.icon-chat:before { content: "\E00C"; }
+.icon-check-solid:before { content: "\E00D"; }
+.icon-mail:before { content: "\E00E"; }
+.icon-search:before { content: "\E00F"; }
+.icon-location:before { content: "\E010"; }
+.icon-user-solid:before { content: "\E011"; }
+.icon-play:before { content: "\E012"; }
+.icon-add:before { content: "\E013"; }
+.icon-trash:before { content: "\E014"; }
+.icon-edit:before { content: "\E015"; }
+.icon-close:before { content: "\E016"; }
+.icon-check:before { content: "\E017"; }
+</style>
+<table width='100%' class="font-demo-table" border="1">
+	<thead>
+		<tr>
+			<th>Class</th>
+			<th>Unicode</th>
+			<th>Icon</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><td>.icon-facebook</td><td>\E000</td><td><i class="font-demo-icon icon-facebook"></i></td></tr>
+		<tr><td>.icon-googleplus</td><td>\E001</td><td><i class="font-demo-icon icon-googleplus"></i></td></tr>
+		<tr><td>.icon-instagram</td><td>\E002</td><td><i class="font-demo-icon icon-instagram"></i></td></tr>
+		<tr><td>.icon-linkedin</td><td>\E003</td><td><i class="font-demo-icon icon-linkedin"></i></td></tr>
+		<tr><td>.icon-pinterest</td><td>\E004</td><td><i class="font-demo-icon icon-pinterest"></i></td></tr>
+		<tr><td>.icon-twitter</td><td>\E005</td><td><i class="font-demo-icon icon-twitter"></i></td></tr>
+		<tr><td>.icon-vimeo</td><td>\E006</td><td><i class="font-demo-icon icon-vimeo"></i></td></tr>
+		<tr><td>.icon-youtube</td><td>\E007</td><td><i class="font-demo-icon icon-youtube"></i></td></tr>
+		<tr><td>.icon-arrow-down</td><td>\E008</td><td><i class="font-demo-icon icon-arrow-down"></i></td></tr>
+		<tr><td>.icon-arrow-left</td><td>\E009</td><td><i class="font-demo-icon icon-arrow-left"></i></td></tr>
+		<tr><td>.icon-arrow-right</td><td>\E00A</td><td><i class="font-demo-icon icon-arrow-right"></i></td></tr>
+		<tr><td>.icon-arrow-right-2</td><td>\E00B</td><td><i class="font-demo-icon icon-arrow-right-2"></i></td></tr>
+		<tr><td>.icon-chat</td><td>\E00C</td><td><i class="font-demo-icon icon-chat"></i></td></tr>
+		<tr><td>.icon-check-solid</td><td>\E00D</td><td><i class="font-demo-icon icon-check-solid"></i></td></tr>
+		<tr><td>.icon-mail</td><td>\E00E</td><td><i class="font-demo-icon icon-mail"></i></td></tr>
+		<tr><td>.icon-search</td><td>\E00F</td><td><i class="font-demo-icon icon-search"></i></td></tr>
+		<tr><td>.icon-location</td><td>\E010</td><td><i class="font-demo-icon icon-location"></i></td></tr>
+		<tr><td>.icon-user-solid</td><td>\E011</td><td><i class="font-demo-icon icon-user-solid"></i></td></tr>
+		<tr><td>.icon-play</td><td>\E012</td><td><i class="font-demo-icon icon-play"></i></td></tr>
+		<tr><td>.icon-add</td><td>\E013</td><td><i class="font-demo-icon icon-add"></i></td></tr>
+		<tr><td>.icon-trash</td><td>\E014</td><td><i class="font-demo-icon icon-trash"></i></td></tr>
+		<tr><td>.icon-edit</td><td>\E015</td><td><i class="font-demo-icon icon-edit"></i></td></tr>
+		<tr><td>.icon-close</td><td>\E016</td><td><i class="font-demo-icon icon-close"></i></td></tr>
+		<tr><td>.icon-check</td><td>\E017</td><td><i class="font-demo-icon icon-check"></i></td></tr>
+	</tbody>
+</table>

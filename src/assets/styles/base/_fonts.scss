@@ -131,3 +131,21 @@
     font-weight: 900;
     font-style: normal;
 }
+
+
+
+/*--------------------------------------/
+ Icon font
+--------------------------------------*/
+
+@font-face {
+    font-family: 'iconFont';
+    src: url($font-path + 'iconFont/iconFont.eot?1534157112');
+    src: url($font-path + 'iconFont/iconFont.eot?1534157112#iefix') format('embedded-opentype'),
+    url($font-path + 'iconFont/iconFont.svg?1534157112#iconFont') format('svg'),
+    url($font-path + 'iconFont/iconFont.woff?1534157112') format('woff'),
+    url($font-path + 'iconFont/iconFont.woff?1534157112') format('woff2'),
+    url($font-path + 'iconFont/iconFont.ttf?1534157112') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

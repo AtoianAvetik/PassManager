@@ -1,0 +1,60 @@
+// Icons custom styles
+
+[class*=icon-] {
+    display: inline-block;
+    backface-visibility: hidden;
+    padding: 1px;
+    @include icon();
+}
+
+//.icon-xxxxx      { font-size: 1em; &:before { content: "\xxxx"; font-size: to-em(); } }
+
+.icon-facebook:before { content: "\E000"; }
+.icon-googleplus:before { content: "\E001"; }
+.icon-instagram:before { content: "\E002"; }
+.icon-linkedin:before { content: "\E003"; }
+.icon-pinterest:before { content: "\E004"; }
+.icon-twitter:before { content: "\E005"; }
+.icon-vimeo:before { content: "\E006"; }
+.icon-youtube:before { content: "\E007"; }
+.icon-arrow-down:before { content: "\E008"; }
+.icon-arrow-left:before { content: "\E009"; }
+.icon-arrow-right:before { content: "\E00A"; }
+.icon-arrow-right-2:before { content: "\E00B"; }
+.icon-chat:before { content: "\E00C"; }
+.icon-check-solid:before { content: "\E00D"; }
+.icon-mail:before { content: "\E00E"; }
+.icon-search:before { content: "\E00F"; }
+.icon-location:before { content: "\E010"; }
+.icon-user-solid:before { content: "\E011"; }
+.icon-play:before { content: "\E012"; }
+.icon-add:before { content: "\E013"; }
+.icon-trash:before { content: "\E014"; }
+.icon-edit:before { content: "\E015"; }
+.icon-close:before { content: "\E016"; }
+.icon-check:before { content: "\E017"; }
+
+$icon-facebook:                          "\E000";
+$icon-googleplus:                        "\E001";
+$icon-instagram:                         "\E002";
+$icon-linkedin:                          "\E003";
+$icon-pinterest:                         "\E004";
+$icon-twitter:                           "\E005";
+$icon-vimeo:                             "\E006";
+$icon-youtube:                           "\E007";
+$icon-arrow-down:                        "\E008";
+$icon-arrow-left:                        "\E009";
+$icon-arrow-right:                       "\E00A";
+$icon-arrow-right-2:                     "\E00B";
+$icon-chat:                              "\E00C";
+$icon-check-solid:                       "\E00D";
+$icon-mail:                              "\E00E";
+$icon-search:                            "\E00F";
+$icon-location:                          "\E010";
+$icon-user-solid:                        "\E011";
+$icon-play:                              "\E012";
+$icon-add:                               "\E013";
+$icon-trash:                             "\E014";
+$icon-edit:                              "\E015";
+$icon-close:                             "\E016";
+$icon-check:                             "\E017";

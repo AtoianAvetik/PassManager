@@ -2,19 +2,7 @@
  Settings
 --------------------------------------*/
 
-$form-control: (
-    color: $base-color,
-    bg-color: transparent,
-    border-color: $gray,
-    border-height: 2px,
-    focus-bg-color: $white,
-    focus-border-color: $primary-color,
-    height: 50px,
-    font-size: $base-font-size,
-    padding: 15px 15px,
-    default-border-radius: 0,
-    border-radius: 5px,
-);
+$form-control: $input;
 
 //---------------------------------------//
 //------------ FORM CONTROL -------------//
