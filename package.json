@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "electron": "electron .",
-    "electron:serve": "ng build --base-href ./ && tsc --p electron && electron .",
+    "electron:serve": "ng build --base-href ./ && tsc --p electron && electron . --serve",
     "electron:package": "electron-packager . --platform=win32",
     "electron:prod": "npm run prod && tsc --p electron && electron .",
     "package:linux": "npm run prod && electron-packager . file-explorer-0.0.1 --ignore=src --ignore=node_modules --ignore=e2e --ignore=.*\\.conf\\.js --ignore=\"(angular-cli|tsconfig)\\.json\" --ignore=webpack.*\\.js --out=packages --platform=linux --arch=all --overwrite",
