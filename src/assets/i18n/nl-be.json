@@ -1,0 +1,59 @@
+{
+  "title": "titel",
+  "welcome": "welkom",
+  "login": "log in",
+  "logout": "uitloggen",
+  "username": "gebruikersnaam",
+  "password": "wachtwoord",
+  "search": "zoeken",
+  "search_result": "zoekresultaat",
+  "shopping_cart": "winkelwagen",
+  "no_selection": "geen selectie",
+  "amount": "aantal",
+  "stock": "voorraad",
+  "not_on_stock": "niet op voorraad",
+  "shipping_information": "verzendgegevens",
+  "shipping_address_details": "gegevens verzendadres",
+  "company": "bedrijf",
+  "department": "afdeling",
+  "initials": "voorletters",
+  "middle_name": "tussenvoegsel",
+  "last_name": "achternaam",
+  "email": "e-mailadres",
+  "phone_number": "telefoonnummer",
+  "house_number": "huisnr",
+  "apt_number": "toev",
+  "postal_code": "postcode",
+  "street": "straat",
+  "city": "plaats",
+  "country": "land",
+  "required_fields": "verplichte velden",
+  "texts": {
+    "need_help": "Hulp nodig met bestellen?",
+    "footer_bottom": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br> Aenean commodo ligula eget dolor.",
+    "cart_empty": "Geen producten in winkelwagen",
+    "no_search_result": "De zoekopdracht heeft geen resultatenopgeleverd",
+    "thank_message": "Bedankt voor uw bestelling!"
+  },
+  "errors": {
+    "required": "Vul alle verplichte velden.",
+    "bad_credentials": "Gebruikersnaam en/of paswoord onjuist. Verifieer uw gegevens aub.",
+    "server_communication": "Fout in de serververbinding"
+  },
+  "article": {
+    "group": "artikelgroep",
+    "code": "artikelcode",
+    "name": "artikelnaam",
+    "data": "artikelgegevens"
+  },
+  "buttons": {
+    "to_checkout": "naar checkout",
+    "back": "terug",
+    "seek": "zoek",
+    "send": "verzend"
+  },
+  "countries": {
+    "nl": "Nederland",
+    "be": "Belgie"
+  }
+}

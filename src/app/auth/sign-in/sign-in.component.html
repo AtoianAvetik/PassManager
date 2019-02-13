@@ -1,0 +1,63 @@
+<div class="auth">
+    <div class="auth-content">
+
+        <form class="auth-block"
+             [formGroup]="signInForm"
+             [ngClass]="{'-submitted': signInForm['submitted']}">
+            <h3 class="h3">Sign In</h3>
+            <div class="form-group">
+                <input type="text"
+                       class="form-control"
+                       formControlName="userName"
+                       placeholder="Username">
+                <div *ngIf="signInForm.controls['userName'].invalid && (signInForm.controls['userName'].dirty || signInForm.controls['userName'].touched)"
+                     class="error-text mt-1">
+                    <div *ngIf="signInForm.controls['userName'].errors.required">
+                        Username is required.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="password"
+                       class="form-control"
+                       formControlName="userPassword"
+                       placeholder="Password">
+                <div *ngIf="signInForm.controls['userPassword'].invalid && (signInForm.controls['userPassword'].dirty || signInForm.controls['userPassword'].touched)"
+                     class="error-text mt-1">
+                    <div *ngIf="signInForm.controls['userPassword'].errors.required">
+                        Password is required.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calling SignIn Api from AuthService -->
+            <div class="form-group">
+                <button type="button" class="btn btn-success" (click)="onSubmit()">
+                    Log in
+                </button>
+            </div>
+
+            <div class="form-group">
+                <span class="or"><span class="or_inner">Or</span></span>
+            </div>
+
+            <!-- Calling GoogleAuth Api from AuthService -->
+            <div class="form-group">
+                <button type="button" class="btn btn-error" (click)="$auth.googleAuth()">
+                    <i class="fab fa-google-plus-g"></i>
+                    Log in with Google
+                </button>
+            </div>
+
+            <div class="forgot-password">
+                <span routerLink="/forgot-password">Forgot Password?</span>
+            </div>
+        </form>
+
+        <div class="redirect-to-login">
+            <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+        </div>
+
+    </div>
+</div>

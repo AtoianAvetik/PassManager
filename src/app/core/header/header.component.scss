@@ -1,0 +1,232 @@
+@import "../../../assets/styles/globals";
+
+.header{
+    height: $header-height;
+    background: $white;
+    display: flex;
+    align-items: center;
+    border-bottom: 12px solid $primary-color;
+    padding: 1em $padding-gap;
+
+    @include media(lg){
+        border-bottom: 4px solid $primary-color;
+    }
+
+    @include media(sm){
+        position: fixed;
+        z-index: 3;
+        left: 20px;
+        right: 20px;
+        top: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @include media(xs){
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    &_logo{
+        flex: 1;
+
+        @include ie-hack {
+            flex: 1 1 auto;
+        }
+
+        img{
+            max-height: 67px;
+
+            @include media(xs){
+                max-height: 55px;
+            }
+        }
+    }
+
+    &_title{
+        text-align: center;
+
+        @include media(md){
+            display: none;
+        }
+    }
+}
+
+.header-controls{
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+
+    @include ie-hack {
+        flex: 1 1 auto;
+    }
+
+    button{
+        font-size: $base-font-size;
+    }
+
+    li{
+        white-space: nowrap;
+        color: $primary-color;
+        margin-left: 10px;
+
+        &:before{
+            content: '|';
+            margin-right: 10px;
+        }
+
+        &:first-child:before{
+            display: none;
+        }
+    }
+
+    @include media(sm){
+        display: flex;
+        @include overlay;
+        position: fixed;
+        background: $primary-color;
+        z-index: -1;
+        visibility: hidden;
+        flex-direction: column;
+        text-align: center;
+        color: $white;
+        padding: $header-height 40px 0;
+        opacity: 0;
+        justify-content: flex-start;
+        transition: opacity .3s linear;
+
+        &.-active{
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        li{
+            border-bottom: 1px solid $white;
+            margin: 0;
+            color: $white;
+            width: 100%;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            > *{
+                font-size: 22px;
+            }
+
+            &:before{
+                display: none;
+            }
+        }
+    }
+}
+
+$hamburger: (
+    width: 40px,
+    line-width: 5px,
+    line-margin: 12px,
+    color: $primary-color
+);
+
+.hamburger{
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    font-size: 0;
+    overflow: visible;
+    display: none;
+    position: relative;
+    z-index: 2;
+
+    @include media(sm){
+        display: inline-block;
+    }
+
+    &:hover{
+        opacity: 1;
+
+        .hamburger_inner{
+            background: map-get($hamburger, 'color') - #222;
+
+            &:before, &:after{
+                background: map-get($hamburger, 'color') - #222;
+
+            }
+        }
+
+    }
+
+    &.-active{
+        .hamburger_inner{
+            transform: rotate(45deg);
+            transition-delay: 0.18s;
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            background: $white;
+
+            &:before{
+                top: 0;
+                opacity: 0;
+                transition: top 0.15s ease, opacity 0.15s 0.18s ease;
+                background: $white;
+            }
+
+            &:after{
+                bottom: 0;
+                transform: rotate(-90deg);
+                transition: bottom 0.15s ease, transform 0.15s 0.18s cubic-bezier(0.215, 0.61, 0.355, 1);
+                background: $white;
+            }
+        }
+    }
+
+    .hamburger_box{
+        width: map-get($hamburger, 'width');
+        height: 2 * (map-get($hamburger, 'line-width') + map-get($hamburger, 'line-margin'));
+        display: inline-block;
+        position: relative;
+    }
+
+    .hamburger_inner{
+        display: block;
+        top: 50%;
+        width: 100%;
+        height: map-get($hamburger, 'line-width');
+        background-color: map-get($hamburger, 'color');
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+        &:before, &:after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: map-get($hamburger, 'line-width');
+            background-color: map-get($hamburger, 'color');
+            position: absolute;
+            transition-property: transform;
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
+        }
+
+        &:before{
+            top: - map-get($hamburger, 'line-margin');
+            transition: top 0.15s 0.18s ease, opacity 0.15s ease;
+        }
+
+        &:after{
+            bottom: - map-get($hamburger, 'line-margin');
+            transition: bottom 0.15s 0.18s ease, transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+    }
+
+}

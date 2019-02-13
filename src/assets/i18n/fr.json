@@ -1,0 +1,60 @@
+{
+  "title": "",
+  "welcome": "bienvenue",
+  "login": "se connecter",
+  "logout": "déconnecter",
+  "username": "nom d'utilisateur",
+  "password": "mot de passe",
+  "search": "chercher",
+  "search_result": "resultats trouvés",
+  "shopping_cart": "panier d'achat",
+  "no_selection": "<pas de sélection>",
+  "amount": "nombre",
+  "stock": "stock",
+  "not_on_stock": "pas en stock",
+  "shipping_information": "données de livraison",
+  "shipping_address_details": "adresse de livraison",
+  "company": "société",
+  "department": "département",
+  "initials": "initiales",
+  "middle_name": "deuxième nom",
+  "last_name": "nom",
+  "email": "adresse mail",
+  "phone_number": "numéro de telephone",
+  "house_number": "numéro",
+  "apt_number": "complement d'adresse",
+  "postal_code": "code postal",
+  "street": "rue",
+  "city": "ville",
+  "country": "pays",
+  "required_fields": "champs obligatoires",
+  "submit": "soumettre",
+  "texts": {
+    "need_help": "Besoin d’aide pour commander?",
+    "footer_bottom": "",
+    "cart_empty": "Pas de produit dans le panier",
+    "no_search_result": "aucun résultat trouvé pour votre recherche",
+    "thank_message": "merci pour votre commande"
+  },
+  "errors": {
+    "required": "Ce champ est requis",
+    "bad_credentials": "Identifiant et/ou mot de passe invalides. Merci de les vérifier.",
+    "server_communication": "Erreur de communication avec le serveur"
+  },
+  "article": {
+    "group": "groupe d'article",
+    "code": "code d'article",
+    "name": "description de l'article",
+    "data": "données d'article"
+  },
+  "buttons": {
+    "to_checkout": "terminer la commande",
+    "back": "retour",
+    "seek": "chercher",
+    "send": "envoyer"
+  },
+  "countries": {
+    "nl": "Les Pays-Bas",
+    "be": "La Belgique"
+  }
+}

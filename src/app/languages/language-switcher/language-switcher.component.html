@@ -1,0 +1,10 @@
+<div class="language-switcher">
+    <mat-form-field>
+        <mat-select [(value)]="selected" (selectionChange)="onSwitch($event)">
+            <mat-option *ngFor="let language of languages"
+                        [value]="language">
+                {{language.code | uppercase}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

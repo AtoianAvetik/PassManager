@@ -1,0 +1,21 @@
+<header class="header">
+    <a class="header_logo" href="/">
+        <img src="assets/img/logo.png" alt="">
+    </a>
+    <h1 class="header_title"></h1>
+    <ul class="header-controls">
+        <ng-container *ngIf="$auth.isLoggedIn">
+            <li>
+                <span>{{'welcome' | translate | titlecase}} ({{$auth.userData.displayName}})</span>
+            </li>
+            <li>
+                <button class="btn-pure" (click)="$auth.signOut()">
+                    {{'logout' | translate }}
+                </button>
+            </li>
+        </ng-container>
+        <li>
+            <app-language-switcher></app-language-switcher>
+        </li>
+    </ul>
+</header>
