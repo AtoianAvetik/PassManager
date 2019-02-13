@@ -6,7 +6,7 @@
     <ul class="header-controls">
         <ng-container *ngIf="$auth.isLoggedIn">
             <li>
-                <span>{{'welcome' | translate | titlecase}} ({{$auth.userData.displayName}})</span>
+                <span>{{$auth.userData?.displayName}}</span>
             </li>
             <li>
                 <button class="btn-pure" (click)="$auth.signOut()">
@@ -14,8 +14,5 @@
                 </button>
             </li>
         </ng-container>
-        <li>
-            <app-language-switcher></app-language-switcher>
-        </li>
     </ul>
 </header>

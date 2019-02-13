@@ -9,22 +9,14 @@
         }
 
         .mat-select-value{
-            color: $primary-color;
-
-            @include media(sm){
-                color: $white;
-            }
+            color: $white;
         }
 
         .mat-select-arrow{
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
             border-top: 11px solid;
-            color: $primary-color;
-
-            @include media(sm){
-                color: $white;
-            }
+            color: $white;
         }
     }
 
