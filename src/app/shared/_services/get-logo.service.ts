@@ -3,7 +3,8 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class GetLogoService {
-    private gAPIKey = 'AIzaSyDifvKErkUeRQcPtG6WfAltssW8rkI-Zco';
+    // private gAPIKey = 'AIzaSyDifvKErkUeRQc      PtG6WfAltssW8rkI-Zco';
+    private gAPIKey = 'test';
     private gCSEcx = '016820916711928902111:qw0kgpuhihm';
     loaded: Subject<any> = new Subject<any>();
 
