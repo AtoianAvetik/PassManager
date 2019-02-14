@@ -1,3 +1,29 @@
+/*--------------------------------------/
+ Colors
+--------------------------------------*/
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
 // Theme Colors
 $theme-colors: (
     primary: #009DA0,
@@ -29,9 +55,6 @@ $spacers: (
 --------------------------------------*/
 $body-bg: #f5f7fa;
 
-$font-size-base: 1rem;
-
-
 /*--------------------------------------/
  Fonts
 --------------------------------------*/
@@ -47,12 +70,17 @@ $text-font: $font-family-content;
 $heading-font: $font-family-sans-serif;
 
 // Font sizes
-$h1-font-size: $font-size-base * 2.5 !default;
-$h2-font-size: $font-size-base * 2 !default;
-$h3-font-size: $font-size-base * 1.75 !default;
-$h4-font-size: $font-size-base * 1.5 !default;
-$h5-font-size: $font-size-base * 1.25 !default;
-$h6-font-size: $font-size-base !default;
+$base-font-size: 1rem;
+$small-font-size: 14px;
+$large-font-size: 18px;
+$button-font-size: $base-font-size;
+
+$h1-font-size: $base-font-size * 2.5 !default;
+$h2-font-size: $base-font-size * 2 !default;
+$h3-font-size: $base-font-size * 1.75 !default;
+$h4-font-size: $base-font-size * 1.5 !default;
+$h5-font-size: $base-font-size * 1.25 !default;
+$h6-font-size: $base-font-size !default;
 
 /*--------------------------------------/
  Media

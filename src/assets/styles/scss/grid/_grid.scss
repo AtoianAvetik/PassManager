@@ -10,7 +10,11 @@
 // fluid, full width layouts.
 
 .container-fluid {
-	@include make-container();
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include make-gutters($gutters: $grid-gutter-widths);
 }
 
 // Row

@@ -1,14 +1,14 @@
 @import "assets/styles/scss/variables";
-@import "assets/styles/scss/fonts";
-@import "assets/styles/scss/bootstrap";
-@import "assets/styles/scss/core/palette";
-@import "assets/styles/scss/mixins";
-@import "assets/styles/scss/grid/grid";
+@import "assets/styles/scss/core/app-colors";
 @import "assets/styles/scss/app-variables";
+@import "assets/styles/scss/mixins";
 @import "assets/styles/scss/core";
-@import "assets/styles/scss/custom-bootstrap";
+@import "assets/styles/scss/fonts";
+@import "assets/styles/scss/grid/grid";
+@import "assets/styles/scss/core/palette";
+@import "assets/styles/scss/bootstrap";
+@import "assets/styles/scss/base";
 @import "assets/styles/scss/plugins";
-
 
 // Angular material theme
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";

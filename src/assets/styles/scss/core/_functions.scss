@@ -4,10 +4,14 @@
 }
 
 @function em($number){
-	@return ($number / to-number($font-size-base) ) + em;
+	@return ($number / to-number($base-font-size) ) + em;
 }
 
-@function to-em($target, $context: $font-size-base) {
+@function to-em($target, $context: $base-font-size) {
   @if $target == 0 { @return 0 }
   @return $target / $context + 0em;
+}
+
+@function theme-color($key: "primary") {
+    @return map-get($theme-colors, $key);
 }

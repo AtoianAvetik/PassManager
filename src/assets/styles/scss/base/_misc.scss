@@ -181,7 +181,7 @@ datetime .form-group{
   width: 400px;
 
   .noti-text{
-    color: $gray-600;
+    color: color-function('gray', 'darken-1');
     font-size: 90%;
   }
 

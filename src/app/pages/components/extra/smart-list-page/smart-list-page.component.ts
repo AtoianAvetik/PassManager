@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import {
-    SMART_LIST_CELL_SIZES, SMART_LIST_IMG_SIZES, SMART_LIST_SWITCHER_TYPES,
+    SMART_LIST_CELL_SIZES,
+    SMART_LIST_IMG_SIZES,
+    SMART_LIST_SWITCHER_TYPES,
     SMART_LIST_VIEW_TYPES
-} from '../../../components/smart-list/smart-list.config';
+} from '../../../../components/smart-list/smart-list.config';
+
 
 @Component({
     selector: 'app-smart-list-page',
