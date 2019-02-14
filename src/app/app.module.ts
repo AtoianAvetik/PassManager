@@ -24,6 +24,8 @@ import { WindowRef } from './shared/_services/window-ref';
 import { UniqueID } from './shared/_services/unique-id.service';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { AuthModule } from './shared/auth.module';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
@@ -48,7 +50,9 @@ const CUSTOM_PANEL_CONFIG: PanelConfigInterface = {
         HttpClientModule,
         AppRoutingModule,
         NgbModule.forRoot(),
-        AuthModule
+        AuthModule,
+        LoadingBarHttpClientModule,
+        LoadingBarRouterModule
     ],
     providers: [
         ApiService,
