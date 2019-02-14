@@ -1,0 +1,79 @@
+<section id="login" class="gradient-indigo-blue">
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="card text-center width-400">
+                    <div class="card-img overlap">
+                        <img alt="element 06" class="mb-1" src="assets/img/portrait/avatars/avatar-08.png" width="100">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-block">
+                            <form [formGroup]="signInForm"
+                                  [ngClass]="{'-submitted': signInForm['submitted']}">
+                                <h2>Sign In</h2>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="ft-mail"></i>
+                                        </span>
+                                    </div>
+                                    <input type="email"
+                                           class="form-control"
+                                           placeholder="Email Address"
+                                           formControlName="userEmailAddress">
+                                    <div *ngIf="signInForm.controls['userEmailAddress'].invalid && signInForm['submitted']"
+                                         class="error-text mt-1">
+                                        <div *ngIf="signInForm.controls['userEmailAddress'].errors.required">
+                                            Email Address is required.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="ft-lock"></i>
+                                        </span>
+                                    </div>
+                                    <input type="password"
+                                           class="form-control"
+                                           placeholder="Password"
+                                           formControlName="userPassword">
+                                    <div *ngIf="signInForm.controls['userPassword'].invalid && signInForm['submitted']"
+                                         class="error-text mt-1">
+                                        <div *ngIf="signInForm.controls['userPassword'].errors.required">
+                                            Password is required.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Calling SignIn Api from AuthService -->
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-raised btn-block btn-success" (click)="onSubmit()">
+                                        Submit
+                                    </button>
+                                </div>
+
+                                <!--<div class="form-group">-->
+                                <!--<span class="or"><span class="or_inner">Or</span></span>-->
+                                <!--</div>-->
+
+                                <!--&lt;!&ndash; Calling GoogleAuth Api from AuthService &ndash;&gt;-->
+                                <!--<div class="form-group">-->
+                                <!--<button type="button" class="btn btn-error" (click)="$auth.googleAuth()">-->
+                                <!--<i class="fab fa-google-plus-g"></i>-->
+                                <!--Log in with Google-->
+                                <!--</button>-->
+                                <!--</div>-->
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-left"><a class="blue-grey" routerLink="/forgot-password">Forgot Password?</a></div>
+                        <div class="float-right"><a class="blue-grey" routerLink="/register-user">Sign Up</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

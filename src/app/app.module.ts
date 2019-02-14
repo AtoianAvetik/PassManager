@@ -1,26 +1,73 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppComponent} from './app.component';
-import {CoreModule} from './core/core.module';
-import {AppRoutingModule} from './app-routing.module';
-import {MainComponent} from './main/main.component';
-import {Ng2SmartTableModule} from 'ngx-smart-table';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-@NgModule({
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { CustomMaterialModule } from './shared/material.module';
+import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { PANEL_CONFIG, PanelConfigInterface } from './components/panels/panel.config';
+
+import { AppComponent } from './app.component';
+import { FullLayoutComponent } from './layouts/full/full-layout.component';
+import { ContentLayoutComponent } from './layouts/content/content-layout.component';
+
+/* Services */
+import { DataService } from './shared/_services/data.service';
+import { ApiService } from './shared/_services/api.service';
+
+import { SidebarService } from './shared/_services/sidebar.service';
+import { LoaderService } from './components/loader/loader.service';
+import { WindowRef } from './shared/_services/window-ref';
+import { UniqueID } from './shared/_services/unique-id.service';
+import { AuthGuard } from './shared/auth/auth.guard';
+import { AuthModule } from './shared/auth.module';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    suppressScrollX: true
+};
+
+const CUSTOM_PANEL_CONFIG: PanelConfigInterface = {
+    leftPanelExpandedShift: 250,
+    leftPanelCollapsedShift: 60
+};
+
+@NgModule( {
     declarations: [
         AppComponent,
-        MainComponent
+        FullLayoutComponent,
+        ContentLayoutComponent
     ],
     imports: [
         BrowserModule,
-        CoreModule,
+        BrowserAnimationsModule,
+        SharedModule,
+        CustomMaterialModule,
+        HttpClientModule,
         AppRoutingModule,
-        Ng2SmartTableModule
+        NgbModule.forRoot(),
+        AuthModule
     ],
-    providers: [],
-    bootstrap: [
-        AppComponent
-    ]
-})
+    providers: [
+        ApiService,
+        DataService,
+        AuthGuard,
+        SidebarService,
+        LoaderService,
+        UniqueID,
+        WindowRef,
+        {
+            provide: PANEL_CONFIG,
+            useValue: CUSTOM_PANEL_CONFIG
+        },
+        {
+            provide: PERFECT_SCROLLBAR_CONFIG,
+            useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+        }
+    ],
+    bootstrap: [AppComponent]
+} )
 export class AppModule {
 }

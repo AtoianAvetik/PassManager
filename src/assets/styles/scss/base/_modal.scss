@@ -1,0 +1,84 @@
+/*--------------------------------------------*/
+/*----------- MODAL CUSTOM STYLES ------------*/
+/*--------------------------------------------*/
+
+.app-modal {
+	&.-item {
+		max-width: 800px;
+		max-height: 650px;
+	}
+
+	&.-folder {
+		max-width: 600px;
+		max-height: 320px;
+	}
+
+	&.-delete {
+		max-width: 600px;
+		max-height: 230px;
+	}
+
+	&-header {
+		position: relative;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $gray-800;
+		text-align: center;
+		border-bottom: 1px solid $gray-200;
+		margin: 0 20px;
+		padding: 15px 0;
+
+		&_inner {
+			display: inline-block;
+
+			> * {
+				margin-bottom: 0;
+			}
+		}
+
+		&_buttons {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+
+			i {
+				display: block;
+			}
+		}
+	}
+
+	&-content {
+		position: absolute;
+		bottom: 65px;
+		top: 50px;
+		left: 0;
+		width: 100%;
+		transition: width 0.3s ease;
+		padding: 0 20px;
+
+		&_inner {
+			height: 100%;
+		}
+	}
+
+	&-bottom {
+		position: absolute;
+		height: 65px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+		border-top: 1px solid $gray-200;
+		background-color: #fff;
+		margin-left: 20px;
+		margin-right: 20px;
+
+		> .row {
+			width: 100%;
+		}
+	}
+}

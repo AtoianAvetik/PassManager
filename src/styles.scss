@@ -1,78 +1,14 @@
-/*--------------------------------------/
- Toastr
---------------------------------------*/
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-@import '~ngx-toastr/toastr-bs4-alert';
-
-/*--------------------------------------/
- Core
---------------------------------------*/
-@import "assets/styles/core/reset";
-@import "assets/styles/core/media";
-@import "assets/styles/core/mixins";
-@import "assets/styles/core/functions";
+@import "assets/styles/scss/variables";
+@import "assets/styles/scss/fonts";
+@import "assets/styles/scss/bootstrap";
+@import "assets/styles/scss/core/palette";
+@import "assets/styles/scss/mixins";
+@import "assets/styles/scss/grid/grid";
+@import "assets/styles/scss/app-variables";
+@import "assets/styles/scss/core";
+@import "assets/styles/scss/custom-bootstrap";
+@import "assets/styles/scss/plugins";
 
 
-/*--------------------------------------/
- Base
---------------------------------------*/
-@import "assets/styles/base/variables";
-@import "assets/styles/base/helpers-custom";
-@import "assets/styles/base/fonts";
-@import "assets/styles/base/icons";
-@import "assets/styles/base/typography";
-@import "assets/styles/base/main";
-@import "assets/styles/base/wysiwyg";
-
-
-/*-----------------------------------------/
-  Grid
-------------------------------------------*/
-@import "assets/styles/grid/grid";
-@import "assets/styles/base/gap";
-
-/*-----------------------------------------/
-  Helpers
-------------------------------------------*/
-@import "assets/styles/core/helpers";
-
-/*--------------------------------------/
- Elements
---------------------------------------*/
-@import "assets/styles/elements/button";
-@import "assets/styles/elements/input";
-@import "assets/styles/elements/select";
-@import "assets/styles/elements/table";
-@import "assets/styles/elements/button";
-@import "assets/styles/elements/input";
-@import "assets/styles/elements/checkbox";
-@import "assets/styles/elements/radio-button";
-@import "assets/styles/elements/select";
-
-
-/*--------------------------------------/
- Form
---------------------------------------*/
-@import "assets/styles/form/form";
-
-
-/*--------------------------------------/
- Components
---------------------------------------*/
-@import "assets/styles/components/loader";
-@import "assets/styles/components/auth";
-@import "assets/styles/components/card";
-
-
-/*--------------------------------------/
- Plugins
---------------------------------------*/
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-
-
-/*--------------------------------------/
- Plugins Customize
---------------------------------------*/
-@import "assets/styles/plugins/ngx-smart-table";
+// Angular material theme
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

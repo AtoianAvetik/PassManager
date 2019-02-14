@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IconsService } from './core/_services/icons.service';
+import { IconsService } from './shared/_services/icons.service';
 
 @Component({
     selector: 'app-root',

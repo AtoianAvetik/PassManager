@@ -1,0 +1,44 @@
+//z-index
+.app-sidebar {
+  z-index: 6;
+}
+
+.app-modal-container {
+  z-index: 8;
+}
+
+.app-modal-overlay {
+  z-index: 7;
+}
+
+.app-modal {
+  z-index: 60;
+}
+
+.app-panel-container {
+  z-index: 5;
+}
+
+.app-panel-overlay {
+  z-index: 4;
+}
+
+.app-notification-wrapper {
+	z-index: 10;
+}
+
+.app-loader {
+  z-index: 1000;
+
+  &_overlay {
+    z-index: 2;
+  }
+
+  &_wrapper {
+    z-index: 3;
+  }
+}
+
+.add-menu {
+  z-index: 3;
+}

@@ -1,3 +1,6 @@
-@import "base/variables";
-@import "core/mixins";
-@import "core/media";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "scss/variables";
+@import "scss/core/app-colors";
+@import "scss/mixins";
+@import "scss/app-variables";

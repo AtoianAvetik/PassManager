@@ -1,0 +1,39 @@
+<section id="register" class="gradient-indigo-blue">
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="card text-center width-400">
+                    <div class="card-img overlap">
+                        <img alt="element 06" class="mb-1" src="assets/img/portrait/avatars/avatar-08.png" width="100">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-block">
+                            <div class="text-center">
+                                <h3>Thank You for Registering</h3>
+                            </div>
+                            <div class="pt-3">
+                                <div class="form-group" *ngIf="$auth.userData as user">
+                                    <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+                                    <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
+                                </div>
+
+                                <!-- Calling SendVerificationMail() method using $auth Api -->
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary btn-raised btn-block" (click)="$auth.sendVerificationMail()">
+                                        <i class="fas fa-redo-alt"></i>
+                                        Resend Verification Email
+                                    </button>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <label>Go back to?</label>
+                                    <button type="button" class="btn btn-raised btn-block btn-secondary" routerLink="/sign-in">Sign in</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

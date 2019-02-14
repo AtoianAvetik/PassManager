@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-12">
+		<div class="content-header">Smart list</div>
+		<p class="content-sub-header"></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12">
+		<smart-folders
+			[foldersData]="listData"
+			[foldersList]="listsIdList"
+			(onSelectFolder)="logger('Select folder', $event)"
+			(onEditFolder)="logger('Edit folder', $event)"
+			(onDeleteFolder)="logger('Delete folder', $event)"
+		>
+			<ng-template let-folderId>
+				<smart-list
+					[id]="folderId"
+					[source]="listData[folderId].content"
+					[viewType]="'tile'"
+					(selectChange)="logger('Select item', $event.id)"
+					(deselectChange)="logger('Deselect item', $event.id)"
+					(edit)="logger('Edit item', $event)"
+					(delete)="logger('Delete item', $event)"
+				>
+					<ng-template let-item>
+						<div class="smart-list_info-text -first">
+							<p class="name">{{ item.serviceName }}</p>
+							<p class="small info-label">{{ item.userName }}</p>
+						</div>
+						<div class="smart-list_info-text -show-large">
+							<p class="small info-label">{{ item.email }}</p>
+							<p class="small">{{ item.pass }}</p>
+						</div>
+					</ng-template>
+				</smart-list>
+			</ng-template>
+		</smart-folders>
+	</div>
+</div>

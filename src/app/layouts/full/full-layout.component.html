@@ -1,0 +1,59 @@
+<div
+	class="wrapper"
+	[ngClass]="{'nav-collapsed':!isNavExpand, 'menu-collapsed':!isMenuExpand}"
+>
+    <div
+		class="app-sidebar"
+		[ngClass]="{'hide-sidebar': isHideSidebar}"
+		data-active-color="white"
+		data-background-color="black">
+        <app-sidebar (click)="$event.stopPropagation();">
+		</app-sidebar>
+        <div class="sidebar-background" style="background-image: url('//assets/img/sidebar-bg/01.jpg');"></div>
+    </div>
+    <div class="main-panel">
+        <app-navbar></app-navbar>
+        <div class="main-content">
+            <div class="content-wrapper">
+                <div class="container-fluid">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+	<app-panels
+		[overlay]="false"
+		[leftPanelExpand]="_sidebarService.isNavExpandChange"
+		[leftPanelHide]="_sidebarService.isHideSidebarChange"
+	></app-panels>
+	<app-notifications></app-notifications>
+	<app-modals></app-modals>
+
+	<app-panel id="panel-test-4" [dir]="'right'">
+		<div class="app-panel">
+			<div class="app-panel-header">
+				<div class="app-panel-header_inner">
+					<h4 class="app-panel-header_title heading -h4">Test panel 4</h4>
+				</div>
+				<div class="app-panel-header_buttons">
+					<a [closePanel]="'panel-test-4'">
+						<i class="ft-x font-medium-3"></i>
+					</a>
+				</div>
+			</div>
+			<div class="app-panel-body">
+				<div class="app-panel-content">
+
+				</div>
+				<div class="app-panel-bottom">
+					<div class="row no-gutters -end">
+						<div class="btn-list">
+							<a class="btn btn-raised btn-danger" href="javascript:void(0)" [closePanel]="'panel-test-4'">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</app-panel>
+</div>

@@ -1,0 +1,102 @@
+<section id="register" class="gradient-indigo-blue">
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="card text-center width-400">
+                    <div class="card-img overlap">
+                        <img alt="element 06" class="mb-1" src="assets/img/portrait/avatars/avatar-08.png" width="100">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-block">
+                            <form [formGroup]="signUpForm"
+                                  [ngClass]="{'-submitted': signUpForm['submitted']}">
+                                <h2>Sign Up</h2>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="ft-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="User Name"
+                                           formControlName="userName">
+                                    <div *ngIf="signUpForm.controls['userName'].invalid && signUpForm['submitted']"
+                                         class="error-text mt-1">
+                                        <div *ngIf="signUpForm.controls['userName'].errors.required">
+                                            Name is required.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="ft-mail"></i>
+                                        </span>
+                                    </div>
+                                    <input type="email"
+                                           class="form-control"
+                                           placeholder="Email Address"
+                                           formControlName="userEmailAddress">
+                                    <div *ngIf="signUpForm.controls['userEmailAddress'].invalid && signUpForm['submitted']"
+                                         class="error-text mt-1">
+                                        <div *ngIf="signUpForm.controls['userEmailAddress'].errors.required">
+                                            Email Address is required.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="ft-lock"></i>
+                                        </span>
+                                    </div>
+                                    <input type="password"
+                                           class="form-control"
+                                           placeholder="Password"
+                                           formControlName="userPassword">
+                                    <div *ngIf="signUpForm.controls['userPassword'].invalid && signUpForm['submitted']"
+                                         class="error-text mt-1">
+                                        <div *ngIf="signUpForm.controls['userPassword'].errors.required">
+                                            Password is required.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-raised btn-block btn-warning" (click)="onSubmit()">
+                                        Sign Up
+                                    </button>
+                                </div>
+                                <div class="form-group text-center">
+                                    <label>Already have an account?</label>
+                                    <button type="button" class="btn btn-raised btn-block btn-secondary" routerLink="/sign-in">Log In</button>
+                                </div>
+
+                                <!--<div class="form-group">-->
+                                    <!--<span class="or"><span class="or_inner">Or</span></span>-->
+                                <!--</div>-->
+
+                                <!--&lt;!&ndash; Continue with Google &ndash;&gt;-->
+                                <!--<div class="form-group">-->
+                                    <!--<button type="button" class="btn btn-error" (click)="$auth.googleAuth()">-->
+                                        <!--<i class="fab fa-google-plus-g"></i>-->
+                                        <!--Continue with Google-->
+                                    <!--</button>-->
+                                <!--</div>-->
+
+                                <!-- Continue with Facebook -->
+                                <!--<div class="form-group">-->
+                                    <!--<button type="button" class="btn facebookBtn" (click)="$auth.facebookAuth()">-->
+                                        <!--<i class="fab fa-facebook"></i>-->
+                                        <!--Continue with Facebook-->
+                                    <!--</button>-->
+                                <!--</div>-->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

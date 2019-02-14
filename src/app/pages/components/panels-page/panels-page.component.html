@@ -1,0 +1,267 @@
+<div class="row">
+	<div class="col-12">
+		<div class="content-header">Panels</div>
+		<p class="content-sub-header"></p>
+	</div>
+</div>
+<div class="row" matchHeight ="card">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Description</h4>
+			</div>
+			<div class="card-body">
+				<div class="card-block">
+					<p>Angular4 panels custom component</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Example</h4>
+			</div>
+			<div class="card-body">
+				<div class="card-block">
+					<button class="btn btn-raised btn-primary" type="button" [openPanel]="'panel-test-1'" title="Open">Panel 1</button>
+					<button class="btn btn-raised btn-primary" type="button" [openPanel]="'panel-test-2'" title="Open">Panel 2</button>
+					<button class="btn btn-raised btn-primary" type="button" [openPanel]="'panel-test-3'" title="Open">Panel 3</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Setup</h4>
+			</div>
+			<div class="card-body">
+				<div class="card-block">
+					<div class="card-text">
+						<p>Add <code>PanelModule</code> into your current module, where you will use panel, or into  <code>ComponentsModule</code> class.<code>components-module.module</code> would look like this</p>
+<ngx-prism [language]="'javascript'">
+	import &#123; NgModule } from '@angular/core';
+	import &#123; PanelModule } from '../../components/panels/panel.module';
+
+	@NgModule(&#123;
+	imports: [PanelModule]
+	})
+	export class ComponentsModule &#123; }
+
+</ngx-prism>
+						<p>Add <code>PanelService</code> to your root component providers:</p>
+<ngx-prism [language]="'javascript'">
+	import &#123; PanelService } from '../../components/panels/panel.service';
+	...
+	providers: [PanelService]
+
+</ngx-prism>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Config</h4>
+			</div>
+			<div class="card-body">
+				<div class="card-block">
+					<div class="card-text">
+						<p>In <code>app.module.ts</code> configurate panels:</p>
+<ngx-prism [language]="'javascript'">
+	...
+	import &#123; PANEL_CONFIG, PanelConfigInterface } from './components/panels/panel.config';
+	...
+	const CUSTOM_PANEL_CONFIG: PanelConfigInterface = &#123;
+		leftPanelExpandedShift: 250
+	};
+	...
+	@NgModule( &#123;
+		...
+		providers: [
+		...
+			&#123;
+				provide: PANEL_CONFIG,
+				useValue: CUSTOM_PANEL_CONFIG
+			}
+		...
+		]
+		...
+	} )
+	...
+</ngx-prism>
+						<p>Available parameters:</p>
+						<ul>
+							<li><code>[leftPanelExpandedShift]</code> - specify shift for left panel when left sidebar is expanded ( default - 0 ).</li>
+							<li><code>[leftPanelCollapsedShift]</code> - specify shift for left panel when left sidebar is collapsed ( default - 0 ).</li>
+							<li><code>[rightPanelExpandedShift]</code> - specify shift for right panel when right sidebar is expanded ( default - 0 ).</li>
+							<li><code>[rightPanelCollapsedShift]</code> - specify shift for right panel when right sidebar is collapsed ( default - 0 ).</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Markup</h4>
+			</div>
+			<div class="card-body">
+				<div class="card-block">
+					<p>Add this to root component:</p>
+					<p class="card-text">
+					<ngx-prism [language]="'html'">{{'<'}}app-panels [overlay]="false">{{'<'}}/app-panels></ngx-prism>
+					<p>Parameters:</p>
+					<ul>
+						<li><code>[overlay]</code> - on/off page overlay when panel opened.</li>
+						<li><code>[leftPanelExpand]</code> - specify event for subscribe to left sidebar expand/collapse.</li>
+						<li><code>[leftPanelHide]</code> - specify event for subscribe to left sidebar show/hide.</li>
+						<li><code>[rightPanelExpand]</code> - specify event for subscribe to right sidebar expand/collapse.</li>
+						<li><code>[rightPanelHide]</code> - specify event for subscribe to right sidebar show/hide</li>
+					</ul>
+					<p>And after create your panel where you need:</p>
+					<ngx-prism [language]="'html'">{{'<'}}app-panel [id]="panel-1" [dir]="'right'">  -- Your content -- {{'<'}}/app-panel></ngx-prism>
+					<p>Parameters:</p>
+					<ul>
+						<li><code>[id]</code> - *required</li>
+						<li>
+							<p>
+								<code>[dir]</code> - direction where show panel.
+								Posible: <code>right</code>, <code>left</code>.
+								<span>Default - <code>left</code></span>.
+							</p>
+						</li>
+					</ul>
+					<p class="text-danger font-medium-1">!NOTE. If root component and your component have different module imports, you must add <code>PanelModule</code> to both!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Open/Close panel</h4>
+			</div>
+			<div class="card-body">
+				<div class="card-block">
+					<p>Just add to button appropriate parameter with panel id:</p>
+					<ul>
+						<li>
+							<span>open panel</span>
+							<ngx-prism [language]="'html'">{{'<'}}a class="btn" [openPanel]="'panel-1'">Open Panel 1{{'<'}}/a></ngx-prism>
+						</li>
+						<li>
+							<span>close panel</span>
+							<ngx-prism [language]="'html'">{{'<'}}a class="btn" [closePanel]="'panel-1'">Open Panel 1{{'<'}}/a></ngx-prism>
+						</li>
+					</ul>
+					<p>Or control panel manually from <code>panel.service</code>:</p>
+<ngx-prism [language]="'javascript'">
+	import {{'{'}} PanelService {{'}'}} from '~panel.service';
+	...
+	constructor(private _panelService: PanelService) {{'{'}}{{'}'}}
+
+</ngx-prism>
+					<ul>
+						<li>
+							<span>open panel</span>
+							<ngx-prism [language]="'javascript'">this._panelService.openPanel('panel-1');</ngx-prism>
+						</li>
+						<li>
+							<span>close panel</span>
+							<ngx-prism [language]="'javascript'">this._panelService.closePanel('panel-1');</ngx-prism>
+						</li>
+						<li>
+							<span>close last opened panel</span>
+							<ngx-prism [language]="'javascript'">this._panelService.closePanel();</ngx-prism>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<app-panel id="panel-test-1">
+	<div class="app-panel">
+		<div class="app-panel-header">
+			<div class="app-panel-header_inner">
+				<h4 class="app-panel-header_title heading -h4">Test panel 1</h4>
+			</div>
+			<div class="app-panel-header_buttons">
+				<a [closePanel]="'panel-test-1'">
+					<i class="ft-x font-medium-3"></i>
+				</a>
+			</div>
+		</div>
+		<div class="app-panel-body">
+			<div class="app-panel-content">
+			</div>
+			<div class="app-panel-bottom">
+				<div class="row no-gutters -end">
+					<div class="btn-list">
+						<a class="btn btn-raised btn-primary" href="javascript:void(0)" [openPanel]="'panel-test-2'">Panel 2</a>
+						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [closePanel]="'panel-test-1'">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</app-panel>
+
+<app-panel id="panel-test-2">
+	<div class="app-panel">
+		<div class="app-panel-header">
+			<div class="app-panel-header_inner">
+				<h4 class="app-panel-header_title">Test panel 2</h4>
+			</div>
+			<div class="app-panel-header_buttons">
+				<a [closePanel]="'panel-test-2'">
+					<i class="ft-x font-medium-3"></i>
+				</a>
+			</div>
+		</div>
+		<div class="app-panel-body">
+			<div class="app-panel-content">
+			</div>
+			<div class="app-panel-bottom">
+				<div class="row no-gutters -end">
+					<div class="btn-list">
+						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [closePanel]="'panel-test-2'">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</app-panel>
+
+<app-panel [dir]="'right'" id="panel-test-3">
+	<div class="app-panel">
+		<div class="app-panel-header">
+			<div class="app-panel-header_inner">
+				<h4 class="app-panel-header_title">Test panel 2</h4>
+			</div>
+			<div class="app-panel-header_buttons">
+				<a [closePanel]="'panel-test-3'">
+					<i class="ft-x font-medium-3"></i>
+				</a>
+			</div>
+		</div>
+		<div class="app-panel-body">
+			<div class="app-panel-content">
+			</div>
+			<div class="app-panel-bottom">
+				<div class="row no-gutters -end">
+					<div class="btn-list">
+						<a class="btn btn-raised btn-primary" href="javascript:void(0)" [openPanel]="'panel-test-4'">Panel 4</a>
+						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [closePanel]="'panel-test-3'">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</app-panel>

@@ -1,0 +1,80 @@
+<div class="row">
+	<div class="col-12">
+		<div class="content-header">Smart list</div>
+		<p class="content-sub-header"></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12 mt-3" *ngFor="let section of data;let i = index;">
+		<div class="row no-gutters -between -middle mb-3">
+			<div class="col-6">
+				<h4>{{ 'Section ' + (i + 1) }}</h4>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="mr-3">
+				<div class="row no-gutters mb-2">
+					<smart-list-bulk-select
+						[lists]="getListArray(section.listData)"
+						[transferList]="getTransferListArray(section.listData)"
+						(deleteSelectedItems)="logger('Delete items')"
+						(transferSelectedItems)="logger('Transfer items to' + $event.listId)"
+					></smart-list-bulk-select>
+				</div>
+
+				<div class="mb-2">
+					<smart-list-switcher
+						[type]="switcherTypes.view"
+						[state]="section.settings.viewType"
+						(onChange)="section.actions.viewTypeChange.next($event)"
+					></smart-list-switcher>
+				</div>
+
+				<div class="mb-2">
+					<smart-list-switcher
+						[type]="switcherTypes.cellSize"
+						[state]="section.settings.cellSize"
+						(onChange)="section.actions.cellSizeChange.next($event)"
+					></smart-list-switcher>
+				</div>
+
+				<div class="mb-2">
+					<smart-list-switcher
+						[type]="switcherTypes.imgSize"
+						[state]="section.settings.imgSize"
+						(onChange)="section.actions.imgSizeChange.next($event)"
+					></smart-list-switcher>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row no-gutters mb-3" *ngFor="let list of section.listData">
+					<h4>{{ list.name }}</h4>
+					<smart-list
+						[id]="list.id"
+						[source]="list.content"
+						[settings]="section.settings"
+						[exceptionNodes]="exceptionNodes"
+						[viewTypeChange]="section.actions.viewTypeChange"
+						[imgSizeChange]="section.actions.imgSizeChange"
+						[cellSizeChange]="section.actions.cellSizeChange"
+						(selectChange)="logger('Select item', $event.id)"
+						(deselectChange)="logger('Deselect item', $event.id)"
+						(edit)="logger('Edit item')"
+						(delete)="logger('Delete item')"
+						>
+						<ng-template let-item>
+							<div class="smart-list_info-text -first">
+								<p class="name">{{ item.serviceName }}</p>
+								<p class="small info-label">{{ item.userName }}</p>
+							</div>
+							<div class="smart-list_info-text -show-large">
+								<p class="small info-label">{{ item.email }}</p>
+								<p class="small">{{ item.pass }}</p>
+							</div>
+						</ng-template>
+					</smart-list>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
