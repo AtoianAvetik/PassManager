@@ -151,8 +151,12 @@ input[type="button"] {
 // Btn list
 //
 
-.btn-list {
-    margin-bottom: -1rem;
+.btn-list:not(.btn-group) {
+    margin: 0 -.2rem -1rem;
+
+    .btn {
+        margin: 0 .2rem 1rem;
+    }
 }
 
 
