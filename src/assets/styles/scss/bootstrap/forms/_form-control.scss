@@ -1,0 +1,143 @@
+//
+// Textual form controls
+//
+
+.form-control {
+    @include create-control();
+}
+
+select.form-control {
+    &:focus::-ms-value {
+        // Suppress the nested default white text on blue background highlight given to
+        // the selected option text when the (still closed) <select> receives focus
+        // in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
+        // match the appearance of the native widget.
+        // See https://github.com/twbs/bootstrap/issues/19398.
+        color: $input-color;
+        background-color: $input-bg;
+    }
+}
+
+// Make file inputs better match text inputs by forcing them to new lines.
+.form-control-file,
+.form-control-range {
+    display: block;
+    width: 100%;
+}
+
+// Readonly controls as plain text
+//
+// Apply class to a readonly input to make it appear like regular plain
+// text (without any border, background color, focus indicator)
+
+.form-control-plaintext {
+    display: block;
+    width: 100%;
+    padding-top: $input-padding-y;
+    padding-bottom: $input-padding-y;
+    margin-bottom: 0; // match inputs if this class comes on inputs with default margins
+    line-height: $input-line-height;
+    color: $input-plaintext-color;
+    background-color: transparent;
+    border: solid transparent;
+    border-width: $input-border-width 0;
+
+    &.form-control-sm,
+    &.form-control-lg {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+// Form control sizing
+//
+// Build on `.form-control` with modifier classes to decrease or increase the
+// height and font-size of form controls.
+//
+// Repeated in `_input_group.scss` to avoid Sass extend issues.
+
+.form-control-sm {
+    height: $input-height-sm;
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    @include font-size($input-font-size-sm);
+    line-height: $input-line-height-sm;
+    @include border-radius($input-border-radius-sm);
+}
+
+.form-control-lg {
+    height: $input-height-lg;
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    @include font-size($input-font-size-lg);
+    line-height: $input-line-height-lg;
+    @include border-radius($input-border-radius-lg);
+}
+
+// stylelint-disable-next-line no-duplicate-selectors
+select.form-control {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    &[size],
+    &[multiple] {
+        height: auto;
+    }
+}
+
+textarea.form-control {
+    height: auto;
+}
+
+
+// Form control absolute positioning for any items inside
+.form-control-position {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.has-icon-left{
+    .form-control-position{
+        right: auto;
+        left: inherit;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .form-control{
+        padding-right: .85rem;
+        padding-left: 2.95rem;
+    }
+}
+.has-icon-right{
+    .form-control-position{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .form-control{
+        padding-right: 2.5rem;
+    }
+}
+
+
+//------- form control placeholder ------//
+
+.form-control-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0 0 10px;
+    transition: all 200ms;
+    opacity: 0.5;
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+    font-size: 75%;
+    transform: translate3d(0, -110%, 0);
+    opacity: 1;
+}

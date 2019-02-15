@@ -1,0 +1,111 @@
+/*--------------------------------------/
+ Settings
+--------------------------------------*/
+
+$custom-control: (
+    font-size: $font-size-base,
+    line-height: $line-height-base,
+    gutter: $custom-control-gutter,
+    box-shadow: $input-box-shadow,
+    indicator-size: $custom-control-indicator-size,
+    indicator-bg: $custom-control-indicator-bg,
+    indicator-border-color: $custom-control-indicator-border-color,
+    indicator-border-width: $custom-control-indicator-border-width,
+    indicator-box-shadow: $custom-control-indicator-box-shadow,
+    indicator-bg-size: $custom-control-indicator-bg-size,
+    indicator-checked-color: $custom-control-indicator-checked-color,
+    indicator-checked-border-color: $custom-control-indicator-checked-border-color,
+    indicator-checked-bg: $custom-control-indicator-checked-bg,
+    indicator-checked-box-shadow: $custom-control-indicator-checked-box-shadow,
+    indicator-focus-box-shadow: $custom-control-indicator-focus-box-shadow,
+    indicator-focus-border-color: $custom-control-indicator-focus-border-color,
+    indicator-active-color: $custom-control-indicator-active-color,
+    indicator-active-bg: $custom-control-indicator-active-bg,
+    indicator-active-border-color: $custom-control-indicator-active-border-color,
+    indicator-active-box-shadow: $custom-control-indicator-active-box-shadow,
+    label-disabled-color: $custom-control-label-disabled-color,
+    indicator-disabled-bg: $custom-control-indicator-disabled-bg,
+);
+
+@mixin create-custom-control($control: $custom-control) {
+    position: relative;
+    display: block;
+    min-height: map-get($control, 'font-size') * map-get($control, 'line-height');
+    padding-left: map-get($control, 'gutter') + map-get($control, 'indicator-size');
+}
+
+@mixin create-custom-control-label($control: $custom-control) {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+
+    // Background-color and (when enabled) gradient
+    &::before {
+        position: absolute;
+        top: (map-get($control, 'font-size') * map-get($control, 'line-height') - map-get($control, 'indicator-size')) / 2;
+        left: -(map-get($control, 'gutter') + map-get($control, 'indicator-size'));
+        display: block;
+        width: map-get($control, 'indicator-size');
+        height: map-get($control, 'indicator-size');
+        pointer-events: none;
+        content: "";
+        background-color: map-get($control, 'indicator-bg');
+        border: map-get($control, 'indicator-border-color') solid map-get($control, 'indicator-border-width');
+        @include box-shadow(map-get($control, 'indicator-box-shadow'));
+    }
+
+    // Foreground (icon)
+    &::after {
+        position: absolute;
+        top: (map-get($control, 'font-size') * map-get($control, 'line-height') - map-get($control, 'indicator-size')) / 2;
+        left: -(map-get($control, 'gutter') + map-get($control, 'indicator-size'));
+        display: block;
+        width: map-get($control, 'indicator-size');
+        height: map-get($control, 'indicator-size');
+        content: "";
+        background: no-repeat 50% / #{map-get($control, 'indicator-bg-size')};
+    }
+}
+
+@mixin create-custom-control-input($control: $custom-control) {
+    position: absolute;
+    z-index: -1; // Put the input behind the label so it doesn't overlay text
+    opacity: 0;
+
+    &:checked ~ .custom-control-label::before {
+        color: map-get($control, 'indicator-checked-color');
+        border-color: map-get($control, 'indicator-checked-border-color');
+        @include gradient-bg(map-get($control, 'indicator-checked-bg'));
+        @include box-shadow(map-get($control, 'indicator-checked-box-shadow'));
+    }
+
+    &:focus ~ .custom-control-label::before {
+        // the mixin is not used here to make sure there is feedback
+        @if $enable-shadows {
+            box-shadow: map-get($control, 'box-shadow'), map-get($control, 'focus-box-shadow');
+        } @else {
+            box-shadow: map-get($control, 'indicator-focus-box-shadow');
+        }
+    }
+
+    &:focus:not(:checked) ~ .custom-control-label::before {
+        border-color: map-get($control, 'indicator-focus-border-color');
+    }
+
+    &:not(:disabled):active ~ .custom-control-label::before {
+        color: map-get($control, 'indicator-active-color');
+        background-color: map-get($control, 'indicator-active-bg');
+        border-color: map-get($control, 'indicator-active-border-color');
+        @include box-shadow(map-get($control, 'indicator-active-box-shadow'));
+    }
+
+    &:disabled {
+        ~ .custom-control-label {
+            color: map-get($control, 'label-disabled-color');
+
+            &::before {
+                background-color: map-get($control, 'indicator-disabled-bg');
+            }
+        }
+    }
+}

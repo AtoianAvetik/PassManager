@@ -7,9 +7,7 @@
 @import "mixins/type";
 @import "mixins/hover";
 @import "mixins/image";
-@import "mixins/shadows";
 @import "mixins/box-shadow";
-@import "mixins/badge";
 @import "mixins/resize";
 @import "mixins/reset-text";
 @import "mixins/text-emphasis";
@@ -18,20 +16,24 @@
 @import "mixins/utilities";
 
 // Components
-@import "mixins/media";
-@import "mixins/buttons";
-@import "mixins/caret";
-@import "mixins/pagination";
-@import "mixins/lists";
-@import "mixins/nav-divider";
-@import "mixins/forms";
-@import "mixins/table-row";
+@import "mixins/components/badge";
+@import "mixins/components/media";
+@import "mixins/components/buttons";
+@import "mixins/components/caret";
+@import "mixins/components/pagination";
+@import "mixins/components/lists";
+@import "mixins/components/nav-divider";
+@import "mixins/components/control";
+@import "mixins/components/custom-control";
+@import "mixins/components/forms";
+@import "mixins/components/table-row";
 
 // Skins
-@import "mixins/background-variant";
-@import "mixins/border-radius";
-@import "mixins/gradients";
-@import "mixins/transition";
+@import "mixins/skins/background-variant";
+@import "mixins/skins/border-radius";
+@import "mixins/skins/gradients";
+@import "mixins/skins/transition";
+@import "mixins/skins/shadows";
 
 // Layout
-@import "mixins/clearfix";
+@import "mixins/layout/clearfix";

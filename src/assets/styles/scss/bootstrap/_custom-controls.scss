@@ -1,0 +1,47 @@
+// Embedded icons from Open Iconic.
+// Released under MIT and copyright 2014 Waybury.
+// https://useiconic.com/open
+
+
+// Checkboxes and radios
+//
+// Base class takes care of all the key behavioral aspects.
+
+.custom-control {
+    @include create-custom-control();
+}
+
+.custom-control-inline {
+    display: inline-flex;
+    margin-right: $custom-control-spacer-x;
+}
+
+.custom-control-input {
+    @include create-custom-control-input();
+}
+
+// Custom control indicators
+//
+// Build the custom controls out of pseudo-elements.
+
+.custom-control-label {
+    @include create-custom-control-label();
+}
+
+// Custom controls
+@import "custom-controls/custom-checkbox";
+@import "custom-controls/custom-radio";
+@import "custom-controls/custom-file";
+@import "custom-controls/custom-range";
+@import "custom-controls/custom-select";
+@import "custom-controls/custom-switch";
+@import "custom-controls/custom-switch";
+
+
+.custom-control-label::before,
+.custom-file-label,
+.custom-select {
+    @include transition($custom-forms-transition);
+}
+
+

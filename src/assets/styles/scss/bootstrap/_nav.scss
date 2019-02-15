@@ -111,6 +111,7 @@
 // Hide tabbable panes to start, show them when `.active`
 
 .tab-content {
+    padding: $nav-tabs-content-padding;
   > .tab-pane {
     display: none;
   }

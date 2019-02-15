@@ -10,5 +10,13 @@ export const Full_ROUTES: Routes = [
     {
         path: 'passwords',
         loadChildren: './pages/passwords/passwords.module#PasswordsModule'
+    },
+    {
+        path: 'cards',
+        loadChildren: './pages/cards/cards.module#CardsModule'
+    },
+    {
+        path: 'forms',
+        loadChildren: './pages/forms/forms.module#FormModule'
     }
 ];
