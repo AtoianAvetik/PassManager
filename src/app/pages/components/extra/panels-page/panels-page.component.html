@@ -40,22 +40,22 @@
 				<div class="card-block">
 					<div class="card-text">
 						<p>Add <code>PanelModule</code> into your current module, where you will use panel, or into  <code>ComponentsModule</code> class.<code>components-module.module</code> would look like this</p>
-<ngx-prism [language]="'javascript'">
-	import &#123; NgModule } from '@angular/core';
-	import &#123; PanelModule } from '../../components/panels/panel.module';
+<ngx-prism [language]="'javascript'" code="
+    import { NgModule } from '@angular/core';
+	import { PanelModule } from '../../components/panels/panel.module';
 
-	@NgModule(&#123;
+	@NgModule({
 	imports: [PanelModule]
 	})
-	export class ComponentsModule &#123; }
-
+	export class ComponentsModule { }
+">
 </ngx-prism>
 						<p>Add <code>PanelService</code> to your root component providers:</p>
-<ngx-prism [language]="'javascript'">
-	import &#123; PanelService } from '../../components/panels/panel.service';
+<ngx-prism [language]="'javascript'" code="
+    import { PanelService } from '../../components/panels/panel.service';
 	...
 	providers: [PanelService]
-
+">
 </ngx-prism>
 					</div>
 				</div>
@@ -71,19 +71,19 @@
 				<div class="card-block">
 					<div class="card-text">
 						<p>In <code>app.module.ts</code> configurate panels:</p>
-<ngx-prism [language]="'javascript'">
+<ngx-prism [language]="'javascript'" code="
+    ...
+	import { PANEL_CONFIG, PanelConfigInterface } from './components/panels/panel.config';
 	...
-	import &#123; PANEL_CONFIG, PanelConfigInterface } from './components/panels/panel.config';
-	...
-	const CUSTOM_PANEL_CONFIG: PanelConfigInterface = &#123;
+	const CUSTOM_PANEL_CONFIG: PanelConfigInterface = {
 		leftPanelExpandedShift: 250
 	};
 	...
-	@NgModule( &#123;
+	@NgModule( {
 		...
 		providers: [
 		...
-			&#123;
+			{
 				provide: PANEL_CONFIG,
 				useValue: CUSTOM_PANEL_CONFIG
 			}
@@ -92,6 +92,7 @@
 		...
 	} )
 	...
+">
 </ngx-prism>
 						<p>Available parameters:</p>
 						<ul>
@@ -160,11 +161,11 @@
 						</li>
 					</ul>
 					<p>Or control panel manually from <code>panel.service</code>:</p>
-<ngx-prism [language]="'javascript'">
-	import {{'{'}} PanelService {{'}'}} from '~panel.service';
+<ngx-prism [language]="'javascript'" code="
+    import {{'{'}} PanelService {{'}'}} from '~panel.service';
 	...
 	constructor(private _panelService: PanelService) {{'{'}}{{'}'}}
-
+">
 </ngx-prism>
 					<ul>
 						<li>

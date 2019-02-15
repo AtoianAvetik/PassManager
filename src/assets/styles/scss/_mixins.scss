@@ -1,9 +1,37 @@
-@import "mixins/media";
+// Vendor
+@import "vendor/rfs";
+
+// Utilities
 @import "mixins/animations";
-@import "mixins/gradients-bootstrap";
-@import "mixins/utilities";
 @import "mixins/typography";
 @import "mixins/type";
-@import "mixins/buttons";
+@import "mixins/hover";
+@import "mixins/image";
 @import "mixins/shadows";
+@import "mixins/box-shadow";
+@import "mixins/badge";
+@import "mixins/resize";
+@import "mixins/reset-text";
+@import "mixins/text-emphasis";
+@import "mixins/text-truncate";
 @import "mixins/vendor-prefixes";
+@import "mixins/utilities";
+
+// Components
+@import "mixins/media";
+@import "mixins/buttons";
+@import "mixins/caret";
+@import "mixins/pagination";
+@import "mixins/lists";
+@import "mixins/nav-divider";
+@import "mixins/forms";
+@import "mixins/table-row";
+
+// Skins
+@import "mixins/background-variant";
+@import "mixins/border-radius";
+@import "mixins/gradients";
+@import "mixins/transition";
+
+// Layout
+@import "mixins/clearfix";

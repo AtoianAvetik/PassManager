@@ -115,11 +115,6 @@
             border-color: darken($color_value,7%) !important;
           }
         }
-	    /*----------- MY -----------*/
-	    &:not(.active):hover{
-		  background-color: darken($color_value, 3%) !important;
-	    }
-	    /*-------------------------*/
         color: $color_value !important;
       }
       .btn-group-raised{
