@@ -267,14 +267,11 @@ $transition-collapse: height .35s ease !default;
 --------------------------------------*/
 // Font, line-height, and color for body text, headings, and more.
 
-$OpenSans: 'Open Sans', sans-serif;
-$MyriadPro: 'Myriad Pro', sans-serif;
-$Rubik: "Rubik", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$Montserrat: "Montserrat", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$Poppins: 'Poppins', sans-serif;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
-$font-family-sans-serif: $Montserrat;
-$font-family-content: $MyriadPro;
+$font-family-sans-serif: $Poppins;
+$font-family-content: $Poppins;
 $font-family-base: $font-family-sans-serif !default;
 
 $text-font: $font-family-content;
