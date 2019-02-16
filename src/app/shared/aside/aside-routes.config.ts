@@ -1,6 +1,6 @@
-import { RouteInfo } from './sidebar.metadata';
+import { RouteInfo } from './aside.metadata';
 
-// Sidebar menu Routes and data
+// Aside menu Routes and data
 export const ROUTES: RouteInfo[] = [
 	{
 		path: '/components', title: 'Components', icon: 'ft-box', class: 'has-sub', badge: '2', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [

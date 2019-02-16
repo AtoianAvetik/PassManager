@@ -1,4 +1,4 @@
-// Sidebar route metadata
+// Aside route metadata
 export interface RouteInfo {
     path: string;
     title: string;
@@ -7,5 +7,5 @@ export interface RouteInfo {
     badge: string;
     badgeClass: string;
     isExternalLink: boolean;
-    submenu : RouteInfo[];
+    submenu: RouteInfo[];
 }

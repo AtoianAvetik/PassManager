@@ -18,7 +18,7 @@ import { ContentLayoutComponent } from './layouts/content/content-layout.compone
 import { DataService } from './shared/_services/data.service';
 import { ApiService } from './shared/_services/api.service';
 
-import { SidebarService } from './shared/_services/sidebar.service';
+import { AsideService } from './shared/_services/aside.service';
 import { LoaderService } from './components/loader/loader.service';
 import { WindowRef } from './shared/_services/window-ref';
 import { UniqueID } from './shared/_services/unique-id.service';
@@ -58,7 +58,7 @@ const CUSTOM_PANEL_CONFIG: PanelConfigInterface = {
         ApiService,
         DataService,
         AuthGuard,
-        SidebarService,
+        AsideService,
         LoaderService,
         UniqueID,
         WindowRef,

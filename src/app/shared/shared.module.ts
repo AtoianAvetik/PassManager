@@ -8,9 +8,9 @@ import { NotificationModule } from '../components/notifications/notification.mod
 import { PanelModule } from '../components/panels/panel.module';
 
 import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { AsideComponent } from './aside/aside.component';
 import { FooterComponent } from './footer/footer.component';
-import { NavigationItemComponent } from './sidebar/navigation-item/navigation-item.component';
+import { NavigationItemComponent } from './aside/navigation-item/navigation-item.component';
 import { ModalModule } from '../components/modals/modal.module';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { ModalModule } from '../components/modals/modal.module';
         CommonModule,
         NavbarComponent,
         FooterComponent,
-        SidebarComponent,
+        AsideComponent,
         NgbModule,
         NotificationModule,
         PanelModule,
@@ -36,7 +36,7 @@ import { ModalModule } from '../components/modals/modal.module';
     declarations: [
         NavbarComponent,
         FooterComponent,
-        SidebarComponent,
+        AsideComponent,
         NavigationItemComponent
     ]
 })

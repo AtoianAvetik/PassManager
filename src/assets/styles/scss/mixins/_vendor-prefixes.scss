@@ -48,12 +48,6 @@
         transform-origin: $coordinates;
 }
 
-@mixin set-background-color-button ($color){
-    .moving-tab{
-        background-color: $color;
-    }
-}
-
 @mixin radial-gradient($extern-color, $center-color){
     background: $extern-color;
     background: -moz-radial-gradient(center, ellipse cover, $center-color 0%, $extern-color 100%); /* FF3.6+ */

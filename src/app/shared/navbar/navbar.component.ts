@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { SidebarService } from '../_services/sidebar.service';
+import { AsideService } from '../_services/aside.service';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -10,13 +10,13 @@ import { AuthService } from '../auth/auth.service';
 })
 
 export class NavbarComponent {
-    isHideSidebar: boolean;
+    isHideAside: boolean;
     toggleClass = 'ft-maximize';
 
-    constructor(private _sidebarService: SidebarService,
+    constructor(private _asideService: AsideService,
                 private $auth: AuthService) {
-        this.isHideSidebar = this._sidebarService.isHideSidebar;
-        this._sidebarService.isHideSidebarChange.subscribe(status => this.isHideSidebar = status);
+        this.isHideAside = this._asideService.isHideAside;
+        this._asideService.isHideAsideChange.subscribe(status => this.isHideAside = status);
     }
 
     ToggleClass() {
@@ -26,10 +26,10 @@ export class NavbarComponent {
             this.toggleClass = 'ft-maximize';
     }
 
-    toggleSidebar() {
+    toggleAside() {
         event.preventDefault();
         event.stopPropagation();
-        this._sidebarService.isHideSidebarChange.next(!this.isHideSidebar);
+        this._asideService.isHideAsideChange.next(!this.isHideAside);
     }
 
     onLogout() {

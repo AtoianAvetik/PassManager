@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 
-import { SidebarService } from '../../shared/_services/sidebar.service';
+import { AsideService } from '../../shared/_services/aside.service';
 import { PanelService } from '../../components/panels/panel.service';
 import { NotificationService } from '../../components/notifications/notification.service';
 import { ModalService } from '../../components/modals/modal.service';
@@ -21,21 +21,21 @@ const fireRefreshEventOnWindow = function () {
 export class FullLayoutComponent implements OnInit {
     isNavExpand: boolean;
     isMenuExpand: boolean;
-    isHideSidebar: boolean;
+    isHideAside: boolean;
 
     constructor(private elementRef: ElementRef,
-                private _sidebarService: SidebarService) {
-        this.isNavExpand = this._sidebarService.isNavExpand;
-        this.isMenuExpand = this._sidebarService.isMenuExpand;
-        this.isHideSidebar = this._sidebarService.isHideSidebar;
-        this._sidebarService.isNavExpandChange.subscribe(status => this.isNavExpand = status);
-        this._sidebarService.isMenuExpandChange.subscribe(status => this.isMenuExpand = status);
-        this._sidebarService.isHideSidebarChange.subscribe(status => this.isHideSidebar = status);
+                private _asideService: AsideService) {
+        this.isNavExpand = this._asideService.isNavExpand;
+        this.isMenuExpand = this._asideService.isMenuExpand;
+        this.isHideAside = this._asideService.isHideAside;
+        this._asideService.isNavExpandChange.subscribe(status => this.isNavExpand = status);
+        this._asideService.isMenuExpandChange.subscribe(status => this.isMenuExpand = status);
+        this._asideService.isHideAsideChange.subscribe(status => this.isHideAside = status);
     }
 
     ngOnInit() {
-        // sidebar toggle event listner
-        this.elementRef.nativeElement.querySelector('#sidebarToggle')
+        // aside toggle event listner
+        this.elementRef.nativeElement.querySelector('#asideToggle')
             .addEventListener('click', this.onClick.bind(this));
         // customizer events
         // this.elementRef.nativeElement.querySelector('#cz-compact-menu')
@@ -45,7 +45,7 @@ export class FullLayoutComponent implements OnInit {
     }
 
     onClick(event) {
-        // initialize window resizer event on sidebar toggle click event
+        // initialize window resizer event on aside toggle click event
         setTimeout(() => {
             fireRefreshEventOnWindow();
         }, 300);

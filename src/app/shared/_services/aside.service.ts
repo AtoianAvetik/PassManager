@@ -4,15 +4,15 @@ import { Subject } from 'rxjs/Subject';
 import { WindowRef } from './window-ref';
 
 @Injectable()
-export class SidebarService {
+export class AsideService {
     isNavExpand = true;
     isMenuExpand = true;
-    isHideSidebar = false;
-    isSidebarHiddenNavExpand = true;
-    isSidebarHiddenMenuExpand = false;
+    isHideAside = false;
+    isAsideHiddenNavExpand = true;
+    isAsideHiddenMenuExpand = false;
     isNavExpandChange = new Subject<boolean>();
     isMenuExpandChange = new Subject<boolean>();
-    isHideSidebarChange = new Subject<boolean>();
+    isHideAsideChange = new Subject<boolean>();
 
     constructor(private _winRef: WindowRef) {
         this.isNavExpandChange.subscribe(status => {
@@ -21,33 +21,33 @@ export class SidebarService {
         this.isMenuExpandChange.subscribe(status => {
             this.isMenuExpand = status;
         });
-        this.isHideSidebarChange.subscribe(status => {
-            this.isHideSidebar = status;
+        this.isHideAsideChange.subscribe(status => {
+            this.isHideAside = status;
         });
 
     }
 
-    hoverSidebar(value) {
+    hoverAside(value) {
         if (!this.isNavExpand) {
             this.isMenuExpandChange.next(value);
-            this.isSidebarHiddenMenuExpand = value;
+            this.isAsideHiddenMenuExpand = value;
         }
     }
 
-    toggleSidebar(value) {
+    toggleAside(value) {
         this.isNavExpandChange.next(value);
-        this.isSidebarHiddenNavExpand = value;
+        this.isAsideHiddenNavExpand = value;
     }
 
-    hideSidebar() {
+    hideAside() {
         if (this._winRef.nativeWindow.innerWidth < 1025) {
-            this.isHideSidebarChange.next(true);
+            this.isHideAsideChange.next(true);
             this.isMenuExpandChange.next(true);
             this.isNavExpandChange.next(true);
         } else {
-            this.isHideSidebarChange.next(false);
-            this.hoverSidebar(this.isSidebarHiddenMenuExpand);
-            this.toggleSidebar(this.isSidebarHiddenNavExpand);
+            this.isHideAsideChange.next(false);
+            this.hoverAside(this.isAsideHiddenMenuExpand);
+            this.toggleAside(this.isAsideHiddenNavExpand);
         }
     }
 }

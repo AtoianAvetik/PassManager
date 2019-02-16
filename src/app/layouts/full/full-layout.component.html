@@ -1,15 +1,14 @@
 <div
-	class="wrapper"
+	class="wrapper aside-fixed"
 	[ngClass]="{'nav-collapsed':!isNavExpand, 'menu-collapsed':!isMenuExpand}"
 >
     <div
-		class="app-sidebar"
-		[ngClass]="{'hide-sidebar': isHideSidebar}"
-		data-active-color="white"
-		data-background-color="dark">
-        <app-sidebar (click)="$event.stopPropagation();">
-		</app-sidebar>
-        <div class="sidebar-background" style="background-image: url('//assets/img/sidebar-bg/01.jpg');"></div>
+		class="aside"
+		[ngClass]="{'hide-aside': isHideAside}"
+		data-background-color="primary">
+        <app-aside (click)="$event.stopPropagation();">
+		</app-aside>
+        <div class="aside-background" style="background-image: url('//assets/img/sidebar-bg/01.jpg');"></div>
     </div>
     <div class="main-panel">
         <app-navbar></app-navbar>
@@ -24,8 +23,8 @@
     </div>
 	<app-panels
 		[overlay]="false"
-		[leftPanelExpand]="_sidebarService.isNavExpandChange"
-		[leftPanelHide]="_sidebarService.isHideSidebarChange"
+		[leftPanelExpand]="_asideService.isNavExpandChange"
+		[leftPanelHide]="_asideService.isHideAsideChange"
 	></app-panels>
 	<app-notifications></app-notifications>
 	<app-modals></app-modals>
