@@ -1,15 +1,7 @@
-
-
 @mixin shadow-z-1(){
   box-shadow:
     0 1px 6px 0 rgba(0, 0, 0, 0.12),
     0 1px  6px 0 rgba(0, 0, 0, 0.12);
-}
-
-@mixin shadow-z-1-hover(){
-  box-shadow:
-    0 5px 11px 0 rgba(0, 0, 0, 0.18),
-    0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 
 @mixin shadow-z-2(){
@@ -34,42 +26,4 @@
   box-shadow:
     0 27px 24px 0 rgba(0, 0, 0, 0.2),
     0 40px 77px 0 rgba(0, 0, 0, 0.22);
-}
-
-
-/* Shadows (from mdl http://www.getmdl.io/) */
-
-// Focus shadow mixin.
-@mixin big-shadow(){
-  box-shadow: 0 0 8px rgba(0, 0, 0,.18),
-  0 8px 16px rgba(0, 0, 0,.36);
-}
-
-@mixin shadow-big(){
-    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, $shadow-penumbra-opacity * 3),
-    0  4px 25px 0px rgba(0, 0, 0, $shadow-ambient-opacity),
-    0  8px 10px -5px rgba(0, 0, 0, $shadow-umbra-opacity);
-}
-
-@mixin shadow-big-navbar(){
-    box-shadow: 0 10px 20px -12px rgba(0, 0, 0, $shadow-penumbra-opacity * 3),
-    0  3px 20px 0px rgba(0, 0, 0, $shadow-ambient-opacity),
-    0  8px 10px -5px rgba(0, 0, 0, $shadow-umbra-opacity);
-}
-
-@mixin shadow-big-color($color){
-    box-shadow: 0 12px 20px -10px rgba($color, $shadow-penumbra-opacity * 2),
-    0  4px 20px 0px rgba(0,0,0, $shadow-ambient-opacity),
-    0  7px 8px -5px rgba($color, $shadow-umbra-opacity);
-
-}
-
-@mixin sidebar-shadow(){
-    box-shadow: 2px 10px 30px 0px rgba(0, 0, 0, $shadow-penumbra-opacity * 3),
-    0  4px 25px 0px rgba(0, 0, 0, $shadow-ambient-opacity),
-    0  8px 10px -5px rgba(0, 0, 0, $shadow-umbra-opacity);
-}
-
-@mixin card-shadow(){
-    box-shadow: $card-shadow;
 }

@@ -2,15 +2,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-faded">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle d-lg-none float-left" (click)="toggleSidebar()">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="ft-bar"></span>
-                <span class="ft-bar"></span>
-                <span class="ft-bar"></span>
+            <button type="button" class="navbar-toggler d-lg-none float-left" (click)="toggleSidebar()">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="navbar-form navbar-right mt-1" role="search">
+            <form class="navbar-form float-right d-none d-sm-block" role="search">
                 <div class="position-relative has-icon-right">
-                    <input type="text" class="form-control round" placeholder="Search">
+                    <input type="text" class="form-control -round" placeholder="Search">
                     <div class="form-control-position">
                         <i class="ft-search"></i>
                     </div>
@@ -23,7 +20,7 @@
                     <li class="nav-item" ngbDropdown placement="bottom-right">
                         <a class="nav-link position-relative" id="dropdownBasic2" ngbDropdownToggle>
                             <i class="ft-bell font-medium-3 blue-grey darken-4"></i>
-                            <span class="notification badge badge-pill badge-danger">4</span>
+                            <span class="badge badge-pill badge-absrt badge-danger">4</span>
                             <p class="d-none">Notifications</p>
                         </a>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class="notification-dropdown">
@@ -31,28 +28,28 @@
                                 <a class="dropdown-item noti-container py-3 border-bottom border-bottom-blue-grey border-bottom-lighten-4">
                                     <i class="ft-bell info float-left d-block font-large-1 mt-1 mr-2"></i>
                                     <span class="noti-wrapper">
-                                        <span class="noti-title line-height-1 d-block text-bold-400 info">New Order Received</span>
+                                        <span class="noti-title  d-block text-bold-400 info">New Order Received</span>
                                         <span class="noti-text">Lorem ipsum dolor sit ametitaque in, et!</span>
                                     </span>
                                 </a>
                                 <a class="dropdown-item noti-container py-3 border-bottom border-bottom-blue-grey border-bottom-lighten-4">
                                     <i class="ft-bell warning float-left d-block font-large-1 mt-1 mr-2"></i>
                                     <span class="noti-wrapper">
-                                        <span class="noti-title line-height-1 d-block text-bold-400 warning">New User Registered</span>
+                                        <span class="noti-title  d-block text-bold-400 warning">New User Registered</span>
                                         <span class="noti-text">Lorem ipsum dolor sit ametitaque in </span>
                                     </span>
                                 </a>
                                 <a class="dropdown-item noti-container py-3 border-bottom border-bottom-blue-grey border-bottom-lighten-4">
                                     <i class="ft-bell danger float-left d-block font-large-1 mt-1 mr-2"></i>
                                     <span class="noti-wrapper">
-                                        <span class="noti-title line-height-1 d-block text-bold-400 danger">New Order Received</span>
+                                        <span class="noti-title  d-block text-bold-400 danger">New Order Received</span>
                                         <span class="noti-text">Lorem ipsum dolor sit ametest?</span>
                                     </span>
                                 </a>
                                 <a class="dropdown-item noti-container py-3">
                                     <i class="ft-bell success float-left d-block font-large-1 mt-1 mr-2"></i>
                                     <span class="noti-wrapper">
-                                        <span class="noti-title line-height-1 d-block text-bold-400 success">New User Registered</span>
+                                        <span class="noti-title  d-block text-bold-400 success">New User Registered</span>
                                         <span class="noti-text">Lorem ipsum dolor sit ametnatus aut.</span>
                                     </span>
                                 </a>

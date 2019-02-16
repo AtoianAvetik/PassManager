@@ -16,7 +16,6 @@
     box-shadow: $card-shadow;
     margin: $card-m-gap-y $card-m-gap-x;
     @include border-radius($card-border-radius);
-    @include card-shadow();
 
     .card{
         box-shadow: none;

@@ -18,5 +18,9 @@ export const Full_ROUTES: Routes = [
     {
         path: 'forms',
         loadChildren: './pages/forms/forms.module#FormModule'
+    },
+    {
+        path: 'uikit',
+        loadChildren: './pages/ui-kit/ui-kit.module#UIKitModule'
     }
 ];

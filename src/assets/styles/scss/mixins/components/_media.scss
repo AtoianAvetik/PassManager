@@ -36,11 +36,11 @@
 
 	@if type_of($size) == 'string'{
 		$value: map-get($grid-breakpoints, $size);
-		@media screen and (min-width: $value){
+		@media screen and (min-width: $value + 1px){
 			@content;
 		}
 	} @else{
-		@media screen and (min-width: #{$size}px){
+		@media screen and (min-width: #{$size}px + 1px){
 			@content;
 		}
 	}

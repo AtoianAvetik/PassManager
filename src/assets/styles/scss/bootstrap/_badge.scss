@@ -43,6 +43,14 @@
     @include border-radius($badge-pill-border-radius);
 }
 
+// Absolute top right position
+
+.badge-absrt{
+    position: absolute;
+    top:2px;
+    right:13px;
+}
+
 // Colors
 //
 // Contextual variations (linked badges get darker on :hover).

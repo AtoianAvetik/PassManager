@@ -40,7 +40,7 @@ export class SidebarService {
     }
 
     hideSidebar() {
-        if (this._winRef.nativeWindow.innerWidth < 992) {
+        if (this._winRef.nativeWindow.innerWidth < 1025) {
             this.isHideSidebarChange.next(true);
             this.isMenuExpandChange.next(true);
             this.isNavExpandChange.next(true);

@@ -60,6 +60,7 @@
                 }
             }
         }
+
         footer{
             padding-left: 60px;
         }
@@ -73,20 +74,6 @@
         }
     }
 }
-
-.bootstrap-navbar {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 260px;
-    display: block;
-    z-index: 1;
-    color: #fff;
-    font-weight: 200;
-    background-size: cover;
-    background-position: center center;
-}
 .app-sidebar,
 .off-canvas-sidebar{
     font-family: $font-family-base;
@@ -97,12 +84,18 @@
     z-index: 3;
     width: 250px;
     height: 100vh;
-    @include sidebar-shadow();
+    box-shadow: 2px 10px 30px 0px rgba(0, 0, 0, $shadow-penumbra-opacity * 3),
+    0  4px 25px 0px rgba(0, 0, 0, $shadow-ambient-opacity),
+    0  8px 10px -5px rgba(0, 0, 0, $shadow-umbra-opacity);
     -webkit-transition: width 0.3s cubic-bezier(0, 0, 0.2, 1);
     transition: width 0.3s cubic-bezier(0, 0, 0.2, 1);
     transform: translate3d(0,0,0);
     white-space: nowrap;
     visibility: visible;
+
+    @include media(lg) {
+        transition: transform .4s cubic-bezier(.25,.8,.25,1);
+    }
 
     &.hide-sidebar{
         transition: transform .4s cubic-bezier(.25,.8,.25,1);
@@ -141,8 +134,6 @@
         }
     }
 
-
-
     .navigation{
         margin-bottom: 0;
         padding-left: 0;
@@ -175,7 +166,7 @@
 				// MY
 				&.active-route, &.--active {
 					> a{
-						background: rgba(200, 200, 200, 0.2);
+						background: #1f2433;
 
 						&:before {
 							display: none;
@@ -193,19 +184,18 @@
                 }
 
 				> a {
-					background: rgba(200, 200, 200, 0.2);
+					background: #1f2433;
 				}
             }
 
             > a{
                 display: block;
                 overflow: hidden;
-                line-height: $font-size-base * 2;
+                line-height: $font-size-base * 1.5;
                 padding: 10px 30px 10px 14px;
-                margin: 5px 0;
                 background-color: transparent;
                 color: $black;
-                transition: all 300ms linear;
+                transition: all 150ms linear;
 
                 &:before{
                     content: '';
@@ -215,7 +205,7 @@
                     left: -100%; top: 0;
                     width: 100%; height: 100%;
                     border-right: solid 5px theme-color("danger");
-                    background: rgba(200, 200, 200, 0.2);
+                    background: #1f2433;
                     transition: .35s ease left;
                 }
             }
@@ -227,7 +217,7 @@
             }
 
             &:hover > a{
-                background: rgba(200, 200, 200, 0.2);
+                background: #1f2433;
                 color: $black;
             }
 
@@ -246,12 +236,12 @@
                 li{
                     a{
                         display: block;
-                        padding: 8px 18px 8px 60px;
+                        padding: 8px 18px 8px 30px;
                     }
                     ul{
                         li{
                             a{
-                                padding: 8px 18px 8px 70px;
+                                padding: 8px 18px 8px 40px;
                             }
                         }
                     }
@@ -261,13 +251,15 @@
 
         .menu-title{
             margin: 0;
-            font-size: 0.95rem;
-            font-weight: 400;
+            font-weight: 300;
+            font-size: $font-size-sm;
             letter-spacing: 0.6px;
             opacity: 1;
             height: auto;
-            -webkit-transition: width 0.3s cubic-bezier(0, 0, 0.2, 1);
-            transition: width 0.3s cubic-bezier(0, 0, 0.2, 1);
+            -webkit-transition: width 0.15s cubic-bezier(0, 0, 0.2, 1);
+            transition: width 0.15s cubic-bezier(0, 0, 0.2, 1);
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .badge.badge-pill{
@@ -281,12 +273,12 @@
 
         i{
             font-size: 18px;
-            float: left;
             margin-right: 10px;
             line-height: 2rem;
             width: 30px;
             text-align: center;
-            color: #a9afbb;
+            display: inline-block;
+            vertical-align: middle;
         }
     }
 
@@ -403,6 +395,9 @@
     &[data-background-color="danger"]{
         @include set-background-color(theme-color("danger"));
     }
+    &[data-background-color="dark"]{
+        @include set-background-color(#242939);
+    }
 
     // Gradient Background Colors
     &[data-background-color="pomegranate"]{
@@ -497,7 +492,6 @@
     }
 }
 
-
 .main-panel{
     position: relative;
     z-index: 2;
@@ -518,27 +512,76 @@
             border-top: 1px solid #e7e7e7;
         }
     }
-    > .navbar{
-        margin-bottom: 0;
-    }
 }
-.bootstrap-navbar .navigation{
-    margin-top: 20px;
-    float: none;
-}
+
 .main-panel{
     max-height: 100%;
     height: 100%;
     width: 100%;
 }
+
+
+// Sidebar sizes
+
+@include media-min(lg) {
+    .main-panel .main-content{
+        padding-left:250px;
+    }
+    .navbar {
+        .navbar-header{
+            padding-left: 240px;
+        }
+        .navbar-container{
+            padding-left: 250px;
+        }
+    }
+    footer{
+        padding-left: 250px;
+    }
+}
+
 .sidebar-sm{
     .app-sidebar{
         width: 220px;
+    }
+
+    @include media-min(lg) {
+        .main-panel .main-content{
+            padding-left: 220px;
+        }
+        .navbar {
+            .navbar-header{
+                padding-left: 210px;
+            }
+            .navbar-container{
+                padding-left: 220px;
+            }
+        }
+        footer{
+            padding-left: 220px;
+        }
     }
 }
 
 .sidebar-lg{
     .app-sidebar{
         width: 280px;
+    }
+
+    @include media-min(lg) {
+        .main-panel .main-content{
+            padding-left: 280px;
+        }
+        .navbar {
+            .navbar-header{
+                padding-left: 270px;
+            }
+            .navbar-container{
+                padding-left: 280px;
+            }
+        }
+        footer{
+            padding-left: 280px;
+        }
     }
 }

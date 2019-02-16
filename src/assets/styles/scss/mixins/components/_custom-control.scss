@@ -3,8 +3,8 @@
 --------------------------------------*/
 
 $custom-control: (
-    font-size: $font-size-base,
-    line-height: $line-height-base,
+    width: 1em,
+    height: 1em,
     gutter: $custom-control-gutter,
     box-shadow: $input-box-shadow,
     indicator-size: $custom-control-indicator-size,
@@ -30,7 +30,6 @@ $custom-control: (
 @mixin create-custom-control($control: $custom-control) {
     position: relative;
     display: block;
-    min-height: map-get($control, 'font-size') * map-get($control, 'line-height');
     padding-left: map-get($control, 'gutter') + map-get($control, 'indicator-size');
 }
 
@@ -42,7 +41,8 @@ $custom-control: (
     // Background-color and (when enabled) gradient
     &::before {
         position: absolute;
-        top: (map-get($control, 'font-size') * map-get($control, 'line-height') - map-get($control, 'indicator-size')) / 2;
+        bottom: 100%;
+        margin-bottom: -.7em;
         left: -(map-get($control, 'gutter') + map-get($control, 'indicator-size'));
         display: block;
         width: map-get($control, 'indicator-size');
@@ -51,19 +51,22 @@ $custom-control: (
         content: "";
         background-color: map-get($control, 'indicator-bg');
         border: map-get($control, 'indicator-border-color') solid map-get($control, 'indicator-border-width');
+        transform: translate(0, 50%);
         @include box-shadow(map-get($control, 'indicator-box-shadow'));
     }
 
     // Foreground (icon)
     &::after {
         position: absolute;
-        top: (map-get($control, 'font-size') * map-get($control, 'line-height') - map-get($control, 'indicator-size')) / 2;
+        bottom: 100%;
+        margin-bottom: -.7em;
         left: -(map-get($control, 'gutter') + map-get($control, 'indicator-size'));
         display: block;
         width: map-get($control, 'indicator-size');
         height: map-get($control, 'indicator-size');
         content: "";
         background: no-repeat 50% / #{map-get($control, 'indicator-bg-size')};
+        transform: translate(0, 50%);
     }
 }
 

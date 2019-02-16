@@ -8,7 +8,7 @@
 // usage: color("name_of_color", "type_of_color")
 // to avoid to repeating map-get($colors, ...)
 
-@function color-function($color, $type) {
+@function color-function($color, $type: 'base') {
   @if map-has-key($colors, $color) {
     $curr_color: map-get($colors, $color);
     @if map-has-key($curr_color, $type) {

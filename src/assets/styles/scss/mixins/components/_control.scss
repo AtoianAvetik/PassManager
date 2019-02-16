@@ -86,4 +86,12 @@ $control: (
         opacity: 1;
         cursor: default;
     }
+
+    &.-round{
+        border-radius: map-get($control, 'font-size') * 2;
+    }
+
+    &.-square{
+        border-radius: 0;
+    }
 }

@@ -4,3 +4,9 @@
 .shadow { box-shadow: $box-shadow !important; }
 .shadow-lg { box-shadow: $box-shadow-lg !important; }
 .shadow-none { box-shadow: none !important; }
+
+.shadow-z-1{ @include shadow-z-1(); }
+.shadow-z-2{ @include shadow-z-2(); }
+.shadow-z-3{ @include shadow-z-3(); }
+.shadow-z-4{ @include shadow-z-4(); }
+.shadow-z-5{ @include shadow-z-5(); }
