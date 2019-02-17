@@ -153,7 +153,7 @@
         .menu-title{
             margin: 0;
             font-weight: 300;
-            font-size: $font-size-base;
+            font-size: $font-size-sm;
             letter-spacing: 0.6px;
             opacity: 1;
             height: auto;
@@ -223,9 +223,15 @@
     }
     &[data-background-color="primary"]{
         @include set-aside-background(theme-color("primary"));
-        @include set-aside-icon-color($gray-600, theme-color('danger'));
-        @include set-aside-text-color($gray-500, $white);
-        @include set-aside-nav-active-background($blue-gray);
+        @include set-aside-icon-color($gray-200, theme-color('danger'));
+        @include set-aside-text-color($gray-200, $white);
+        @include set-aside-nav-active-background(darken(theme-color("primary"), 5%));
+    }
+    &[data-background-color="blue-dark"]{
+        @include set-aside-background(color("blue-dark"));
+        @include set-aside-icon-color(color-function("blue-dark", 'lighten-2'), theme-color('danger'));
+        @include set-aside-text-color($gray-300, $white);
+        @include set-aside-nav-active-background(color-function("blue-dark", 'darken-3'));
     }
     &[data-background-color="pomegranate"]{
         @include set-aside-gradient-background-color(#9B3cb7, #FF396f);

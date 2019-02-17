@@ -22,5 +22,9 @@ export const Full_ROUTES: Routes = [
     {
         path: 'uikit',
         loadChildren: './pages/ui-kit/ui-kit.module#UIKitModule'
-    }
+    },
+    {
+        path: 'colorpalettes',
+        loadChildren: './pages/color-palette/color-palette.module#ColorPaletteModule'
+    },
 ];

@@ -76,7 +76,7 @@
 		.name {
 			font-size: 15px;
 			font-weight: 600;
-			color: color-function('grey', 'darken-3');
+			color: $gray-800;
 			font-family: $font-family-base;
 		}
 
@@ -109,7 +109,7 @@
 		visibility: hidden;
 		vertical-align: middle;
 		text-align: right;
-		border-color: color-function('grey', 'darken-3');
+		border-color: $gray-800;
 		opacity: 0;
 		display: table-cell;
 		backface-visibility: hidden;
@@ -130,7 +130,7 @@
 		font-size: inherit;
 		cursor: pointer;
 		border: none;
-		//border: 1px solid color-function('grey', 'darken-3');
+		//border: 1px solid $gray-800;
 		//height: 26px;
 		//width: 26px;
 		//border-radius: 2px;

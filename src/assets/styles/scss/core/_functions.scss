@@ -87,6 +87,19 @@
     @return map-get($grays, $key);
 }
 
+// usage: color("name_of_color", "type_of_color")
+// to avoid to repeating map-get($colors-palette, ...)
+
+@function color-function($color, $type: 'base') {
+    @if map-has-key($colors-palette, $color) {
+        $curr_color: map-get($colors-palette, $color);
+        @if map-has-key($curr_color, $type) {
+            @return map-get($curr_color, $type);
+        }
+    }
+    @return null;
+}
+
 // Request a theme color level
 @function theme-color-level($color-name: "primary", $level: 0) {
     $color: theme-color($color-name);

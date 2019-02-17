@@ -24,7 +24,7 @@ import { SmartListControlsService } from '../../smart-list-controls.service';
 			
 			<p>{{ counter }} selected</p>
 			<button mat-icon-button [matMenuTriggerFor]="rootMenu">
-				<button class="btn-grey-card btn-darken-2 btn">Actions</button>
+				<button class="btn-gray-card btn-darken-2 btn">Actions</button>
 				<div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div>
 			</button>
 		</div>

@@ -237,10 +237,6 @@
     margin: auto;
 }
 
-@mixin font-size($size) {
-    font-size: $size;
-}
-
 // border radius
 
 @mixin border-radius($radius:.25em) {
@@ -334,26 +330,5 @@
         &:hover > a{
             background: $color;
         }
-    }
-}
-
-// colors
-
-@mixin set-anchor-color($color) {
-    .navigation {
-        li {
-            a {
-                color: $color;
-            }
-        }
-    }
-}
-
-@mixin set-logo-text-color($color) {
-    .logo-text {
-        color: $color;
-    }
-    .aside-header a.nav-toggle {
-        color: $color;
     }
 }

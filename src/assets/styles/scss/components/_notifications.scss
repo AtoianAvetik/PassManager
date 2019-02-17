@@ -24,50 +24,50 @@
 
 	&.-success {
 		.app-notification_icon {
-			color: color-function('success', 'darken-4');
+			color: darken(theme-color('success'), 15%);
 			background-color: theme-color('success');
 		}
 		.app-notification_title {
 			color: theme-color('success');
 		}
 		.app-notification_progress-bar {
-			background-color: color-function('success', 'darken-4');
+			background-color: darken(theme-color('success'), 15%);
 		}
 	}
 	&.-danger {
 		.app-notification_icon {
-			color:color-function('danger', 'darken-4');
+			color:darken(theme-color('danger'), 15%);
 			background-color: theme-color('danger');
 		}
 		.app-notification_title {
 			color: theme-color('danger');
 		}
 		.app-notification_progress-bar {
-			background-color: color-function('danger', 'darken-4');
+			background-color: darken(theme-color('danger'), 15%);
 		}
 	}
 	&.-info {
 		.app-notification_icon {
-			color: color-function('info', 'darken-4');
+			color: darken(theme-color('info'), 15%);
 			background-color: theme-color('info');
 		}
 		.app-notification_title {
 			color: theme-color('info');
 		}
 		.app-notification_progress-bar {
-			background-color: color-function('info', 'darken-4');
+			background-color: darken(theme-color('info'), 15%);
 		}
 	}
 	&.-warning {
 		.app-notification_icon {
-			color: color-function('warning', 'darken-4');
+			color: darken(theme-color('warning'), 15%);
 			background-color: theme-color('warning');
 		}
 		.app-notification_title {
 			color: theme-color('warning');
 		}
 		.app-notification_progress-bar {
-			background-color: color-function('warning', 'darken-4');
+			background-color: darken(theme-color('warning'), 15%);
 		}
 	}
 
@@ -110,7 +110,7 @@
 		border-radius: 50%;
 		//border: 1px solid $dark;
 		background: transparent;
-		color: color-function('gray', 'lighten-3');
+		color: $gray-300;
 
 		i {
 			display: block;

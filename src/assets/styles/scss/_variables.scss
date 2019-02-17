@@ -8,15 +8,15 @@ $fonts-path: 'assets/fonts';
  Color system
 --------------------------------------*/
 $white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+$gray-100: color-function("gray", lighten-5) !default;
+$gray-200: color-function("gray", lighten-4) !default;
+$gray-300: color-function("gray", lighten-3) !default;
+$gray-400: color-function("gray", lighten-2) !default;
+$gray-500: color-function("gray") !default;
+$gray-600: color-function("gray", darken-1) !default;
+$gray-700: color-function("gray", darken-2) !default;
+$gray-800: color-function("gray", darken-3) !default;
+$gray-900: color-function("gray", darken-4) !default;
 $black: #000 !default;
 
 $grays: () !default;
@@ -35,45 +35,62 @@ $grays: map-merge(
     $grays
 );
 
-$blue: #009DA0 !default;
-$blue-dark: #242939 !default;
-$blue-gray: #1f2433 !default;
-$indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
-$pink: #e83e8c !default;
-$red: #FF586B !default;
-$orange: #fd7e14 !default;
-$yellow: #FF8D60 !default;
-$green: #0CC27E !default;
-$teal: #20c997 !default;
-$cyan: #1CBCD8 !default;
+$red: color-function("red") !default;
+$pink: color-function("pink") !default;
+$purple: color-function("purple") !default;
+$deep-purple: color-function("deep-purple") !default;
+$indigo: color-function("indigo") !default;
+$blue: color-function("blue") !default;
+$light-blue: color-function("light-blue") !default;
+$cyan: color-function("cyan") !default;
+$teal: color-function("teal") !default;
+$green: color-function("green") !default;
+$light-green: color-function("light-green") !default;
+$lime: color-function("lime") !default;
+$yellow: color-function("yellow") !default;
+$amber: color-function("amber") !default;
+$orange: color-function("orange") !default;
+$deep-orange: color-function("deep-orange") !default;
+$brown: color-function("brown") !default;
+$gray: color-function("gray") !default;
+$blue-gray: color-function("blue-gray") !default;
+$dark: color-function("dark") !default;
+$blue-dark: color-function("blue-dark") !default;
 
 $colors: () !default;
 $colors: map-merge(
     (
-        "blue": $blue,
-        "indigo": $indigo,
-        "purple": $purple,
-        "pink": $pink,
         "red": $red,
-        "orange": $orange,
-        "yellow": $yellow,
-        "green": $green,
-        "teal": $teal,
+        "pink": $pink,
+        "purple": $purple,
+        "deep-purple": $deep-purple,
+        "indigo": $indigo,
+        "blue": $blue,
+        "light-blue": $light-blue,
         "cyan": $cyan,
-        "white": $white,
-        "gray": $gray-600,
-        "gray-dark": $gray-800
+        "teal": $teal,
+        "green": $green,
+        "light-green": $light-green,
+        "lime": $lime,
+        "yellow": $yellow,
+        "amber": $amber,
+        "orange": $orange,
+        "deep-orange": $deep-orange,
+        "brown": $brown,
+        "gray": $gray,
+        "blue-gray": $blue-gray,
+        "dark": $dark,
+        "blue-dark": $blue-dark
     ),
     $colors
 );
 
-$primary: $blue-dark !default;
-$secondary: $gray-600 !default;
-$success: $green !default;
-$info: $cyan !default;
-$warning: $yellow !default;
-$danger: $red !default;
+$primary: color-function("primary") !default;
+$secondary: $gray-300 !default;
+$success: color-function("success") !default;
+$info: color-function("info") !default;
+$warning: color-function("warning")  !default;
+$danger: color-function("danger")  !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
 
@@ -81,7 +98,7 @@ $theme-colors: () !default;
 $theme-colors: map-merge(
     (
         primary: $primary,
-        secondary: #868e96,
+        secondary: $secondary,
         success: $success,
         info: $info,
         warning: $warning,
@@ -151,6 +168,8 @@ $sizes: map-merge(
     ),
     $sizes
 );
+// fixed sizes
+$fixed-sizes: 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800;
 
 /*--------------------------------------/
  Body
@@ -279,7 +298,7 @@ $font-family-base: $font-family-sans-serif !default;
 $text-font: $font-family-content;
 $heading-font: $font-family-sans-serif;
 
-$font-size-base: 0.9rem !default; // Assumes the browser default, typically `16px`
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-sm: $font-size-base * .875 !default;
 
@@ -302,8 +321,8 @@ $h6-font-size: $font-size-base !default;
 
 $headings-margin-bottom: $spacer / 2 !default;
 $headings-font-family: null !default;
-$headings-font-weight: 500 !default;
-$headings-line-height: 1.2 !default;
+$headings-font-weight: null !default;
+$headings-line-height: null !default;
 $headings-color: null !default;
 
 $display1-size: 6rem !default;

@@ -3,21 +3,6 @@
 //   Description: Custom color system styles, includes background, border and text colors
 // ================================================================================================
 
-@import "../mixins/colors";
-
-// usage: color("name_of_color", "type_of_color")
-// to avoid to repeating map-get($colors, ...)
-
-@function color-function($color, $type: 'base') {
-  @if map-has-key($colors, $color) {
-    $curr_color: map-get($colors, $color);
-    @if map-has-key($curr_color, $type) {
-      @return map-get($curr_color, $type);
-    }
-  }
-  @return null;
-}
-
 // Color palettes
 @each $gcolor_name, $gcolor in $gradient-colors {
   $start-color : map-get($gcolor, start-color);
@@ -33,7 +18,7 @@
   }
 }
 
-@each $color_name, $color in $colors {
+@each $color_name, $color in $colors-palette {
   @each $color_type, $color_value in $color {
     @if $color_type == "base" {
       .#{$color_name} {

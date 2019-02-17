@@ -2,6 +2,7 @@ import { RouteInfo } from './aside.metadata';
 
 // Aside menu Routes and data
 export const ROUTES: RouteInfo[] = [
+    { path: '/colorpalettes', title: 'Color Palette', icon: 'ft-droplet', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
 	{
 		path: '/components', title: 'Components', icon: 'ft-box', class: 'has-sub', badge: '2', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [
             {
