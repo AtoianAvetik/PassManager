@@ -39,10 +39,30 @@
 .no-border-right   { border-right: 0 !important; }
 
 
-@each $color, $value in $theme-colors {
-  .border-#{$color} {
-    border-color: $value !important;
-  }
+@each $color, $value in if($enable-colors, map-merge($theme-colors, $colors), $theme-colors) {
+    .border-#{$color} {
+        border-color: $value !important;
+    }
+    @each $direction in $directions {
+        .border-#{$direction}-#{$color} {
+            border-#{$direction}-color: $value !important;
+        }
+    }
+}
+
+@if $enable-palettes {
+    @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
+        @each $color_type, $color_value in $color {
+            .border-#{$color_name}.border-#{$color_type} {
+                border-color: $color_value !important;
+            }
+            @each $direction in $directions {
+                .border-#{$direction}-#{$color_name}.border-#{$direction}-#{$color_type} {
+                    border-#{$direction}-color: $color_value !important;
+                }
+            }
+        }
+    }
 }
 
 .border-white {

@@ -1,11 +1,11 @@
 .form-section{
-    color: theme-color('dark');
+    color: color('dark');
     line-height: 3rem;
     font-size: 1.2rem;
     letter-spacing: 0.5px;
     font-weight: 400;
     margin-bottom: 20px;
-    border-bottom: 1px solid theme-color('dark');
+    border-bottom: 1px solid color('dark');
 
     i{
         font-size: 20px;

@@ -24,50 +24,50 @@
 
 	&.-success {
 		.app-notification_icon {
-			color: darken(theme-color('success'), 15%);
-			background-color: theme-color('success');
+			color: darken(theme-color("success"), 15%);
+			background-color: theme-color("success");
 		}
 		.app-notification_title {
-			color: theme-color('success');
+			color: theme-color("success");
 		}
 		.app-notification_progress-bar {
-			background-color: darken(theme-color('success'), 15%);
+			background-color: darken(theme-color("success"), 15%);
 		}
 	}
 	&.-danger {
 		.app-notification_icon {
-			color:darken(theme-color('danger'), 15%);
-			background-color: theme-color('danger');
+			color:darken(theme-color("danger"), 15%);
+			background-color: theme-color("danger");
 		}
 		.app-notification_title {
-			color: theme-color('danger');
+			color: theme-color("danger");
 		}
 		.app-notification_progress-bar {
-			background-color: darken(theme-color('danger'), 15%);
+			background-color: darken(theme-color("danger"), 15%);
 		}
 	}
 	&.-info {
 		.app-notification_icon {
-			color: darken(theme-color('info'), 15%);
-			background-color: theme-color('info');
+			color: darken(theme-color("info"), 15%);
+			background-color: theme-color("info");
 		}
 		.app-notification_title {
-			color: theme-color('info');
+			color: theme-color("info");
 		}
 		.app-notification_progress-bar {
-			background-color: darken(theme-color('info'), 15%);
+			background-color: darken(theme-color("info"), 15%);
 		}
 	}
 	&.-warning {
 		.app-notification_icon {
-			color: darken(theme-color('warning'), 15%);
-			background-color: theme-color('warning');
+			color: darken(theme-color("warning"), 15%);
+			background-color: theme-color("warning");
 		}
 		.app-notification_title {
-			color: theme-color('warning');
+			color: theme-color("warning");
 		}
 		.app-notification_progress-bar {
-			background-color: darken(theme-color('warning'), 15%);
+			background-color: darken(theme-color("warning"), 15%);
 		}
 	}
 

@@ -66,6 +66,22 @@
     border: $card-border-width solid $card-border-color;
 }
 
+@each $color, $value in if($enable-colors, map-merge($theme-colors, $colors), $theme-colors) {
+    .card-outline-#{$color} {
+        @include button-variant($value, $value);
+    }
+}
+
+@if $enable-palettes {
+    @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
+        @each $color_type, $color_value in $color {
+            .card-outline-#{$color_name}.btn-#{$color_type}{
+                @include button-variant($color_value, $color_value);
+            }
+        }
+    }
+}
+
 .card-body {
     // Enable `flex-grow: 1` for decks and groups so that card blocks take up
     // as much space as possible, ensuring footers are aligned to the bottom.

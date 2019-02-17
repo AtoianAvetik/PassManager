@@ -72,7 +72,7 @@
     }
 
     blockquote{
-        border-left: 3px solid rgba(theme-color('dark'), .7);
+        border-left: 3px solid rgba(color('dark'), .7);
         background: rgba(#000, .05);
         padding: 2px 0 2px 20px;
     }
@@ -83,7 +83,7 @@
 
         th{
             font-weight: 600;
-            border-bottom: 1px solid rgba(theme-color('dark'), .7);
+            border-bottom: 1px solid rgba(color('dark'), .7);
         }
     }
 
@@ -92,7 +92,7 @@
     }
 
     a{
-        color: theme-color('primary');
+        color: theme-color("primary");
         cursor: pointer;
         @include underline();
 

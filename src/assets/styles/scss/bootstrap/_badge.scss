@@ -55,8 +55,18 @@
 //
 // Contextual variations (linked badges get darker on :hover).
 
-@each $color, $value in $theme-colors {
+@each $color, $value in if($enable-colors, map-merge($theme-colors, $colors), $theme-colors) {
     .badge-#{$color} {
         @include badge-variant($value);
+    }
+}
+
+@if $enable-palettes {
+    @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
+        @each $color_type, $color_value in $color {
+            .badge-#{$color_name}.badge-#{$color_type} {
+                @include badge-variant($color_value);
+            }
+        }
     }
 }

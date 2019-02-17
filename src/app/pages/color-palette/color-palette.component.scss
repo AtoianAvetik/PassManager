@@ -2,7 +2,7 @@
 @import "../../../assets/styles/globals";
 
 // Color names in palette
-@each $color_name, $color in $colors-palette {
+@each $color_name, $color in map-merge($colors-palettes, $theme-colors-palettes) {
     @each $color_type, $color_value in $color {
         @if $color_type == "base" {
             .bg-#{$color_name} {

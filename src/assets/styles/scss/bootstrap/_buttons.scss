@@ -62,18 +62,40 @@ fieldset:disabled a.btn {
 // Alternate buttons
 //
 
-@each $color, $value in $theme-colors {
-    .btn-#{$color} {
-        @include button-variant($value, $value);
+@if $enable-gradients and $enable-palettes {
+    @each $gcolor_name, $gcolor in $gradient-colors {
+        $start-color : map-get($gcolor, start-color);
+        $end-color : map-get($gcolor, end-color);
+        .btn.#{$gcolor_name}{
+            &:active,
+            &.active{
+                @include gradient-directional($start-color, $end-color);
+            }
+        }
     }
 }
 
-@each $color, $value in $theme-colors {
+@each $color, $value in if($enable-colors, map-merge($theme-colors, $colors), $theme-colors) {
+    .btn-#{$color} {
+        @include button-variant($value, $value);
+    }
     .btn-outline-#{$color} {
         @include button-outline-variant($value);
     }
 }
 
+@if $enable-palettes {
+    @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
+        @each $color_type, $color_value in $color {
+            .btn-#{$color_name}.btn-#{$color_type}{
+                @include button-variant($color_value, $color_value);
+            }
+            .btn-outline-#{$color_name}.btn-outline-#{$color_type}{
+                @include button-outline-variant($color_value);
+            }
+        }
+    }
+}
 
 //
 // Link buttons

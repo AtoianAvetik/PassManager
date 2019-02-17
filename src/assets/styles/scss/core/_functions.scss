@@ -16,7 +16,6 @@
     @return (($line-height-base * $font-size) - $component-height) / 2; // vertical center of line-height
 }
 
-
 @function contrast-color($color, $dark: $contrasted-dark-default, $light: $contrasted-light-default, $threshold: null) {
     @if $threshold {
         // Deprecated in Compass 0.13
@@ -75,36 +74,79 @@
 }
 
 // Retrieve color Sass maps
-@function color($key: "blue") {
-    @return map-get($colors, $key);
+// usage: color("name_of_color", "type_of_color")
+// to avoid to repeating map-get($colors-palettes, ...)
+@function get-color-from-map($map, $key, $type) {
+    @if map-has-key($map, $key) {
+        @if type-of(map-get($map, $key)) == "map" {
+            $curr_map: map-get($map, $key);
+            @if map-has-key($curr_map, $type) {
+                @return map-get($curr_map, $type);
+            }
+        }
+        @else {
+            @return map-get($map, $key);
+        }
+    }
+    @return null;
 }
 
-@function theme-color($key: "primary") {
-    @return map-get($theme-colors, $key);
+@function color($key: "blue", $type: 'base') {
+    @return get-color-from-map($colors-palettes, $key, $type);
+}
+
+@function theme-color($key: "primary", $type: 'base') {
+    @return get-color-from-map($theme-colors-palettes, $key, $type);
 }
 
 @function gray($key: "100") {
     @return map-get($grays, $key);
 }
 
-// usage: color("name_of_color", "type_of_color")
-// to avoid to repeating map-get($colors-palette, ...)
-
-@function color-function($color, $type: 'base') {
-    @if map-has-key($colors-palette, $color) {
-        $curr_color: map-get($colors-palette, $color);
-        @if map-has-key($curr_color, $type) {
-            @return map-get($curr_color, $type);
-        }
-    }
-    @return null;
-}
-
-// Request a theme color level
-@function theme-color-level($color-name: "primary", $level: 0) {
-    $color: theme-color($color-name);
+@function color-level($color, $level: 0, $interval: 10%) {
     $color-base: if($level > 0, $black, $white);
     $level: abs($level);
 
-    @return mix($color-base, $color, $level * $theme-color-interval);
+    @return mix($color-base, $color, $level * $interval);
+}
+
+@function generate-color-map($key, $value) {
+    @return (
+        lighten-5:  color-level($value, -9),
+        lighten-4:  color-level($value, -7),
+        lighten-3:  color-level($value, -5),
+        lighten-2:  color-level($value, -3),
+        lighten-1:  color-level($value, -1.5),
+        base:       $value,
+        darken-1:   color-level($value, 0.6, 8%),
+        darken-2:   color-level($value, 1.7, 8%),
+        darken-3:   color-level($value, 2.8, 8%),
+        darken-4:   color-level($value, 3.9, 8%),
+    );
+}
+
+@function transform-map($map, $fn) {
+    $result: null;
+
+    @if type-of($map) == "map" and type-of(get-function($fn)) == "function" {
+        $keys: map-keys($map);
+        $map-transformed: ();
+
+        @each $key, $value in $map {
+            $map-transformed: map-merge(
+                    $map-transformed,
+                    ($key: call(get-function($fn), $key, $value))
+            );
+        }
+
+        @if type-of($map-transformed) == "map"{
+            $result: $map-transformed;
+        } @else{
+            @warn 'There was an error reversing the order of "#{$map}"';
+        }
+    } @else{
+        @warn '"#{$map}" is not a valid map or "#{$fn}" is not a function';
+    }
+
+    @return $result;
 }

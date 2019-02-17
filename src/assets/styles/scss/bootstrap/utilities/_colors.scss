@@ -1,0 +1,25 @@
+@if $enable-gradients and $enable-palettes {
+    @each $gcolor_name, $gcolor in $gradient-colors {
+        $start-color : map-get($gcolor, start-color);
+        $end-color : map-get($gcolor, end-color);
+        .#{$gcolor_name}{
+            @include gradient-directional($start-color, $end-color);
+        }
+    }
+}
+
+@each $color, $value in if($enable-colors, map-merge($theme-colors, $colors), $theme-colors) {
+    .#{$color} {
+        color: $value !important;
+    }
+}
+
+@if $enable-palettes {
+    @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
+        @each $color_type, $color_value in $color {
+            .#{$color_name}.#{$color_type} {
+                color: $color_value !important;
+            }
+        }
+    }
+}

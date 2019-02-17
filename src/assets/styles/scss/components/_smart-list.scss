@@ -251,7 +251,7 @@
 		border: 2px solid transparent;
 
 		&.-selected {
-			border-color: theme-color('info');
+			border-color: theme-color("info");
 		}
 
 		&:hover, &.-selected, &.-focus {
