@@ -68,7 +68,8 @@ $aside-submenu-link-left-shift: 1rem;
     // Aside color themes
     &[data-background-color="black"]{
         @include set-aside-background($black);
-        @include set-menu-nav-color($white);
+        @include set-aside-icon-color($gray-200, $white);
+        @include set-aside-text-color($gray-200, $white);
         @include set-menu-nav-active-bg-color($gray-900);
 
     }
@@ -86,7 +87,9 @@ $aside-submenu-link-left-shift: 1rem;
     }
     &[data-background-color="pomegranate"]{
         @include set-aside-gradient-background-color(#9B3cb7, #FF396f);
-        @include set-menu-nav-active-bg-color(#FF396f);
+        @include set-aside-icon-color($gray-200, $white);
+        @include set-aside-text-color($gray-200, $white);
+        @include set-menu-nav-active-bg-color(#FF396f, $white);
     }
 }
 
