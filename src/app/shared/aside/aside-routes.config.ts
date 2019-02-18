@@ -3,13 +3,17 @@ import { RouteInfo } from './aside.metadata';
 // Aside menu Routes and data
 export const ROUTES: RouteInfo[] = [
     {
-        path: '/bootstrap', title: 'Bootstrap', icon: 'ft-layers', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-            { path: '/bootstrap/alert', title: 'Alert', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        path: '/base', title: 'Base', icon: 'ft-layers', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+            {
+                path: '/base/components', title: 'Components', icon: '', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+                    { path: '/base/alert', title: 'Alert', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                ]
+            },
         ]
     },
     { path: '/colorpalettes', title: 'Color Palette', icon: 'ft-droplet', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
 	{
-		path: '/components', title: 'Components', icon: 'ft-box', class: 'has-sub', badge: '2', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [
+		path: '/components', title: 'Components', icon: 'ft-box', class: 'has-sub', badge: '2', badgeClass: 'badge badge-pill badge-danger', isExternalLink: false, submenu: [
             {
                 path: '/components/bootstrap', title: 'Bootstrap', icon: '', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
                     { path: '/components/lists', title: 'List', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
@@ -46,7 +50,7 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '/forms', title: 'Forms', icon: 'ft-edit', class: 'has-sub', badge: 'New', badgeClass: 'badge badge-pill badge-primary float-right mr-1 mt-1', isExternalLink: false,
+        path: '/forms', title: 'Forms', icon: 'ft-edit', class: 'has-sub', badge: 'New', badgeClass: 'badge badge-pill badge-primary', isExternalLink: false,
         submenu: [
             {
                 path: '/forms/elements', title: 'Elements', icon: '', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false,

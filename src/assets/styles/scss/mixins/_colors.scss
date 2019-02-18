@@ -10,11 +10,45 @@
     }
 }
 
-@mixin set-logo-text-color($color) {
-    .logo-text {
-        color: $color;
+@mixin set-menu-nav-color($color, $color-hover: $color) {
+    .menu_nav{
+        .menu_link {
+            color: $color;
+
+            &:hover,
+            &.--active,
+            &.open {
+                color: $color-hover;
+            }
+        }
     }
-    .aside-header a.nav-toggle {
-        color: $color;
+}
+
+@mixin set-menu-nav-active-bg-color($color, $right-border: invert($color)) {
+    .menu_nav{
+        .menu_item {
+            &.active-route,
+            &.--active {
+                > .menu_link {
+                    background: $color;
+                }
+            }
+            &.open{
+                > .menu_link {
+                    background: $color;
+                }
+            }
+        }
+
+        .menu_link {
+            &:hover {
+                background: $color;
+            }
+
+            &:before{
+                border-right-color: $right-border;
+                background: $color;
+            }
+        }
     }
 }

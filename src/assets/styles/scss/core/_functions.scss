@@ -12,6 +12,10 @@
   @return $target / $context + 0em;
 }
 
+@function to-rem($size, $base: $font-size-base) {
+    @return $size / $base * 1rem;
+}
+
 @function calc-top($line-height-base, $font-size, $component-height) {
     @return (($line-height-base * $font-size) - $component-height) / 2; // vertical center of line-height
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-import { BootstrapRoutingModule } from './bootstrap-routing.module';
+import { BaseRoutingModule } from './base-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlertComponent } from './alert/alert.component';
 
@@ -10,7 +10,7 @@ import { AlertComponent } from './alert/alert.component';
 @NgModule({
     imports: [
         CommonModule,
-        BootstrapRoutingModule,
+        BaseRoutingModule,
         NgbModule,
     ],
     declarations: [
@@ -18,5 +18,5 @@ import { AlertComponent } from './alert/alert.component';
     ],
     providers: [],
 })
-export class BootstrapModule {
+export class BaseModule {
 }

@@ -1,27 +1,31 @@
 <li
-	[ngClass]="{'open': isOpen, 'active-route': isActiveRoute}"
-	class="{{ menuItem.class }}"
-	[routerLinkActive]="menuItem.submenu.length !== 0 ? '' : '--active'"
-	[routerLinkActiveOptions]="{exact: true}">
-	<a
-		[routerLink]="menuItem.class === '' ? [menuItem.path] : null"
-		*ngIf="!menuItem.isExternalLink; else externalLinkBlock"
-		(click)="menuItem.submenu.length > 0 && onToggleMenu($event)">
-		<i [ngClass]="[menuItem.icon]"></i>
-		<span class="menu-title">{{menuItem.title }}</span>
-		<span *ngIf="menuItem.badge != '' " [ngClass]="[menuItem.badgeClass]">{{menuItem.badge}}</span>
-	</a>
-	<ng-template #externalLinkBlock>
-		<a [href]="[menuItem.path]" target="_blank">
-			<i [ngClass]="[menuItem.icon]"></i>
-			<span class="menu-title">{{menuItem.title }}</span>
-			<span *ngIf="menuItem.badge != '' " [ngClass]="[menuItem.badgeClass]">{{menuItem.badge}}</span>
-		</a>
-	</ng-template>
-	<!-- Next level menu -->
-	<ul class="menu-content" *ngIf="menuItem.submenu.length > 0" [@slide]='isOpen ? "down" : "up"'>
-		<app-navigation-item
-			*ngFor="let menuItem of menuItem.submenu;"
-			[menuItem]="menuItem"></app-navigation-item>
-	</ul>
+    [ngClass]="{'open': isOpen, 'active-route': isActiveRoute}"
+    class="menu_item {{ menuItem.class }}"
+    [routerLinkActive]="menuItem.submenu.length !== 0 ? '' : '--active'"
+    [routerLinkActiveOptions]="{exact: true}">
+    <a class="menu_link"
+        [routerLink]="menuItem.class === '' ? [menuItem.path] : null"
+        *ngIf="!menuItem.isExternalLink; else externalLinkBlock"
+        (click)="menuItem.submenu.length > 0 && onToggleMenu($event)">
+        <i class="menu_link-icon {{ menuItem.icon }}" [ngClass]="{'menu_link-dot': !menuItem.icon}"></i>
+        <span class="menu_link-text"><span>{{ menuItem.title }}</span></span>
+        <span class="menu_link-badge" *ngIf="menuItem.badge != '' " [ngClass]="[menuItem.badgeClass]">{{menuItem.badge}}</span>
+        <i class="menu_link-arrow ft-chevron-right" *ngIf="menuItem.submenu.length > 0"></i>
+    </a>
+    <ng-template #externalLinkBlock>
+        <a [href]="[menuItem.path]" target="_blank">
+            <i [ngClass]="[menuItem.icon]"></i>
+            <span class="menu-title">{{menuItem.title }}</span>
+            <span *ngIf="menuItem.badge != '' " [ngClass]="[menuItem.badgeClass]">{{menuItem.badge}}</span>
+            <i [ngClass]="[menuItem.icon]"></i>
+        </a>
+    </ng-template>
+    <!-- Next level menu -->
+    <div class="menu_submenu">
+        <ul class="menu_subnav" *ngIf="menuItem.submenu.length > 0" [@slide]='isOpen ? "down" : "up"'>
+            <app-navigation-item
+                *ngFor="let menuItem of menuItem.submenu;"
+                [menuItem]="menuItem"></app-navigation-item>
+        </ul>
+    </div>
 </li>

@@ -271,64 +271,27 @@
 }
 
 @mixin set-aside-icon-color($color, $color-hover: darken($color, 5%)) {
-    i { color: $color; }
-
-    .navigation li {
-        &:hover,
-        &.--active,
-        &.open {
-            i { color: $color-hover; }
+    .menu_nav .menu_item {
+        .menu_link {
+            .menu_link-icon { color: $color; }
+            .menu_link-dot:before { background-color: $color; }
         }
 
-        &.has-sub{
-            &.active-route, &.--active {
-                i {
-                    color: $color-hover;
-                }
+        &:hover,
+        &.--active,
+        &.active-route,
+        &.open {
+            > .menu_link {
+                .menu_link-icon { color: $color-hover; }
+                .menu_link-dot:before { background-color: $color-hover; }
             }
         }
     }
 }
 
-@mixin set-aside-text-color($color, $color-hover) {
-    .navigation li {
-        & > a { color: $color; }
+@mixin set-aside-text-color($color, $color-hover: $color) {
+    @include set-menu-nav-color($color, $color-hover);
 
-        &:hover,
-        &.--active,
-        &.open {
-            > a { color: $color-hover; }
-        }
-    }
-
-    .logo-text { color: $color; }
-    .aside-header a.nav-toggle { color: $color; }
-    .aside-header a.nav-close { color: $color; }
-}
-
-@mixin set-aside-nav-active-background($color) {
-    .navigation li {
-        &.has-sub{
-            &.active-route, &.--active {
-                > a {
-                    background: $color;
-                }
-            }
-        }
-        &.open{
-            > a {
-                background: $color;
-            }
-        }
-
-        > a {
-            &:before {
-                background: $color;
-            }
-        }
-
-        &:hover > a{
-            background: $color;
-        }
-    }
+    .aside-header .aside-header_toggle { color: $color; }
+    .aside-header .aside-header_close { color: $color; }
 }

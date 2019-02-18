@@ -39,6 +39,7 @@
     "@ngx-prism/core": "^2.0.1",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "animate.css": "^3.7.0",
     "bootstrap": "^4.3.0",
     "bunnyjs": "^0.14.41",
     "core-js": "^2.5.4",
