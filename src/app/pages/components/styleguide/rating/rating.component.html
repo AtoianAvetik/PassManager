@@ -14,7 +14,7 @@
           <p>Rating directive that will take care of visualising a star rating bar.</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <ngb-rating [(rate)]="currentRate"></ngb-rating>
             <p>Rate: <b>{{currentRate}}</b></p>
           </div>
@@ -31,7 +31,7 @@
           <p>Custom rating template provided as child element</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <ngb-rating [(rate)]="currentRating">
               <ng-template let-fill="fill">
                 <span class="star" [class.filled]="fill === 100">&#9733;</span>
@@ -53,7 +53,7 @@
           <p>Readonly and editable rating events.</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
             <p>Selected: <b>{{selected}}</b> Hovered: <b>{{hovered}}</b>
             </p>
@@ -74,7 +74,7 @@
           <p>NgModel and reactive forms can be used without the 'rate' binding</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
 
             <div class="form-group" [class.has-success]="ctrl.valid" [class.has-danger]="ctrl.invalid">
               <ngb-rating [formControl]="ctrl"></ngb-rating>
@@ -104,7 +104,7 @@
           <p>Custom rating template provided via a variable. Shows fine-grained rating display</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <ng-template #t let-fill="fill">
               <span *ngIf="fill === 100" class="star full">&hearts;</span>
               <span *ngIf="fill === 0" class="star">&hearts;</span>

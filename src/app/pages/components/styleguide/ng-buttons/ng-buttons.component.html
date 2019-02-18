@@ -15,7 +15,7 @@
                     <p>Easily create Bootstrap-style checkbox buttons.</p>
                 </div>
                 <div class="card-body">
-                    <div class="card-block">
+                    <div class="card-section">
                         <div class="btn-group btn-group-toggle">
                             <label class="btn-raised btn-primary" ngbButtonLabel>
                                 <input type="checkbox" ngbButton [(ngModel)]="model.left"> Left (pre-checked)
@@ -43,7 +43,7 @@
                     <p>A value of a checked button is bound to a variable specified via ngModel.</p>
                 </div>
                 <div class="card-body">
-                    <div class="card-block">
+                    <div class="card-section">
                         <form [formGroup]="checkboxGroupForm">
                             <div class="btn-group btn-group-toggle">
                                 <label class="btn-raised btn-primary" ngbButtonLabel>
@@ -73,7 +73,7 @@
                     <h4 class="card-title">Radio buttons</h4>
                 </div>
                 <div class="card-body">
-                    <div class="card-block">
+                    <div class="card-section">
                         <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="modelRadio">
                             <label ngbButtonLabel class="btn-raised btn-primary">
                                 <input ngbButton type="radio" [value]="1"> Left (pre-checked)
@@ -101,7 +101,7 @@
                     <p>A value of a checked button is bound to a variable specified via ngModel.</p>
                 </div>
                 <div class="card-body">
-                    <div class="card-block">
+                    <div class="card-section">
                         <form [formGroup]="radioGroupForm">
                             <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="modelRadioForm">
                                 <label ngbButtonLabel class="btn-raised btn-primary">

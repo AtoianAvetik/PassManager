@@ -27,4 +27,8 @@ export const Full_ROUTES: Routes = [
         path: 'colorpalettes',
         loadChildren: './pages/color-palette/color-palette.module#ColorPaletteModule'
     },
+    {
+        path: 'bootstrap',
+        loadChildren: './pages/bootstrap/bootstrap.module#BootstrapModule'
+    },
 ];

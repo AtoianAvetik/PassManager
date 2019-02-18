@@ -13,7 +13,7 @@
           <h4 class="card-title">Quick and easy popovers</h4>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <button type="button" class="btn btn-outline-primary mr-1 mb-1" placement="right" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
               popoverTitle="Popover on right">
             Popover on right
@@ -48,7 +48,7 @@
             a <code>&lt;template&gt;</code> element.</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <ng-template #popContent>Hello, <b>{{name}}</b>!</ng-template>
             <button type="button" class="btn btn-outline-success btn-sm" [ngbPopover]="popContent" popoverTitle="Fancy content">
             I've got markup and bindings in my popover!
@@ -69,7 +69,7 @@
             <code>triggers</code> property.</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <button type="button" class="btn btn-outline-primary" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave"
               popoverTitle="Pop title">
             Hover over me!
@@ -100,7 +100,7 @@
             its contents (i.e. <code>overflow: hidden</code>).</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <div class="mb-0" style="padding: 20px 0; text-align: center; overflow:hidden">
               <button type="button" class="btn btn-outline-success btn-sm mr-1" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
                 container="body">
@@ -125,7 +125,7 @@
           <p> You can optionally pass in a context when manually triggering a popover.</p>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <ng-template #popContent let-greeting="greeting">{{greeting}}, <b>{{name}}</b>!</ng-template>
             <p>
               How would you like to greet <strong [ngbPopover]="popContent" popoverTitle="Greeting" #x="ngbPopover" triggers="manual">me</strong>?
@@ -152,7 +152,7 @@
           <h4 class="card-title">Popover visibility events</h4>
         </div>
         <div class="card-body">
-          <div class="card-block">
+          <div class="card-section">
             <button type="button" class="btn btn-outline-primary" placement="top" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
               popoverTitle="Popover on top" #popover="ngbPopover">
             Open Popover

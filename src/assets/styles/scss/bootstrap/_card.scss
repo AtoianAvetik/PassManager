@@ -89,18 +89,16 @@
     color: $card-color;
 }
 
-.card-block {
-    padding: $card-spacer-y / 2 $card-spacer-x $card-spacer-y;
-}
-
 .card-title {
-    margin-bottom: $card-spacer-y / 3;
-    text-transform: uppercase;
     letter-spacing: 0.05rem;
+    margin: 0;
+    padding: 0;
+    font-size: $card-title-font-size;
+    font-weight: $card-title-font-weight;
 }
 
 .card-subtitle {
-    margin-top: -$card-spacer-y / 4;
+    margin-top: $card-spacer-y / 4;
     margin-bottom: 0;
 }
 
@@ -119,6 +117,33 @@
 }
 
 //
+// Card section
+//
+
+.card-section {
+    padding: $card-spacer-y $card-spacer-x;
+
+    &_title {
+        display: block;
+        font-size: $card-section-title-font-size;
+        font-weight: $card-section-title-font-weight;
+        padding: 0;
+        margin: 0 0 $card-spacer-y 0;
+    }
+
+    &_content {
+        display: block;
+        padding: 0;
+        margin: 0;
+
+        &.-border {
+            padding: $card-spacer-y $card-spacer-x;
+            border: $card-section-content-border-width solid $card-border-color;
+        }
+    }
+}
+
+//
 // Optional textual caps
 //
 
@@ -127,7 +152,7 @@
     margin-bottom: 0; // Removes the default margin-bottom of <hN>
     color: $card-cap-color;
     background-color: $card-cap-bg;
-    border-bottom: $card-border-default-width solid $card-border-color;
+    border-bottom: $card-header-border-width solid $card-border-color;
 
     &:first-child {
         @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);

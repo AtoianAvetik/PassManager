@@ -1,4 +1,4 @@
-@if $enable-gradients and $enable-palettes {
+@if $gradient-colors {
     @each $gcolor_name, $gcolor in $gradient-colors {
         $start-color : map-get($gcolor, start-color);
         $end-color : map-get($gcolor, end-color);

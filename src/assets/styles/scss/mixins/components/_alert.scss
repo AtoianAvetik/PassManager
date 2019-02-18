@@ -1,13 +1,23 @@
-@mixin alert-variant($background, $border, $color) {
-  color: $color;
-  @include gradient-bg($background);
-  border-color: $border;
+@mixin alert-variant($background, $border, $color: color-yiq($background)) {
+    color: $color;
+    @include gradient-bg($background);
+    border-color: $border;
 
-  hr {
-    border-top-color: darken($border, 5%);
-  }
+    hr {
+        border-top-color: color-yiq($background);
+    }
 
-  .alert-link {
-    color: darken($color, 10%);
-  }
+    .alert-link {
+        color: darken($color, 10%);
+    }
+
+    &[class*="alert-outline-"] {
+        hr {
+            border-top-color: $border;
+        }
+    }
+
+    &.alert-elevate {
+        box-shadow: 0 0 13px 0 rgba(mix($black, $background, 80%),0.2);
+    }
 }
