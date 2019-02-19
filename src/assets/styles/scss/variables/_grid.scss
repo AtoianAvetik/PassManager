@@ -1,8 +1,10 @@
 /*--------------------------------------/
  Grid
 --------------------------------------*/
-$grid-columns: 12 !default;
-$grid-gutter-width-base: 30px !default;
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
     wide: 0px,
@@ -13,6 +15,15 @@ $grid-breakpoints: (
     xl: 1280px
 ) !default;
 
+//@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+//@include _assert-starts-at-zero($grid-breakpoints);
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+$grid-columns: 12 !default;
+$grid-gutter-width-base: 30px !default;
 $grid-gutter-widths: (
     wide: $grid-gutter-width-base,
     xl: $grid-gutter-width-base,
@@ -21,3 +32,13 @@ $grid-gutter-widths: (
     sm: $grid-gutter-width-base / 2,
     xs: $grid-gutter-width-base / 3
 ) !default;
+
+// Set row modifiers
+$row_modifiers: row column start center end around between items-top items-middle items-bottom top middle bottom v-between zero-space clear;
+
+// Custom changes min-width to max-width
+$max-width: true;
+@if $max-width == true{
+    //$grid-breakpoints:  mapReverse($grid-breakpoints);
+    //$grid-gutter-widths:  mapReverse($grid-gutter-widths);
+}
