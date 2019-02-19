@@ -31,4 +31,8 @@ export const Full_ROUTES: Routes = [
         path: 'base',
         loadChildren: './pages/base/base.module#BaseModule'
     },
+    {
+        path: 'angular-material',
+        loadChildren: './pages/angular-material/angular-material.module#AngularMaterialModule'
+    },
 ];

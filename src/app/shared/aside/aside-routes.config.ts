@@ -92,5 +92,6 @@ export const ROUTES: RouteInfo[] = [
 
         ]
     },
+    {   path: '/angular-material', title: 'Angular Material', icon: 'ft-aperture', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     {   path: '/passwords', title: 'Passwords', icon: 'ft-lock', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
 ];
