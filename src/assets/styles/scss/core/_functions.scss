@@ -1,4 +1,3 @@
-
 @function to-number($number) {
 	@return $number / ($number * 0 + 1);
 }
@@ -12,7 +11,7 @@
   @return $target / $context + 0em;
 }
 
-@function to-rem($size, $base: $font-size-base) {
+@function to-rem($size, $base: $font-size-root) {
     @return $size / $base * 1rem;
 }
 
@@ -20,28 +19,30 @@
     @return (($line-height-base * $font-size) - $component-height) / 2; // vertical center of line-height
 }
 
-@function contrast-color($color, $dark: $contrasted-dark-default, $light: $contrasted-light-default, $threshold: null) {
-    @if $threshold {
-        // Deprecated in Compass 0.13
-        @warn "The $threshold argment to contrast-color is no longer needed and will be removed in the next release.";
+@function transform-map($map, $fn) {
+    $result: null;
+
+    @if type-of($map) == "map" and type-of(get-function($fn)) == "function" {
+        $keys: map-keys($map);
+        $map-transformed: ();
+
+        @each $key, $value in $map {
+            $map-transformed: map-merge(
+                    $map-transformed,
+                    ($key: call(get-function($fn), $key, $value))
+            );
+        }
+
+        @if type-of($map-transformed) == "map"{
+            $result: $map-transformed;
+        } @else{
+            @warn 'There was an error reversing the order of "#{$map}"';
+        }
+    } @else{
+        @warn '"#{$map}" is not a valid map or "#{$fn}" is not a function';
     }
 
-    @if $color == null {
-        @return null;
-    } @else {
-        $color-brightness: brightness($color);
-        $dark-text-brightness: brightness($dark);
-        $light-text-brightness: brightness($light);
-        @return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);
-    }
-}
-
-@function brightness($color) {
-    @if type-of($color) == color {
-        @return (red($color) * 0.299 + green($color) * 0.587 + blue($color) * 0.114) / 255 * 100%;
-    } @else {
-        @return unquote("brightness(#{$color})");
-    }
+    @return $result;
 }
 
 // Replace `$search` with `$replace` in `$string`
@@ -62,15 +63,28 @@
     @return $string;
 }
 
+
+/*--------------------------------------/
+ Colors
+--------------------------------------*/
+
+@function brightness($color) {
+    @if type-of($color) == color {
+        @return (red($color) * 0.299 + green($color) * 0.587 + blue($color) * 0.114) / 255 * 100%;
+    } @else {
+        @return unquote("brightness(#{$color})");
+    }
+}
+
 // Color contrast
-@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light, $threshold: $yiq-contrasted-threshold) {
     $r: red($color);
     $g: green($color);
     $b: blue($color);
 
     $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
-    @if ($yiq >= $yiq-contrasted-threshold) {
+    @if ($yiq >= $threshold) {
         @return $dark;
     } @else {
         @return $light;
@@ -107,50 +121,55 @@
     @return map-get($grays, $key);
 }
 
-@function color-level($color, $level: 0, $interval: 10%) {
-    $color-base: if($level > 0, $black, $white);
+// Combination Functions
+@function complement($color, $amount: 180) {
+    $h: hue($color);
+    $s: saturation($color);
+    $l: lightness($color);
+    @return hsl(($h + $amount) % 360, $s, $l);
+}
+
+@function color-level($color, $level: 0, $interval: 10%, $dark: $black, $light: $white) {
+    $color-base: if($level > 0, $dark, $light);
     $level: abs($level);
 
     @return mix($color-base, $color, $level * $interval);
 }
 
-@function generate-color-map($key, $value) {
-    @return (
-        lighten-5:  color-level($value, -9),
-        lighten-4:  color-level($value, -7),
-        lighten-3:  color-level($value, -5),
-        lighten-2:  color-level($value, -3),
-        lighten-1:  color-level($value, -1.5),
-        base:       $value,
-        darken-1:   color-level($value, 0.6, 8%),
-        darken-2:   color-level($value, 1.7, 8%),
-        darken-3:   color-level($value, 2.8, 8%),
-        darken-4:   color-level($value, 3.9, 8%),
-    );
+/*--------------------------------------/
+ Utility functions
+--------------------------------------*/
+//
+// Combine two rgb objects via Multiply
+@function multiply($rgb1, $rgb2, $threshold: $multiply-threshold) {
+    $r1: red($rgb1);
+    $g1: green($rgb1);
+    $b1: blue($rgb1);
+    $r2: red($rgb2);
+    $g2: green($rgb2);
+    $b2: blue($rgb2);
+
+    @return rgb(floor($r1 * $r2 / $threshold),floor($g1 * $g2 / $threshold),floor($b1 * $b2 / $threshold));
 }
 
-@function transform-map($map, $fn) {
-    $result: null;
-
-    @if type-of($map) == "map" and type-of(get-function($fn)) == "function" {
-        $keys: map-keys($map);
-        $map-transformed: ();
-
-        @each $key, $value in $map {
-            $map-transformed: map-merge(
-                    $map-transformed,
-                    ($key: call(get-function($fn), $key, $value))
-            );
-        }
-
-        @if type-of($map-transformed) == "map"{
-            $result: $map-transformed;
-        } @else{
-            @warn 'There was an error reversing the order of "#{$map}"';
-        }
-    } @else{
-        @warn '"#{$map}" is not a valid map or "#{$fn}" is not a function';
-    }
-
-    @return $result;
+@function generate-color-map($key, $value) {
+    $base-accent: complement($value, 270);
+    $base-dark: multiply($value, $value);
+    $base-light: $white;
+    @return (
+        lighten-5:  color-level($value, -8.8, $light: $base-light),
+        lighten-4:  color-level($value, -7, $light: $base-light),
+        lighten-3:  color-level($value, -5, $light: $base-light),
+        lighten-2:  color-level($value, -3, $light: $base-light),
+        lighten-1:  color-level($value, -1.5, $light: $base-light),
+        base:       $value,
+        darken-1:   color-level($value, 1.3, $dark: $base-dark),
+        darken-2:   color-level($value, 3, $dark: $base-dark),
+        darken-3:   color-level($value, 4.6, $dark: $base-dark),
+        darken-4:   color-level($value, 7.5, $dark: $base-dark),
+        accent-1:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 80), 65),
+        accent-2:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 80), 55),
+        accent-3:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 100), 45),
+        accent-4:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 100), 40),
+    );
 }

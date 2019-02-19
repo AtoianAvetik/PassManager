@@ -107,21 +107,11 @@ $theme-colors: map-merge(
         $theme-colors
 );
 
-
 // Shades colors
 $shades: (
     "black": #000000,
     "white": #FFFFFF,
     "transparent": transparent
-);
-
-// Generate colors palettes
-$colors-palettes: transform-map($colors, "generate-color-map");
-$theme-colors-palettes: transform-map($theme-colors, "generate-color-map");
-
-$theme-colors: map-merge(
-        $theme-colors,
-        $shades
 );
 
 // Set a specific jump point for requesting color jumps
@@ -133,3 +123,16 @@ $yiq-contrasted-threshold: 170 !default;
 // Customize the light and dark text colors for use in our YIQ color contrast function.
 $yiq-text-dark: $gray-900 !default;
 $yiq-text-light: $white !default;
+$multiply-threshold: 255;
+
+// Generate colors palettes
+$colors-palettes: transform-map($colors, "generate-color-map");
+$theme-colors-palettes: transform-map($theme-colors, "generate-color-map");
+
+$theme-colors: map-merge(
+        $theme-colors,
+        $shades
+);
+
+// Geadients colors
+@import "gradients";
