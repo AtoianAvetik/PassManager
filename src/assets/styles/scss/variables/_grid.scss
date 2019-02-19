@@ -1,0 +1,23 @@
+/*--------------------------------------/
+ Grid
+--------------------------------------*/
+$grid-columns: 12 !default;
+$grid-gutter-width-base: 30px !default;
+
+$grid-breakpoints: (
+    wide: 0px,
+    xs: 480px,
+    sm: 640px,
+    md: 860px,
+    lg: 1024px,
+    xl: 1280px
+) !default;
+
+$grid-gutter-widths: (
+    wide: $grid-gutter-width-base,
+    xl: $grid-gutter-width-base,
+    lg: $grid-gutter-width-base / 1.5,
+    md: $grid-gutter-width-base / 1.5,
+    sm: $grid-gutter-width-base / 2,
+    xs: $grid-gutter-width-base / 3
+) !default;

@@ -1,0 +1,19 @@
+/*--------------------------------------/
+ Badges
+--------------------------------------*/
+
+$badge-font-size: 85% !default;
+$badge-font-weight: $font-weight-medium !default;
+$badge-padding-y: 6px !default;
+$badge-padding-x: 10px !default;
+$badge-border-radius: $border-radius !default;
+$badge-letter-spacing: 0.3px !default;
+
+$badge-transition: $btn-transition !default;
+$badge-focus-width: $input-btn-focus-width !default;
+
+$badge-pill-padding-x: 6px !default;
+$badge-pill-padding-y: 3px !default;
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$badge-pill-border-radius: 10rem !default;

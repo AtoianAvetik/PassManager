@@ -1,0 +1,135 @@
+/*--------------------------------------/
+ Color system
+--------------------------------------*/
+
+// Gray colors
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$grays: () !default;
+$grays: map-merge(
+        (
+            "100": $gray-100,
+            "200": $gray-200,
+            "300": $gray-300,
+            "400": $gray-400,
+            "500": $gray-500,
+            "600": $gray-600,
+            "700": $gray-700,
+            "800": $gray-800,
+            "900": $gray-900
+        ),
+        $grays
+);
+
+// Base colors
+$red: #F44336;
+$pink: #E91E63;
+$purple: #9C27B0;
+$deep-purple: #673AB7;
+$indigo: #3F51B5;
+$blue: #2196F3;
+$light-blue: #03A9F4;
+$cyan: #00BCD4;
+$teal: #009688;
+$green: #4CAF50;
+$light-green: #8BC34A;
+$lime: #CDDC39;
+$yellow: #ffeb3b;
+$amber: #FFC107;
+$orange: #FF9800;
+$deep-orange: #FF5722;
+$brown: #795548;
+$gray: #9E9E9E;
+$blue-gray: #477084;
+$dark: #3e3e3e;
+$blue-dark: #252838;
+
+$colors: () !default;
+$colors: map-merge(
+        (
+            "red": $red,
+            "pink": $pink,
+            "purple": $purple,
+            "deep-purple": $deep-purple,
+            "indigo": $indigo,
+            "blue": $blue,
+            "light-blue": $light-blue,
+            "cyan": $cyan,
+            "teal": $teal,
+            "green": $green,
+            "light-green": $light-green,
+            "lime": $lime,
+            "yellow": $yellow,
+            "amber": $amber,
+            "orange": $orange,
+            "deep-orange": $deep-orange,
+            "brown": $brown,
+            "gray": $gray,
+            "blue-gray": $blue-gray,
+            "dark": $dark,
+            "blue-dark": $blue-dark
+        ),
+        $colors
+);
+
+// Theme colors
+$primary: #0063ab;
+$success: #1fe0cc;
+$secondary: $gray-100;
+$info: #46a3f5;
+$warning: #f1aa16;
+$danger: #e04276;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+        (
+            primary: $primary,
+            secondary: $secondary,
+            success: $success,
+            info: $info,
+            warning: $warning,
+            danger: $danger,
+            light: $light,
+            dark: $dark
+        ),
+        $theme-colors
+);
+
+
+// Shades colors
+$shades: (
+    "black": #000000,
+    "white": #FFFFFF,
+    "transparent": transparent
+);
+
+// Generate colors palettes
+$colors-palettes: transform-map($colors, "generate-color-map");
+$theme-colors-palettes: transform-map($theme-colors, "generate-color-map");
+
+$theme-colors: map-merge(
+        $theme-colors,
+        $shades
+);
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 170 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: $gray-900 !default;
+$yiq-text-light: $white !default;

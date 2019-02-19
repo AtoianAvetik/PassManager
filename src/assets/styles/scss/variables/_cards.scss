@@ -1,0 +1,36 @@
+/*--------------------------------------/
+ Cards
+--------------------------------------*/
+
+$card-font-size: 1rem !default;
+$card-font-weight: normal !default;
+$card-m-gap-y: 18px !default;
+$card-m-gap-x: 0 !default;
+$card-spacer-y: 1.5rem !default;
+$card-spacer-x: 1.5rem !default;
+$card-border-default-width: 1px !default;
+$card-border-width: 0 !default;
+$card-border-radius: $border-radius !default;
+$card-border-color: rgba($black, .06) !default;
+$card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width}) !default;
+$card-title-font-size: 1.2rem !default;
+$card-title-font-weight: 500 !default;
+$card-header-border-width: 1px !default;
+$card-section-title-font-size: 1.3rem !default;
+$card-section-title-font-weight: 500 !default;
+$card-section-content-border-width: 3px !default;
+$card-cap-bg: transparent !default;
+$card-cap-color: null !default;
+$card-color: null !default;
+$card-bg: $white !default;
+$card-shadow: 0px 0px 12px 0px rgba(63, 89, 105, 0.05) !default;
+
+$card-img-overlay-padding: 1.25rem !default;
+$card-img-overlap-size: 40px !default;
+
+$card-group-margin: $grid-gutter-width-base / 2 !default;
+$card-deck-margin: $card-group-margin !default;
+
+$card-columns-count: 3 !default;
+$card-columns-gap: 1.25rem !default;
+$card-columns-margin: $card-spacer-y !default;

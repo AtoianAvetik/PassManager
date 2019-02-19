@@ -1,0 +1,18 @@
+/*--------------------------------------/
+ Alerts
+--------------------------------------*/
+// Define alert font, colors, border radius, and padding.
+
+$alert-font-size: 1rem !default;
+$alert-font-weight: 300 !default;
+$alert-padding-y: 1rem !default;
+$alert-padding-x: 2rem !default;
+$alert-margin-bottom: 1rem !default;
+$alert-border-radius: $border-radius !default;
+$alert-link-font-weight: $font-weight-bold !default;
+$alert-border-width: $border-width !default;
+$alert-icon-size: 2.4rem !default;
+
+$alert-bg-level: 0 !default;
+$alert-border-level: 0 !default;
+$alert-color-level: 0 !default;
