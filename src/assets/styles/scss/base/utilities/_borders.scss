@@ -53,12 +53,14 @@
 @if $enable-palettes {
     @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
         @each $color_type, $color_value in $color {
-            .border-#{$color_name}.border-#{$color_type} {
-                border-color: $color_value !important;
-            }
-            @each $direction in $directions {
-                .border-#{$direction}-#{$color_name}.border-#{$direction}-#{$color_type} {
-                    border-#{$direction}-color: $color_value !important;
+            @if type-of($color_value) == 'color' {
+                .border-#{$color_name}.border-#{map-get($color-types, $color_type)} {
+                    border-color: $color_value !important;
+                }
+                @each $direction in $directions {
+                    .border-#{$direction}-#{$color_name}.border-#{$direction}-#{map-get($color-types, $color_type)} {
+                        border-#{$direction}-color: $color_value !important;
+                    }
                 }
             }
         }

@@ -64,8 +64,10 @@
 @if $enable-palettes {
     @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
         @each $color_type, $color_value in $color {
-            .badge-#{$color_name}.badge-#{$color_type} {
-                @include badge-variant($color_value);
+            @if type-of($color_value) == 'color' {
+                .badge-#{$color_name}.badge-#{map-get($color-types, $color_type)} {
+                    @include badge-variant($color_value);
+                }
             }
         }
     }

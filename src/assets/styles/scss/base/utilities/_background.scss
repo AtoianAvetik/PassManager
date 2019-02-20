@@ -13,7 +13,9 @@
 @if $enable-palettes {
     @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
         @each $color_type, $color_value in $color {
-            @include bg-variant(".bg-#{$color_name}.bg-#{$color_type}", $color_value);
+            @if type-of($color_value) == 'color' {
+                @include bg-variant(".bg-#{$color_name}.bg-#{map-get($color-types, $color_type)}", $color_value);
+            }
         }
     }
 }

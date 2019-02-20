@@ -81,9 +81,9 @@ $aside-submenu-link-left-shift: 1rem;
     }
     &[data-background-color="blue-dark"]{
         @include set-aside-background(color("blue-dark"));
-        @include set-aside-icon-color(color("blue-dark", 'lighten-1'), theme-color("danger"));
-        @include set-aside-text-color(color("blue-dark", 'lighten-3'), $white);
-        @include set-menu-nav-active-bg-color(color("blue-dark", 'darken-3'), theme-color("danger"));
+        @include set-aside-icon-color(color("blue-dark", 400), theme-color("danger"));
+        @include set-aside-text-color(color("blue-dark", 200), $white);
+        @include set-menu-nav-active-bg-color(color("blue-dark", 800), theme-color("danger"));
     }
     &[data-background-color="pomegranate"]{
         @include set-aside-gradient-background-color(#9B3cb7, #FF396f);

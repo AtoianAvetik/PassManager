@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { AngularMaterialRoutingModule } from './angular-material-routing.module';
 
 import { AngularMaterialComponent } from './angular-material.component';
@@ -14,7 +14,8 @@ import { AngularMaterialComponent } from './angular-material.component';
         ReactiveFormsModule,
         MatInputModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
+        MatButtonModule
     ],
     declarations: [
         AngularMaterialComponent

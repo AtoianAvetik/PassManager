@@ -1,153 +1,153 @@
 // Gradient colors for next use
 $gradient-colors: (
   gradient-indigo-light-blue: (
-    "start-color" : color("indigo", lighten-4 ),
-      "end-color" : color("light-blue", lighten-4 ),
+    "start-color" : color("indigo", 100 ),
+      "end-color" : color("light-blue", 100 ),
   ),
 
   gradient-light-blue-indigo: (
-    "start-color" : color("light-blue", lighten-4 ),
-      "end-color" : color("indigo", lighten-3 ),
+    "start-color" : color("light-blue", 100 ),
+      "end-color" : color("indigo", 200 ),
   ),
 
   gradient-yellow-green: (
-    "start-color" : color("yellow", lighten-1 ),
-      "end-color" : color("green", lighten-1 ),
+    "start-color" : color("yellow", 400 ),
+      "end-color" : color("green", 400 ),
   ),
 
   gradient-orange-deep-orange: (
-    "start-color" : color("orange", lighten-4 ),
-      "end-color" : color("deep-orange", lighten-4 ),
+    "start-color" : color("orange", 100 ),
+      "end-color" : color("deep-orange", 100 ),
   ),
 
   gradient-deep-purple-purple: (
-    "start-color" : color("deep-purple", lighten-4 ),
-      "end-color" : color("purple", lighten-5 ),
+    "start-color" : color("deep-purple", 100 ),
+      "end-color" : color("purple", 50 ),
   ),
 
   gradient-red-pink: (
-    "start-color" : color("red-color", lighten-2 ),
-      "end-color" : color("pink", lighten-3 ),
+    "start-color" : color("red", 300 ),
+      "end-color" : color("pink", 200 ),
   ),
 
   gradient-light-green-amber: (
-    "start-color" : color("light-green", lighten-3 ),
-      "end-color" : color("amber", lighten-5 ),
+    "start-color" : color("light-green", 200 ),
+      "end-color" : color("amber", 50 ),
   ),
 
   gradient-amber-amber: (
-    "start-color" : color("amber", darken-4 ),
-      "end-color" : color("amber", lighten-1 ),
+    "start-color" : color("amber", 900 ),
+      "end-color" : color("amber", 400 ),
   ),
 
   gradient-purple-pink: (
-    "start-color" : color("purple", lighten-1 ),
-      "end-color" : color("pink", lighten-5 ),
+    "start-color" : color("purple", 400 ),
+      "end-color" : color("pink", 50 ),
   ),
 
   gradient-indigo-dark-blue: (
-    "start-color" : color("indigo", darken-1 ),
-      "end-color" : color("light-blue", lighten-2 ),
+    "start-color" : color("indigo", 600 ),
+      "end-color" : color("light-blue", 300 ),
   ),
 
   gradient-teal-cyan: (
-    "start-color" : color("teal", lighten-5 ),
-      "end-color" : color("cyan", lighten-3 ),
+    "start-color" : color("teal", 50 ),
+      "end-color" : color("cyan", 200 ),
   ),
 
   gradient-blue-gray-blue-gray: (
-    "start-color" : color("blue-gray", lighten-4 ),
-      "end-color" : color("blue-gray", darken-1 ),
+    "start-color" : color("blue-gray", 100 ),
+      "end-color" : color("blue-gray", 600 ),
   ),
 
   gradient-cyan-dark-green: (
-    "start-color" : color("cyan", darken-2 ),
-      "end-color" : color("light-green", lighten-2 ),
+    "start-color" : color("cyan", 700 ),
+      "end-color" : color("light-green", 300 ),
   ),
 
   gradient-orange-amber: (
-    "start-color" : color("orange", darken-4 ),
-      "end-color" : color("amber", darken-2 ),
+    "start-color" : color("orange", 900 ),
+      "end-color" : color("amber", 700 ),
   ),
 
   gradient-indigo-blue: (
-    "start-color" : color("indigo", darken-2 ),
-      "end-color" : color("blue", darken-2 ),
+    "start-color" : color("indigo", 700 ),
+      "end-color" : color("blue", 700 ),
   ),
 
   gradient-brown-brown: (
-    "start-color" : color("brown", darken-1 ),
-      "end-color" : color("brown", lighten-4 ),
+    "start-color" : color("brown", 600 ),
+      "end-color" : color("brown", 100 ),
   ),
 
   gradient-blue-gray-blue: (
-    "start-color" : color("blue-gray", darken-4 ),
-      "end-color" : color("blue", lighten-3 ),
+    "start-color" : color("blue-gray", 900 ),
+      "end-color" : color("blue", 200 ),
   ),
 
   gradient-purple-deep-orange: (
-    "start-color" : color("purple", darken-1 ),
-      "end-color" : color("deep-orange", lighten-2 ),
+    "start-color" : color("purple", 600 ),
+      "end-color" : color("deep-orange", 300 ),
   ),
 
   gradient-green-teal: (
-    "start-color" : color("green", darken-1 ),
-      "end-color" : color("teal", lighten-3 ),
+    "start-color" : color("green", 600 ),
+      "end-color" : color("teal", 200 ),
   ),
 
   gradient-purple-light-blue: (
-    "start-color" : color("purple", lighten-2 ),
-      "end-color" : color("light-blue", lighten-2 ),
+    "start-color" : color("purple", 300 ),
+      "end-color" : color("light-blue", 300 ),
   ),
 
   gradient-cyan-cyan: (
-    "start-color" : color("cyan", lighten-2 ),
-      "end-color" : color("cyan", lighten-3 ),
+    "start-color" : color("cyan", 300 ),
+      "end-color" : color("cyan", 200 ),
   ),
 
   gradient-yellow-teal: (
-    "start-color" : color("yellow", lighten-4 ),
-      "end-color" : color("teal", lighten-2 ),
+    "start-color" : color("yellow", 100 ),
+      "end-color" : color("teal", 300 ),
   ),
 
   gradient-purple-deep-purple: (
-    "start-color" : color("purple", darken-2 ),
-      "end-color" : color("deep-purple", lighten-2 ),
+    "start-color" : color("purple", 700 ),
+      "end-color" : color("deep-purple", 300 ),
   ),
 
   gradient-cyan-light-green: (
-    "start-color" : color("cyan", lighten-3 ),
-      "end-color" : color("light-green", lighten-1 ),
+    "start-color" : color("cyan", 200 ),
+      "end-color" : color("light-green", 400 ),
   ),
 
   gradient-purple-amber: (
-    "start-color" : color("purple", lighten-3 ),
-      "end-color" : color("amber", darken-2 ),
+    "start-color" : color("purple", 200 ),
+      "end-color" : color("amber", 700 ),
   ),
 
   gradient-indigo-purple: (
-    "start-color" : color("indigo", darken-2 ),
-      "end-color" : color("purple", darken-2 ),
+    "start-color" : color("indigo", 700 ),
+      "end-color" : color("purple", 700 ),
   ),
 
   gradient-deep-purple-blue: (
-    "start-color" : color("deep-purple", lighten-4 ),
-      "end-color" : color("blue", darken-2 ),
+    "start-color" : color("deep-purple", 100 ),
+      "end-color" : color("blue", 700 ),
   ),
 
   gradient-deep-orange-orange: (
-    "start-color" : color("deep-orange", darken-4 ),
-      "end-color" : color("orange", darken-2 ),
+    "start-color" : color("deep-orange", 900 ),
+      "end-color" : color("orange", 700 ),
   ),
 
   gradient-light-blue-cyan: (
-    "start-color" : color("light-blue", darken-2 ),
-      "end-color" : color("cyan", lighten-1 ),
+    "start-color" : color("light-blue", 700 ),
+      "end-color" : color("cyan", 400 ),
   ),
 
   gradient-blue-indigo: (
-    "start-color" : color("blue", lighten-4 ),
-      "end-color" : color("indigo", darken-1 ),
+    "start-color" : color("blue", 100 ),
+      "end-color" : color("indigo", 600 ),
   ),
 
 

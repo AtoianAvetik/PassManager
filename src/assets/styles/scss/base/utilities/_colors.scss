@@ -17,8 +17,10 @@
 @if $enable-palettes {
     @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
         @each $color_type, $color_value in $color {
-            .#{$color_name}.#{$color_type} {
-                color: $color_value !important;
+            @if type-of($color_value) == 'color' {
+                .#{$color_name}.#{map-get($color-types, $color_type)} {
+                    color: $color_value !important;
+                }
             }
         }
     }

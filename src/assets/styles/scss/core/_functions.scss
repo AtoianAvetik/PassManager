@@ -120,7 +120,7 @@
 // Retrieve color Sass maps
 // usage: color("name_of_color", "type_of_color")
 // to avoid to repeating map-get($colors-palettes, ...)
-@function get-color-from-map($map, $key, $type) {
+@function get-from-map($map, $key, $type) {
     @if map-has-key($map, $key) {
         @if type-of(map-get($map, $key)) == "map" {
             $curr_map: map-get($map, $key);
@@ -135,12 +135,20 @@
     @return null;
 }
 
-@function color($key: "blue", $type: 'base') {
-    @return get-color-from-map($colors-palettes, $key, $type);
+@function color($key: "blue", $type: 500) {
+    @return get-from-map($colors-palettes, $key, $type);
 }
 
-@function theme-color($key: "primary", $type: 'base') {
-    @return get-color-from-map($theme-colors-palettes, $key, $type);
+@function theme-color($key: "primary", $type: 500) {
+    @return get-from-map($theme-colors-palettes, $key, $type);
+}
+
+@function get-contrast($key: "blue", $type: 500) {
+    $curr_map: get-from-map(map-merge($theme-colors-palettes, $colors-palettes), $key, contrast);
+    @if map-has-key($curr_map, $type) {
+        @return map-get($curr_map, $type);
+    }
+    @return null;
 }
 
 @function gray($key: "100") {
@@ -178,24 +186,34 @@
     @return rgb(floor($r1 * $r2 / $threshold),floor($g1 * $g2 / $threshold),floor($b1 * $b2 / $threshold));
 }
 
-@function generate-color-map($key, $value) {
+@function generate-color-palette($key, $value) {
     $base-accent: complement($value, 270);
     $base-dark: multiply($value, $value);
     $base-light: $white;
-    @return (
-        lighten-5:  color-level($value, -8.8, $light: $base-light),
-        lighten-4:  color-level($value, -7, $light: $base-light),
-        lighten-3:  color-level($value, -5, $light: $base-light),
-        lighten-2:  color-level($value, -3, $light: $base-light),
-        lighten-1:  color-level($value, -1.5, $light: $base-light),
-        base:       $value,
-        darken-1:   color-level($value, 1.3, $dark: $base-dark),
-        darken-2:   color-level($value, 3, $dark: $base-dark),
-        darken-3:   color-level($value, 4.6, $dark: $base-dark),
-        darken-4:   color-level($value, 7.5, $dark: $base-dark),
-        accent-1:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 80), 65),
-        accent-2:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 80), 55),
-        accent-3:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 100), 45),
-        accent-4:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 100), 40),
+
+    $palette: (
+       50:  color-level($value, -8.8, $light: $base-light),
+       100:  color-level($value, -7, $light: $base-light),
+       200:  color-level($value, -5, $light: $base-light),
+       300:  color-level($value, -3, $light: $base-light),
+       400:  color-level($value, -1.5, $light: $base-light),
+       500:  $value,
+       600:   color-level($value, 1.3, $dark: $base-dark),
+       700:   color-level($value, 3, $dark: $base-dark),
+       800:   color-level($value, 4.6, $dark: $base-dark),
+       900:   color-level($value, 7.5, $dark: $base-dark),
+       A100:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 80), 65),
+       A200:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 80), 55),
+       A400:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 100), 45),
+       A700:   lighten(saturate(color-level($black, 8.5, $dark: $base-dark), 100), 40),
     );
+    $palette-contrast: ();
+    @each $key, $value in $palette {
+        $palette-contrast: map-merge(
+                $palette-contrast,
+                ($key: color-yiq($value))
+        );
+    }
+
+    @return map-merge($palette, (contrast: $palette-contrast));
 }

@@ -87,11 +87,13 @@ fieldset:disabled a.btn {
 @if $enable-palettes {
     @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
         @each $color_type, $color_value in $color {
-            .btn-#{$color_name}.btn-#{$color_type}{
-                @include button-variant($color_value, $color_value);
-            }
-            .btn-outline-#{$color_name}.btn-outline-#{$color_type}{
-                @include button-outline-variant($color_value);
+            @if type-of($color_value) == 'color' {
+                .btn-#{$color_name}.btn-#{map-get($color-types, $color_type)}{
+                    @include button-variant($color_value, $color_value);
+                }
+                .btn-outline-#{$color_name}.btn-outline-#{map-get($color-types, $color_type)}{
+                    @include button-outline-variant($color_value);
+                }
             }
         }
     }

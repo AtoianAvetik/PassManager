@@ -88,11 +88,13 @@
 @if $enable-palettes {
     @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
         @each $color_type, $color_value in $color {
-            .alert-#{$color_name}.alert-#{$color_type} {
-                @include alert-variant(color-level($color_value, $alert-bg-level), color-level($color_value, $alert-border-level));
-            }
-            .alert-outline-#{$color_name}.alert-outline-#{$color_type} {
-                @include alert-variant($white, color-level($color_value, $alert-bg-level), color-level($color_value, $alert-color-level));
+            @if type-of($color_value) == 'color' {
+                .alert-#{$color_name}.alert-#{map-get($color-types, $color_type)} {
+                    @include alert-variant(color-level($color_value, $alert-bg-level), color-level($color_value, $alert-border-level));
+                }
+                .alert-outline-#{$color_name}.alert-outline-#{map-get($color-types, $color_type)} {
+                    @include alert-variant($white, color-level($color_value, $alert-bg-level), color-level($color_value, $alert-color-level));
+                }
             }
         }
     }

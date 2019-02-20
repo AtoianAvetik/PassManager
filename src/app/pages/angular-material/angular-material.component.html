@@ -1,6 +1,5 @@
 <div class="row">
     <div class="col-6 col-xl-12">
-        <!--begin::Portlet-->
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Form Filed</h3>
@@ -21,6 +20,23 @@
                             <mat-error *ngIf="options.get('fontSize')?.invalid">Min size: 10px</mat-error>
                         </mat-form-field>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Raised Buttons</h3>
+            </div>
+            <div class="card-body">
+                <div class="card-section">
+                    <button mat-raised-button>Basic</button>
+                    <button mat-raised-button color="primary">Primary</button>
+                    <button mat-raised-button color="accent">Accent</button>
+                    <button mat-raised-button color="warn">Warn</button>
+                    <button mat-raised-button disabled>Disabled</button>
+                    <a mat-raised-button routerLink=".">Link</a>
                 </div>
             </div>
         </div>

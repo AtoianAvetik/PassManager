@@ -4,17 +4,21 @@
 // Color names in palette
 @each $color_name, $color in map-merge($colors-palettes, $theme-colors-palettes) {
     @each $color_type, $color_value in $color {
-        @if $color_type == "base" {
-            .bg-#{$color_name} {
-                .hex:before {
-                    content: '#{$color_value}';
+        @if type-of($color_value) == 'color' {
+            @if $color_type == 500 {
+                .bg-#{$color_name} {
+                    color: color-yiq($color_value);
+                    .hex:before {
+                        content: '#{$color_value}';
+                    }
                 }
             }
-        }
-        @else {
-            .bg-#{$color_name}.bg-#{$color_type} {
-                .hex:before {
-                    content: '#{$color_value}';
+            @else {
+                .bg-#{$color_name}.bg-#{map-get($color-types, $color_type)} {
+                    color: color-yiq($color_value);
+                    .hex:before {
+                        content: '#{$color_value}';
+                    }
                 }
             }
         }
@@ -70,26 +74,9 @@
                 }
             }
         }
-        .light-strong{
-            span{
-                color: #fff;
-            }
-        }
-        .dark{
-            span{
-                color: rgba(0,0,0,.87);
-            }
-        }
         span{
-            color: rgba(255,255,255,.87);
             font-size: 14px;
             font-weight: 500;
-            &.light-strong{
-                color: #fff;
-            }
-            &.dark{
-                color: rgba(0,0,0,.87);
-            }
         }
     }
 }

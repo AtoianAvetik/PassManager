@@ -1,74 +1,8 @@
-$app-primary: (
-    50: #e0f1f4,
-    100: #b3dbe4,
-    200: #80c4d2,
-    300: #4dacc0,
-    400: #269ab3,
-    500: #0088a5,
-    600: #00809d,
-    700: #007593,
-    800: #006b8a,
-    900: #005879,
-    A100: #a7e3ff,
-    A200: #74d2ff,
-    A400: #41c2ff,
-    A700: #27baff,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #ffffff,
-    )
-);
-
-$app-secondary: (
-    50: #eae5f0,
-    100: #cabed9,
-    200: #a793c0,
-    300: #8368a6,
-    400: #694793,
-    500: #4e2780,
-    600: #472378,
-    700: #3d1d6d,
-    800: #351763,
-    900: #250e50,
-    A100: #ac87ff,
-    A200: #8854ff,
-    A400: #6521ff,
-    A700: #5308ff,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
-
 @import "../../../../../../node_modules/@angular/material/theming";
 @include mat-core();
-$backoffice-app-primary: mat-palette($app-primary, 600, 500, A400);
-$backoffice-app-accent: mat-palette($app-secondary, 600, 500, A400);
-$backoffice-app-warn: mat-palette($mat-red);
+$backoffice-app-primary: mat-palette(map-get($theme-colors-palettes, 'primary'), 600, 500, A400);
+$backoffice-app-accent: mat-palette(map-get($theme-colors-palettes, 'secondary'), 600, 500, A400);
+$backoffice-app-warn: mat-palette(map-get($theme-colors-palettes, 'danger'));
 $backoffice-app-theme: mat-light-theme($backoffice-app-primary, $backoffice-app-accent, $backoffice-app-warn);
 
 // Include theme styles for core and each component used in your app.
