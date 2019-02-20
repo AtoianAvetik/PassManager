@@ -105,3 +105,11 @@
     // Manually declare to provide an override to the browser default
     @include border-radius($border-radius, 0);
 }
+
+// Button font settings
+@mixin button-font($font-size) {
+    @include font-size($font-size);
+}
+@mixin button-transform($text-transform) {
+    text-transform: $text-transform;
+}

@@ -7,6 +7,9 @@ export const ROUTES: RouteInfo[] = [
             {
                 path: '/base/components', title: 'Components', icon: '', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
                     { path: '/base/alert', title: 'Alert', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                    { path: '/base/badge', title: 'Badge', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                    { path: '/base/breadcrumb', title: 'Breadcrumb', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                    { path: '/base/buttons', title: 'Buttons', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                 ]
             },
         ]
