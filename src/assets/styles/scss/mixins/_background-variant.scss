@@ -5,15 +5,16 @@
 @mixin bg-variant($parent, $color) {
     #{$parent} {
         background-color: $color !important;
+
+        .card-header, .card-footer {
+            background-color: transparent;
+        }
     }
     a#{$parent},
     button#{$parent} {
         @include hover-focus {
             background-color: darken($color, 10%) !important;
         }
-    }
-    .card-header, .card-footer {
-        background-color: transparent;
     }
     input:focus ~ #{$parent} {
         box-shadow: 0 0 0 .075rem #fff, 0 0 0 .21rem $color !important;

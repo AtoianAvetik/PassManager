@@ -1,3 +1,42 @@
+@font-face {
+	font-family: 'feather';
+	src: url('feather.eot?1550777276');
+	src: url('feather.eot?1550777276#iefix') format('embedded-opentype'),
+		 url('feather.svg?1550777276#feather') format('svg'),
+		 url('feather.woff?1550777276') format('woff'),
+		 url('feather.woff?1550777276') format('woff2'),
+		 url('feather.ttf?1550777276') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="ft-"],
+[class*=" ft-"] {
+	display: inline-block;
+	font-size: inherit;
+	text-decoration: inherit;
+	text-rendering: optimizeLegibility;
+	text-transform: none;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+[class^="ft-"]:before,
+[class*=" ft-"]:before {
+	font-family: "feather" !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*----icon classes-----*/
+
 .ft-x:before { content: "\78"; }
 .ft-alert-octagon:before { content: "\E81B"; }
 .ft-alert-circle:before { content: "\E81C"; }

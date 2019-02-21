@@ -16,12 +16,12 @@
 
 @font-face {
     font-family: "LineAwesome";
-    src: url($fonts-path + "/LineAwesome/line-awesome.eot");
-    src: url($fonts-path + "/LineAwesome/line-awesome.eot?#iefix") format("embedded-opentype"),
-    url($fonts-path + "/LineAwesome/line-awesome.woff2") format("woff2"),
-    url($fonts-path + "/LineAwesome/line-awesome.woff") format("woff"),
-    url($fonts-path + "/LineAwesome/line-awesome.ttf") format("truetype"),
-    url($fonts-path + "/LineAwesome/line-awesome.svg#fa") format("svg");
+    src: url($fonts-path + "/LineAwesome/LineAwesome.eot");
+    src: url($fonts-path + "/LineAwesome/LineAwesome.eot?#iefix") format("embedded-opentype"),
+    url($fonts-path + "/LineAwesome/LineAwesome.woff2") format("woff2"),
+    url($fonts-path + "/LineAwesome/LineAwesome.woff") format("woff"),
+    url($fonts-path + "/LineAwesome/LineAwesome.ttf") format("truetype"),
+    url($fonts-path + "/LineAwesome/LineAwesome.svg#fa") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -29,7 +29,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: "LineAwesome";
-        src: url($fonts-path + "/LineAwesome/line-awesome.svg#fa") format("svg");
+        src: url($fonts-path + "/LineAwesome/LineAwesome.svg#fa") format("svg");
     }
 }
 
