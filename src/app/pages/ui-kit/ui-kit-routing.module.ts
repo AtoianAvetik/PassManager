@@ -7,7 +7,6 @@ import { HelperClassesComponent } from './helper-classes/helper-classes.componen
 import { TextUtilitiesComponent } from './text-utilities/text-utilities.component';
 import { FeatherComponent } from './icons/feather/feather.component';
 import { FontAwesomeComponent } from './icons/font-awesome/font-awesome.component';
-import { SimpleLineComponent } from './icons/simple-line/simple-line.component';
 import { LineAwesomeComponent } from './icons/line-awesome/line-awesome.component';
 
 const routes: Routes = [
