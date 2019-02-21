@@ -50,6 +50,16 @@
     }
 }
 
+.btn.btn-elevate {
+    transition: all $btn-elevate-transition ease 0s;
+}
+
+.btn.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
 
 // Future-proof disabling of clicks on `<a>` elements
 a.btn.disabled,
@@ -79,8 +89,16 @@ fieldset:disabled a.btn {
     .btn-#{$color} {
         @include button-variant($value, $value);
     }
+    // Outline buttons
     .btn-outline-#{$color} {
         @include button-outline-variant($value);
+    }
+    // Elevated buttons
+    .btn-#{$color}.btn-elevate {
+        @include button-elevate-variant($value);
+    }
+    .btn-#{$color}.btn-elevate-air {
+        @include btn-elevate-air($btn-elevate-air-shift);
     }
 }
 
@@ -91,8 +109,16 @@ fieldset:disabled a.btn {
                 .btn-#{$color_name}.btn-#{map-get($color-types, $color_type)}{
                     @include button-variant($color_value, $color_value);
                 }
+                // Outline buttons
                 .btn-outline-#{$color_name}.btn-outline-#{map-get($color-types, $color_type)}{
                     @include button-outline-variant($color_value);
+                }
+                // Elevated buttons
+                .btn-#{$color_name}.btn-elevate-#{map-get($color-types, $color_type)} {
+                    @include button-elevate-variant($color_value);
+                }
+                .btn-#{$color_name}.btn-elevate-air-#{map-get($color-types, $color_type)} {
+                    @include btn-elevate-air($btn-elevate-air-shift);
                 }
             }
         }
@@ -163,6 +189,22 @@ fieldset:disabled a.btn {
 }
 
 //
+// Button icon only
+//
+
+.btn.btn-icon {
+    @include button-icon-size($btn-only-icon-size);
+
+    &.btn-lg {
+        @include button-icon-size($btn-only-icon-size-lg);
+    }
+
+    &.btn-sm {
+        @include button-icon-size($btn-only-icon-size-sm);
+    }
+}
+
+//
 // Block button
 //
 
@@ -187,7 +229,12 @@ input[type="button"] {
 
 // Custom round buttons
 .btn-round{
-    border-radius: 2em;
+    border-radius: 2rem;
+}
+
+// Custom square buttons
+.btn-square {
+    border-radius: 0;
 }
 
 //
@@ -195,10 +242,10 @@ input[type="button"] {
 //
 
 .btn-list:not(.btn-group) {
-    margin: 0 -.2rem -1rem;
+    margin: 0 (-$btn-list-x) (-$btn-list-y);
 
     .btn {
-        margin: 0 .2rem 1rem;
+        margin: 0 $btn-list-x $btn-list-y;
     }
 }
 

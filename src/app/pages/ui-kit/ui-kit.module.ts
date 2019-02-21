@@ -10,8 +10,8 @@ import { HelperClassesComponent } from './helper-classes/helper-classes.componen
 import { TextUtilitiesComponent } from './text-utilities/text-utilities.component';
 import { FeatherComponent } from './icons/feather/feather.component';
 import { FontAwesomeComponent } from './icons/font-awesome/font-awesome.component';
-import { SimpleLineComponent } from './icons/simple-line/simple-line.component';
 import { MatchHeightModule } from '../../shared/_directives/match-height.directive';
+import { LineAwesomeComponent } from './icons/line-awesome/line-awesome.component';
 
 ;
 
@@ -30,7 +30,7 @@ import { MatchHeightModule } from '../../shared/_directives/match-height.directi
         TextUtilitiesComponent,
         FeatherComponent,
         FontAwesomeComponent,
-        SimpleLineComponent
+        LineAwesomeComponent
     ]
 })
 export class UIKitModule {

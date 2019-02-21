@@ -8,6 +8,7 @@ import { TextUtilitiesComponent } from './text-utilities/text-utilities.componen
 import { FeatherComponent } from './icons/feather/feather.component';
 import { FontAwesomeComponent } from './icons/font-awesome/font-awesome.component';
 import { SimpleLineComponent } from './icons/simple-line/simple-line.component';
+import { LineAwesomeComponent } from './icons/line-awesome/line-awesome.component';
 
 const routes: Routes = [
     {
@@ -56,13 +57,12 @@ const routes: Routes = [
                 }
             },
             {
-                path: 'simple-line',
-                component: SimpleLineComponent,
+                path: 'line-awesome',
+                component: LineAwesomeComponent,
                 data: {
-                    title: 'Simple Line'
+                    title: 'Line Awesome'
                 }
             },
-
         ]
     }
 ];

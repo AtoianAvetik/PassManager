@@ -1,68 +1,75 @@
-.fonticon-container{
-	> .fonticon-wrap{
-		float: left;
-		width: 60px;
-		height: 60px;
-		line-height: 4.8rem;
-		text-align: center;
-		border-radius: 0.1875rem;
-		margin-right: 1rem;
-		margin-bottom: 1.5rem;
-		> i{
-			font-size: 2.28rem;
-      &.fa{
-			  font-size: 2.28rem !important;
-      }
-			transition: all .2s ease-in-out;
-		}
-		&.youtube{
-			width: 100px;
-		}
-	}
-	&:hover{
-		i{
-			color: theme-color("primary");
-			font-size: 2.9rem;
-			transform: scale(1.3);
-		}
-	}
+.fonticon-container {
+    > .fonticon-wrap {
+        float: left;
+        width: 60px;
+        height: 60px;
+        line-height: 4.8rem;
+        text-align: center;
+        border-radius: 0.1875rem;
+        margin-right: 1rem;
+        margin-bottom: 1.5rem;
 
-	>.fonticon-classname, >.fonticon-unit{
-		display: block;
-    	font-size: 1.5rem;
-	    line-height: 1.2;
-	}
+        > i {
+            font-size: 2.28rem;
 
-	>.fonticon-unit{
-		font-size: 1rem;
-		font-style: italic;
-	}
+            &.fa {
+                font-size: 2.28rem !important;
+            }
+
+            transition: all .2s ease-in-out;
+        }
+
+        &.youtube {
+            width: 100px;
+        }
+    }
+
+    &:hover {
+        i {
+            color: theme-color("primary");
+            font-size: 2.4rem;
+            transform: scale(1.3);
+        }
+    }
+
+    > .fonticon-classname,
+    > .fonticon-unit {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    > .fonticon-unit {
+        font-size: 0.7rem;
+        font-style: italic;
+    }
 }
 
-.notification-dropdown{
-    .noti-list{
+.notification-dropdown {
+    .noti-list {
         position: relative;
         height: 290px;
     }
-    &.dropdown-menu{
+
+    &.dropdown-menu {
         padding: 0;
     }
 
     width: 400px;
 
-    .noti-text{
+    .noti-text {
         color: $gray-600;
         font-size: 90%;
     }
 
-    .dropdown-item:focus, .dropdown-item:hover{
-        i{
+    .dropdown-item:focus, .dropdown-item:hover {
+        i {
             color: theme-color("primary") !important;
         }
     }
 
-    .dropdown-item.active, .dropdown-item:active{
-        i,.noti-title, .noti-text{
+    .dropdown-item.active, .dropdown-item:active {
+        i, .noti-title, .noti-text {
             color: white !important;
         }
     }

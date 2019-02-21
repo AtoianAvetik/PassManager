@@ -1,17 +1,42 @@
+/*!
+ *  LineAwesome 1.1.0 by @icons_8 - https://icons8.com/line-awesome
+ *  License - https://icons8.com/good-boy-license/ (Font: SIL OFL 1.1, CSS: MIT License)
+ *
+ * Made with love by Icons8 [ https://icons8.com/ ] using FontCustom [ https://github.com/FontCustom/fontcustom ]
+ *
+ * Contacts:
+ *    [ https://icons8.com/contact ]
+ *
+ * Follow Icon8 on
+ *    Twitter [ https://twitter.com/icons_8 ]
+ *    Facebook [ https://www.facebook.com/Icons8 ]
+ *    Google+ [ https://plus.google.com/+Icons8 ]
+ *    GitHub [ https://github.com/icons8 ]
+ */
+
 @font-face {
-  font-family: "feather";
-  src: url($fonts-path + '/Feather/feather.eot?'); /* IE9*/
-  src: url($fonts-path + '/Feather/feather.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url($fonts-path + '/Feather/feather.woff?') format('woff'), /* chrome, firefox */
-  url($fonts-path + '/Feather/feather.ttf?') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url($fonts-path + '/Feather/feather.svg?#feather') format('svg'); /* iOS 4.1- */
+    font-family: "LineAwesome";
+    src: url($fonts-path + "/LineAwesome/line-awesome.eot");
+    src: url($fonts-path + "/LineAwesome/line-awesome.eot?#iefix") format("embedded-opentype"),
+    url($fonts-path + "/LineAwesome/line-awesome.woff2") format("woff2"),
+    url($fonts-path + "/LineAwesome/line-awesome.woff") format("woff"),
+    url($fonts-path + "/LineAwesome/line-awesome.ttf") format("truetype"),
+    url($fonts-path + "/LineAwesome/line-awesome.svg#fa") format("svg");
+    font-weight: normal;
+    font-style: normal;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: "LineAwesome";
+        src: url($fonts-path + "/LineAwesome/line-awesome.svg#fa") format("svg");
+    }
+}
 
-
-[class^="ft-"],
-[class*=" ft-"] {
+/* Thanks to http://fontawesome.io @fontawesome and @davegandy */
+.la {
     display: inline-block;
+    font: normal normal normal 16px/1 "LineAwesome";
     font-size: inherit;
     text-decoration: inherit;
     text-rendering: optimizeLegibility;
@@ -20,62 +45,47 @@
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
 }
-
-[class^="ft-"]:before,
-[class*=" ft-"]:before {
-    font-family: "feather" !important;
-    font-style: normal !important;
-    font-weight: normal !important;
-    font-variant: normal !important;
-    text-transform: none !important;
-    speak: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Thanks to http://fontawesome.io @fontawesome and @davegandy */
 /* makes the font 33% larger relative to the icon container */
-.ft-lg {
+.la-lg {
     font-size: 1.33333333em;
     line-height: 0.75em;
     vertical-align: -15%;
 }
-.ft-2x {
+.la-2x {
     font-size: 2em;
 }
-.ft-3x {
+.la-3x {
     font-size: 3em;
 }
-.ft-4x {
+.la-4x {
     font-size: 4em;
 }
-.ft-5x {
+.la-5x {
     font-size: 5em;
 }
-.ft-fw {
+.la-fw {
     width: 1.28571429em;
     text-align: center;
 }
-.ft-ul {
+.la-ul {
     padding-left: 0;
     margin-left: 2.14285714em;
     list-style-type: none;
 }
-.ft-ul > li {
+.la-ul > li {
     position: relative;
 }
-.ft-li {
+.la-li {
     position: absolute;
     left: -2.14285714em;
     width: 2.14285714em;
     top: 0.14285714em;
     text-align: center;
 }
-.ft-li.ft-lg {
+.la-li.la-lg {
     left: -1.85714286em;
 }
-.ft-border {
+.la-border {
     padding: .2em .25em .15em;
     border: solid 0.08em #eeeeee;
     border-radius: .1em;
@@ -92,11 +102,11 @@
 .li.pull-right {
     margin-left: .3em;
 }
-.ft-spin {
-    -webkit-animation: ft-spin 2s infinite linear;
-    animation: ft-spin 2s infinite linear;
+.la-spin {
+    -webkit-animation: la-spin 2s infinite linear;
+    animation: la-spin 2s infinite linear;
 }
-@-webkit-keyframes ft-spin {
+@-webkit-keyframes la-spin {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -106,7 +116,7 @@
         transform: rotate(359deg);
     }
 }
-@keyframes ft-spin {
+@keyframes la-spin {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -116,44 +126,44 @@
         transform: rotate(359deg);
     }
 }
-.ft-rotate-90 {
+.la-rotate-90 {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-.ft-rotate-180 {
+.la-rotate-180 {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
 }
-.ft-rotate-270 {
+.la-rotate-270 {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
     -webkit-transform: rotate(270deg);
     -ms-transform: rotate(270deg);
     transform: rotate(270deg);
 }
-.ft-flip-horizontal {
+.la-flip-horizontal {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
     -webkit-transform: scale(-1, 1);
     -ms-transform: scale(-1, 1);
     transform: scale(-1, 1);
 }
-.ft-flip-vertical {
+.la-flip-vertical {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
     -webkit-transform: scale(1, -1);
     -ms-transform: scale(1, -1);
     transform: scale(1, -1);
 }
-:root .ft-rotate-90,
-:root .ft-rotate-180,
-:root .ft-rotate-270,
-:root .ft-flip-horizontal,
-:root .ft-flip-vertical {
+:root .la-rotate-90,
+:root .la-rotate-180,
+:root .la-rotate-270,
+:root .la-flip-horizontal,
+:root .la-flip-vertical {
     filter: none;
 }
-.ft-stack {
+.la-stack {
     position: relative;
     display: inline-block;
     width: 2em;
@@ -161,21 +171,22 @@
     line-height: 2em;
     vertical-align: middle;
 }
-.ft-stack-1x,
-.ft-stack-2x {
+.la-stack-1x,
+.la-stack-2x {
     position: absolute;
     left: 0;
     width: 100%;
     text-align: center;
 }
-.ft-stack-1x {
+.la-stack-1x {
     line-height: inherit;
 }
-.ft-stack-2x {
+.la-stack-2x {
     font-size: 2em;
 }
-.ft-inverse {
+.la-inverse {
     color: #ffffff;
 }
+
 
 @import "icons";
