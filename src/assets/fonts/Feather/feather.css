@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'feather';
-	src: url('feather.eot?1550777276');
-	src: url('feather.eot?1550777276#iefix') format('embedded-opentype'),
-		 url('feather.svg?1550777276#feather') format('svg'),
-		 url('feather.woff?1550777276') format('woff'),
-		 url('feather.woff?1550777276') format('woff2'),
-		 url('feather.ttf?1550777276') format('truetype');
+	src: url('feather.eot?1550795590');
+	src: url('feather.eot?1550795590#iefix') format('embedded-opentype'),
+		 url('feather.svg?1550795590#feather') format('svg'),
+		 url('feather.woff?1550795590') format('woff'),
+		 url('feather.woff?1550795590') format('woff2'),
+		 url('feather.ttf?1550795590') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -37,8 +37,6 @@
 
 /*----icon classes-----*/
 
-.ft-x:before { content: "\78"; }
-.ft-alert-octagon:before { content: "\E81B"; }
 .ft-alert-circle:before { content: "\E81C"; }
 .ft-activity:before { content: "\E81D"; }
 .ft-alert-triangle:before { content: "\E81E"; }
@@ -152,6 +150,7 @@
 .ft-mail:before { content: "\E88A"; }
 .ft-maximize-:before { content: "\E88B"; }
 .ft-map:before { content: "\E88C"; }
+.ft-minimize:before { content: "\E88D"; }
 .ft-map-pin:before { content: "\E88E"; }
 .ft-menu:before { content: "\E88F"; }
 .ft-message-circle:before { content: "\E890"; }
@@ -256,7 +255,7 @@
 .ft-wifi:before { content: "\E8F3"; }
 .ft-x-square:before { content: "\E8F4"; }
 .ft-wind:before { content: "\E8F5"; }
-.ft-x:before { content: "\78"; }
+.ft-x:before { content: "\E8F6"; }
 .ft-x-circle:before { content: "\E8F7"; }
 .ft-zap:before { content: "\E8F8"; }
 .ft-zoom-in:before { content: "\E8F9"; }
@@ -274,9 +273,37 @@
 .ft-shopping-cart:before { content: "\E905"; }
 .ft-tv:before { content: "\E906"; }
 .ft-wifi-off:before { content: "\E907"; }
-.ft-minimize:before { content: "\E88D"; }
 .ft-maximize:before { content: "\E908"; }
 .ft-gitlab:before { content: "\E909"; }
 .ft-sliders:before { content: "\E90A"; }
 .ft-star-on:before { content: "\E90B"; }
 .ft-heart-on:before { content: "\E90C"; }
+.ft-archive:before { content: "\E90D"; }
+.ft-arrow-down-circle:before { content: "\E90E"; }
+.ft-arrow-up-circle:before { content: "\E90F"; }
+.ft-arrow-left-circle:before { content: "\E910"; }
+.ft-arrow-right-circle:before { content: "\E911"; }
+.ft-bar-chart-line-:before { content: "\E912"; }
+.ft-bar-chart-line:before { content: "\E913"; }
+.ft-book-open:before { content: "\E914"; }
+.ft-code:before { content: "\E915"; }
+.ft-database:before { content: "\E916"; }
+.ft-dollar-sign:before { content: "\E917"; }
+.ft-folder-plus:before { content: "\E918"; }
+.ft-gift:before { content: "\E919"; }
+.ft-folder-minus:before { content: "\E91A"; }
+.ft-git-commit:before { content: "\E91B"; }
+.ft-git-branch:before { content: "\E91C"; }
+.ft-git-pull-request:before { content: "\E91D"; }
+.ft-git-merge:before { content: "\E91E"; }
+.ft-linkedin:before { content: "\E91F"; }
+.ft-hard-drive:before { content: "\E920"; }
+.ft-more-vertical-:before { content: "\E921"; }
+.ft-more-horizontal-:before { content: "\E922"; }
+.ft-rss:before { content: "\E923"; }
+.ft-send:before { content: "\E924"; }
+.ft-shield-off:before { content: "\E925"; }
+.ft-shopping-bag:before { content: "\E926"; }
+.ft-terminal:before { content: "\E927"; }
+.ft-truck:before { content: "\E928"; }
+.ft-zap-off:before { content: "\E929"; }
