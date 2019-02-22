@@ -14,7 +14,7 @@
     font-size: $card-font-size;
     font-weight: $card-font-weight;
     box-shadow: $card-shadow;
-    margin: $card-m-gap-y $card-m-gap-x;
+    margin: 0 $card-m-gap-x $card-m-gap-y;
     @include border-radius($card-border-radius);
 
     .card{
