@@ -1,11 +1,14 @@
+//-------------------------------------------//
 @import "assets/styles/scss/core/functions";
 @import "assets/styles/scss/variables";
 @import "assets/styles/scss/mixins";
-@import "assets/styles/scss/fonts";
+//-------------------------------------------//
 @import "assets/styles/scss/core";
+@import "assets/styles/scss/fonts";
 @import "assets/styles/scss/base";
 @import "assets/styles/scss/components";
 @import "assets/styles/scss/plugins";
+@import "assets/styles/scss/shared";
 
 // Angular material theme
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";

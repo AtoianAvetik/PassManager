@@ -178,6 +178,7 @@
 --------------------------------------*/
 //
 // Combine two rgb objects via Multiply
+//
 @function multiply($rgb1, $rgb2, $threshold: $multiply-threshold) {
     $r1: red($rgb1);
     $g1: green($rgb1);
@@ -219,4 +220,18 @@
     }
 
     @return map-merge($palette, (contrast: $palette-contrast));
+}
+
+//
+// Generate gutters map
+//
+@function gutters-map($base: $base-gutter-width, $wide-k: 1, $xl-k: 1, $lg-k: 1.5, $md-k: 1.5, $sm-k: 1.5, $xs-k: 1.5) {
+    @return (
+        wide: $base / $wide-k,
+        xl: $base / $xl-k,
+        lg: $base / $lg-k,
+        md: $base / $md-k,
+        sm: $base / $sm-k,
+        xs: $base / $xs-k
+    );
 }

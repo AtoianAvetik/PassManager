@@ -131,7 +131,8 @@
 }
 
 // Button icon only
-@mixin button-icon-size($size) {
+@mixin button-icon-size($size, $font-size) {
     width: $size;
     height: $size;
+    @include font-size($font-size);
 }

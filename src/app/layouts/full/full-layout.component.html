@@ -1,5 +1,5 @@
 <div
-	class="wrapper aside-fixed"
+	class="wrapper aside-fixed header-fixed"
 	[ngClass]="{'nav-collapsed':!isNavExpand, 'menu-collapsed':!isMenuExpand}"
 >
     <div
@@ -11,7 +11,8 @@
         <div class="aside-background" style="background-image: url('//assets/img/sidebar-bg/01.jpg');"></div>
     </div>
     <div class="main-panel">
-        <app-navbar></app-navbar>
+        <app-header></app-header>
+        <app-subheader></app-subheader>
         <div class="main-content">
             <div class="content-wrapper">
                 <div class="container-fluid">

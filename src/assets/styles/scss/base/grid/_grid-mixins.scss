@@ -2,16 +2,6 @@
 //
 // Generate semantic grid columns with these mixins.
 
-@mixin make-gutters($gutters: $grid-gutter-widths) {
-  @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint($breakpoint) {
-      $gutter: map-get($gutters, $breakpoint);
-      padding-right: ($gutter / 2);
-      padding-left:  ($gutter / 2);
-    }
-  }
-}
-
 @mixin make-row($gutters: $grid-gutter-widths, $breakpoints: $grid-breakpoints) {
   display: flex;
   flex-wrap: wrap;

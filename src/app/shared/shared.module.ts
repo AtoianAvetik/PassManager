@@ -7,7 +7,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { NotificationModule } from '../components/notifications/notification.module';
 import { PanelModule } from '../components/panels/panel.module';
 
-import { NavbarComponent } from './navbar/navbar.component';
+import { HeaderComponent } from './header/header.component';
+import { SubheaderComponent } from './subheader/subheader.component';
 import { AsideComponent } from './aside/aside.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationItemComponent } from './aside/navigation-item/navigation-item.component';
@@ -16,7 +17,8 @@ import { ModalModule } from '../components/modals/modal.module';
 @NgModule({
     exports: [
         CommonModule,
-        NavbarComponent,
+        HeaderComponent,
+        SubheaderComponent,
         FooterComponent,
         AsideComponent,
         NgbModule,
@@ -34,7 +36,8 @@ import { ModalModule } from '../components/modals/modal.module';
         ModalModule
     ],
     declarations: [
-        NavbarComponent,
+        HeaderComponent,
+        SubheaderComponent,
         FooterComponent,
         AsideComponent,
         NavigationItemComponent

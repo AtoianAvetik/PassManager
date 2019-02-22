@@ -4,22 +4,23 @@
  $grid-breakpoints variables.
 --------------------------------------*/
 
-@mixin media($size){
+@function media-check($size, $breakpoints: $grid-breakpoints) {
+    $media: if(type_of($size) == 'string', map-get($breakpoints, $size), #{$size}px);
+    @return if($media != 0px, $media, null);
+}
 
-	@if type_of($size) == 'string'{
-		$value: map-get($grid-breakpoints, $size);
-		@media screen and (max-width: $value){
-			@content;
-		}
-	} @else{
-		@media screen and (max-width: #{$size}px){
-			@content;
-		}
-	}
+@mixin media($size){
+    $size: media-check($size, $grid-breakpoints);
+    @if $size {
+        @media screen and (max-width: $size){
+            @content;
+        }
+    } @else {
+        @content;
+    }
 }
 
 @mixin media-exact($size){
-
 	@if type_of($size) == 'string'{
 		$value: map-get($grid-breakpoints, $size);
 		@media screen and (width: $value){

@@ -3,6 +3,12 @@
 @import "grid/grid-framework";
 @import "grid/flex";
 
+.container {
+    max-width: $content-container-max-width;
+    margin: 0 auto;
+    @include make-gutters($base-gutters-widths);
+}
+
 // Fluid container
 //
 // Utilizes the mixin meant for fixed width containers, but with 100% width for
@@ -12,9 +18,9 @@
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-
-    @include make-gutters($gutters: $grid-gutter-widths);
+    @include make-gutters($base-gutters-widths);
 }
+
 
 // Row
 //

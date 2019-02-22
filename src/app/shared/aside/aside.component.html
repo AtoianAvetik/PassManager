@@ -6,13 +6,13 @@
         </a>
     </div>
     <div class="aside-header_tools">
-        <a class="aside-header_toggle nav-toggle d-none d-sm-none d-md-none d-lg-block" id="asideToggle" href="javascript:;">
+        <a class="aside-header_toggle nav-toggle d-lg-none" id="asideToggle" href="javascript:;">
             <i
                 (click)="onToggleAside(!isNavExpand)"
                 [ngClass]="[isNavExpand ? 'ft-toggle-right' : 'ft-toggle-left']"
                 class="toggle-icon" data-toggle="expanded"></i>
         </a>
-        <a class="aside-header_close nav-close d-block d-md-block d-lg-none d-xl-none" id="asideClose" href="javascript:;">
+        <a class="aside-header_close nav-close d-none d-lg-block" id="asideClose" href="javascript:;">
             <i
                 (click)="onHideAside()"
                 class="ft-x"></i>

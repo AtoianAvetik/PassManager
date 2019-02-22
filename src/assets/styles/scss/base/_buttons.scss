@@ -193,14 +193,14 @@ fieldset:disabled a.btn {
 //
 
 .btn.btn-icon {
-    @include button-icon-size($btn-only-icon-size);
+    @include button-icon-size($btn-only-icon-size, $btn-only-icon-font-size);
 
     &.btn-lg {
-        @include button-icon-size($btn-only-icon-size-lg);
+        @include button-icon-size($btn-only-icon-size-lg, $btn-only-icon-font-size-lg);
     }
 
     &.btn-sm {
-        @include button-icon-size($btn-only-icon-size-sm);
+        @include button-icon-size($btn-only-icon-size-sm, $btn-only-icon-font-size-sm);
     }
 }
 

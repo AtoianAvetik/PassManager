@@ -1,0 +1,97 @@
+<!-- Header Starts -->
+<nav class="header header-fixed">
+    <div class="header_topbar">
+        <div class="header_topbar-wrapper d-none d-lg-block float-left">
+            <div class="header_topbar-toggler" (click)="toggleAside()">
+                <i class="ft-more-vertical- font-medium-3 blue-gray darken-4"></i>
+            </div>
+        </div>
+        <div class="header_topbar-wrapper">
+            <div class="header_topbar-item d-sm-none">
+                <div class="position-relative has-icon-right">
+                    <input type="text" class="form-control -round" placeholder="Search">
+                    <div class="form-control-position">
+                        <i class="ft-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_topbar">
+        <div class="header_topbar-item">
+            <div class="header_topbar-wrapper" ngbDropdown placement="bottom-right">
+                <span class="header_topbar-icon" id="dropdownBasic2" ngbDropdownToggle>
+                    <i class="ft-bell font-medium-3 blue-gray darken-4"></i>
+                    <span class="badge badge-pill badge-absrt badge-danger">4</span>
+                </span>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class="notification-dropdown">
+                    <perfect-scrollbar class="noti-list">
+                        <a class="dropdown-item noti-container py-3 border-bottom border-bottom-blue-gray border-bottom-lighten-4">
+                            <i class="ft-bell info float-left d-block font-large-1 mt-1 mr-2"></i>
+                            <span class="noti-wrapper">
+                                <span class="noti-title  d-block text-bold-400 info">New Order Received</span>
+                                <span class="noti-text">Lorem ipsum dolor sit ametitaque in, et!</span>
+                            </span>
+                        </a>
+                        <a class="dropdown-item noti-container py-3 border-bottom border-bottom-blue-gray border-bottom-lighten-4">
+                            <i class="ft-bell warning float-left d-block font-large-1 mt-1 mr-2"></i>
+                            <span class="noti-wrapper">
+                                <span class="noti-title  d-block text-bold-400 warning">New User Registered</span>
+                                <span class="noti-text">Lorem ipsum dolor sit ametitaque in </span>
+                            </span>
+                        </a>
+                        <a class="dropdown-item noti-container py-3 border-bottom border-bottom-blue-gray border-bottom-lighten-4">
+                            <i class="ft-bell danger float-left d-block font-large-1 mt-1 mr-2"></i>
+                            <span class="noti-wrapper">
+                                <span class="noti-title  d-block text-bold-400 danger">New Order Received</span>
+                                <span class="noti-text">Lorem ipsum dolor sit ametest?</span>
+                            </span>
+                        </a>
+                        <a class="dropdown-item noti-container py-3">
+                            <i class="ft-bell success float-left d-block font-large-1 mt-1 mr-2"></i>
+                            <span class="noti-wrapper">
+                                <span class="noti-title  d-block text-bold-400 success">New User Registered</span>
+                                <span class="noti-text">Lorem ipsum dolor sit ametnatus aut.</span>
+                            </span>
+                        </a>
+                    </perfect-scrollbar>
+                    <a class="noti-footer primary text-center d-block border-top border-top-blue-gray border-top-lighten-4 text-bold-400 py-1">Read All Notifications</a>
+                </div>
+            </div>
+        </div>
+        <div class="header_topbar-item">
+            <div class="header_topbar-wrapper" ngbDropdown placement="bottom-right">
+                <span class="header_topbar-icon" id="dropdownBasic3" ngbDropdownToggle>
+                    <i class="ft-user font-medium-3 blue-gray darken-4"></i>
+                </span>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+                    <a class="dropdown-item py-1" routerLink="/profile">
+                        <i class="ft-edit mr-2"></i>
+                        <span>My Profile</span>
+                    </a>
+                    <a class="dropdown-item py-1" routerLink="/inbox">
+                        <i class="ft-mail mr-2"></i>
+                        <span>My Inbox</span>
+                    </a>
+                    <a class="dropdown-item py-1" href="javascript:;">
+                        <i class="ft-settings mr-2"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:;" (click)="onLogout()">
+                        <i class="ft-power mr-2"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header_topbar-item">
+            <div class="header_topbar-wrapper">
+                <span class="header_topbar-icon" [openPanel]="'panel-test-4'">
+                    <i class="ft-settings font-medium-3 blue-gray darken-4"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Header Ends -->
