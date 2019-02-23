@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
-import { NotificationService } from '../../../../components/notifications/notification.service';
+import { NotificationService } from '../../../components/notifications/notification.service';
 
 
 @Component({
-    selector: 'app-notifications-page',
-    templateUrl: './notifications-page.component.html',
-    styleUrls: ['./notifications-page.component.scss']
+    selector: 'app-notifications',
+    templateUrl: './notifications.component.html',
+    styleUrls: ['./notifications.component.scss']
 })
 
-export class NotificationsPageComponent {
+export class NotificationsComponent {
     constructor(private _notificationService: NotificationService) {
     }
 

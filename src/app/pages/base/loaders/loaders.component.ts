@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
-import { LoaderService } from '../../../../components/loader/loader.service';
+import { LoaderService } from '../../../components/loader/loader.service';
 
 @Component({
-    selector: 'app-loaders-page',
-    templateUrl: './loaders-page.component.html',
-    styleUrls: ['./loaders-page.component.scss']
+    selector: 'app-loaders',
+    templateUrl: './loaders.component.html',
+    styleUrls: ['./loaders.component.scss']
 })
 
-export class LoadersPageComponent {
+export class LoadersComponent {
     loader;
 
     constructor(private _loaderService: LoaderService) {

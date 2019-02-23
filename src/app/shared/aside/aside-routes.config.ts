@@ -4,7 +4,7 @@ import { RoutesSection } from './aside.metadata';
 export const ROUTES: RoutesSection[] = [
     {
         routes: [
-            { path: '/configurator', title: 'Theme Configurator', icon: 'ft-settings', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/theme-configurator', title: 'Theme Configurator', icon: 'ft-settings', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
         ]
     },
     {
@@ -18,6 +18,26 @@ export const ROUTES: RoutesSection[] = [
                             { path: '/base/badge', title: 'Badge', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                             { path: '/base/breadcrumb', title: 'Breadcrumb', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                             { path: '/base/buttons', title: 'Buttons', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/button-group', title: 'Button Group', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/card', title: 'Card', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/collapse', title: 'Collapse', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/accordions', title: 'Accordions', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/dropdowns', title: 'Dropdowns', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/list-group', title: 'List group', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/modals', title: 'Modals', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/navs', title: 'Navs', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/navbar', title: 'Navbar', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/tabs', title: 'Tabs', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/spinners', title: 'Spinners', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/loaders', title: 'Loaders', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/notifications', title: 'Notifications', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/pagination', title: 'Pagination', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/panels', title: 'Panels', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/popovers', title: 'Popovers', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/progress', title: 'Progress', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/tooltips', title: 'Tooltips', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/scrollspy', title: 'Scrollspy', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/tables', title: 'Tables', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                         ]
                     },
                 ]
@@ -25,11 +45,6 @@ export const ROUTES: RoutesSection[] = [
             { path: '/colorpalettes', title: 'Color Palette', icon: 'ft-droplet', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
             {
                 path: '/components', title: 'Components', icon: 'ft-box', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-                    { path: '/components/panels-page', title: 'Panels', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-                    { path: '/components/loaders-page', title: 'Loaders', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-                    { path: '/components/notifications-page', title: 'Notifications', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-                    { path: '/components/modals-page', title: 'Modals', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-                    { path: '/components/accordion-page', title: 'Accordion', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                     { path: '/components/smart-list-page', title: 'Smart list', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                     { path: '/components/smart-folders-page', title: 'Smart folders', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] }
                 ]

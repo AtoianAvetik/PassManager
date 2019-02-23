@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PanelsPageComponent } from './extra/panels-page/panels-page.component';
-import { LoadersPageComponent } from './extra/loaders-page/loaders-page.component';
-import { NotificationsPageComponent } from './extra/notifications-page/notifications-page.component';
-import { ModalsPageComponent } from './extra/modals-page/modals-page.component';
-import { AccordionPageComponent } from './extra/accordion-page/accordion-page.component';
+import { PanelsComponent } from '../base/panels/panels.component';
+import { LoadersComponent } from '../base/loaders/loaders.component';
+import { NotificationsComponent } from '../base/notifications/notifications.component';
+import { ModalsComponent } from '../base/modals/modals.component';
+import { AccordionsComponent } from '../base/accordions/accordions.component';
 import { SmartListPageComponent } from './extra/smart-list-page/smart-list-page.component';
 import { SmartFoldersPageComponent } from './extra/smart-folders-page/smart-folders-page.component';
 import { ButtonsComponent } from './styleguide/buttons/buttons.component';
@@ -27,35 +27,35 @@ const routes: Routes = [
         children: [
             {
                 path: 'panels-page',
-                component: PanelsPageComponent,
+                component: PanelsComponent,
                 data: {
                     title: 'Panels'
                 }
             },
             {
                 path: 'loaders-page',
-                component: LoadersPageComponent,
+                component: LoadersComponent,
                 data: {
                     title: 'Loaders'
                 }
             },
             {
                 path: 'notifications-page',
-                component: NotificationsPageComponent,
+                component: NotificationsComponent,
                 data: {
                     title: 'Notifications'
                 }
             },
             {
                 path: 'modals-page',
-                component: ModalsPageComponent,
+                component: ModalsComponent,
                 data: {
                     title: 'Modals'
                 }
             },
             {
                 path: 'accordion-page',
-                component: AccordionPageComponent,
+                component: AccordionsComponent,
                 data: {
                     title: 'Accordion'
                 }

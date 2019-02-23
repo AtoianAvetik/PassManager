@@ -4,19 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ComponentsRoutingModule } from './components-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PanelModule } from '../../components/panels/panel.module';
-import { LoaderModule } from '../../components/loader/loader.module';
-import { NotificationModule } from '../../components/notifications/notification.module';
 import { PrismModule } from '@ngx-prism/core';
-import { ModalModule } from '../../components/modals/modal.module';
 import { SmartListModule } from '../../components/smart-list/smart-list.module';
 import { SmartFoldersModule } from '../../components/smart-folders/smart-folders.module';
-import { AccordionModule } from '../../components/accordion/accordion.module';
-import { PanelsPageComponent } from './extra/panels-page/panels-page.component';
-import { LoadersPageComponent } from './extra/loaders-page/loaders-page.component';
-import { AccordionPageComponent } from './extra/accordion-page/accordion-page.component';
-import { ModalsPageComponent } from './extra/modals-page/modals-page.component';
-import { NotificationsPageComponent } from './extra/notifications-page/notifications-page.component';
 import { SmartListPageComponent } from './extra/smart-list-page/smart-list-page.component';
 import { SmartFoldersPageComponent } from './extra/smart-folders-page/smart-folders-page.component';
 import { ButtonsComponent } from './styleguide/buttons/buttons.component';
@@ -37,24 +27,14 @@ import { NgButtonsComponent } from './styleguide/ng-buttons/ng-buttons.component
     imports: [
         CommonModule,
         ComponentsRoutingModule,
-        PanelModule,
-        LoaderModule,
         NgbModule,
-        NotificationModule,
-        ModalModule,
         PrismModule,
-        AccordionModule,
         SmartListModule,
         SmartFoldersModule,
         FormsModule,
         ReactiveFormsModule
     ],
     declarations: [
-        PanelsPageComponent,
-        LoadersPageComponent,
-        NotificationsPageComponent,
-        ModalsPageComponent,
-        AccordionPageComponent,
         SmartListPageComponent,
         SmartFoldersPageComponent,
         ButtonsComponent,

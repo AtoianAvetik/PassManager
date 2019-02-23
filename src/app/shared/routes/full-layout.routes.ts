@@ -35,4 +35,8 @@ export const Full_ROUTES: Routes = [
         path: 'angular-material',
         loadChildren: './pages/angular-material/angular-material.module#AngularMaterialModule'
     },
+    {
+        path: 'theme-configurator',
+        loadChildren: './pages/theme-configurator/theme-configurator.module#ThemeConfiguratorModule'
+    },
 ];
