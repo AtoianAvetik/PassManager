@@ -36,7 +36,22 @@
     }
 }
 
+
 .btn-group {
+    // Rounded corners group
+    &.btn-round > .btn,
+    &.btn-round > .dropdown:nth-child(1) > .btn {
+        &:nth-of-type(1) {
+            @include border-left-radius(2rem);
+        }
+    }
+    &.btn-round > .btn,
+    &.btn-round > .dropdown:nth-last-child(1) > .btn {
+        &:nth-last-of-type(1) {
+            @include border-right-radius(2rem);
+        }
+    }
+
     // Prevent double borders when buttons are next to each other
     > .btn:not(:first-child),
     > .btn-group:not(:first-child),
@@ -46,32 +61,15 @@
 
     // Reset rounded corners
     > .btn:not(:last-child):not(.dropdown-toggle),
-    > .btn-group:not(:last-child) > .btn {
+    > .btn-group:not(:last-child) > .btn,
+    > .dropdown:not(:last-child) > .btn {
         @include border-right-radius(0);
     }
 
     > .btn:not(:first-child),
-    > .btn-group:not(:first-child) > .btn {
+    > .btn-group:not(:first-child) > .btn,
+    > .dropdown:not(:first-child) > .btn {
         @include border-left-radius(0);
-    }
-
-    // Reset rounded corners in btn-group with dropdowns
-    > .dropdown {
-        &:first-child:not(:last-child) {
-            .btn.dropdown-toggle{
-                @include border-right-radius(0);
-            }
-        }
-        &:last-child:not(:first-child) {
-            .btn.dropdown-toggle{
-                @include border-left-radius(0);
-            }
-        }
-        &:not(:last-child):not(:first-child) {
-            .btn.dropdown-toggle{
-                border-radius: 0;
-            }
-        }
     }
 }
 
@@ -145,18 +143,21 @@
     }
 
     > .btn:not(:first-child),
-    > .btn-group:not(:first-child) {
+    > .btn-group:not(:first-child),
+    > .dropdown:not(:first-child) {
         margin-top: -$btn-border-width;
     }
 
     // Reset rounded corners
     > .btn:not(:last-child):not(.dropdown-toggle),
-    > .btn-group:not(:last-child) > .btn {
+    > .btn-group:not(:last-child) > .btn,
+    > .dropdown:not(:last-child) > .btn {
         @include border-bottom-radius(0);
     }
 
     > .btn:not(:first-child),
-    > .btn-group:not(:first-child) > .btn {
+    > .btn-group:not(:first-child) > .btn,
+    > .dropdown:not(:first-child) > .btn {
         @include border-top-radius(0);
     }
 }

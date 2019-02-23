@@ -1,10 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PanelsComponent } from '../base/panels/panels.component';
-import { LoadersComponent } from '../base/loaders/loaders.component';
-import { NotificationsComponent } from '../base/notifications/notifications.component';
-import { ModalsComponent } from '../base/modals/modals.component';
-import { AccordionsComponent } from '../base/accordions/accordions.component';
 import { SmartListPageComponent } from './extra/smart-list-page/smart-list-page.component';
 import { SmartFoldersPageComponent } from './extra/smart-folders-page/smart-folders-page.component';
 import { ButtonsComponent } from './styleguide/buttons/buttons.component';
@@ -25,41 +20,6 @@ const routes: Routes = [
     {
         path: '',
         children: [
-            {
-                path: 'panels-page',
-                component: PanelsComponent,
-                data: {
-                    title: 'Panels'
-                }
-            },
-            {
-                path: 'loaders-page',
-                component: LoadersComponent,
-                data: {
-                    title: 'Loaders'
-                }
-            },
-            {
-                path: 'notifications-page',
-                component: NotificationsComponent,
-                data: {
-                    title: 'Notifications'
-                }
-            },
-            {
-                path: 'modals-page',
-                component: ModalsComponent,
-                data: {
-                    title: 'Modals'
-                }
-            },
-            {
-                path: 'accordion-page',
-                component: AccordionsComponent,
-                data: {
-                    title: 'Accordion'
-                }
-            },
             {
                 path: 'smart-list-page',
                 component: SmartListPageComponent,
