@@ -5,8 +5,8 @@
 // Custom styles for additional flex alignment options.
 
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  @include media-breakpoint($breakpoint) {
+    $infix: media-breakpoint-infix($breakpoint, $grid-breakpoints);
 
     .flex#{$infix}-row            { flex-direction: row !important; }
     .flex#{$infix}-column         { flex-direction: column !important; }

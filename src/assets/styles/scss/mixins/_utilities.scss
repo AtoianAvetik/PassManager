@@ -239,10 +239,9 @@
 
 // gutters
 
-@mixin make-gutters($gutters: $base-gutters-widths) {
-    @each $breakpoint in map-keys($gutters) {
-        @include media($breakpoint) {
-            $gutter: map-get($gutters, $breakpoint);
+@mixin make-gutters($gutters: $container-gutters-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $gutter in $gutters {
+        @include media-breakpoint($breakpoint, $breakpoints) {
             padding-right: ($gutter / 2);
             padding-left:  ($gutter / 2);
         }

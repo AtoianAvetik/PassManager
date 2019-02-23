@@ -33,7 +33,7 @@
 form {
     &.form-horizontal{
         .form-group{
-            @include media-breakpoint-up(sm) {
+            @include media-min(sm) {
                 .form-label{
                     text-align: right;
                 }

@@ -144,11 +144,10 @@
 // where your navbar collapses.
 .navbar-expand {
     @each $breakpoint in map-keys($grid-breakpoints) {
-        $next: breakpoint-next($breakpoint, $grid-breakpoints);
-        $infix: breakpoint-infix($next, $grid-breakpoints);
+        $infix: media-breakpoint-infix($breakpoint, $grid-breakpoints);
 
         &#{$infix} {
-            @include media-breakpoint-down($breakpoint) {
+            @include media($breakpoint) {
                 > .container,
                 > .container-fluid {
                     padding-right: 0;
@@ -156,7 +155,7 @@
                 }
             }
 
-            @include media-breakpoint-up($next) {
+            @include media-min($breakpoint) {
                 flex-flow: row nowrap;
                 justify-content: flex-start;
 

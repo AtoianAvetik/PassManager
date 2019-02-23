@@ -19,19 +19,36 @@
     @return (($line-height-base * $font-size) - $component-height) / 2; // vertical center of line-height
 }
 
-@function mapReverse ($map) {
+@function contains($list, $var) {
+    @return (null != index($list, $var));
+}
+
+@function reverse-map($map, $excluded: ()) {
     $result: null;
 
     @if type-of($map) == "map"{
         $keys: map-keys($map);
         $map-reversed: ();
+        $map-excluded: ();
 
         @for $i from length($keys) through 1{
-            $map-reversed: map-merge(
-                    $map-reversed,
-                    (nth($keys, $i): map-get($map, nth($keys, $i)))
-            );
+            @if contains($excluded, nth($keys, $i)) {
+                $map-excluded: map-merge(
+                        $map-excluded,
+                        (nth($keys, $i): map-get($map, nth($keys, $i)))
+                );
+            } @else {
+                $map-reversed: map-merge(
+                        $map-reversed,
+                        (nth($keys, $i): map-get($map, nth($keys, $i)))
+                );
+            }
         }
+
+        $map-reversed: map-merge(
+                $map-excluded,
+                $map-reversed
+        );
 
         @if type-of($map-reversed) == "map"{
             $result: $map-reversed;
@@ -225,8 +242,8 @@
 //
 // Generate gutters map
 //
-@function gutters-map($base: $base-gutter-width, $wide-k: 1, $xl-k: 1, $lg-k: 1.5, $md-k: 1.5, $sm-k: 1.5, $xs-k: 1.5) {
-    @return (
+@function gutters-map($base: $container-gutter-width-base, $wide-k: 1, $xl-k: 1, $lg-k: 1.5, $md-k: 1.5, $sm-k: 1.5, $xs-k: 1.5) {
+    $map: (
         wide: $base / $wide-k,
         xl: $base / $xl-k,
         lg: $base / $lg-k,
@@ -234,4 +251,5 @@
         sm: $base / $sm-k,
         xs: $base / $xs-k
     );
+    @return $map;
 }

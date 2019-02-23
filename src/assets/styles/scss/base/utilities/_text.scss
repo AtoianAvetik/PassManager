@@ -16,8 +16,8 @@
 // Responsive alignment
 
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  @include media-breakpoint($breakpoint) {
+    $infix: media-breakpoint-infix($breakpoint, $grid-breakpoints);
 
     .text#{$infix}-left   { text-align: left !important; }
     .text#{$infix}-right  { text-align: right !important; }

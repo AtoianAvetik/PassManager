@@ -4,13 +4,31 @@
  $grid-breakpoints variables.
 --------------------------------------*/
 
-@function media-check($size, $breakpoints: $grid-breakpoints) {
+// Breakpoint width. Null for the largest/smallest (first) breakpoint.
+//
+//    >> media-breakpoint-max(sm, (wide: 0px, xl: 1280px, lg: 1024px, md: 860px, sm: 640px, xs: 480px))
+//    640px
+//    >> media-breakpoint-max(wide, (wide: 0px, xl: 1280px, lg: 1024px, md: 860px, sm: 640px, xs: 480px))
+//    null
+@function media-breakpoint($size, $breakpoints: $grid-breakpoints) {
     $media: if(type_of($size) == 'string', map-get($breakpoints, $size), #{$size}px);
     @return if($media != 0px, $media, null);
 }
 
-@mixin media($size){
-    $size: media-check($size, $grid-breakpoints);
+// Returns a blank string if largest/smallest breakpoint, otherwise returns the name with a dash infront.
+// Useful for making responsive utilities.
+//
+//    >> media-infix(wide, (wide: 0px, xl: 1280px, lg: 1024px, md: 860px, sm: 640px, xs: 480px))
+//    ""  (Returns a blank string)
+//    >> media-infix(sm, (wide: 0px, xl: 1280px, lg: 1024px, md: 860px, sm: 640px, xs: 480px))
+//    "-sm"
+@function media-breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+    @return if(media-breakpoint($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+
+@mixin media($size, $breakpoints: $grid-breakpoints){
+    $size: media-breakpoint($size, $breakpoints);
     @if $size {
         @media screen and (max-width: $size){
             @content;
@@ -20,36 +38,31 @@
     }
 }
 
-@mixin media-exact($size){
-	@if type_of($size) == 'string'{
-		$value: map-get($grid-breakpoints, $size);
-		@media screen and (width: $value){
-			@content;
-		}
-	} @else{
-		@media screen and (width: #{$size}px){
-			@content;
-		}
-	}
+@mixin media-min($size, $breakpoints: $grid-breakpoints){
+    $size: media-breakpoint($size, $breakpoints);
+    @if $size {
+        @media (min-width: $size + 1px) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
 }
 
-@mixin media-min($size){
-
-	@if type_of($size) == 'string'{
-		$value: map-get($grid-breakpoints, $size);
-		@media screen and (min-width: $value + 1px){
-			@content;
-		}
-	} @else{
-		@media screen and (min-width: #{$size}px + 1px){
-			@content;
-		}
-	}
+@mixin media-exact($size, $breakpoints: $grid-breakpoints){
+    $size: media-breakpoint($size, $breakpoints);
+    @if $size {
+        @media screen and (width: $size) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
 }
 
-@mixin media-range($min-size, $max-size) {
-	$min-value: map-get($grid-breakpoints, $min-size);
-	$max-value: map-get($grid-breakpoints, $max-size);
+@mixin media-range($min-size, $max-size, $breakpoints: $grid-breakpoints) {
+	$min-value: media-breakpoint($min-size, $breakpoints);
+	$max-value: media-breakpoint($max-size, $breakpoints);
 
 	@if $min-value != null and $max-value != null {
 		@media (max-width: $max-value) and (min-width: $min-value + 1px) {
@@ -63,9 +76,17 @@
 		@media (max-width: $max-value) and (min-width: #{$min-size}px + 1px) {
 			@content;
 		}
-	} @else {
-		@media (max-width: #{$max-size}px) and (min-width: #{$min-size}px + 1px) {
-			@content;
-		}
 	}
+}
+
+@mixin media-breakpoint($name, $breakpoints: $grid-breakpoints) {
+    @if $min-width == true {
+        @include media-min($name, $breakpoints) {
+            @content;
+        };
+    } @else {
+        @include media($name, $breakpoints) {
+            @content;
+        };
+    }
 }

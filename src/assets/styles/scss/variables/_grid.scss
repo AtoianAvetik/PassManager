@@ -15,13 +15,26 @@ $grid-breakpoints: (
     xs: 480px
 ) !default;
 
-//@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-//@include _assert-starts-at-zero($grid-breakpoints);
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
 
+$container-max-widths: (
+    wide: 1280px,
+    xl: 1280px,
+    lg: 1280px,
+    md: 1280px,
+    sm: 1280px,
+    xs: 1280px,
+) !default;
+
+$container-gutter-width-base: 50px !default;
+$container-gutters-widths: gutters-map($container-gutter-width-base) !default;
 
 // Grid columns
 //
 // Set the number of columns and specify the width of the gutters.
+
 $grid-columns: 12 !default;
 $grid-gutter-width-base: 30px !default;
 $grid-gutter-widths: gutters-map($grid-gutter-width-base) !default;
@@ -29,9 +42,19 @@ $grid-gutter-widths: gutters-map($grid-gutter-width-base) !default;
 // Set row modifiers
 $row_modifiers: row column start center end around between items-top items-middle items-bottom top middle bottom v-between zero-space clear;
 
-// Custom changes min-width to max-width
-$max-width: true;
-@if $max-width == true{
-    //$grid-breakpoints:  mapReverse($grid-breakpoints);
-    //$grid-gutter-widths:  mapReverse($grid-gutter-widths);
+// Create maps for media min
+// use in custom min-width loops
+$grid-breakpoints-min:  reverse-map($grid-breakpoints, ('wide'));
+$grid-gutter-widths-min:  reverse-map($grid-gutter-widths, ('wide'));
+$container-max-widths-min:  reverse-map($container-max-widths, ('wide'));
+$container-gutters-widths-min:  reverse-map($container-gutters-widths, ('wide'));
+
+// Custom changes max-width to min-width
+// change maps for loops
+$min-width: false;
+@if $min-width {
+    $grid-breakpoints:  $grid-breakpoints-min;
+    $grid-gutter-widths:  $grid-gutter-widths-min;
+    $container-max-widths:  $container-max-widths-min;
+    $container-gutters-widths:  $container-gutters-widths-min;
 }
