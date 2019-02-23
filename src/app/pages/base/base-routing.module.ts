@@ -6,7 +6,8 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { BadgeComponent } from './badge/badge.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ButtonGroupComponent } from './button-group/button-group.component';
-import { CardComponent } from './card/card.component';
+import { BasicCardsComponent } from './cards/basic/basic-cards.component';
+import { AdvancedCardsComponent } from './cards/advanced/advanced-cards.component';
 import { CollapseComponent } from './collapse/collapse.component';
 import { AccordionsComponent } from './accordions/accordions.component';
 import { DropdownsComponent } from './dropdowns/dropdowns.component';
@@ -67,10 +68,17 @@ const routes: Routes = [
                 }
             },
             {
-                path: 'card',
-                component: CardComponent,
+                path: 'cards/basic',
+                component: BasicCardsComponent,
                 data: {
-                    title: 'Card'
+                    title: 'Basic Cards'
+                }
+            },
+            {
+                path: 'cards/advanced',
+                component: AdvancedCardsComponent,
+                data: {
+                    title: 'Advanced Cards'
                 }
             },
             {

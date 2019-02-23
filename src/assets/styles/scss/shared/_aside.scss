@@ -281,8 +281,14 @@ $aside-submenu-link-left-shift: 1rem;
                     height: $aside-submenu-link-padding-y * 2 + $aside-menu-line-height * $aside-submenu-font-size;
                 }
 
-                .menu_subnav .menu_item .menu_link {
-                    padding-left: $aside-space-x + $aside-submenu-link-left-shift * 2;
+                $sel: '.menu_subnav .menu_item';
+                @for $i from 1 through 3 {
+                    $sel: if($i == 1, $sel, $sel + ' ' + $sel);
+                    #{$sel} {
+                        .menu_link {
+                            padding-left: $aside-space-x + $aside-submenu-link-left-shift * ($i + 1);
+                        }
+                    }
                 }
             }
         }

@@ -19,7 +19,11 @@ export const ROUTES: RoutesSection[] = [
                             { path: '/base/breadcrumb', title: 'Breadcrumb', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                             { path: '/base/buttons', title: 'Buttons', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                             { path: '/base/button-group', title: 'Button Group', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-                            { path: '/base/card', title: 'Card', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/base/cards', title: 'Card', icon: '', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+                                    { path: '/base/cards/basic', title: 'Basic Cards', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                                    { path: '/base/cards/advanced', title: 'Advanced Cards', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] }
+                                ]
+                            },
                             { path: '/base/collapse', title: 'Collapse', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                             { path: '/base/accordions', title: 'Accordions', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                             { path: '/base/dropdowns', title: 'Dropdowns', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
@@ -63,12 +67,6 @@ export const ROUTES: RoutesSection[] = [
                     { path: '/components/rating', title: 'Rating', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                     { path: '/components/tabs', title: 'Tabs', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                     { path: '/components/tooltip', title: 'Tooltip', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] }
-                ]
-            },
-            {
-                path: '/cards', title: 'Cards', icon: 'ft-layers', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
-                    { path: '/cards/basic', title: 'Basic Cards', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-                    { path: '/cards/advanced', title: 'Advanced Cards', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                 ]
             },
             {

@@ -15,7 +15,8 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { BadgeComponent } from './badge/badge.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ButtonGroupComponent } from './button-group/button-group.component';
-import { CardComponent } from './card/card.component';
+import { BasicCardsComponent } from './cards/basic/basic-cards.component';
+import { AdvancedCardsComponent } from './cards/advanced/advanced-cards.component';
 import { CollapseComponent } from './collapse/collapse.component';
 import { AccordionsComponent } from './accordions/accordions.component';
 import { DropdownsComponent } from './dropdowns/dropdowns.component';
@@ -54,7 +55,8 @@ import { TablesComponent } from './tables/tables.component';
         ButtonsComponent,
         BreadcrumbComponent,
         ButtonGroupComponent,
-        CardComponent,
+        BasicCardsComponent,
+        AdvancedCardsComponent,
         CollapseComponent,
         AccordionsComponent,
         DropdownsComponent,
