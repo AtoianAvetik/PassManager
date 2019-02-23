@@ -9,3 +9,8 @@ export interface RouteInfo {
     isExternalLink: boolean;
     submenu: RouteInfo[];
 }
+
+export interface RoutesSection {
+    title?: string;
+    routes: RouteInfo[];
+}

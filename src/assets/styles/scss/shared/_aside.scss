@@ -43,6 +43,7 @@ $aside-submenu-link-left-shift: 1rem;
     &.menu-collapsed{
         .aside{
             .menu_nav .menu_item.has-sub > .menu_link .menu_link-arrow { display: none; }
+            .menu_section-text{ visibility: hidden; }
         }
     }
 }
@@ -285,7 +286,22 @@ $aside-submenu-link-left-shift: 1rem;
                 }
             }
         }
+
+        .menu_section {
+            padding: $aside-menu-link-padding-y $aside-space-x * 2 ;
+            display: flex;
+            margin: $aside-menu-link-padding-y * 2 0 0 0;
+        }
+
+        .menu_section-text {
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .3px;
+            line-height: $aside-menu-line-height;
+            font-size: $aside-menu-font-size;
+        }
     }
+
 }
 
 .aside-background {

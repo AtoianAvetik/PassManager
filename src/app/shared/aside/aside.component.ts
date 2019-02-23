@@ -34,7 +34,7 @@ export class AsideComponent implements OnInit {
         this.onClickOutside(event);
     }
 
-    public menuItems: any[];
+    public routes: any[];
     public isNavExpand: boolean;
 
     constructor(private _asideService: AsideService) {
@@ -43,7 +43,7 @@ export class AsideComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.menuItems = ROUTES.filter(menuItem => menuItem);
+        this.routes = ROUTES.filter(section => section);
         this.onHideAside();
     }
 

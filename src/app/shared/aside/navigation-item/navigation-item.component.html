@@ -1,4 +1,4 @@
-<li
+<div
     [ngClass]="{'open': isOpen, 'active-route': isActiveRoute}"
     class="menu_item {{ menuItem.class }}"
     [routerLinkActive]="menuItem.submenu.length !== 0 ? '' : '--active'"
@@ -28,4 +28,4 @@
                 [menuItem]="menuItem"></app-navigation-item>
         </ul>
     </div>
-</li>
+</div>

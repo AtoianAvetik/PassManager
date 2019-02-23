@@ -24,11 +24,14 @@
 <!-- Aside Content starts -->
 <div class="aside-content" [perfectScrollbar]>
     <div class="aside-menu">
-        <ul class="menu_nav">
-            <app-navigation-item
-				*ngFor="let menuItem of menuItems;"
-				[menuItem]="menuItem"></app-navigation-item>
-        </ul>
+        <div class="menu_nav">
+            <ng-container *ngFor="let section of routes;">
+                <div *ngIf="section.title" class="menu_section">
+                    <span class="menu_section-text"><span>{{ section.title }}</span></span>
+                </div>
+                <app-navigation-item *ngFor="let menuItem of section.routes;" [menuItem]="menuItem"></app-navigation-item>
+            </ng-container>
+        </div>
     </div>
 </div>
 <!-- Aside Content Ends -->

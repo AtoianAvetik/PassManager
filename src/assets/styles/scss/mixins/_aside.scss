@@ -1,0 +1,56 @@
+//
+// Aside mixins
+//
+@mixin set-aside-background($color) {
+    background-color: $color;
+    $overlay-opacity: .9;
+    @if $color == #000000 {
+        $overlay-opacity: .8;
+    }
+    .aside-background {
+        &:after {
+            background: $color;
+            opacity: $overlay-opacity;
+        }
+    }
+}
+
+@mixin set-aside-gradient-background-color($start-color, $end-color) {
+    @include gradient-directional($start-color, $end-color);
+    $overlay-opacity: .9;
+    .aside-background {
+        &:after {
+            @include gradient-directional($start-color, $end-color);
+            opacity: $overlay-opacity;
+        }
+    }
+}
+
+@mixin set-aside-icon-color($color, $color-hover: darken($color, 5%)) {
+    .menu_nav .menu_section {
+        .menu_section-text { color: $color; }
+    }
+    .menu_nav .menu_item {
+        .menu_link {
+            .menu_link-icon { color: $color; }
+            .menu_link-dot:before { background-color: $color; }
+        }
+
+        &:hover,
+        &.--active,
+        &.active-route,
+        &.open {
+            > .menu_link {
+                .menu_link-icon { color: $color-hover; }
+                .menu_link-dot:before { background-color: $color-hover; }
+            }
+        }
+    }
+}
+
+@mixin set-aside-text-color($color, $color-hover: $color) {
+    @include set-menu-nav-color($color, $color-hover);
+
+    .aside-header .aside-header_toggle { color: $color; }
+    .aside-header .aside-header_close { color: $color; }
+}
