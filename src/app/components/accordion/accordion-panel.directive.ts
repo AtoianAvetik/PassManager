@@ -22,6 +22,9 @@ export class AccordionPanelDirective implements OnInit, AfterContentChecked {
     heading: string;
 
     @Input()
+    type: string;
+
+    @Input()
     disabled = false;
 
     @Input()

@@ -15,7 +15,7 @@ import { AccordionService } from './accordion.service';
         <ng-template ngFor let-panel [ngForOf]="panels">
             <div class="card">
                 <div (click)="toggle(panel.id)">
-                    <div *ngIf="panel.heading" class="card-header">
+                    <div *ngIf="panel.heading" [class]="'card-header ' + (panel.type ? 'bg-'+panel.type: type ? 'bg-'+type : '')">
                         <div class="card-title">
                             {{panel.heading}}
                         </div>
@@ -59,6 +59,14 @@ export class AccordionComponent {
      * An array or comma separated strings of panel identifiers that should be opened
      */
     @Input() activeIds: string | string[] = [];
+
+    /**
+     *  Accordion's types of panels to be applied globally.
+     *  System recognizes the following types: "primary", "secondary", "success", "danger", "warning", "info", "light" , "dark
+     *  and other utilities bg's
+     */
+    @Input() type: string;
+
     /**
      * A panel change event fired right before the panel toggle happens. See NgbPanelChangeEvent for payload details
      */
