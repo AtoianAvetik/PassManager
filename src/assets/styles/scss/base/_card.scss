@@ -45,9 +45,10 @@
 }
 
 .card-horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+
     .card-body{
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
     }
 
@@ -64,24 +65,6 @@
 
 .card-bordered {
     border: $card-border-width solid $card-border-color;
-}
-
-@each $color, $value in if($enable-colors, map-merge($theme-colors, $colors), $theme-colors) {
-    .card-outline-#{$color} {
-        @include button-variant($value, $value);
-    }
-}
-
-@if $enable-palettes {
-    @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
-        @each $color_type, $color_value in $color {
-            @if type-of($color_value) == 'color' {
-                .card-outline-#{$color_name}.btn-#{map-get($color-types, $color_type)}{
-                    @include button-variant($color_value, $color_value);
-                }
-            }
-        }
-    }
 }
 
 .card-body {
@@ -123,6 +106,7 @@
 //
 
 .card-section {
+    width: 100%;
     padding: $card-spacer-y $card-spacer-x;
 
     &_title {
@@ -154,7 +138,9 @@
     margin-bottom: 0; // Removes the default margin-bottom of <hN>
     color: $card-cap-color;
     background-color: $card-cap-bg;
-    border-bottom: $card-header-border-width solid $card-border-color;
+    border: 0 solid $card-border-color;
+    border-bottom-width: $card-header-border-width;
+    width: 100%;
 
     &:first-child {
         @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
@@ -170,11 +156,29 @@
 .card-footer {
     padding: $card-spacer-y $card-spacer-x;
     background-color: $card-cap-bg;
-    border-top: $card-border-default-width solid $card-border-color;
+    border: 0 solid $card-border-color;
+    border-top-width: $card-border-default-width;
     overflow: hidden;
+    width: 100%;
 
     &:last-child {
         @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+    }
+}
+
+.card-aside {
+    padding: $card-spacer-y $card-spacer-x;
+    background-color: $card-cap-bg;
+    border: 0 solid $card-border-color;
+
+    &:first-child {
+        border-right-width: $card-border-default-width;
+        @include border-radius($card-inner-border-radius 0 0 $card-inner-border-radius);
+    }
+
+    &:last-child {
+        border-left-width: $card-border-default-width;
+        @include border-radius(0 $card-inner-border-radius $card-inner-border-radius 0);
     }
 }
 
@@ -184,15 +188,40 @@
 //
 
 .card-header-tabs {
-    margin-right: -$card-spacer-x / 2;
     margin-bottom: -$card-spacer-y;
-    margin-left: -$card-spacer-x / 2;
-    border-bottom: 0;
+    border: 0;
 }
 
 .card-header-pills {
-    margin-right: -$card-spacer-x / 2;
-    margin-left: -$card-spacer-x / 2;
+}
+
+.card-header-lines {
+    margin-top: -$card-spacer-y;
+    margin-bottom: -$card-spacer-y;
+}
+
+//
+// Aside navs
+//
+
+.card-aside-tabs {
+    border: 0;
+
+    .card-aside:first-child > & {
+        margin-right: -$card-spacer-x;
+    }
+
+    .card-aside:last-child > & {
+        margin-left: -$card-spacer-x;
+    }
+}
+
+.card-aside-pills {
+}
+
+.card-aside-lines {
+    margin-left: -$card-spacer-x;
+    margin-right: -$card-spacer-x;
 }
 
 // Card image

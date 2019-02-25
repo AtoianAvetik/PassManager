@@ -54,6 +54,14 @@
     transition: all $btn-elevate-transition ease 0s;
 }
 
+.btn.btn-elevate-air {
+    transition: all $btn-elevate-transition ease 0s;
+
+    &:hover {
+        transform: translate(0, -$btn-elevate-air-shift);
+    }
+}
+
 .btn.btn-icon {
     display: inline-flex;
     align-items: center;
@@ -97,9 +105,6 @@ fieldset:disabled a.btn {
     .btn-#{$color}.btn-elevate {
         @include button-elevate-variant($value);
     }
-    .btn-#{$color}.btn-elevate-air {
-        @include btn-elevate-air($btn-elevate-air-shift);
-    }
 }
 
 @if $enable-palettes {
@@ -116,9 +121,6 @@ fieldset:disabled a.btn {
                 // Elevated buttons
                 .btn-#{$color_name}.btn-elevate-#{map-get($color-types, $color_type)} {
                     @include button-elevate-variant($color_value);
-                }
-                .btn-#{$color_name}.btn-elevate-air-#{map-get($color-types, $color_type)} {
-                    @include btn-elevate-air($btn-elevate-air-shift);
                 }
             }
         }

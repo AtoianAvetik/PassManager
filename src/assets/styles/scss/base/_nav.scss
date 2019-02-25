@@ -28,11 +28,20 @@
 }
 
 //
+// Vertical navs
+//
+.nav-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+//
 // Tabs
 //
 
 .nav-tabs {
-    border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+    border: 0 solid $nav-tabs-border-color;
+    border-bottom-width: $nav-tabs-border-width;
 
     .nav-item {
         margin-bottom: -$nav-tabs-border-width;
@@ -45,6 +54,7 @@
 
         @include hover-focus {
             border-color: $nav-tabs-link-hover-border-color;
+            border-bottom-color: $nav-tabs-border-color;
         }
 
         &.disabled {
@@ -59,6 +69,7 @@
         color: $nav-tabs-link-active-color;
         background-color: $nav-tabs-link-active-bg;
         border-color: $nav-tabs-link-active-border-color;
+        border-bottom-color: $nav-tabs-link-active-bg;
     }
 
     .dropdown-menu {
@@ -66,6 +77,39 @@
         margin-top: -$nav-tabs-border-width;
         // Remove the top rounded corners here since there is a hard edge above the menu
         @include border-top-radius(0);
+    }
+
+    &.nav-vertical {
+        border-bottom-width: 0;
+        border-right-width: $nav-tabs-border-width;
+
+        .nav-item {
+            margin-bottom: 0;
+            margin-right: -$nav-tabs-border-width;
+        }
+
+        .nav-link {
+            @include border-top-radius(0);
+            @include border-left-radius($nav-tabs-border-radius);
+
+            @include hover-focus {
+                border-bottom-color: $nav-tabs-link-hover-border-color;
+                border-right-color: $nav-tabs-border-color;
+            }
+        }
+
+        .nav-link.active,
+        .nav-item.show .nav-link {
+            border-bottom-color: $nav-tabs-link-active-border-color;
+            border-right-color: $nav-tabs-link-active-bg;
+        }
+
+        .dropdown-menu {
+            // Make dropdown border overlap tab border
+            margin-left: -$nav-tabs-border-width;
+            // Remove the top rounded corners here since there is a hard edge above the menu
+            @include border-left-radius(0);
+        }
     }
 }
 
@@ -94,31 +138,35 @@
     border-color: transparent !important;
 
     .nav-item {
-        display: flex;
-        align-items: stretch;
-        margin-right: 20px;
+        margin-right: $nav-lines-link-padding-x;
         margin-bottom: -1px;
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-        }
     }
 
     .nav-link {
-        border: 0;
-        border-bottom: 1px solid transparent;
-        padding: 12px 0;
-        font-size: 1rem;
-        font-weight: 400;
+        border: 0 solid transparent;
+        border-bottom-width: 1px;
         background: transparent;
-        color: #646c9a;
+        transition: 0.15s linear;
+        padding: $nav-lines-link-padding-y 0;
 
         &:hover,
         &.active {
             background: transparent;
-            color: #646c9a;
-            border-bottom: 1px solid #5d78ff;
+            color: $nav-lines-link-active-color;
+            border-color: $nav-lines-border-color;
+        }
+    }
+
+    &.nav-vertical {
+        .nav-item {
+            margin-right: -1px;
+            margin-bottom: $nav-lines-link-padding-y;
+        }
+
+        .nav-link {
+            padding: 0 $nav-lines-link-padding-x;
+            border-bottom-width: 0;
+            border-right-width: 1px;
         }
     }
 }

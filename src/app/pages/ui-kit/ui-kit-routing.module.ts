@@ -8,6 +8,7 @@ import { TextUtilitiesComponent } from './text-utilities/text-utilities.componen
 import { FeatherComponent } from './icons/feather/feather.component';
 import { FontAwesomeComponent } from './icons/font-awesome/font-awesome.component';
 import { LineAwesomeComponent } from './icons/line-awesome/line-awesome.component';
+import { WeatherIconsComponent } from './icons/weather-icons/weather-icons.component';
 
 const routes: Routes = [
     {
@@ -60,6 +61,13 @@ const routes: Routes = [
                 component: LineAwesomeComponent,
                 data: {
                     title: 'Line Awesome'
+                }
+            },
+            {
+                path: 'weather-icons',
+                component: WeatherIconsComponent,
+                data: {
+                    title: 'Weather Icons'
                 }
             },
         ]

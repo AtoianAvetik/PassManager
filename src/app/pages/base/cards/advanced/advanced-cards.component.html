@@ -1,11 +1,8 @@
 <!-- Fabs (Floating Action Buttons) in cards start -->
 <section id="fabs-examples">
     <div class="row">
-        <div class="col-12 mt-3 mb-1">
+        <div class="col-12 mb-1">
             <div class="content-header">Fabs (Floating Action Buttons) in cards</div>
-            <p class="content-sub-header">Cards require a small amount of markup and classes to provide you with as much control as possible. These classes
-                and markup are flexible though and can typically be remixed and extended with ease. For example, if your
-                card has no flush content like images, feel free to put the <code>.card-section</code> class on the <code>.card</code>                element to consolidate your markup.</p>
         </div>
     </div>
 
@@ -16,11 +13,11 @@
                     <div class="card-img">
                         <img class="card-img-top img-fluid" src="assets/img/photos/14.jpg" alt="Card image cap">
                         <h4 class="card-title">Card title</h4>
-                        <a class="btn btn-icon btn-halfway-fab btn-round white bg-warning"><i class="ft-plus"></i></a>
+                        <button type="button" class="btn btn-icon btn-halfway-fab btn-round white bg-warning"><i class="ft-plus"></i></button>
                     </div>
                     <div class="card-section">
                         <p class="card-text">Icing powder caramels macaroon. Toffee sugar plum brownie pastry gummies jelly.</p>
-                        <a class="btn btn-raised btn-warning">Go somewhere</a>
+                        <button type="button" class="btn btn-warning">Go somewhere</button>
                     </div>
                 </div>
             </div>
@@ -34,12 +31,27 @@
                     </div>
                     <div class="card-img">
                         <img class="img-fluid" src="assets/img/photos/15.jpg" alt="Card image cap">
-                        <a class="btn btn-icon btn-halfway-fab btn-round white btn-large bg-danger"><i class="ft-plus"></i></a>
+                        <button type="button" class="btn btn-icon btn-halfway-fab btn-round white btn-large bg-danger"><i class="ft-plus"></i></button>
                     </div>
                     <div class="card-section">
                         <p class="card-text">Bear claw sesame snaps gummies chocolate.</p>
                         <a class="card-link danger">Card link</a>
                         <a class="card-link danger">Another link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-img">
+                        <img class="card-img-top img-fluid" src="assets/img/photos/14.jpg" alt="Card image cap">
+                        <h4 class="card-title">Card title</h4>
+                        <button type="button" class="btn btn-icon btn-halfway-fab btn-round white bg-primary"><i class="ft-plus"></i></button>
+                    </div>
+                    <div class="card-section">
+                        <p class="card-text">Icing powder caramels macaroon. Toffee sugar plum brownie pastry gummies jelly.</p>
+                        <button type="button" class="btn btn-primary">Go somewhere</button>
                     </div>
                 </div>
             </div>
@@ -59,17 +71,33 @@
 
     <div class="row" matchHeight ="card">
         <div class="col-6 col-xl-12">
-            <div class="card horizontal">
+            <div class="card card-horizontal">
                 <div class="card-body">
                     <div class="card-stacked align-self-center">
                         <div class="px-3">
                             <h4 class="card-title">Card title</h4>
                             <p class="card-text">Toffee sugar plum brownie pastry gummies jelly.</p>
-                            <a class="btn btn-raised btn-danger">Go somewhere</a>
+                            <button type="button" class="btn btn-danger">Go somewhere</button>
                         </div>
                     </div>
                     <div class="card-img">
                         <img class="card-img-top img-fluid" src="assets/img/photos/06.jpg" alt="Card image cap">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-12">
+            <div class="card card-horizontal">
+                <div class="card-body">
+                    <div class="card-img">
+                        <img class="card-img-top img-fluid" src="assets/img/photos/06.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-stacked align-self-center">
+                        <div class="px-3">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">Toffee sugar plum brownie pastry gummies jelly.</p>
+                            <button type="button" class="btn btn-danger">Go somewhere</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,9 +116,9 @@
         </div>
     </div>
 
-    <div class="row" matchHeight ="card">
+    <div class="row mt-3" matchHeight ="card">
         <div class="col-4 col-md-12">
-            <div class="card card-inverse bg-primary text-center">
+            <div class="card white bg-primary text-center">
                 <div class="card-body">
                     <div class="card-img overlap">
                         <img src="assets/img/elements/11.png" alt="element 06" width="190" class="mb-1">
@@ -103,7 +131,7 @@
             </div>
         </div>
         <div class="col-4 col-md-12">
-            <div class="card card-inverse bg-danger text-center">
+            <div class="card white bg-danger text-center">
                 <div class="card-body">
                     <div class="card-img overlap">
                         <img src="assets/img/elements/14.png" alt="element 03" width="170">
@@ -116,7 +144,7 @@
             </div>
         </div>
         <div class="col-4 col-md-12">
-            <div class="card card-inverse bg-warning text-center">
+            <div class="card white bg-warning text-center">
                 <div class="card-body">
                     <div class="card-img overlap">
                         <img src="assets/img/elements/07.png" alt="element 07" width="225">
@@ -148,7 +176,7 @@
                     <div class="card-img">
                         <img class="card-img-top img-fluid height-300" src="assets/img/photos/weather-1.jpg" alt="Card image cap">
                         <h4 class="card-title">Sunny</h4>
-                        <a class="btn btn-icon btn-halfway-fab btn-round white bg-primary"><i class="ft-plus"></i></a>
+                        <button type="button" class="btn btn-icon btn-halfway-fab btn-round white bg-primary"><i class="ft-plus"></i></button>
                     </div>
                     <div class="card-section mt-2">
                         <div class="row">
@@ -194,7 +222,7 @@
                     <div class="card-img">
                         <img class="card-img-top img-fluid height-300" src="assets/img/photos/weather-2.png" alt="Card image cap">
                         <h4 class="card-title">Snowy</h4>
-                        <a class="btn btn-icon btn-halfway-fab btn-round white bg-danger"><i class="ft-plus"></i></a>
+                        <button type="button" class="btn btn-icon btn-halfway-fab btn-round white bg-danger"><i class="ft-plus"></i></button>
                     </div>
                     <div class="card-section mt-2">
                         <div class="row">
@@ -250,7 +278,7 @@
     </div>
     <div class="row" matchHeight ="card">
         <div class="col-6 col-md-12">
-            <div class="card card-inverse bg-primary text-center">
+            <div class="card white bg-primary text-center">
                 <div class="card-body">
                     <div class="card-section pt-3">
                         <div class="row d-flex">
@@ -260,7 +288,7 @@
                             <div class="col align-self-center">
                                 <h4 class="card-title mt-3">Brand Minute</h4>
                                 <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                                <button class="btn btn-raised btn-primary btn-darken-3">Buy Now</button>
+                                <button class="btn btn-primary btn-darken-3">Buy Now</button>
                             </div>
                         </div>
                     </div>
@@ -268,7 +296,7 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-inverse bg-success text-center">
+            <div class="card white bg-success text-center">
                 <div class="card-body">
                     <div class="card-section">
                         <img src="assets/img/elements/06.png" alt="element 02" width="225" class="mb-1">
@@ -279,14 +307,14 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-inverse bg-danger text-center">
+            <div class="card white bg-danger text-center">
                 <div class="card-body">
                     <div class="card-section pt-3">
                         <div class="row d-flex">
                             <div class="col align-self-center">
                                 <h4 class="card-title mt-3">Brand Minute</h4>
                                 <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                                <button class="btn btn-raised btn-danger btn-darken-3">Buy Now</button>
+                                <button class="btn btn-danger btn-darken-3">Buy Now</button>
                             </div>
                             <div class="col align-self-center">
                                 <img src="assets/img/elements/14.png" alt="element 03" width="170" class="float-right">
@@ -297,7 +325,7 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-inverse bg-info text-center">
+            <div class="card white bg-info text-center">
                 <div class="card-body">
                     <div class="card-section pt-3">
                         <div class="row d-flex">
@@ -307,7 +335,7 @@
                             <div class="col align-self-center">
                                 <h4 class="card-title mt-3">New Arrival</h4>
                                 <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                                <button class="btn btn-raised btn-info btn-darken-3">Buy Now</button>
+                                <button class="btn btn-info btn-darken-3">Buy Now</button>
                             </div>
                         </div>
                     </div>
@@ -315,7 +343,7 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-inverse bg-warning text-center">
+            <div class="card white bg-warning text-center">
                 <div class="card-body">
                     <div class="card-section">
                         <img src="assets/img/elements/04.png" alt="element 05" width="250" class="mb-1">
@@ -327,14 +355,14 @@
         </div>
 
         <div class="col-6 col-md-12">
-            <div class="card card-inverse bg-primary text-center">
+            <div class="card white bg-primary text-center">
                 <div class="card-body">
                     <div class="card-section pt-3">
                         <div class="row d-flex">
                             <div class="col align-self-center">
                                 <h4 class="card-title mt-3">New Arrival</h4>
                                 <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                                <button class="btn btn-raised btn-primary btn-darken-3 white">Buy Now</button>
+                                <button class="btn btn-primary btn-darken-3 white">Buy Now</button>
                             </div>
                             <div class="col align-self-center">
                                 <img src="assets/img/elements/11.png" alt="element 06" width="190" class="float-right">
@@ -359,7 +387,7 @@
     </div>
     <div class="row" matchHeight ="card">
         <div class="col-6 col-md-12">
-            <div class="card card-outline-primary shadow-none text-center">
+            <div class="card border-primary bg-transparent shadow-none text-center">
                 <div class="card-body">
                     <div class="card-section pt-3">
                         <div class="row d-flex">
@@ -369,7 +397,7 @@
                             <div class="col align-self-center">
                                 <h4 class="card-title mt-3">Brand Minute</h4>
                                 <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                                <button class="btn btn-raised btn-primary">Buy Now</button>
+                                <button class="btn btn-primary">Buy Now</button>
                             </div>
                         </div>
                     </div>
@@ -377,7 +405,7 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-outline-success shadow-none text-center">
+            <div class="card border-success bg-transparent shadow-none text-center">
                 <div class="card-body">
                     <div class="card-section">
                         <img src="assets/img/elements/06.png" alt="element 02" width="225" class="mb-1">
@@ -388,14 +416,14 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-outline-danger shadow-none text-center">
+            <div class="card border-danger bg-transparent shadow-none text-center">
                 <div class="card-body">
                     <div class="card-section pt-3">
                         <div class="row d-flex">
                             <div class="col align-self-center">
                                 <h4 class="card-title mt-3">Brand Minute</h4>
                                 <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                                <button class="btn btn-raised btn-danger btn-darken-3">Buy Now</button>
+                                <button class="btn btn-danger btn-darken-3">Buy Now</button>
                             </div>
                             <div class="col align-self-center">
                                 <img src="assets/img/elements/01.png" alt="element 03" width="190" class="float-right">
@@ -406,7 +434,7 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-outline-info shadow-none text-center">
+            <div class="card border-info bg-transparent shadow-none text-center">
                 <div class="card-body">
                     <div class="card-section pt-3">
                         <div class="row d-flex">
@@ -416,7 +444,7 @@
                             <div class="col align-self-center">
                                 <h4 class="card-title mt-3">New Arrival</h4>
                                 <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                                <button class="btn btn-raised btn-info btn-darken-3">Buy Now</button>
+                                <button class="btn btn-info btn-darken-3">Buy Now</button>
                             </div>
                         </div>
                     </div>
@@ -424,7 +452,7 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-outline-warning shadow-none text-center">
+            <div class="card border-warning bg-transparent shadow-none text-center">
                 <div class="card-body">
                     <div class="card-section">
                         <img src="assets/img/elements/04.png" alt="element 05" width="250" class="mb-1">
@@ -435,14 +463,14 @@
             </div>
         </div>
         <div class="col-6 col-md-12">
-            <div class="card card-outline-primary shadow-none text-center">
+            <div class="card border-primary bg-transparent shadow-none text-center">
                 <div class="card-body">
                     <div class="card-section pt-3">
                         <div class="row d-flex">
                             <div class="col align-self-center">
                                 <h4 class="card-title mt-3">New Arrival</h4>
                                 <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                                <button class="btn btn-raised btn-primary btn-darken-3 white">Buy Now</button>
+                                <button class="btn btn-primary btn-darken-3 white">Buy Now</button>
                             </div>
                             <div class="col align-self-center">
                                 <img src="assets/img/elements/11.png" alt="element 06" width="190" class="float-right">
@@ -598,21 +626,21 @@
                         <div class="card-section">
                             <h4 class="card-title">Card title</h4>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn btn-outline-warning">Go somewhere</a>
+                            <button type="button" class="btn btn-outline-warning">Go somewhere</button>
                         </div>
                     </div>
                 </div>
-                <div class="card card-inverse bg-primary text-center">
+                <div class="card white bg-primary text-center">
                     <div class="card-body">
                         <div class="card-section pt-3">
                             <img src="assets/img/elements/01.png" alt="element 01" width="190" class="float-left img-fluid">
                             <h4 class="card-title mt-5">Brand Minute</h4>
                             <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                            <button class="btn btn-raised btn-primary btn-darken-3">Buy Now</button>
+                            <button class="btn btn-primary btn-darken-3">Buy Now</button>
                         </div>
                     </div>
                 </div>
-                <div class="card card-inverse bg-warning text-center no-border shadow-none">
+                <div class="card white bg-warning text-center no-border shadow-none">
                     <div class="card-body">
                         <div class="card-section">
                             <img src="assets/img/elements/04.png" alt="element 05" width="250" class="mb-1 img-fluid">
@@ -621,7 +649,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-inverse bg-success text-center no-border shadow-none">
+                <div class="card white bg-success text-center no-border shadow-none">
                     <div class="card-body">
                         <div class="card-section">
                             <img src="assets/img/elements/06.png" alt="element 02" width="225" class="mb-1 img-fluid">
@@ -642,7 +670,7 @@
                         <img class="card-img-bottom img-fluid" src="assets/img/photos/11.jpg" alt="Card image cap">
                     </div>
                 </div>
-                <div class="card card-inverse no-border shadow-none">
+                <div class="card white no-border shadow-none">
                     <div class="card-body">
                         <img class="card-img img-fluid" src="assets/img/photos/05.jpg" alt="Card image">
                         <div class="card-img-overlay overlay-info">
@@ -653,7 +681,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-inverse no-border shadow-none">
+                <div class="card white no-border shadow-none">
                     <div class="card-body">
                         <img class="card-img img-fluid" src="assets/img/photos/09.jpg" alt="Card image">
                         <div class="card-img-overlay overlay-warning">
@@ -664,13 +692,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="card card-outline-info text-center shadow-none">
+                <div class="card border-info bg-transparent text-center shadow-none">
                     <div class="card-body">
                         <img src="assets/img/elements/07.png" alt="element 04" width="210" class="float-left mt-3 img-fluid">
                         <div class="card-section pt-3">
                             <h4 class="card-title mt-3">New Arrival</h4>
                             <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>
-                            <button class="btn btn-raised btn-info btn-darken-3">Buy Now</button>
+                            <button class="btn btn-info btn-darken-3">Buy Now</button>
                         </div>
                     </div>
                 </div>

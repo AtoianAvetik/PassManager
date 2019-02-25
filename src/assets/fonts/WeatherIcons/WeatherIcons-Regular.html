@@ -1,0 +1,2637 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<style>
+@font-face {
+	font-family: 'WeatherIcons-Regular';
+	src: url('WeatherIcons-Regular.eot?1551053052');
+	src: url('WeatherIcons-Regular.eot?1551053052#iefix') format('embedded-opentype'),
+		 url('WeatherIcons-Regular.svg?1551053052#WeatherIcons-Regular') format('svg'),
+		 url('WeatherIcons-Regular.woff?1551053052') format('woff'),
+		 url('WeatherIcons-Regular.woff?1551053052') format('woff2'),
+		 url('WeatherIcons-Regular.ttf?1551053052') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background-color: #dfddec;
+}
+section {
+	padding: 20px 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	font-size: 1rem;
+	font-weight: normal;
+	box-shadow: 0px 0px 12px 0px rgba(63, 89, 105, 0.05);
+	margin: 18px 0;
+	border-radius: 0.25rem;
+}
+.card-header {
+	padding: 1.5rem 1.5rem;
+	margin-bottom: 0;
+	background-color: transparent;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.card-header_title {
+	font-size: 20px;
+	margin: 0;
+}
+.card-header h3 {
+	margin: 0;
+}
+.card-body {
+	flex: 1 1 auto;
+}
+.card-section {
+	padding: 1.5rem 1.5rem;
+}
+.card-footer {
+	padding: 1.5rem 1.5rem;
+	background-color: transparent;
+	border-top: 1px solid rgba(0, 0, 0, 0.06);
+	overflow: hidden;
+}
+.fonticons-row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+.fonticon-container {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	flex: 0 0 16.66666667%;
+	max-width: 16.66666667%;
+	margin-bottom: 25px;
+	display: flex;
+	align-items: center;
+}
+@media (max-width: 1280px) {
+	.fonticon-container {
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+}
+@media (max-width: 860px) {
+	.fonticon-container {
+		flex: 0 0 33.33333333%;
+		max-width: 33.33333333%;
+	}
+}
+@media (max-width: 640px) {
+	.fonticon-container {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+}
+@media (max-width: 480px) {
+	.fonticon-container {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+.fonticon-container .fonticon-wrap {
+	width: 60px;
+	height: 60px;
+	margin-right: 1rem;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	flex: 0 0 auto;
+}
+.fonticon-container .fonticon-wrap i {
+	font-size: 2.28rem;
+	transition: all 0.2s ease-in-out;
+}
+.fonticon-container .fonticon-wrap i.fa {
+	font-size: 2.28rem !important;
+}
+.fonticon-container .fonticon-wrap.youtube {
+	width: 100px;
+}
+.fonticon-container:hover i {
+	color: #0063ab;
+	font-size: 2.4rem;
+	transform: scale(1.3);
+}
+.fonticon-container .fonticon-classname,
+.fonticon-container .fonticon-unit {
+	display: block;
+	font-size: 1rem;
+	line-height: 1.2;
+}
+.fonticon-container .fonticon-unit {
+	font-size: 0.7rem;
+	font-style: italic;
+	margin-top: 3px;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	display: inline-block;
+	font-size: inherit;
+	text-decoration: inherit;
+	text-rendering: optimizeLegibility;
+	text-transform: none;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+	font-family: "WeatherIcons-Regular" !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*----icon classes-----*/
+
+.icon-space:before { content: "\20"; }
+.icon-uni00A0:before { content: "\A0"; }
+.icon-uni2000:before { content: "\2000"; }
+.icon-uni2001:before { content: "\2001"; }
+.icon-uni2002:before { content: "\2002"; }
+.icon-uni2003:before { content: "\2003"; }
+.icon-uni2004:before { content: "\2004"; }
+.icon-uni2005:before { content: "\2005"; }
+.icon-uni2006:before { content: "\2006"; }
+.icon-uni2007:before { content: "\2007"; }
+.icon-uni2008:before { content: "\2008"; }
+.icon-uni2009:before { content: "\2009"; }
+.icon-uni200A:before { content: "\200A"; }
+.icon-uni202F:before { content: "\202F"; }
+.icon-uni205F:before { content: "\205F"; }
+.icon-uni25FC:before { content: "\25FC"; }
+.icon-uniF000:before { content: "\F000"; }
+.icon-uniF001:before { content: "\F001"; }
+.icon-uniF002:before { content: "\F002"; }
+.icon-uniF003:before { content: "\F003"; }
+.icon-uniF004:before { content: "\F004"; }
+.icon-uniF005:before { content: "\F005"; }
+.icon-uniF006:before { content: "\F006"; }
+.icon-uniF007:before { content: "\F007"; }
+.icon-uniF008:before { content: "\F008"; }
+.icon-uniF009:before { content: "\F009"; }
+.icon-uniF00A:before { content: "\F00A"; }
+.icon-uniF00B:before { content: "\F00B"; }
+.icon-uniF00C:before { content: "\F00C"; }
+.icon-uniF00D:before { content: "\F00D"; }
+.icon-uniF00E:before { content: "\F00E"; }
+.icon-uniF010:before { content: "\F010"; }
+.icon-uniF011:before { content: "\F011"; }
+.icon-uniF012:before { content: "\F012"; }
+.icon-uniF013:before { content: "\F013"; }
+.icon-uniF014:before { content: "\F014"; }
+.icon-uniF015:before { content: "\F015"; }
+.icon-uniF016:before { content: "\F016"; }
+.icon-uniF017:before { content: "\F017"; }
+.icon-uniF018:before { content: "\F018"; }
+.icon-uniF019:before { content: "\F019"; }
+.icon-uniF01A:before { content: "\F01A"; }
+.icon-uniF01B:before { content: "\F01B"; }
+.icon-uniF01C:before { content: "\F01C"; }
+.icon-uniF01D:before { content: "\F01D"; }
+.icon-uniF01E:before { content: "\F01E"; }
+.icon-uniF021:before { content: "\F021"; }
+.icon-uniF022:before { content: "\F022"; }
+.icon-uniF023:before { content: "\F023"; }
+.icon-uniF024:before { content: "\F024"; }
+.icon-uniF025:before { content: "\F025"; }
+.icon-uniF026:before { content: "\F026"; }
+.icon-uniF027:before { content: "\F027"; }
+.icon-uniF028:before { content: "\F028"; }
+.icon-uniF029:before { content: "\F029"; }
+.icon-uniF02A:before { content: "\F02A"; }
+.icon-uniF02B:before { content: "\F02B"; }
+.icon-uniF02C:before { content: "\F02C"; }
+.icon-uniF02D:before { content: "\F02D"; }
+.icon-uniF02E:before { content: "\F02E"; }
+.icon-uniF02F:before { content: "\F02F"; }
+.icon-uniF030:before { content: "\F030"; }
+.icon-uniF031:before { content: "\F031"; }
+.icon-uniF032:before { content: "\F032"; }
+.icon-uniF033:before { content: "\F033"; }
+.icon-uniF034:before { content: "\F034"; }
+.icon-uniF035:before { content: "\F035"; }
+.icon-uniF036:before { content: "\F036"; }
+.icon-uniF037:before { content: "\F037"; }
+.icon-uniF038:before { content: "\F038"; }
+.icon-uniF039:before { content: "\F039"; }
+.icon-uniF03A:before { content: "\F03A"; }
+.icon-uniF03B:before { content: "\F03B"; }
+.icon-uniF03C:before { content: "\F03C"; }
+.icon-uniF03D:before { content: "\F03D"; }
+.icon-uniF03E:before { content: "\F03E"; }
+.icon-uniF040:before { content: "\F040"; }
+.icon-uniF041:before { content: "\F041"; }
+.icon-uniF042:before { content: "\F042"; }
+.icon-uniF043:before { content: "\F043"; }
+.icon-uniF044:before { content: "\F044"; }
+.icon-uniF045:before { content: "\F045"; }
+.icon-uniF046:before { content: "\F046"; }
+.icon-uniF047:before { content: "\F047"; }
+.icon-uniF048:before { content: "\F048"; }
+.icon-uniF049:before { content: "\F049"; }
+.icon-uniF04A:before { content: "\F04A"; }
+.icon-uniF04B:before { content: "\F04B"; }
+.icon-uniF04C:before { content: "\F04C"; }
+.icon-uniF04D:before { content: "\F04D"; }
+.icon-uniF04E:before { content: "\F04E"; }
+.icon-uniF050:before { content: "\F050"; }
+.icon-uniF051:before { content: "\F051"; }
+.icon-uniF052:before { content: "\F052"; }
+.icon-uniF053:before { content: "\F053"; }
+.icon-uniF054:before { content: "\F054"; }
+.icon-uniF055:before { content: "\F055"; }
+.icon-uniF056:before { content: "\F056"; }
+.icon-uniF057:before { content: "\F057"; }
+.icon-uniF058:before { content: "\F058"; }
+.icon-uniF059:before { content: "\F059"; }
+.icon-uniF05A:before { content: "\F05A"; }
+.icon-uniF05B:before { content: "\F05B"; }
+.icon-uniF05C:before { content: "\F05C"; }
+.icon-uniF05D:before { content: "\F05D"; }
+.icon-uniF05E:before { content: "\F05E"; }
+.icon-uniF060:before { content: "\F060"; }
+.icon-uniF061:before { content: "\F061"; }
+.icon-uniF062:before { content: "\F062"; }
+.icon-uniF063:before { content: "\F063"; }
+.icon-uniF064:before { content: "\F064"; }
+.icon-uniF065:before { content: "\F065"; }
+.icon-uniF066:before { content: "\F066"; }
+.icon-uniF067:before { content: "\F067"; }
+.icon-uniF068:before { content: "\F068"; }
+.icon-uniF069:before { content: "\F069"; }
+.icon-uniF06A:before { content: "\F06A"; }
+.icon-uniF06B:before { content: "\F06B"; }
+.icon-uniF06C:before { content: "\F06C"; }
+.icon-uniF06D:before { content: "\F06D"; }
+.icon-uniF06E:before { content: "\F06E"; }
+.icon-uniF070:before { content: "\F070"; }
+.icon-uniF071:before { content: "\F071"; }
+.icon-uniF072:before { content: "\F072"; }
+.icon-uniF073:before { content: "\F073"; }
+.icon-uniF074:before { content: "\F074"; }
+.icon-uniF075:before { content: "\F075"; }
+.icon-uniF076:before { content: "\F076"; }
+.icon-uniF077:before { content: "\F077"; }
+.icon-uniF078:before { content: "\F078"; }
+.icon-uniF079:before { content: "\F079"; }
+.icon-uniF07A:before { content: "\F07A"; }
+.icon-uniF07B:before { content: "\F07B"; }
+.icon-uniF07C:before { content: "\F07C"; }
+.icon-uniF07D:before { content: "\F07D"; }
+.icon-uniF07E:before { content: "\F07E"; }
+.icon-uniF080:before { content: "\F080"; }
+.icon-uniF081:before { content: "\F081"; }
+.icon-uniF082:before { content: "\F082"; }
+.icon-uniF083:before { content: "\F083"; }
+.icon-uniF084:before { content: "\F084"; }
+.icon-uniF085:before { content: "\F085"; }
+.icon-uniF086:before { content: "\F086"; }
+.icon-uniF087:before { content: "\F087"; }
+.icon-uniF088:before { content: "\F088"; }
+.icon-uniF089:before { content: "\F089"; }
+.icon-uniF08A:before { content: "\F08A"; }
+.icon-uniF08B:before { content: "\F08B"; }
+.icon-uniF08C:before { content: "\F08C"; }
+.icon-uniF08D:before { content: "\F08D"; }
+.icon-uniF08E:before { content: "\F08E"; }
+.icon-uniF08F:before { content: "\F08F"; }
+.icon-uniF090:before { content: "\F090"; }
+.icon-uniF091:before { content: "\F091"; }
+.icon-uniF092:before { content: "\F092"; }
+.icon-uniF093:before { content: "\F093"; }
+.icon-uniF094:before { content: "\F094"; }
+.icon-uniF095:before { content: "\F095"; }
+.icon-uniF096:before { content: "\F096"; }
+.icon-uniF097:before { content: "\F097"; }
+.icon-uniF098:before { content: "\F098"; }
+.icon-uniF099:before { content: "\F099"; }
+.icon-uniF09A:before { content: "\F09A"; }
+.icon-uniF09B:before { content: "\F09B"; }
+.icon-uniF09C:before { content: "\F09C"; }
+.icon-uniF09D:before { content: "\F09D"; }
+.icon-uniF09E:before { content: "\F09E"; }
+.icon-uniF09F:before { content: "\F09F"; }
+.icon-uniF0A0:before { content: "\F0A0"; }
+.icon-uniF0A1:before { content: "\F0A1"; }
+.icon-uniF0A2:before { content: "\F0A2"; }
+.icon-uniF0A3:before { content: "\F0A3"; }
+.icon-uniF0A4:before { content: "\F0A4"; }
+.icon-uniF0A5:before { content: "\F0A5"; }
+.icon-uniF0A6:before { content: "\F0A6"; }
+.icon-uniF0A7:before { content: "\F0A7"; }
+.icon-uniF0A8:before { content: "\F0A8"; }
+.icon-uniF0A9:before { content: "\F0A9"; }
+.icon-uniF0AA:before { content: "\F0AA"; }
+.icon-uniF0AB:before { content: "\F0AB"; }
+.icon-uniF0AC:before { content: "\F0AC"; }
+.icon-uniF0AD:before { content: "\F0AD"; }
+.icon-uniF0AE:before { content: "\F0AE"; }
+.icon-uniF0AF:before { content: "\F0AF"; }
+.icon-uniF0B0:before { content: "\F0B0"; }
+.icon-uniF0B1:before { content: "\F0B1"; }
+.icon-uniF0B2:before { content: "\F0B2"; }
+.icon-uniF0B3:before { content: "\F0B3"; }
+.icon-uniF0B4:before { content: "\F0B4"; }
+.icon-uniF0B5:before { content: "\F0B5"; }
+.icon-uniF0B6:before { content: "\F0B6"; }
+.icon-uniF0B7:before { content: "\F0B7"; }
+.icon-uniF0B8:before { content: "\F0B8"; }
+.icon-uniF0B9:before { content: "\F0B9"; }
+.icon-uniF0BA:before { content: "\F0BA"; }
+.icon-uniF0BB:before { content: "\F0BB"; }
+.icon-uniF0BC:before { content: "\F0BC"; }
+.icon-uniF0BD:before { content: "\F0BD"; }
+.icon-uniF0BE:before { content: "\F0BE"; }
+.icon-uniF0BF:before { content: "\F0BF"; }
+.icon-uniF0C0:before { content: "\F0C0"; }
+.icon-uniF0C1:before { content: "\F0C1"; }
+.icon-uniF0C2:before { content: "\F0C2"; }
+.icon-uniF0C3:before { content: "\F0C3"; }
+.icon-uniF0C4:before { content: "\F0C4"; }
+.icon-uniF0C5:before { content: "\F0C5"; }
+.icon-uniF0C6:before { content: "\F0C6"; }
+.icon-uniF0C7:before { content: "\F0C7"; }
+.icon-uniF0C8:before { content: "\F0C8"; }
+.icon-uniF0C9:before { content: "\F0C9"; }
+.icon-uniF0CA:before { content: "\F0CA"; }
+.icon-uniF0CB:before { content: "\F0CB"; }
+.icon-uniF0CC:before { content: "\F0CC"; }
+.icon-uniF0CD:before { content: "\F0CD"; }
+.icon-uniF0CE:before { content: "\F0CE"; }
+.icon-uniF0CF:before { content: "\F0CF"; }
+.icon-uniF0D0:before { content: "\F0D0"; }
+.icon-uniF0D1:before { content: "\F0D1"; }
+.icon-uniF0D2:before { content: "\F0D2"; }
+.icon-uniF0D3:before { content: "\F0D3"; }
+.icon-uniF0D4:before { content: "\F0D4"; }
+.icon-uniF0D5:before { content: "\F0D5"; }
+.icon-uniF0D6:before { content: "\F0D6"; }
+.icon-uniF0D7:before { content: "\F0D7"; }
+.icon-uniF0D8:before { content: "\F0D8"; }
+.icon-uniF0D9:before { content: "\F0D9"; }
+.icon-uniF0DA:before { content: "\F0DA"; }
+.icon-uniF0DB:before { content: "\F0DB"; }
+.icon-uniF0DC:before { content: "\F0DC"; }
+.icon-uniF0DD:before { content: "\F0DD"; }
+.icon-uniF0DE:before { content: "\F0DE"; }
+.icon-uniF0DF:before { content: "\F0DF"; }
+.icon-uniF0E0:before { content: "\F0E0"; }
+.icon-uniF0E1:before { content: "\F0E1"; }
+.icon-uniF0E2:before { content: "\F0E2"; }
+.icon-uniF0E3:before { content: "\F0E3"; }
+.icon-uniF0E4:before { content: "\F0E4"; }
+.icon-uniF0E5:before { content: "\F0E5"; }
+.icon-uniF0E6:before { content: "\F0E6"; }
+.icon-uniF0E7:before { content: "\F0E7"; }
+.icon-uniF0E8:before { content: "\F0E8"; }
+.icon-uniF0E9:before { content: "\F0E9"; }
+.icon-uniF0EA:before { content: "\F0EA"; }
+.icon-uniF0EB:before { content: "\F0EB"; }
+		</style>
+	</head>
+	<body>
+		<section id="font-awesome-icons">
+			<div class="card">
+				<div class="card-header">
+					<div class="card-header_title">WeatherIcons-Regular Icons</div>
+				</div>
+				<div class="card-body">
+					<div class="card-section">
+						<div class="line-awesome-icons overflow-hidden">
+							<div class="fonticons-row">
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-space" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-space</label>
+										<label class="fonticon-unit">20</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni00A0" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni00A0</label>
+										<label class="fonticon-unit">A0</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2000" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2000</label>
+										<label class="fonticon-unit">2000</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2001" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2001</label>
+										<label class="fonticon-unit">2001</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2002" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2002</label>
+										<label class="fonticon-unit">2002</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2003" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2003</label>
+										<label class="fonticon-unit">2003</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2004" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2004</label>
+										<label class="fonticon-unit">2004</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2005" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2005</label>
+										<label class="fonticon-unit">2005</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2006" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2006</label>
+										<label class="fonticon-unit">2006</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2007" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2007</label>
+										<label class="fonticon-unit">2007</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2008" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2008</label>
+										<label class="fonticon-unit">2008</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni2009" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni2009</label>
+										<label class="fonticon-unit">2009</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni200A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni200A</label>
+										<label class="fonticon-unit">200A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni202F" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni202F</label>
+										<label class="fonticon-unit">202F</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni205F" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni205F</label>
+										<label class="fonticon-unit">205F</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uni25FC" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uni25FC</label>
+										<label class="fonticon-unit">25FC</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF000" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF000</label>
+										<label class="fonticon-unit">F000</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF001" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF001</label>
+										<label class="fonticon-unit">F001</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF002" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF002</label>
+										<label class="fonticon-unit">F002</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF003" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF003</label>
+										<label class="fonticon-unit">F003</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF004" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF004</label>
+										<label class="fonticon-unit">F004</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF005" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF005</label>
+										<label class="fonticon-unit">F005</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF006" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF006</label>
+										<label class="fonticon-unit">F006</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF007" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF007</label>
+										<label class="fonticon-unit">F007</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF008" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF008</label>
+										<label class="fonticon-unit">F008</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF009" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF009</label>
+										<label class="fonticon-unit">F009</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF00A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF00A</label>
+										<label class="fonticon-unit">F00A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF00B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF00B</label>
+										<label class="fonticon-unit">F00B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF00C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF00C</label>
+										<label class="fonticon-unit">F00C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF00D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF00D</label>
+										<label class="fonticon-unit">F00D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF00E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF00E</label>
+										<label class="fonticon-unit">F00E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF010" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF010</label>
+										<label class="fonticon-unit">F010</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF011" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF011</label>
+										<label class="fonticon-unit">F011</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF012" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF012</label>
+										<label class="fonticon-unit">F012</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF013" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF013</label>
+										<label class="fonticon-unit">F013</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF014" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF014</label>
+										<label class="fonticon-unit">F014</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF015" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF015</label>
+										<label class="fonticon-unit">F015</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF016" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF016</label>
+										<label class="fonticon-unit">F016</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF017" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF017</label>
+										<label class="fonticon-unit">F017</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF018" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF018</label>
+										<label class="fonticon-unit">F018</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF019" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF019</label>
+										<label class="fonticon-unit">F019</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF01A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF01A</label>
+										<label class="fonticon-unit">F01A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF01B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF01B</label>
+										<label class="fonticon-unit">F01B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF01C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF01C</label>
+										<label class="fonticon-unit">F01C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF01D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF01D</label>
+										<label class="fonticon-unit">F01D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF01E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF01E</label>
+										<label class="fonticon-unit">F01E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF021" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF021</label>
+										<label class="fonticon-unit">F021</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF022" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF022</label>
+										<label class="fonticon-unit">F022</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF023" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF023</label>
+										<label class="fonticon-unit">F023</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF024" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF024</label>
+										<label class="fonticon-unit">F024</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF025" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF025</label>
+										<label class="fonticon-unit">F025</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF026" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF026</label>
+										<label class="fonticon-unit">F026</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF027" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF027</label>
+										<label class="fonticon-unit">F027</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF028" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF028</label>
+										<label class="fonticon-unit">F028</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF029" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF029</label>
+										<label class="fonticon-unit">F029</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF02A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF02A</label>
+										<label class="fonticon-unit">F02A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF02B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF02B</label>
+										<label class="fonticon-unit">F02B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF02C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF02C</label>
+										<label class="fonticon-unit">F02C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF02D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF02D</label>
+										<label class="fonticon-unit">F02D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF02E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF02E</label>
+										<label class="fonticon-unit">F02E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF02F" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF02F</label>
+										<label class="fonticon-unit">F02F</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF030" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF030</label>
+										<label class="fonticon-unit">F030</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF031" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF031</label>
+										<label class="fonticon-unit">F031</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF032" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF032</label>
+										<label class="fonticon-unit">F032</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF033" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF033</label>
+										<label class="fonticon-unit">F033</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF034" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF034</label>
+										<label class="fonticon-unit">F034</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF035" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF035</label>
+										<label class="fonticon-unit">F035</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF036" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF036</label>
+										<label class="fonticon-unit">F036</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF037" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF037</label>
+										<label class="fonticon-unit">F037</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF038" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF038</label>
+										<label class="fonticon-unit">F038</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF039" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF039</label>
+										<label class="fonticon-unit">F039</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF03A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF03A</label>
+										<label class="fonticon-unit">F03A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF03B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF03B</label>
+										<label class="fonticon-unit">F03B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF03C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF03C</label>
+										<label class="fonticon-unit">F03C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF03D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF03D</label>
+										<label class="fonticon-unit">F03D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF03E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF03E</label>
+										<label class="fonticon-unit">F03E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF040" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF040</label>
+										<label class="fonticon-unit">F040</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF041" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF041</label>
+										<label class="fonticon-unit">F041</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF042" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF042</label>
+										<label class="fonticon-unit">F042</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF043" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF043</label>
+										<label class="fonticon-unit">F043</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF044" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF044</label>
+										<label class="fonticon-unit">F044</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF045" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF045</label>
+										<label class="fonticon-unit">F045</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF046" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF046</label>
+										<label class="fonticon-unit">F046</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF047" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF047</label>
+										<label class="fonticon-unit">F047</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF048" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF048</label>
+										<label class="fonticon-unit">F048</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF049" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF049</label>
+										<label class="fonticon-unit">F049</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF04A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF04A</label>
+										<label class="fonticon-unit">F04A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF04B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF04B</label>
+										<label class="fonticon-unit">F04B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF04C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF04C</label>
+										<label class="fonticon-unit">F04C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF04D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF04D</label>
+										<label class="fonticon-unit">F04D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF04E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF04E</label>
+										<label class="fonticon-unit">F04E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF050" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF050</label>
+										<label class="fonticon-unit">F050</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF051" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF051</label>
+										<label class="fonticon-unit">F051</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF052" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF052</label>
+										<label class="fonticon-unit">F052</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF053" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF053</label>
+										<label class="fonticon-unit">F053</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF054" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF054</label>
+										<label class="fonticon-unit">F054</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF055" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF055</label>
+										<label class="fonticon-unit">F055</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF056" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF056</label>
+										<label class="fonticon-unit">F056</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF057" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF057</label>
+										<label class="fonticon-unit">F057</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF058" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF058</label>
+										<label class="fonticon-unit">F058</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF059" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF059</label>
+										<label class="fonticon-unit">F059</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF05A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF05A</label>
+										<label class="fonticon-unit">F05A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF05B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF05B</label>
+										<label class="fonticon-unit">F05B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF05C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF05C</label>
+										<label class="fonticon-unit">F05C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF05D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF05D</label>
+										<label class="fonticon-unit">F05D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF05E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF05E</label>
+										<label class="fonticon-unit">F05E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF060" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF060</label>
+										<label class="fonticon-unit">F060</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF061" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF061</label>
+										<label class="fonticon-unit">F061</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF062" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF062</label>
+										<label class="fonticon-unit">F062</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF063" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF063</label>
+										<label class="fonticon-unit">F063</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF064" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF064</label>
+										<label class="fonticon-unit">F064</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF065" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF065</label>
+										<label class="fonticon-unit">F065</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF066" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF066</label>
+										<label class="fonticon-unit">F066</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF067" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF067</label>
+										<label class="fonticon-unit">F067</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF068" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF068</label>
+										<label class="fonticon-unit">F068</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF069" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF069</label>
+										<label class="fonticon-unit">F069</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF06A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF06A</label>
+										<label class="fonticon-unit">F06A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF06B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF06B</label>
+										<label class="fonticon-unit">F06B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF06C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF06C</label>
+										<label class="fonticon-unit">F06C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF06D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF06D</label>
+										<label class="fonticon-unit">F06D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF06E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF06E</label>
+										<label class="fonticon-unit">F06E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF070" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF070</label>
+										<label class="fonticon-unit">F070</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF071" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF071</label>
+										<label class="fonticon-unit">F071</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF072" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF072</label>
+										<label class="fonticon-unit">F072</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF073" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF073</label>
+										<label class="fonticon-unit">F073</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF074" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF074</label>
+										<label class="fonticon-unit">F074</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF075" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF075</label>
+										<label class="fonticon-unit">F075</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF076" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF076</label>
+										<label class="fonticon-unit">F076</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF077" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF077</label>
+										<label class="fonticon-unit">F077</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF078" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF078</label>
+										<label class="fonticon-unit">F078</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF079" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF079</label>
+										<label class="fonticon-unit">F079</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF07A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF07A</label>
+										<label class="fonticon-unit">F07A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF07B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF07B</label>
+										<label class="fonticon-unit">F07B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF07C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF07C</label>
+										<label class="fonticon-unit">F07C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF07D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF07D</label>
+										<label class="fonticon-unit">F07D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF07E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF07E</label>
+										<label class="fonticon-unit">F07E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF080" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF080</label>
+										<label class="fonticon-unit">F080</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF081" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF081</label>
+										<label class="fonticon-unit">F081</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF082" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF082</label>
+										<label class="fonticon-unit">F082</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF083" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF083</label>
+										<label class="fonticon-unit">F083</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF084" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF084</label>
+										<label class="fonticon-unit">F084</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF085" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF085</label>
+										<label class="fonticon-unit">F085</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF086" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF086</label>
+										<label class="fonticon-unit">F086</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF087" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF087</label>
+										<label class="fonticon-unit">F087</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF088" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF088</label>
+										<label class="fonticon-unit">F088</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF089" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF089</label>
+										<label class="fonticon-unit">F089</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF08A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF08A</label>
+										<label class="fonticon-unit">F08A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF08B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF08B</label>
+										<label class="fonticon-unit">F08B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF08C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF08C</label>
+										<label class="fonticon-unit">F08C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF08D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF08D</label>
+										<label class="fonticon-unit">F08D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF08E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF08E</label>
+										<label class="fonticon-unit">F08E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF08F" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF08F</label>
+										<label class="fonticon-unit">F08F</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF090" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF090</label>
+										<label class="fonticon-unit">F090</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF091" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF091</label>
+										<label class="fonticon-unit">F091</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF092" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF092</label>
+										<label class="fonticon-unit">F092</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF093" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF093</label>
+										<label class="fonticon-unit">F093</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF094" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF094</label>
+										<label class="fonticon-unit">F094</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF095" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF095</label>
+										<label class="fonticon-unit">F095</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF096" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF096</label>
+										<label class="fonticon-unit">F096</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF097" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF097</label>
+										<label class="fonticon-unit">F097</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF098" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF098</label>
+										<label class="fonticon-unit">F098</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF099" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF099</label>
+										<label class="fonticon-unit">F099</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF09A" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF09A</label>
+										<label class="fonticon-unit">F09A</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF09B" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF09B</label>
+										<label class="fonticon-unit">F09B</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF09C" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF09C</label>
+										<label class="fonticon-unit">F09C</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF09D" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF09D</label>
+										<label class="fonticon-unit">F09D</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF09E" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF09E</label>
+										<label class="fonticon-unit">F09E</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF09F" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF09F</label>
+										<label class="fonticon-unit">F09F</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A0" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A0</label>
+										<label class="fonticon-unit">F0A0</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A1" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A1</label>
+										<label class="fonticon-unit">F0A1</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A2" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A2</label>
+										<label class="fonticon-unit">F0A2</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A3" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A3</label>
+										<label class="fonticon-unit">F0A3</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A4" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A4</label>
+										<label class="fonticon-unit">F0A4</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A5" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A5</label>
+										<label class="fonticon-unit">F0A5</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A6" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A6</label>
+										<label class="fonticon-unit">F0A6</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A7" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A7</label>
+										<label class="fonticon-unit">F0A7</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A8" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A8</label>
+										<label class="fonticon-unit">F0A8</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0A9" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0A9</label>
+										<label class="fonticon-unit">F0A9</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0AA" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0AA</label>
+										<label class="fonticon-unit">F0AA</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0AB" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0AB</label>
+										<label class="fonticon-unit">F0AB</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0AC" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0AC</label>
+										<label class="fonticon-unit">F0AC</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0AD" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0AD</label>
+										<label class="fonticon-unit">F0AD</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0AE" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0AE</label>
+										<label class="fonticon-unit">F0AE</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0AF" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0AF</label>
+										<label class="fonticon-unit">F0AF</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B0" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B0</label>
+										<label class="fonticon-unit">F0B0</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B1" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B1</label>
+										<label class="fonticon-unit">F0B1</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B2" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B2</label>
+										<label class="fonticon-unit">F0B2</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B3" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B3</label>
+										<label class="fonticon-unit">F0B3</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B4" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B4</label>
+										<label class="fonticon-unit">F0B4</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B5" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B5</label>
+										<label class="fonticon-unit">F0B5</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B6" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B6</label>
+										<label class="fonticon-unit">F0B6</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B7" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B7</label>
+										<label class="fonticon-unit">F0B7</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B8" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B8</label>
+										<label class="fonticon-unit">F0B8</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0B9" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0B9</label>
+										<label class="fonticon-unit">F0B9</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0BA" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0BA</label>
+										<label class="fonticon-unit">F0BA</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0BB" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0BB</label>
+										<label class="fonticon-unit">F0BB</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0BC" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0BC</label>
+										<label class="fonticon-unit">F0BC</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0BD" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0BD</label>
+										<label class="fonticon-unit">F0BD</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0BE" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0BE</label>
+										<label class="fonticon-unit">F0BE</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0BF" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0BF</label>
+										<label class="fonticon-unit">F0BF</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C0" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C0</label>
+										<label class="fonticon-unit">F0C0</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C1" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C1</label>
+										<label class="fonticon-unit">F0C1</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C2" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C2</label>
+										<label class="fonticon-unit">F0C2</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C3" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C3</label>
+										<label class="fonticon-unit">F0C3</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C4" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C4</label>
+										<label class="fonticon-unit">F0C4</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C5" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C5</label>
+										<label class="fonticon-unit">F0C5</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C6" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C6</label>
+										<label class="fonticon-unit">F0C6</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C7" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C7</label>
+										<label class="fonticon-unit">F0C7</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C8" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C8</label>
+										<label class="fonticon-unit">F0C8</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0C9" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0C9</label>
+										<label class="fonticon-unit">F0C9</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0CA" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0CA</label>
+										<label class="fonticon-unit">F0CA</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0CB" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0CB</label>
+										<label class="fonticon-unit">F0CB</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0CC" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0CC</label>
+										<label class="fonticon-unit">F0CC</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0CD" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0CD</label>
+										<label class="fonticon-unit">F0CD</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0CE" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0CE</label>
+										<label class="fonticon-unit">F0CE</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0CF" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0CF</label>
+										<label class="fonticon-unit">F0CF</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D0" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D0</label>
+										<label class="fonticon-unit">F0D0</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D1" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D1</label>
+										<label class="fonticon-unit">F0D1</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D2" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D2</label>
+										<label class="fonticon-unit">F0D2</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D3" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D3</label>
+										<label class="fonticon-unit">F0D3</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D4" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D4</label>
+										<label class="fonticon-unit">F0D4</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D5" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D5</label>
+										<label class="fonticon-unit">F0D5</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D6" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D6</label>
+										<label class="fonticon-unit">F0D6</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D7" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D7</label>
+										<label class="fonticon-unit">F0D7</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D8" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D8</label>
+										<label class="fonticon-unit">F0D8</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0D9" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0D9</label>
+										<label class="fonticon-unit">F0D9</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0DA" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0DA</label>
+										<label class="fonticon-unit">F0DA</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0DB" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0DB</label>
+										<label class="fonticon-unit">F0DB</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0DC" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0DC</label>
+										<label class="fonticon-unit">F0DC</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0DD" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0DD</label>
+										<label class="fonticon-unit">F0DD</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0DE" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0DE</label>
+										<label class="fonticon-unit">F0DE</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0DF" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0DF</label>
+										<label class="fonticon-unit">F0DF</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E0" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E0</label>
+										<label class="fonticon-unit">F0E0</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E1" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E1</label>
+										<label class="fonticon-unit">F0E1</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E2" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E2</label>
+										<label class="fonticon-unit">F0E2</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E3" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E3</label>
+										<label class="fonticon-unit">F0E3</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E4" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E4</label>
+										<label class="fonticon-unit">F0E4</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E5" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E5</label>
+										<label class="fonticon-unit">F0E5</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E6" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E6</label>
+										<label class="fonticon-unit">F0E6</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E7" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E7</label>
+										<label class="fonticon-unit">F0E7</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E8" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E8</label>
+										<label class="fonticon-unit">F0E8</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0E9" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0E9</label>
+										<label class="fonticon-unit">F0E9</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0EA" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0EA</label>
+										<label class="fonticon-unit">F0EA</label>
+									</div>
+								</div>
+								<div class="fonticon-container">
+									<div class="fonticon-wrap">
+										<i class="icon icon-uniF0EB" aria-hidden="true" title="Copy to use adjust"></i>
+									</div>
+									<div class="fonticon-info">
+										<label class="fonticon-classname">icon-uniF0EB</label>
+										<label class="fonticon-unit">F0EB</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>	
+</html>

@@ -107,12 +107,6 @@
     }
 }
 
-@mixin btn-elevate-air($shift: $btn-elevate-air-shift) {
-    &:hover {
-        transform: translate(0, -$shift);
-    }
-}
-
 // Button sizes
 @mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
     padding: $padding-y $padding-x;

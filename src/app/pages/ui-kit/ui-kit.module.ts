@@ -12,8 +12,7 @@ import { FeatherComponent } from './icons/feather/feather.component';
 import { FontAwesomeComponent } from './icons/font-awesome/font-awesome.component';
 import { MatchHeightModule } from '../../shared/_directives/match-height.directive';
 import { LineAwesomeComponent } from './icons/line-awesome/line-awesome.component';
-
-;
+import { WeatherIconsComponent } from './icons/weather-icons/weather-icons.component';
 
 @NgModule({
     imports: [
@@ -30,7 +29,8 @@ import { LineAwesomeComponent } from './icons/line-awesome/line-awesome.componen
         TextUtilitiesComponent,
         FeatherComponent,
         FontAwesomeComponent,
-        LineAwesomeComponent
+        LineAwesomeComponent,
+        WeatherIconsComponent
     ]
 })
 export class UIKitModule {

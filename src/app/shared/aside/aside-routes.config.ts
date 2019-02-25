@@ -105,8 +105,9 @@ export const ROUTES: RoutesSection[] = [
                     {
                         path: '/uikit/icons', title: 'Icons', icon: '', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
                             { path: '/uikit/feather', title: 'Feather Icon', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-                            { path: '/uikit/font-awesome', title: 'Font Awesome Icon', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-                            { path: '/uikit/line-awesome', title: 'Line Awesome Icon', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/uikit/font-awesome', title: 'Font Awesome Icons', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/uikit/line-awesome', title: 'Line Awesome Icons', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+                            { path: '/uikit/weather-icons', title: 'Weather Icons', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
                         ]
                     },
 
