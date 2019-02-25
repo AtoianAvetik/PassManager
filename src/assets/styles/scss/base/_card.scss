@@ -74,6 +74,10 @@
     color: $card-color;
 }
 
+.card-label {
+    flex: 1 1 auto;
+}
+
 .card-title {
     letter-spacing: 0.05rem;
     margin: 0;
@@ -141,6 +145,8 @@
     border: 0 solid $card-border-color;
     border-bottom-width: $card-header-border-width;
     width: 100%;
+    display: flex;
+    align-items: center;
 
     &:first-child {
         @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
@@ -182,6 +188,9 @@
     }
 }
 
+.card-toolbar {
+    margin-left: auto;
+}
 
 //
 // Header navs

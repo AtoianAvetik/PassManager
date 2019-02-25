@@ -2,17 +2,82 @@
 	<div class="col-6 col-xl-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Collapsible Accordion</h3>
+                <div class="card-label">
+                    <h3 class="card-title">Collapsible Accordion</h3>
+                </div>
+                <div class="card-toolbar">
+                    <button type="button" class="btn btn-primary" collapseTrigger="accordionExample1">< ></button>
+                </div>
             </div>
             <div class="card-body">
+                <div [collapse]="'accordionExample1'">
+                    <mat-tab-group>
+                        <mat-tab label="HTML">
+                            <ngx-prism [language]="'HTML'" [hooks] = "hooks" code='
+<accordion [closeOthers]="false" #acc1>
+    <accordion-panel [heading]="Panel 1" [type]="light">
+        <div class="card-body">
+            <div class="card-section">
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+            </div>
+        </div>
+    </accordion-panel>
+    <accordion-panel id="accordionExample1">
+        <ng-template accordionPanelHeading>
+            <div class="card-header bg-light">
+                <div class="card-title">
+                    <span>Panel 2</span>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template accordionPanelContent>
+            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+        </ng-template>
+    </accordion-panel>
+    <accordion-panel id="a13" [disabled]="true">
+        <ng-template accordionPanelHeading>
+            <div class="card-header bg-light">
+                <div class="card-title">
+                    <span>Panel 3</span>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template accordionPanelContent>
+            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+        </ng-template>
+    </accordion-panel>
+</accordion>
+'>
+                            </ngx-prism>
+                        </mat-tab>
+                        <mat-tab label="TS">
+                            <ngx-prism [language]="'ts'" code="
+    /** No TS for this example */
+
+
+
+
+">
+                            </ngx-prism>
+                        </mat-tab>
+                        <mat-tab label="CSS">
+                            <ngx-prism [language]="'css'" code="
+    /** No CSS for this example */
+
+
+
+
+">
+                            </ngx-prism>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
                 <div class="card-section">
                     <accordion [closeOthers]="false" #acc1>
                         <accordion-panel [heading]="'Panel 1'" [type]="'light'">
                             <div class="card-body">
                                 <div class="card-section">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
                                 </div>
                             </div>
                         </accordion-panel>
@@ -25,9 +90,7 @@
                                 </div>
                             </ng-template>
                             <ng-template accordionPanelContent>
-                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
                             </ng-template>
                         </accordion-panel>
                         <accordion-panel id="a13" [disabled]="true">
@@ -39,9 +102,7 @@
                                 </div>
                             </ng-template>
                             <ng-template accordionPanelContent>
-                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
                             </ng-template>
                         </accordion-panel>
                     </accordion>
@@ -66,9 +127,7 @@
                     <accordion #acc2>
                         <accordion-panel [heading]="'Title'" [type]="'light'">
                             <ng-template accordionPanelContent>
-                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
                             </ng-template>
                         </accordion-panel>
                         <accordion-panel id="accordionExample2">
@@ -80,9 +139,7 @@
                                 </div>
                             </ng-template>
                             <ng-template accordionPanelContent>
-                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
                             </ng-template>
                         </accordion-panel>
                         <accordion-panel [disabled]="true">
@@ -94,9 +151,7 @@
                                 </div>
                             </ng-template>
                             <ng-template accordionPanelContent>
-                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
                             </ng-template>
                         </accordion-panel>
                     </accordion>

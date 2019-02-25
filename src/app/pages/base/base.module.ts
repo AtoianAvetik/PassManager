@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PrismModule } from '@ngx-prism/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatTabsModule } from '@angular/material';
 import { BaseRoutingModule } from './base-routing.module';
 import { PanelModule } from '../../components/panels/panel.module';
 import { ModalModule } from '../../components/modals/modal.module';
@@ -44,12 +45,13 @@ import { TablesComponent } from './tables/tables.component';
         BaseRoutingModule,
         PrismModule,
         NgbModule,
+        MatTabsModule,
         PanelModule,
         LoaderModule,
         NotificationModule,
         ModalModule,
         AccordionModule,
-        CollapseModule
+        CollapseModule,
     ],
     declarations: [
         AlertComponent,
