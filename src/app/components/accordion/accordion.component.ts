@@ -1,104 +1,119 @@
 import {
-    AfterContentInit,
     Component,
-    ContentChildren,
-    forwardRef,
-    Input, OnChanges,
+    ContentChildren, EventEmitter, HostBinding,
+    Input, Output,
     QueryList,
-    ViewEncapsulation
 } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
-import { AccordionGroupComponent } from './accordion-group.component';
-import { Subscription } from 'rxjs/Subscription';
+import { AccordionPanelDirective } from './accordion-panel.directive';
 import { AccordionService } from './accordion.service';
 
-@Component( {
+@Component({
     selector: 'accordion',
     template: `
-        <div aria-multiselectable="true">
-            <ng-content></ng-content>
-        </div>
+        <ng-template ngFor let-panel [ngForOf]="panels">
+            <div class="card">
+                <div (click)="toggle(panel.id)">
+                    <div *ngIf="panel.heading" class="card-header">
+                        <div class="card-title">
+                            {{panel.heading}}
+                        </div>
+                    </div>
+                    <ng-template [ngTemplateOutlet]="panel.titleTpl?.templateRef"></ng-template>
+                </div>
+                <div [@slide]="panel.isOpen ? 'down' : 'up'">
+                    <ng-container *ngIf="!panel.contentTpl">
+                        <ng-content></ng-content>
+                    </ng-container>
+                    <div class="card-body" *ngIf="panel.contentTpl">
+                        <div class="card-section">
+                            <ng-template [ngTemplateOutlet]="panel.contentTpl?.templateRef"></ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     `,
-    styleUrls: ['./accordion.component.scss'],
-    providers: [AccordionService],
-    encapsulation: ViewEncapsulation.None
-} )
+    animations: [
+        trigger('slide', [
+            state('down', style({height: '*', display: 'block'})),
+            state('up', style({height: 0, display: 'none'})),
+            transition('up => down', animate('300ms')),
+            transition('down => up', animate('300ms'))
+        ])
+    ],
+    providers: [AccordionService]
+})
 
-export class AccordionComponent implements AfterContentInit, OnChanges {
+export class AccordionComponent {
+    @ContentChildren(AccordionPanelDirective) panels: QueryList<AccordionPanelDirective>;
+
     @Input()
     closeOthers = true;
 
     @Input()
-    showArrows = false;
-
-    @Input()
     expandAll = false;
 
-    @Input()
-    openedAccordion: string;
-
-    @ContentChildren( forwardRef( () => AccordionGroupComponent ) )
-    groups: QueryList<AccordionGroupComponent>;
-
     /**
-     * We need to save old groups to make difference and find newly changed group, to toggle them.
+     * An array or comma separated strings of panel identifiers that should be opened
      */
-    private oldGroups: AccordionGroupComponent[];
+    @Input() activeIds: string | string[] = [];
+    /**
+     * A panel change event fired right before the panel toggle happens. See NgbPanelChangeEvent for payload details
+     */
+    @Output() panelChange = new EventEmitter<any>();
 
-    private subscription: Subscription;
+    @HostBinding('class') class = 'accordion';
 
     constructor() {
     }
 
-    ngAfterContentInit() {
-        this.setOptions( this.groups.toArray() );
-        this.toggleAll( this.expandAll );
-        if ( this.expandAll ) {
-            // this.closeOthers = false;
-            this.oldGroups = this.groups.toArray();
-            this.toggleAll( true, this.oldGroups );
-
-            // we subscribe for changes, and if new groups are added we open them automatically
-            this.subscription = this.groups.changes.subscribe( change => {
-                const newGroups = this.groups.toArray().filter( group => {
-                    return this.oldGroups.indexOf( group ) === -1;
-                } );
-                this.toggleAll( true, newGroups );
-
-                this.oldGroups = this.groups.toArray();
-            } );
-        }
-        if (this.openedAccordion) {
-            this.toggle(this.openedAccordion);
+    /**
+     * Programmatically toggle a panel with a given id. Has no effect if the panel is disabled.
+     */
+    toggle(panelId: string) {
+        const panel = this._findPanelById(panelId);
+        if (panel) {
+            this._changeOpenState(panel, !panel.isOpen);
         }
     }
 
-    ngOnChanges(simpleChange) {
-        if ( simpleChange.openedAccordion && simpleChange.openedAccordion.currentValue && this.groups ) {
-            this.toggle(this.openedAccordion);
-        }
+    /**
+     * Toggle all panels.
+     */
+    toggleAll(nextState?: boolean) {
+        this.panels.forEach((panel) => {
+            this._changeOpenState(panel, typeof nextState === 'boolean' ? nextState : !panel.isOpen);
+        });
     }
 
-    toggle( id: string ) {
-        this.groups.toArray().forEach( group => {
-            (group.id === id && !group.isOpen) && group.toggle();
-        } );
-    }
+    private _changeOpenState(panel: AccordionPanelDirective, nextState: boolean) {
+        if (panel && !panel.disabled && panel.isOpen !== nextState) {
+            this.panelChange.emit({panelId: panel.id, nextState: nextState});
 
-    setOptions(groups) {
-        groups.forEach( group => {
-            group.closeOthers = this.closeOthers;
-            group.showArrows = this.showArrows;
-        } );
-    }
+            panel.isOpen = nextState;
 
-    toggleAll( state?: boolean, groups = this.groups.toArray() ) {
-        groups.forEach( group => {
-            if ( state !== undefined ) {
-                group.isOpen = state;
-            } else {
-                group.toggle();
+            if (nextState && this.closeOthers) {
+                this._closeOthers(panel.id);
             }
-        } );
+            this._updateActiveIds();
+        }
+    }
+
+    private _closeOthers(panelId: string) {
+        this.panels.forEach(panel => {
+            if (panel.id !== panelId) {
+                panel.isOpen = false;
+            }
+        });
+    }
+
+    private _findPanelById(panelId: string): AccordionPanelDirective | null {
+        return this.panels.find(p => p.id === panelId);
+    }
+
+    private _updateActiveIds() {
+        this.activeIds = this.panels.filter(panel => panel.isOpen && !panel.disabled).map(panel => panel.id);
     }
 }

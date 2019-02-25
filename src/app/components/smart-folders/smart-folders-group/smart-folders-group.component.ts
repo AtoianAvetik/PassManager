@@ -16,7 +16,6 @@ export class SmartFoldersGroupComponent implements DoCheck, OnInit, OnDestroy {
 
 	// Accordion Config
 	@Input() closeOthers = false;
-	@Input() showArrows = true;
 	@Input() expandAll = false;
 
 	// Accordion ref

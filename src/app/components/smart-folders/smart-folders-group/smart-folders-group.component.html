@@ -1,5 +1,5 @@
-<accordion [closeOthers]="closeOthers" [showArrows]="showArrows" [expandAll]="expandAll" #acc>
-	<accordion-group
+<accordion [closeOthers]="closeOthers" [expandAll]="expandAll" #acc>
+	<accordion-panel
 		(click)="onSelectFolder(folderId);"
 		[heading]="foldersData[folderId].name+' ('+foldersData[folderId].content.length+')'"
 		*ngFor="let folderId of curLevelList">
@@ -9,12 +9,11 @@
 			[foldersData]="foldersData"
 			[foldersList]="foldersData[folderId].childFolders"
 			[closeOthers]="closeOthers"
-			[showArrows]="showArrows"
 			[expandAll]="expandAll"
 			[isChildComponent]="true">
 			<ng-template let-folderId>
 				<ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: folderId}"></ng-template>
 			</ng-template>
 		</smart-folders-group>
-	</accordion-group>
+	</accordion-panel>
 </accordion>

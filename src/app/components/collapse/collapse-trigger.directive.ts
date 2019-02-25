@@ -8,18 +8,29 @@ import { CollapseService } from './collapse.service';
 } )
 export class CollapseTriggerDirective {
     @Input( 'collapseTrigger' ) id: any;
+    @Input() disabled = false;
+    @HostListener( 'click' )
+    onClick() {
+        event.preventDefault();
+        event.stopPropagation();
+
+        this.toggle();
+    }
 
     constructor( private $collapseService: CollapseService ) {
     }
 
-    @HostListener( 'click' )
-    onClick() {
+    toggle() {
+        if ( this.disabled ) {
+            return;
+        }
+
         if ( Array.isArray(this.id) ) {
             this.id.forEach(id => {
-                this.$collapseService.collapse( id );
+                this.$collapseService.toggle( id );
             });
         } else {
-            this.$collapseService.collapse( this.id );
+            this.$collapseService.toggle( this.id );
         }
     }
 }

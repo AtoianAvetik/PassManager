@@ -23,10 +23,10 @@ export class CollapseDirective {
     }
     set status(status: boolean) {
         this._status = status;
-        this.trigger = status ? 'up' : 'down';
+        this.trigger = status ? 'down' : 'up';
     }
     @Input('collapse') id: string;
-    @HostBinding('@slide') trigger = status ? 'up' : 'down';
+    @HostBinding('@slide') trigger = status ? 'down' : 'up';
 
     constructor(private elRef: ElementRef,
                 private $collapseService: CollapseService) {

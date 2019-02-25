@@ -6,7 +6,7 @@ export class CollapseService {
     constructor() {
     }
 
-    collapse(id: string) {
+    toggle(id: string) {
         this.isCollapseTriggered.next(id);
     }
 }

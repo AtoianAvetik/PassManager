@@ -1,13 +1,13 @@
 <section id="buttons">
     <div class="row">
-        <div class="col-6 col-sm-12">
+        <div class="col-6 col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Basic Examples</h3>
+                    <h4 class="card-title">Basic Examples</h4>
                 </div>
                 <div class="card-body">
                     <div class="card-section">
-                        <h3>Multiple Targets</h3>
+                        <h4>Multiple Targets</h4>
                         <div class="card-section_content -border">
                             <div class="btn-list">
                                 <button type="button" class="btn btn-primary" [collapseTrigger]="'collapseExample1'">Toggle first element</button>
@@ -22,6 +22,49 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="card card-section" [collapse]="'collapseExample2'">
+                                        Lorem Ipsum
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Accordions</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <div class="accordion">
+                            <div class="card">
+                                <div class="card-header bg-light" [collapseTrigger]="'collapsibleGroupItem1'">
+                                    <h4 class="card-title">Collapsible Group Item #1</h4>
+                                </div>
+                                <div class="card-body" [collapse]="'collapsibleGroupItem1'">
+                                    <div class="card-section">
+                                        Lorem Ipsum
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header bg-light" [collapseTrigger]="'collapsibleGroupItem2'">
+                                    <h4 class="card-title">Collapsible Group Item #2</h4>
+                                </div>
+                                <div class="card-body" [collapse]="'collapsibleGroupItem2'">
+                                    <div class="card-section">
+                                        Lorem Ipsum
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header bg-light" [collapseTrigger]="'collapsibleGroupItem3'">
+                                    <h4 class="card-title">Collapsible Group Item #3</h4>
+                                </div>
+                                <div class="card-body" [collapse]="'collapsibleGroupItem3'">
+                                    <div class="card-section">
                                         Lorem Ipsum
                                     </div>
                                 </div>

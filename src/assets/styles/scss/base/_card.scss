@@ -387,9 +387,11 @@
 // Accordion
 //
 
-.accordion {
+.accordion,
+accordion-group {
     > .card {
         overflow: hidden;
+        margin: 0;
 
         &:not(:first-of-type) {
             .card-header:first-child {
@@ -412,6 +414,7 @@
         }
 
         .card-header {
+            cursor: pointer;
             margin-bottom: -$card-border-default-width;
         }
     }

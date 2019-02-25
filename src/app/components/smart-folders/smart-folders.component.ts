@@ -23,7 +23,6 @@ export class SmartFoldersComponent implements OnInit, OnDestroy {
 
 	// Accordion config
 	@Input() closeOthers = false;
-	@Input() showArrows = true;
 	@Input() expandAll = false;
 
 	// Events
