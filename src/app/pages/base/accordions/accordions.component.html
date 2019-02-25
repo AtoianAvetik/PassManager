@@ -13,62 +13,68 @@
                 <div [collapse]="'accordionExample1'">
                     <mat-tab-group>
                         <mat-tab label="HTML">
-                            <ngx-prism [language]="'HTML'" [hooks] = "hooks" code='
-<accordion [closeOthers]="false" #acc1>
-    <accordion-panel [heading]="Panel 1" [type]="light">
-        <div class="card-body">
-            <div class="card-section">
+                            <ng-template matTabContent>
+                                <ngx-prism [language]="'HTML'" [hooks] = "hooks" code='
+    <accordion [closeOthers]="false" #acc1>
+        <accordion-panel [heading]="Panel 1" [type]="light">
+            <div class="card-body">
+                <div class="card-section">
+                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+                </div>
+            </div>
+        </accordion-panel>
+        <accordion-panel id="accordionExample1">
+            <ng-template accordionPanelHeading>
+                <div class="card-header bg-light">
+                    <div class="card-title">
+                        <span>Panel 2</span>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template accordionPanelContent>
                 <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-            </div>
-        </div>
-    </accordion-panel>
-    <accordion-panel id="accordionExample1">
-        <ng-template accordionPanelHeading>
-            <div class="card-header bg-light">
-                <div class="card-title">
-                    <span>Panel 2</span>
+            </ng-template>
+        </accordion-panel>
+        <accordion-panel id="a13" [disabled]="true">
+            <ng-template accordionPanelHeading>
+                <div class="card-header bg-light">
+                    <div class="card-title">
+                        <span>Panel 3</span>
+                    </div>
                 </div>
-            </div>
-        </ng-template>
-        <ng-template accordionPanelContent>
-            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-        </ng-template>
-    </accordion-panel>
-    <accordion-panel id="a13" [disabled]="true">
-        <ng-template accordionPanelHeading>
-            <div class="card-header bg-light">
-                <div class="card-title">
-                    <span>Panel 3</span>
-                </div>
-            </div>
-        </ng-template>
-        <ng-template accordionPanelContent>
-            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-        </ng-template>
-    </accordion-panel>
-</accordion>
-'>
-                            </ngx-prism>
+            </ng-template>
+            <ng-template accordionPanelContent>
+                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+            </ng-template>
+        </accordion-panel>
+    </accordion>
+    '>
+                                </ngx-prism>
+                            </ng-template>
                         </mat-tab>
                         <mat-tab label="TS">
-                            <ngx-prism [language]="'ts'" code="
-    /** No TS for this example */
+                            <ng-template matTabContent>
+                                <ngx-prism [language]="'ts'" code="
+        /** No TS for this example */
 
 
 
 
-">
-                            </ngx-prism>
+    ">
+                                </ngx-prism>
+                            </ng-template>
                         </mat-tab>
                         <mat-tab label="CSS">
-                            <ngx-prism [language]="'css'" code="
-    /** No CSS for this example */
+                            <ng-template matTabContent>
+                                <ngx-prism [language]="'css'" code="
+        /** No CSS for this example */
 
 
 
 
-">
-                            </ngx-prism>
+    ">
+                                </ngx-prism>
+                            </ng-template>
                         </mat-tab>
                     </mat-tab-group>
                 </div>
