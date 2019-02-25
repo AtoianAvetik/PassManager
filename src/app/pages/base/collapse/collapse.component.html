@@ -1,3 +1,35 @@
-<p>
-  collapse works!
-</p>
+<section id="buttons">
+    <div class="row">
+        <div class="col-6 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Basic Examples</h3>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <h3>Multiple Targets</h3>
+                        <div class="card-section_content -border">
+                            <div class="btn-list">
+                                <button type="button" class="btn btn-primary" [collapseTrigger]="'collapseExample1'">Toggle first element</button>
+                                <button type="button" class="btn btn-primary" [collapseTrigger]="'collapseExample2'">Toggle second element</button>
+                                <button type="button" class="btn btn-primary" [collapseTrigger]="['collapseExample1', 'collapseExample2']">Toggle both elements</button>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-6">
+                                    <div class="card card-section" [collapse]="'collapseExample1'">
+                                        Lorem Ipsum
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card card-section" [collapse]="'collapseExample2'">
+                                        Lorem Ipsum
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

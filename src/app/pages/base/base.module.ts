@@ -9,6 +9,7 @@ import { ModalModule } from '../../components/modals/modal.module';
 import { LoaderModule } from '../../components/loader/loader.module';
 import { NotificationModule } from '../../components/notifications/notification.module';
 import { AccordionModule } from '../../components/accordion/accordion.module';
+import { CollapseModule } from '../../components/collapse/collapse.module';
 
 import { AlertComponent } from './alert/alert.component';
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -48,6 +49,7 @@ import { TablesComponent } from './tables/tables.component';
         NotificationModule,
         ModalModule,
         AccordionModule,
+        CollapseModule
     ],
     declarations: [
         AlertComponent,
