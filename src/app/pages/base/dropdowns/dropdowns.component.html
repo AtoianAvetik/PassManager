@@ -1,3 +1,56 @@
-<p>
-  dropdowns works!
-</p>
+<section id="collapse">
+    <div class="row">
+        <div class="col-6 col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Basic Examples</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <div class="card-section_title">
+                            Single Button
+                        </div>
+                        <p>Wrap the dropdown’s toggle (your button or link) and the dropdown menu within <code>.dropdown</code>, or another element that declares <code>position: relative;</code>. Dropdowns can be triggered from <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> elements to better fit your potential needs.</p>
+                        <p>Any single <code>.btn</code> can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either <code>&lt;button&gt;</code> elements:</p>
+                        <div class="card-section_content -border">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="btn-list">
+                                        <div ngbDropdown class="d-inline-block">
+                                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                                <button class="dropdown-item">Action - 1</button>
+                                                <button class="dropdown-item">Another Action</button>
+                                                <button class="dropdown-item">Something else is here</button>
+                                            </div>
+                                        </div>
+                                        <div ngbDropdown class="d-inline-block">
+                                            <button class="btn btn-icon btn-round btn-hover" id="dropdownBasic2" ngbDropdownToggle>
+                                                <i class="ft-more-horizontal-"></i>
+                                            </button>
+                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                                                <button class="dropdown-item">Action - 1</button>
+                                                <button class="dropdown-item">Another Action</button>
+                                                <button class="dropdown-item">Something else is here</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col text-right">
+                                    <div ngbDropdown placement="top-right" class="d-inline-block">
+                                        <button class="btn btn-outline-primary" id="dropdownBasic3" ngbDropdownToggle>Toggle dropup</button>
+                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+                                            <button class="dropdown-item">Action - 1</button>
+                                            <button class="dropdown-item">Another Action</button>
+                                            <button class="dropdown-item">Something else is here</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
