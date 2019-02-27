@@ -5,7 +5,7 @@ import {
     QueryList,
 } from '@angular/core';
 
-import { AccordionPanelHeadingDirective } from './accordion-panel-heading.directive';
+import { AccordionPanelTitleDirective } from './accordion-panel-title.directive';
 import { AccordionPanelContentDirective } from './accordion-panel-content.directive';
 import { AccordionService } from './accordion.service';
 
@@ -19,10 +19,10 @@ export class AccordionPanelDirective implements OnInit, AfterContentChecked {
     id: string;
 
     @Input()
-    heading: string;
+    title: string;
 
     @Input()
-    type: string;
+    bg: string;
 
     @Input()
     disabled = false;
@@ -36,10 +36,10 @@ export class AccordionPanelDirective implements OnInit, AfterContentChecked {
         return this._isOpen;
     }
 
-    titleTpl: AccordionPanelHeadingDirective | null;
+    titleTpl: AccordionPanelTitleDirective | null;
     contentTpl: AccordionPanelContentDirective | null;
 
-    @ContentChildren(AccordionPanelHeadingDirective, {descendants: false}) titleTpls: QueryList<AccordionPanelHeadingDirective>;
+    @ContentChildren(AccordionPanelTitleDirective, {descendants: false}) titleTpls: QueryList<AccordionPanelTitleDirective>;
     @ContentChildren(AccordionPanelContentDirective, {descendants: false}) contentTpls: QueryList<AccordionPanelContentDirective>;
 
     constructor(private $accordionService: AccordionService) {

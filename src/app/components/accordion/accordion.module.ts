@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordionPanelDirective } from './accordion-panel.directive';
-import { AccordionPanelHeadingDirective } from './accordion-panel-heading.directive';
+import { AccordionPanelTitleDirective } from './accordion-panel-title.directive';
 import { AccordionPanelContentDirective } from './accordion-panel-content.directive';
 import { AccordionComponent } from './accordion.component';
 import { AccordionService } from './accordion.service';
@@ -14,13 +14,13 @@ import { AccordionService } from './accordion.service';
     exports: [
         AccordionComponent,
         AccordionPanelDirective,
-        AccordionPanelHeadingDirective,
+        AccordionPanelTitleDirective,
         AccordionPanelContentDirective
     ],
     declarations: [
         AccordionComponent,
         AccordionPanelDirective,
-        AccordionPanelHeadingDirective,
+        AccordionPanelTitleDirective,
         AccordionPanelContentDirective
     ],
     providers: [AccordionService],

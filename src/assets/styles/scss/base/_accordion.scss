@@ -1,0 +1,175 @@
+//
+// Accordion
+//
+
+.accordion:not(.accordion-outline) {
+    > .accordion-panel {
+        &:not(:first-of-type) {
+            .accordion-panel_header:first-child {
+                @include border-radius(0);
+            }
+
+            &:not(:last-of-type) {
+                border-bottom: 0;
+                @include border-radius(0);
+            }
+        }
+
+        &:first-of-type {
+            border-bottom: 0;
+            @include border-bottom-radius(0);
+        }
+
+        &:last-of-type {
+            @include border-top-radius(0);
+        }
+    }
+}
+
+//
+// Accordion Panel
+//
+
+.accordion-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+    word-wrap: break-word;
+    background-color: $accordion-bg;
+    background-clip: border-box;
+    border: $accordion-border-width solid $accordion-border-color;
+    font-size: $accordion-font-size;
+    font-weight: $accordion-font-weight;
+    box-shadow: $accordion-shadow;
+    overflow: hidden;
+    margin: 0;
+    margin-bottom: $accordion-m-gap-y;
+    @include border-radius($accordion-border-radius);
+
+    .accordion-panel{
+        box-shadow: none;
+    }
+
+    > hr {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    > .list-group:first-child {
+        .list-group-panel:first-child {
+            @include border-top-radius($accordion-border-radius);
+        }
+    }
+
+    > .list-group:last-child {
+        .list-group-panel:last-child {
+            @include border-bottom-radius($accordion-border-radius);
+        }
+    }
+
+    &.accordion-panel-transparent{
+        background-color: transparent !important;
+    }
+
+}
+
+.accordion-panel_body {
+    flex: 1 1 auto;
+    color: $accordion-color;
+    padding: $accordion-body-space-y $accordion-body-space-x;
+}
+
+.accordion-panel_title {
+    letter-spacing: 0.05rem;
+    margin: 0;
+    padding: 0;
+    font-size: $accordion-title-font-size;
+    font-weight: $accordion-title-font-weight;
+    line-height: $accordion-title-line-height;
+    display: flex;
+    align-items: center;
+
+    > i {
+        margin-right: $accordion-title-icon-shift;
+        font-size: $accordion-title-icon-size;
+        margin-top: -0.1rem;
+    }
+}
+
+.accordion-panel_header {
+    padding: $accordion-header-space-y $accordion-header-space-x;
+    color: $accordion-header-color;
+    background-color: $accordion-header-bg;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0;
+
+    &:first-child {
+        @include border-radius($accordion-inner-border-radius $accordion-inner-border-radius 0 0);
+    }
+
+    + .list-group {
+        .list-group-panel:first-child {
+            border-top: 0;
+        }
+    }
+
+    &.expanded {
+        color: $accordion-header-expanded-color;
+        background-color: $accordion-header-expanded-bg;
+    }
+}
+
+//
+// Accordion light variants
+//
+
+.accordion.accordion-light {
+    .accordion-panel {
+        box-shadow: none;
+        background-color: transparent;
+        border: 0;
+        border-top: $accordion-border-width solid $accordion-border-color;
+
+        &:first-child {
+            border-top: 0;
+        }
+    }
+    .accordion-panel_header {
+        background-color: transparent;
+        border: none;
+        padding: $accordion-header-space-y 0;
+    }
+    .accordion-panel_body {
+        padding: 0;
+        margin-bottom: $accordion-body-space-y;
+    }
+}
+
+//
+// Accordion outline variants
+//
+
+.accordion.accordion-outline {
+    .accordion-panel {
+        margin-bottom: $accordion-outline-m-gap-y;
+        border: $accordion-outline-border-width solid $accordion-border-color;
+        @include border-radius($accordion-outline-border-radius);
+        transition: border-color 0.35s;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.expanded {
+            border-color: $accordion-outline-expanded-border-color;
+        }
+    }
+    .accordion-panel_header {
+        background-color: transparent;
+        border: none;
+    }
+}

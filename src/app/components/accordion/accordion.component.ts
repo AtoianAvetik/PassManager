@@ -1,7 +1,7 @@
 import {
     Component,
     ContentChildren, EventEmitter, HostBinding,
-    Input, Output,
+    Input, OnInit, Output,
     QueryList,
 } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -13,23 +13,20 @@ import { AccordionService } from './accordion.service';
     selector: 'accordion',
     template: `
         <ng-template ngFor let-panel [ngForOf]="panels">
-            <div class="card">
-                <div (click)="toggle(panel.id)">
-                    <div *ngIf="panel.heading" [class]="'card-header ' + (panel.type ? 'bg-'+panel.type: type ? 'bg-'+type : '')">
-                        <div class="card-title">
-                            {{panel.heading}}
-                        </div>
+            <div [class]="'accordion-panel ' + (panel.isOpen ? 'expanded' : '')">
+                <div (click)="toggle(panel.id)"
+                     [class]="'accordion-panel_header ' + (panel.bg ? 'bg-'+panel.bg: bg ? 'bg-'+bg : '') + ' ' + (panel.isOpen ? 'expanded' : '')">
+                    <div *ngIf="panel.title" class="accordion-panel_title">
+                        {{panel.title}}
                     </div>
-                    <ng-template [ngTemplateOutlet]="panel.titleTpl?.templateRef"></ng-template>
+                    <div *ngIf="!panel.title">
+                        <ng-template [ngTemplateOutlet]="panel.titleTpl?.templateRef"></ng-template>
+                    </div>
                 </div>
                 <div [@slide]="panel.isOpen ? 'down' : 'up'">
-                    <ng-container *ngIf="!panel.contentTpl">
-                        <ng-content></ng-content>
-                    </ng-container>
-                    <div class="card-body" *ngIf="panel.contentTpl">
-                        <div class="card-section">
-                            <ng-template [ngTemplateOutlet]="panel.contentTpl?.templateRef"></ng-template>
-                        </div>
+                    <ng-content></ng-content>
+                    <div class="accordion-panel_body" *ngIf="panel.contentTpl">
+                        <ng-template [ngTemplateOutlet]="panel.contentTpl?.templateRef"></ng-template>
                     </div>
                 </div>
             </div>
@@ -39,14 +36,14 @@ import { AccordionService } from './accordion.service';
         trigger('slide', [
             state('down', style({height: '*', display: 'block'})),
             state('up', style({height: 0, display: 'none'})),
-            transition('up => down', animate('300ms')),
-            transition('down => up', animate('300ms'))
+            transition('up => down', animate('350ms ease-out')),
+            transition('down => up', animate('350ms ease-out'))
         ])
     ],
     providers: [AccordionService]
 })
 
-export class AccordionComponent {
+export class AccordionComponent implements OnInit {
     @ContentChildren(AccordionPanelDirective) panels: QueryList<AccordionPanelDirective>;
 
     @Input()
@@ -61,11 +58,17 @@ export class AccordionComponent {
     @Input() activeIds: string | string[] = [];
 
     /**
-     *  Accordion's types of panels to be applied globally.
-     *  System recognizes the following types: "primary", "secondary", "success", "danger", "warning", "info", "light" , "dark
-     *  and other utilities bg's
+     *  Accordion's types of panels.
+     *  System recognizes the following types: "light" and "outline"
      */
     @Input() type: string;
+
+    /**
+     *  Accordion's bg's of panels to be applied globally.
+     *  System recognizes the following bg's: "primary", "secondary", "success", "danger", "warning", "info", "light" , "dark"
+     *  and other utilities bg's
+     */
+    @Input() bg: string;
 
     /**
      * A panel change event fired right before the panel toggle happens. See NgbPanelChangeEvent for payload details
@@ -75,6 +78,10 @@ export class AccordionComponent {
     @HostBinding('class') class = 'accordion';
 
     constructor() {
+    }
+
+    ngOnInit(): void {
+        this.class = this.class + (this.type ? ' accordion-' + this.type : '');
     }
 
     /**

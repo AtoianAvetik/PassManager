@@ -1,0 +1,36 @@
+/*--------------------------------------/
+ Accordion
+--------------------------------------*/
+
+$accordion-font-size: 1rem !default;
+$accordion-font-weight: normal !default;
+$accordion-m-gap-y: 0 !default;
+$accordion-color: null !default;
+$accordion-bg: $white !default;
+$accordion-shadow: none !default;
+
+$accordion-border-width: 1px !default;
+$accordion-border-radius: $border-radius !default;
+$accordion-border-color: rgba($black, .06) !default;
+$accordion-inner-border-radius: calc(#{$accordion-border-radius} - #{$accordion-border-width}) !default;
+
+$accordion-title-font-size: 1.1rem !default;
+$accordion-title-font-weight: 500 !default;
+$accordion-title-line-height: 1.2 !default;
+$accordion-title-icon-size: 1.7rem !default;
+$accordion-title-icon-shift: 1rem !default;
+
+$accordion-header-bg: $light !default;
+$accordion-header-color: null !default;
+$accordion-header-expanded-bg: null !default;
+$accordion-header-expanded-color: $primary !default;
+$accordion-header-space-y: 1rem !default;
+$accordion-header-space-x: 1rem !default;
+
+$accordion-body-space-y: 1.25rem !default;
+$accordion-body-space-x: 1.25rem !default;
+
+$accordion-outline-m-gap-y: 1.2rem !default;
+$accordion-outline-border-width: 2px !default;
+$accordion-outline-border-radius: 4px !default;
+$accordion-outline-expanded-border-color: $primary !default;
