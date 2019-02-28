@@ -11,7 +11,7 @@ import { ContentTableService } from '../../shared/_services/content-table.servic
 export class ContentTableComponent {
   @Input() data;
   @Input() tableIndex;
-  @HostBinding('attr.class') class = 'page-table';
+  @HostBinding('class.page-table') class = true;
 
   constructor(private contentTableService: ContentTableService) { }
 }

@@ -2,24 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CustomMaterialModule } from './shared/material.module';
 import { PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { PANEL_CONFIG, PanelConfigInterface } from './components/panels/panel.config';
+import { NGC_PANEL_CONFIG, NgcModule, NgcPanelConfigInterface } from './ng-custom';
 
 import { AppComponent } from './app.component';
 import { FullLayoutComponent } from './layouts/full/full-layout.component';
 import { ContentLayoutComponent } from './layouts/content/content-layout.component';
-
 /* Services */
 import { DataService } from './shared/_services/data.service';
 import { ApiService } from './shared/_services/api.service';
 
 import { AsideService } from './shared/_services/aside.service';
-import { LoaderService } from './components/loader/loader.service';
 import { WindowRef } from './shared/_services/window-ref';
 import { UniqueID } from './shared/_services/unique-id.service';
 import { AuthGuard } from './shared/auth/auth.guard';
@@ -31,7 +28,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
 };
 
-const CUSTOM_PANEL_CONFIG: PanelConfigInterface = {
+const CUSTOM_NGC_PANEL_CONFIG: NgcPanelConfigInterface = {
     leftPanelExpandedShift: 250,
     leftPanelCollapsedShift: 60
 };
@@ -45,11 +42,11 @@ const CUSTOM_PANEL_CONFIG: PanelConfigInterface = {
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        NgcModule,
         SharedModule,
         CustomMaterialModule,
         HttpClientModule,
         AppRoutingModule,
-        NgbModule.forRoot(),
         AuthModule,
         LoadingBarHttpClientModule,
         LoadingBarRouterModule
@@ -59,12 +56,11 @@ const CUSTOM_PANEL_CONFIG: PanelConfigInterface = {
         DataService,
         AuthGuard,
         AsideService,
-        LoaderService,
         UniqueID,
         WindowRef,
         {
-            provide: PANEL_CONFIG,
-            useValue: CUSTOM_PANEL_CONFIG
+            provide: NGC_PANEL_CONFIG,
+            useValue: CUSTOM_NGC_PANEL_CONFIG
         },
         {
             provide: PERFECT_SCROLLBAR_CONFIG,

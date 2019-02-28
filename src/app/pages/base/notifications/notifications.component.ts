@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NotificationService } from '../../../components/notifications/notification.service';
+import { NgcNotificationService } from '../../../ng-custom';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { NotificationService } from '../../../components/notifications/notificat
 })
 
 export class NotificationsComponent {
-    constructor(private _notificationService: NotificationService) {
+    constructor(private _notificationService: NgcNotificationService) {
     }
 
     // Notifications

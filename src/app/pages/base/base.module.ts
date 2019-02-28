@@ -5,12 +5,7 @@ import { PrismModule } from '@ngx-prism/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatTabsModule } from '@angular/material';
 import { BaseRoutingModule } from './base-routing.module';
-import { PanelModule } from '../../components/panels/panel.module';
-import { ModalModule } from '../../components/modals/modal.module';
-import { LoaderModule } from '../../components/loader/loader.module';
-import { NotificationModule } from '../../components/notifications/notification.module';
-import { AccordionModule } from '../../components/accordion/accordion.module';
-import { CollapseModule } from '../../components/collapse/collapse.module';
+import { NgcModule } from '../../ng-custom';
 
 import { AlertComponent } from './alert/alert.component';
 import { ButtonsComponent } from './buttons/buttons.component';
@@ -45,13 +40,8 @@ import { TablesComponent } from './tables/tables.component';
         BaseRoutingModule,
         PrismModule,
         NgbModule,
+        NgcModule,
         MatTabsModule,
-        PanelModule,
-        LoaderModule,
-        NotificationModule,
-        ModalModule,
-        AccordionModule,
-        CollapseModule,
     ],
     declarations: [
         AlertComponent,

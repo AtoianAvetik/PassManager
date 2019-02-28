@@ -13,7 +13,7 @@
     </button>
   </div>
   <perfect-scrollbar class="search-result">
-    <div class="search-result_content" [loader]="'getImages'">
+    <div class="search-result_content" [ngcLoader]="'getImages'">
       <div class="row">
           <div *ngFor="let image of images; let i = index" class="image-wrap -chess-bg col-4"
                [ngClass]="{'-selected': (selectedImage === i)}"

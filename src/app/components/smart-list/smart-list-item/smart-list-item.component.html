@@ -16,7 +16,7 @@
 					title="Edit"
 					[ngClass]="settings.edit.class"
 					[innerHtml]="settings.edit.editButtonContent"
-					[openModal]="'item-modal'"
+					[ngcModalOpen]="'item-modal'"
 					(click)="onEditItem($event);">
 				</button>
 			</div>
@@ -27,7 +27,7 @@
 					title="Delete"
 					[ngClass]="settings.delete.class"
 					[innerHtml]="settings.delete.deleteButtonContent"
-					[openModal]="'delete-modal'"
+					[ngcModalOpen]="'delete-modal'"
 					(click)="onDeleteItem($event);">
 				</button>
 			</div>

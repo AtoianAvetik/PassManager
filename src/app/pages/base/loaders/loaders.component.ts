@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { LoaderService } from '../../../components/loader/loader.service';
+import { NgcLoaderService } from '../../../ng-custom';
 
 @Component({
     selector: 'app-loaders',
@@ -11,7 +11,7 @@ import { LoaderService } from '../../../components/loader/loader.service';
 export class LoadersComponent {
     loader;
 
-    constructor(private _loaderService: LoaderService) {
+    constructor(private _loaderService: NgcLoaderService) {
     }
 
     // Loaders

@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { User } from './user';
-import { NotificationService } from 'src/app/components/notifications/notification.service';
+import { NgcNotificationService } from 'src/app/ng-custom';
 
 @Injectable( {
     providedIn: 'root'
@@ -17,7 +17,7 @@ export class AuthService {
         public afs: AngularFirestore,   // Inject Firestore service
         public afAuth: AngularFireAuth, // Inject Firebase auth service
         public router: Router,
-        public $notification: NotificationService,
+        public $notification: NgcNotificationService,
         public ngZone: NgZone // NgZone service to remove outside scope warning
     ) {
         /* Saving user data in localstorage when logged in and setting up null when logged out */

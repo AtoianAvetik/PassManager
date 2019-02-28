@@ -24,9 +24,9 @@
 			</div>
 			<div class="card-body">
 				<div class="card-section">
-					<button class="btn btn-raised btn-primary" type="button" [openPanel]="'panel-test-1'" title="Open">Panel 1</button>
-					<button class="btn btn-raised btn-primary" type="button" [openPanel]="'panel-test-2'" title="Open">Panel 2</button>
-					<button class="btn btn-raised btn-primary" type="button" [openPanel]="'panel-test-3'" title="Open">Panel 3</button>
+					<button class="btn btn-raised btn-primary" type="button" [ngcPanelOpen]="'panel-test-1'" title="Open">Panel 1</button>
+					<button class="btn btn-raised btn-primary" type="button" [ngcPanelOpen]="'panel-test-2'" title="Open">Panel 2</button>
+					<button class="btn btn-raised btn-primary" type="button" [ngcPanelOpen]="'panel-test-3'" title="Open">Panel 3</button>
 				</div>
 			</div>
 		</div>
@@ -50,11 +50,11 @@
 	export class ComponentsModule { }
 ">
 </ngx-prism>
-						<p>Add <code>PanelService</code> to your root component providers:</p>
+						<p>Add <code>NgcPanelService</code> to your root component providers:</p>
 <ngx-prism [language]="'javascript'" code="
-    import { PanelService } from '../../components/panels/panel.service';
+    import { NgcPanelService } from '../../components/panels/panel.service';
 	...
-	providers: [PanelService]
+	providers: [NgcPanelService]
 ">
 </ngx-prism>
 					</div>
@@ -73,9 +73,9 @@
 						<p>In <code>app.module.ts</code> configurate panels:</p>
 <ngx-prism [language]="'javascript'" code="
     ...
-	import { PANEL_CONFIG, PanelConfigInterface } from './components/panels/panel.config';
+	import { NGC_PANEL_CONFIG, NgcPanelConfigInterface } from './components/panels/panel.config';
 	...
-	const CUSTOM_PANEL_CONFIG: PanelConfigInterface = {
+	const CUSTOM_NGC_PANEL_CONFIG: NgcPanelConfigInterface = {
 		leftPanelExpandedShift: 250
 	};
 	...
@@ -84,8 +84,8 @@
 		providers: [
 		...
 			{
-				provide: PANEL_CONFIG,
-				useValue: CUSTOM_PANEL_CONFIG
+				provide: NGC_PANEL_CONFIG,
+				useValue: CUSTOM_NGC_PANEL_CONFIG
 			}
 		...
 		]
@@ -115,7 +115,7 @@
 				<div class="card-section">
 					<p>Add this to root component:</p>
 					<p class="card-text">
-					<ngx-prism [language]="'html'">{{'<'}}app-panels [overlay]="false">{{'<'}}/app-panels></ngx-prism>
+					<ngx-prism [language]="'html'">{{'<'}}ngc-panels [overlay]="false">{{'<'}}/ngc-panels></ngx-prism>
 					<p>Parameters:</p>
 					<ul>
 						<li><code>[overlay]</code> - on/off page overlay when panel opened.</li>
@@ -125,7 +125,7 @@
 						<li><code>[rightPanelHide]</code> - specify event for subscribe to right sidebar show/hide</li>
 					</ul>
 					<p>And after create your panel where you need:</p>
-					<ngx-prism [language]="'html'">{{'<'}}app-panel [id]="panel-1" [dir]="'right'">  -- Your content -- {{'<'}}/app-panel></ngx-prism>
+					<ngx-prism [language]="'html'">{{'<'}}ngc-panel [id]="panel-1" [dir]="'right'">  -- Your content -- {{'<'}}/app-panel></ngx-prism>
 					<p>Parameters:</p>
 					<ul>
 						<li><code>[id]</code> - *required</li>
@@ -153,18 +153,18 @@
 					<ul>
 						<li>
 							<span>open panel</span>
-							<ngx-prism [language]="'html'">{{'<'}}a class="btn" [openPanel]="'panel-1'">Open Panel 1{{'<'}}/a></ngx-prism>
+							<ngx-prism [language]="'html'">{{'<'}}a class="btn" [ngcPanelOpen]="'panel-1'">Open Panel 1{{'<'}}/a></ngx-prism>
 						</li>
 						<li>
 							<span>close panel</span>
-							<ngx-prism [language]="'html'">{{'<'}}a class="btn" [closePanel]="'panel-1'">Open Panel 1{{'<'}}/a></ngx-prism>
+							<ngx-prism [language]="'html'">{{'<'}}a class="btn" [ngcPanelClose]="'panel-1'">Open Panel 1{{'<'}}/a></ngx-prism>
 						</li>
 					</ul>
 					<p>Or control panel manually from <code>panel.service</code>:</p>
 <ngx-prism [language]="'javascript'" code="
-    import {{'{'}} PanelService {{'}'}} from '~panel.service';
+    import {{'{'}} NgcPanelService {{'}'}} from '~panel.service';
 	...
-	constructor(private _panelService: PanelService) {{'{'}}{{'}'}}
+	constructor(private _panelService: NgcPanelService) {{'{'}}{{'}'}}
 ">
 </ngx-prism>
 					<ul>
@@ -187,82 +187,82 @@
 	</div>
 </div>
 
-<app-panel id="panel-test-1">
-	<div class="app-panel">
-		<div class="app-panel-header">
-			<div class="app-panel-header_inner">
-				<h4 class="app-panel-header_title heading -h4">Test panel 1</h4>
+<ngc-panel id="panel-test-1">
+	<div class="panel">
+		<div class="panel-header">
+			<div class="panel-header_inner">
+				<h4 class="panel-header_title heading -h4">Test panel 1</h4>
 			</div>
-			<div class="app-panel-header_buttons">
-				<a [closePanel]="'panel-test-1'">
+			<div class="panel-header_buttons">
+				<a [ngcPanelClose]="'panel-test-1'">
 					<i class="ft-x font-medium-3"></i>
 				</a>
 			</div>
 		</div>
-		<div class="app-panel-body">
-			<div class="app-panel-content">
+		<div class="panel-body">
+			<div class="panel-content">
 			</div>
-			<div class="app-panel-bottom">
+			<div class="panel-bottom">
 				<div class="row no-gutters -end">
 					<div class="btn-list">
-						<a class="btn btn-raised btn-primary" href="javascript:void(0)" [openPanel]="'panel-test-2'">Panel 2</a>
-						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [closePanel]="'panel-test-1'">Cancel</a>
+						<a class="btn btn-raised btn-primary" href="javascript:void(0)" [ngcPanelOpen]="'panel-test-2'">Panel 2</a>
+						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [ngcPanelClose]="'panel-test-1'">Cancel</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</app-panel>
+</ngc-panel>
 
-<app-panel id="panel-test-2">
-	<div class="app-panel">
-		<div class="app-panel-header">
-			<div class="app-panel-header_inner">
-				<h4 class="app-panel-header_title">Test panel 2</h4>
+<ngc-panel id="panel-test-2">
+	<div class="panel">
+		<div class="panel-header">
+			<div class="panel-header_inner">
+				<h4 class="panel-header_title">Test panel 2</h4>
 			</div>
-			<div class="app-panel-header_buttons">
-				<a [closePanel]="'panel-test-2'">
+			<div class="panel-header_buttons">
+				<a [ngcPanelClose]="'panel-test-2'">
 					<i class="ft-x font-medium-3"></i>
 				</a>
 			</div>
 		</div>
-		<div class="app-panel-body">
-			<div class="app-panel-content">
+		<div class="panel-body">
+			<div class="panel-content">
 			</div>
-			<div class="app-panel-bottom">
+			<div class="panel-bottom">
 				<div class="row no-gutters -end">
 					<div class="btn-list">
-						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [closePanel]="'panel-test-2'">Cancel</a>
+						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [ngcPanelClose]="'panel-test-2'">Cancel</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</app-panel>
+</ngc-panel>
 
-<app-panel [dir]="'right'" id="panel-test-3">
-	<div class="app-panel">
-		<div class="app-panel-header">
-			<div class="app-panel-header_inner">
-				<h4 class="app-panel-header_title">Test panel 2</h4>
+<ngc-panel [dir]="'right'" id="panel-test-3">
+	<div class="panel">
+		<div class="panel-header">
+			<div class="panel-header_inner">
+				<h4 class="panel-header_title">Test panel 2</h4>
 			</div>
-			<div class="app-panel-header_buttons">
-				<a [closePanel]="'panel-test-3'">
+			<div class="panel-header_buttons">
+				<a [ngcPanelClose]="'panel-test-3'">
 					<i class="ft-x font-medium-3"></i>
 				</a>
 			</div>
 		</div>
-		<div class="app-panel-body">
-			<div class="app-panel-content">
+		<div class="panel-body">
+			<div class="panel-content">
 			</div>
-			<div class="app-panel-bottom">
+			<div class="panel-bottom">
 				<div class="row no-gutters -end">
 					<div class="btn-list">
-						<a class="btn btn-raised btn-primary" href="javascript:void(0)" [openPanel]="'panel-test-4'">Panel 4</a>
-						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [closePanel]="'panel-test-3'">Cancel</a>
+						<a class="btn btn-raised btn-primary" href="javascript:void(0)" [ngcPanelOpen]="'panel-test-4'">Panel 4</a>
+						<a class="btn btn-raised btn-danger" href="javascript:void(0)" [ngcPanelClose]="'panel-test-3'">Cancel</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</app-panel>
+</ngc-panel>

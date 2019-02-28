@@ -1,9 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 
 import { AsideService } from '../../shared/_services/aside.service';
-import { PanelService } from '../../components/panels/panel.service';
-import { NotificationService } from '../../components/notifications/notification.service';
-import { ModalService } from '../../components/modals/modal.service';
 
 const fireRefreshEventOnWindow = function () {
     const evt = document.createEvent('HTMLEvents');
@@ -14,8 +11,7 @@ const fireRefreshEventOnWindow = function () {
 @Component({
     selector: 'app-full-layout',
     templateUrl: './full-layout.component.html',
-    styleUrls: ['./full-layout.component.scss'],
-    providers: [PanelService, NotificationService, ModalService]
+    styleUrls: ['./full-layout.component.scss']
 })
 
 export class FullLayoutComponent implements OnInit {

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
-import { LoaderService } from '../../components/loader/loader.service';
+import { NgcLoaderService } from '../../ng-custom';
 import { GetLogoService } from '../../shared/_services/get-logo.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class SearchImageComponent implements OnInit, OnDestroy {
   getImagesLoader;
   getLogoSubscription: Subscription;
 
-  constructor(private loaderService: LoaderService,
+  constructor(private loaderService: NgcLoaderService,
               private getLogo: GetLogoService) { }
 
   ngOnInit() {
