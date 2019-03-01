@@ -1,6 +1,6 @@
-import { Directive, ElementRef, forwardRef, Inject } from '@angular/core';
+import { Directive, ElementRef, forwardRef, HostBinding, HostListener } from '@angular/core';
 import { NgcDropdownAnchorDirective } from './dropdown-anchor.directive';
-import { NgcDropdownDirective } from './dropdown';
+import { NgcDropdownService } from './dropdown.service';
 
 /**
  * Allows the dropdown to be toggled via click. This directive is optional: you can use NgcDropdownAnchorDirective as an
@@ -8,20 +8,23 @@ import { NgcDropdownDirective } from './dropdown';
  */
 @Directive( {
     selector: '[ngcDropdownToggle]',
-    host: {
-        'class': 'dropdown-toggle',
-        'aria-haspopup': 'true',
-        '[attr.aria-expanded]': 'dropdown.isOpen()',
-        '(click)': 'toggleOpen()'
-    },
     providers: [{ provide: NgcDropdownAnchorDirective, useExisting: forwardRef( () => NgcDropdownToggleDirective ) }]
 } )
 export class NgcDropdownToggleDirective extends NgcDropdownAnchorDirective {
-    constructor( @Inject( forwardRef( () => NgcDropdownDirective ) ) dropdown, elementRef: ElementRef<HTMLElement> ) {
-        super( dropdown, elementRef );
+
+    @HostBinding( 'class.dropdown-toggle' ) class = true;
+    @HostBinding( 'attr.aria-haspopup.true' ) ariaHaspopup = true;
+    @HostBinding( 'attr.aria-expanded' ) ariaExpanded = this.$dropdownService.isOpen();
+
+    @HostListener( 'click' ) onClick() {
+        this.toggleOpen();
+    }
+
+    constructor( elementRef: ElementRef<HTMLElement>, $dropdownService: NgcDropdownService ) {
+        super( elementRef, $dropdownService );
     }
 
     toggleOpen() {
-        this.dropdown.toggle();
+        this.$dropdownService.onToggleChange.next();
     }
 }

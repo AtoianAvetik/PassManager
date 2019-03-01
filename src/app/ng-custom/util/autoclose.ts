@@ -8,7 +8,7 @@ const isHTMLElementContainedIn = ( element: HTMLElement, array?: HTMLElement[] )
 
 // we'll have to use 'touch' events instead of 'mouse' events on iOS and add a more significant delay
 // to avoid re-opening when handling (click) on a toggling element
-// TODO: use proper Angular platform detection when NgbAutoClose becomes a service and we can inject PLATFORM_ID
+// TODO: use proper Angular platform detection when NgcAutoClose becomes a service and we can inject PLATFORM_ID
 let iOS = false;
 if ( typeof navigator !== 'undefined' ) {
     iOS = !!navigator.userAgent && /iPad|iPhone|iPod/.test( navigator.userAgent );

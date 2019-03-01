@@ -3,7 +3,7 @@ import {
     ContentChild,
     Directive,
     ElementRef,
-    EventEmitter,
+    EventEmitter, HostBinding, HostListener,
     Inject,
     Input,
     NgZone,
@@ -21,6 +21,7 @@ import { Key } from '../util/key';
 import { NgcDropdownConfig } from './dropdown-config';
 import { NgcDropdownMenuDirective } from './dropdown-menu.directive';
 import { NgcDropdownAnchorDirective } from './dropdown-anchor.directive';
+import { NgcDropdownService } from './dropdown.service';
 
 
 /**
@@ -29,17 +30,13 @@ import { NgcDropdownAnchorDirective } from './dropdown-anchor.directive';
 @Directive( {
     selector: '[ngcDropdown]',
     exportAs: 'ngcDropdown',
-    host: {
-        '[class.show]': 'isOpen()',
-        '(keydown.ArrowUp)': 'onKeyDown($event)',
-        '(keydown.ArrowDown)': 'onKeyDown($event)',
-        '(keydown.Home)': 'onKeyDown($event)',
-        '(keydown.End)': 'onKeyDown($event)'
-    }
+    providers: [NgcDropdownService]
 } )
 export class NgcDropdownDirective implements OnInit, OnDestroy {
     private _closed$ = new Subject<void>();
     private _zoneSubscription: Subscription;
+    private _onToggleChangeSubscription: Subscription;
+    private _isOpenSubscription: Subscription;
 
     @ContentChild( NgcDropdownMenuDirective ) private _menu: NgcDropdownMenuDirective;
 
@@ -73,16 +70,30 @@ export class NgcDropdownDirective implements OnInit, OnDestroy {
      *  An event fired when the dropdown is opened or closed.
      *  Event's payload equals whether dropdown is open.
      */
-    @Output() openChange = new EventEmitter();
+    @Output() openChange = new EventEmitter<boolean>();
+
+    @HostBinding('class.show') show = this.isOpen();
+    @HostListener('document:keydown.ArrowUp', ['$event']) onArrowUp($event) { this.onKeyDown($event); }
+    @HostListener('document:keydown.ArrowDown', ['$event']) onArrowArrowDown($event) { this.onKeyDown($event); }
+    @HostListener('document:keydown.Home', ['$event']) onArrowHome($event) { this.onKeyDown($event); }
+    @HostListener('document:keydown.End', ['$event']) onArrowEnd($event) { this.onKeyDown($event); }
 
     constructor(
         private _changeDetector: ChangeDetectorRef, config: NgcDropdownConfig, @Inject( DOCUMENT ) private _document: any,
-        private _ngZone: NgZone, private _elementRef: ElementRef<HTMLElement> ) {
+        private _ngZone: NgZone, private _elementRef: ElementRef<HTMLElement>,
+        private $dropdownService: NgcDropdownService) {
         this.placement = config.placement;
         this.autoClose = config.autoClose;
+        this.$dropdownService._isOpen.next(this._open);
         this._zoneSubscription = _ngZone.onStable.subscribe( () => {
             this._positionMenu();
         } );
+        this._isOpenSubscription = $dropdownService._isOpen.subscribe(status => {
+           this.show = status;
+        });
+        this._onToggleChangeSubscription = $dropdownService.onToggleChange.subscribe(() => {
+            this.toggle();
+        });
     }
 
     ngOnInit() {
@@ -109,6 +120,7 @@ export class NgcDropdownDirective implements OnInit, OnDestroy {
         if ( !this._open ) {
             this._open = true;
             this._positionMenu();
+            this.$dropdownService._isOpen.next(true);
             this.openChange.emit( true );
             this._setCloseHandlers();
         }
@@ -127,6 +139,7 @@ export class NgcDropdownDirective implements OnInit, OnDestroy {
         if ( this._open ) {
             this._open = false;
             this._closed$.next();
+            this.$dropdownService._isOpen.next(false);
             this.openChange.emit( false );
             this._changeDetector.markForCheck();
         }
@@ -146,10 +159,16 @@ export class NgcDropdownDirective implements OnInit, OnDestroy {
     ngOnDestroy() {
         this._closed$.next();
         this._zoneSubscription.unsubscribe();
+        this._onToggleChangeSubscription.unsubscribe();
+        this._isOpenSubscription.unsubscribe();
     }
 
     onKeyDown( event: KeyboardEvent ) {
         const itemElements = this._getMenuElements();
+
+        if ( !itemElements.length ) {
+            return false;
+        }
 
         let position = -1;
         let isEventFromItems = false;

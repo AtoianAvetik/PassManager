@@ -11,11 +11,12 @@ export class NgcDropdownItemDirective {
     private _disabled = false;
 
     @HostBinding('class.dropdown-item') class = true;
-    @HostBinding('class.disabled') classDisabled = true;
+    @HostBinding('class.disabled') classDisabled = this.disabled;
 
     @Input()
     set disabled(value: boolean) {
         this._disabled = <any>value === '' || value === true;  // accept an empty attribute as true
+        this.classDisabled = this._disabled;
     }
 
     get disabled(): boolean { return this._disabled; }

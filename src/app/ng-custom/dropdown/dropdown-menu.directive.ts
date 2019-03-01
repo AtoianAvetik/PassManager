@@ -1,25 +1,37 @@
-import { ContentChildren, Directive, ElementRef, forwardRef, Inject, QueryList, Renderer2 } from '@angular/core';
-
+import { ContentChildren, Directive, ElementRef, HostBinding, OnDestroy, QueryList, Renderer2 } from '@angular/core';
 import { NgcDropdownItemDirective } from './dropdown-item.directive';
-import { NgcDropdownDirective } from './dropdown';
 import { Placement, positionElements } from '../util/positioning';
+
+import { NgcDropdownService } from './dropdown.service';
+import { Subscription } from 'rxjs';
 
 
 /**
  */
 @Directive( {
-    selector: '[ngcDropdownMenu]',
-    host: { '[class.dropdown-menu]': 'true', '[class.show]': 'dropdown.isOpen()', '[attr.x-placement]': 'placement' }
+    selector: '[ngcDropdownMenu]'
 } )
-export class NgcDropdownMenuDirective {
+export class NgcDropdownMenuDirective implements OnDestroy {
     placement: Placement = 'bottom';
     isOpen = false;
+    isOpenSubscription: Subscription;
 
     @ContentChildren( NgcDropdownItemDirective ) menuItems: QueryList<NgcDropdownItemDirective>;
 
-    constructor(
-        @Inject( forwardRef( () => NgcDropdownDirective ) ) public dropdown, private _elementRef: ElementRef<HTMLElement>,
-        private _renderer: Renderer2 ) {
+    @HostBinding( 'class.dropdown-menu' ) dropdownMenu = true;
+    @HostBinding( 'class.show' ) show = false;
+    @HostBinding( 'attr.x-placement' ) xPlacement  = this.placement;
+
+    constructor( private _elementRef: ElementRef<HTMLElement>,
+                 public $dropdownService: NgcDropdownService,
+                 private _renderer: Renderer2 ) {
+        this.isOpenSubscription = this.$dropdownService._isOpen.subscribe(status => {
+            this.show = status;
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.isOpenSubscription.unsubscribe();
     }
 
     getNativeElement() {

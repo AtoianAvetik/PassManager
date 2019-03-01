@@ -1,5 +1,5 @@
-import { Directive, ElementRef, forwardRef, Inject } from '@angular/core';
-import { NgcDropdownDirective } from './dropdown';
+import { Directive, ElementRef, HostBinding } from '@angular/core';
+import { NgcDropdownService } from './dropdown.service';
 
 /**
  * Marks an element to which dropdown menu will be anchored. This is a simple version
@@ -10,13 +10,17 @@ import { NgcDropdownDirective } from './dropdown';
  * @since 1.1.0
  */
 @Directive( {
-    selector: '[ngcDropdownAnchor]',
-    host: { 'class': 'dropdown-toggle', 'aria-haspopup': 'true', '[attr.aria-expanded]': 'dropdown.isOpen()' }
+    selector: '[ngcDropdownAnchor]'
 } )
 export class NgcDropdownAnchorDirective {
     anchorEl;
 
-    constructor( @Inject( forwardRef( () => NgcDropdownDirective ) ) public dropdown, private _elementRef: ElementRef<HTMLElement> ) {
+    @HostBinding( 'class.dropdown-toggle' ) class = true;
+    @HostBinding( 'attr.aria-haspopup.true' ) ariaHaspopup = true;
+    @HostBinding( 'attr.aria-expanded' ) ariaExpanded = this.$dropdownService.isOpen();
+
+    constructor( private _elementRef: ElementRef<HTMLElement>,
+                 public $dropdownService: NgcDropdownService ) {
         this.anchorEl = _elementRef.nativeElement;
     }
 
