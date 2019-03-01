@@ -2,7 +2,8 @@ import {
     ChangeDetectionStrategy,
     Component,
     ElementRef,
-    EventEmitter, HostBinding,
+    EventEmitter,
+    HostBinding,
     Input,
     OnChanges,
     OnInit,
@@ -22,11 +23,19 @@ import { NgcAlertConfig } from './alert-config';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <button *ngIf="dismissible" type="button" class="close" aria-label="Close" i18n-aria-label="@@ngb.alert.close"
-                (click)="closeHandler()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <ng-content></ng-content>
+        <div *ngIf="icon" class="alert-icon">
+            <i class="{{ icon }}"></i>
+        </div>
+        <div class="alert-text">
+            <ng-content></ng-content>
+        </div>
+        <div *ngIf="dismissible" class="alert-close">
+            <button type="button" class="close" (click)="closeHandler()">
+                <span aria-hidden="true">
+                    <i class="ft-x"></i>
+                </span>
+            </button>
+        </div>
     `,
     styleUrls: ['./alert.scss']
 } )
@@ -37,8 +46,13 @@ export class NgcAlert implements OnInit, OnChanges {
      */
     @Input() dismissible: boolean;
     /**
+     * Class of icon that will be used in alert
+     */
+    @Input() icon: string;
+    /**
      * Alert type (CSS class). System recognizes the following bg's: "primary", "secondary", "success", "danger", "warning", "info", "light" , "dark"
-     *  and other utilities bg's
+     *  and other utilities bg's.
+     *  And also outline version: "outline-primary", "outline-secondary", "outline-success" etc.
      */
     @Input() type: string;
     /**
@@ -46,12 +60,12 @@ export class NgcAlert implements OnInit, OnChanges {
      */
     @Output() close = new EventEmitter<void>();
 
-    @HostBinding('class.alert') class = true;
-    @HostBinding('class.alert-dismissible') alertDismissible = this.dismissible;
+    @HostBinding( 'class.alert' ) class = true;
 
     constructor( config: NgcAlertConfig, private _renderer: Renderer2, private _element: ElementRef ) {
         this.dismissible = config.dismissible;
         this.type = config.type;
+        this.icon = config.icon;
     }
 
     closeHandler() {

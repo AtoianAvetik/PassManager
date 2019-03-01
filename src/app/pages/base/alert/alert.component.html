@@ -1,8 +1,7 @@
 <section id="alert">
-    <!--begin::Row-->
     <div class="row">
         <div class="col-6 col-xl-12">
-            <!--begin::Portlet-->
+
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Basic Examples</h3>
@@ -14,37 +13,14 @@
                             dismiss button.
                         </p>
                         <div class="card-section_content -border">
-                            <div class="alert alert-primary" role="alert">
-                                <div class="alert-text">A simple primary alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                                <div class="alert-text">A simple secondary alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-success" role="alert">
-                                <div class="alert-text">A simple success alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                                <div class="alert-text">A simple danger alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-warning" role="alert">
-                                <div class="alert-text">A simple warning alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-info" role="alert">
-                                <div class="alert-text">A simple info alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-light alert-elevate" role="alert">
-                                <div class="alert-text">A simple light alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-dark" role="alert">
-                                <div class="alert-text">A simple dark alert—check it out!</div>
-                            </div>
+                            <ng-container *ngFor="let alert of alerts">
+                                <ngc-alert [type]="alert.type" >{{ alert.message }}</ngc-alert>
+                            </ng-container>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--end::Portlet-->
 
-            <!--begin::Portlet-->
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">With Icons</h3>
@@ -53,45 +29,14 @@
                     <div class="card-section">
                         <p>You can use icons with alert text.</p>
                         <div class="card-section_content -border">
-                            <div class="alert alert-primary" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple primary alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-secondary" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple secondary alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-success" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple success alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple danger alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-warning" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple warning alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-info" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple info alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-light alert-elevate" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple light alert—check it out!</div>
-                            </div>
-                            <div class="alert alert-dark" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple dark alert—check it out!</div>
-                            </div>
+                            <ng-container *ngFor="let alert of alertsWithIcons">
+                                <ngc-alert [type]="alert.type" [icon]="alert.icon" >{{ alert.message }}</ngc-alert>
+                            </ng-container>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--end::Portlet-->
 
-            <!--begin::Portlet-->
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Additional content</h3>
@@ -102,39 +47,33 @@
                             paragraphs and dividers.
                         </p>
                         <div class="card-section_content -border">
-                            <div class="alert alert-success" role="alert">
-                                <div class="alert-text">
-                                    <h4 class="alert-heading">Well done!</h4>
-                                    <p>Aww yeah, you successfully read this important alert message. This example text
-                                        is going to run a bit longer so that you can see how spacing within an alert
-                                        works with this kind of content.</p>
-                                    <hr>
-                                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things
-                                        nice and tidy.</p>
-                                </div>
-                            </div>
+                            <ngc-alert [type]="'success'">
+                                <h4 class="alert-heading">Well done!</h4>
+                                <p>Aww yeah, you successfully read this important alert message. This example text
+                                    is going to run a bit longer so that you can see how spacing within an alert
+                                    works with this kind of content.</p>
+                                <hr>
+                                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things
+                                    nice and tidy.</p>
+                            </ngc-alert>
 
-                            <div class="k-separator k-separator--space-lg k-separator--border-dashed"></div>
-
-                            <div class="alert alert-danger" role="alert">
-                                <div class="alert-text">
-                                    <h4 class="alert-heading">Got Issues!</h4>
-                                    <p>Aww yeah, you successfully read this important alert message. This example text
-                                        is going to run a bit longer so that you can see how spacing within an alert
-                                        works with this kind of content.</p>
-                                    <hr>
-                                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things
-                                        nice and tidy.</p>
-                                </div>
-                            </div>
+                            <ngc-alert [type]="'danger'">
+                                <h4 class="alert-heading">Got Issues!</h4>
+                                <p>Aww yeah, you successfully read this important alert message. This example text
+                                    is going to run a bit longer so that you can see how spacing within an alert
+                                    works with this kind of content.</p>
+                                <hr>
+                                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things
+                                    nice and tidy.</p>
+                            </ngc-alert>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--end::Portlet-->
+
         </div>
         <div class="col-6 col-xl-12">
-            <!--begin::Portlet-->
+
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">With Icons & Dismissing</h3>
@@ -143,85 +82,18 @@
                     <div class="card-section">
                         <p>You can use icons and alert text with dismissing button.</p>
                         <div class="card-section_content -border">
-                            <div class="alert alert-primary fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple primary alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-secondary fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple secondary alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-success fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple success alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-danger fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple danger alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-warning fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple warning alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-info fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple info alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-light alert-elevate fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple light alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-dark fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple dark alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
+                            <ng-container *ngFor="let alert of alertsWithIconsAndDissmiss">
+                                <ngc-alert [type]="alert.type"
+                                           [icon]="alert.icon"
+                                           [dismissible]="true"
+                                           (close)="close(alertsWithIconsAndDissmiss, alert)">{{ alert.message }}</ngc-alert>
+                            </ng-container>
+                            <button type="button" class="btn btn-primary" (click)="alertsWithIconsAndDissmiss = reset()">Reset</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--end::Portlet-->
 
-            <!--begin::Portlet-->
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Outline Style</h3>
@@ -230,83 +102,19 @@
                     <div class="card-section">
                         <p>You can use outline style as well.</p>
                         <div class="card-section_content -border">
-                            <div class="alert alert-outline-primary fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple primary alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-outline-focus fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple secondary alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-outline-success fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple success alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-outline-danger fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple danger alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-outline-warning fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple warning alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-outline-info fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple info alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-outline-light fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-alert-triangle"></i></div>
-                                <div class="alert-text">A simple light alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="alert alert-outline-dark fade show" role="alert">
-                                <div class="alert-icon"><i class="ft-help-circle"></i></div>
-                                <div class="alert-text">A simple dark alert—check it out!</div>
-                                <div class="alert-close">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true"><i class="ft-x"></i></span>
-                                    </button>
-                                </div>
-                            </div>
+                            <ng-container *ngFor="let alert of alertsOutlineWithIconsAndDissmiss">
+                                <ngc-alert
+                                    [type]="'outline-' + alert.type"
+                                    [icon]="alert.icon"
+                                    [dismissible]="true"
+                                    (close)="close(alertsOutlineWithIconsAndDissmiss, alert)">{{ alert.message }}</ngc-alert>
+                            </ng-container>
+                            <button type="button" class="btn btn-primary" (click)="alertsOutlineWithIconsAndDissmiss = reset()">Reset</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--end::Portlet-->
+
         </div>
     </div>
-    <!--end::Row--></section>
+</section>

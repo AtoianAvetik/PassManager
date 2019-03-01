@@ -7,6 +7,7 @@ import {Injectable} from '@angular/core';
  */
 @Injectable({providedIn: 'root'})
 export class NgcAlertConfig {
-  dismissible = true;
+  icon = '';
+  dismissible = false;
   type = 'warning';
 }
