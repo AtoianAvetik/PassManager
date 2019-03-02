@@ -7,9 +7,7 @@
                 </div>
                 <div class="card-body">
                     <div class="card-section">
-                        <div class="card-section_title">
-                            Single Button
-                        </div>
+                        <div class="card-section_title">Single Button</div>
                         <p>Wrap the dropdown’s toggle (your button or link) and the dropdown menu within <code>.dropdown</code>, or another element that declares <code>position: relative;</code>. Dropdowns can be triggered from <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> elements to better fit your potential needs.</p>
                         <p>Any single <code>.btn</code> can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either <code>&lt;button&gt;</code> elements:</p>
                         <div class="card-section_content -border">
@@ -44,6 +42,357 @@
                                             <button ngcDropdownItem>Another Action</button>
                                             <button ngcDropdownItem>Something else is here</button>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>And with <code>&lt;a&gt;</code> elements:</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-list">
+                                <div ngcDropdown class="d-inline-block">
+                                    <a href="#" role="button" class="btn btn-outline-primary" id="dropdownBasic4" ngcDropdownToggle>Toggle dropdown</a>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic4">
+                                        <a href="#" ngcDropdownItem>Action - 1</a>
+                                        <a href="#" ngcDropdownItem>Another Action</a>
+                                        <a href="#" ngcDropdownItem>Something else is here</a>
+                                    </div>
+                                </div>
+                                <div ngcDropdown class="d-inline-block">
+                                    <a href="#" role="button" class="btn btn-icon btn-round btn-hover" id="dropdownBasic5" ngcDropdownToggle>
+                                        <i class="ft-more-horizontal-"></i>
+                                    </a>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic5">
+                                        <a href="#" ngcDropdownItem>Action - 1</a>
+                                        <a href="#" ngcDropdownItem>Another Action</a>
+                                        <a href="#" ngcDropdownItem>Something else is here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>The best part is you can do this with any button variant, too:</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-list">
+                                <div ngcDropdown class="d-inline-block">
+                                    <button class="btn btn-primary" id="dropdownBasic6" ngcDropdownToggle>Primary</button>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic6">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button ngcDropdownItem>Separated link</button>
+                                    </div>
+                                </div>
+                                <div ngcDropdown class="d-inline-block">
+                                    <button class="btn btn-secondary" id="dropdownBasic7" ngcDropdownToggle>Secondary</button>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic7">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button ngcDropdownItem>Separated link</button>
+                                    </div>
+                                </div>
+                                <div ngcDropdown class="d-inline-block">
+                                    <button class="btn btn-success" id="dropdownBasic8" ngcDropdownToggle>Success</button>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic8">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button ngcDropdownItem>Separated link</button>
+                                    </div>
+                                </div>
+                                <div ngcDropdown class="d-inline-block">
+                                    <button class="btn btn-info" id="dropdownBasic9" ngcDropdownToggle>Info</button>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic9">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button ngcDropdownItem>Separated link</button>
+                                    </div>
+                                </div>
+                                <div ngcDropdown class="d-inline-block">
+                                    <button class="btn btn-warning" id="dropdownBasic10" ngcDropdownToggle>Warning</button>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic10">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button ngcDropdownItem>Separated link</button>
+                                    </div>
+                                </div>
+                                <div ngcDropdown class="d-inline-block">
+                                    <button class="btn btn-danger" id="dropdownBasic11" ngcDropdownToggle>Danger</button>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic11">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button ngcDropdownItem>Separated link</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <div class="card-section_title">Button groups and split buttons</div>
+                        <p>Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of <code>.dropdown-toggle-split</code> for proper spacing around the dropdown caret.</p>
+                        <p>We use this extra class to reduce the horizontal <code>padding</code> on either side of the caret by 25% and remove the <code>margin-left</code> that’s added for regular button dropdowns. Those extra changes keep the caret centered in the split button and provide a more appropriately sized hit area next to the main button.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3">
+                                <button type="button" class="btn btn-outline-success">Plain ol' button</button>
+                                <div class="btn-group" ngcDropdown role="group" aria-label="Button group with nested dropdown">
+                                    <button class="btn btn-outline-primary" ngcDropdownToggle>Drop me</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-group mr-3">
+                                <button type="button" class="btn btn-primary">Split me</button>
+                                <div class="btn-group" ngcDropdown role="group" aria-label="Button group with nested dropdown">
+                                    <button class="btn btn-primary dropdown-toggle-split" ngcDropdownToggle></button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-group mr-3">
+                                <div class="btn-group" ngcDropdown role="group" aria-label="Button group with nested dropdown">
+                                    <button class="btn btn-outline-danger" ngcDropdownToggle>Select me</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                                <div class="btn-group" ngcDropdown role="group" aria-label="Button group with nested dropdown">
+                                    <button class="btn btn-outline-success" ngcDropdownToggle>Or me</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <div class="card-section_title">Global configuration of dropdowns</div>
+                        <p>This dropdown uses customized default values.</p>
+                        <div class="card-section_content -border">
+                            <ngx-prism [language]="'javascript'" code="
+import {Component} from '@angular/core';
+import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
+
+@Component({
+  selector: 'ngc-dropdown-config',
+  templateUrl: './dropdown-config.html',
+  providers: [NgcDropdownConfig] // add NgbDropdownConfig to the component providers
+})
+export class NgcdDropdownConfig {
+  constructor(config: NgcDropdownConfig) {
+    // customize default values of dropdowns used by this component tree
+    config.placement = 'top-left';
+    config.autoClose = false;
+  }
+}
+">
+                            </ngx-prism>
+                            <div ngcDropdown [autoClose]="false" [placement]="'top-left'">
+                                <button class="btn btn-outline-primary" id="dropdownConfig" ngcDropdownToggle>Toggle</button>
+                                <div ngcDropdownMenu aria-labelledby="dropdownConfig">
+                                    <button class="dropdown-item">Action - 1</button>
+                                    <button class="dropdown-item">Another Action</button>
+                                    <button class="dropdown-item">Something else is here</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Sizing Examples</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3" ngcDropdown role="group">
+                                <button class="btn btn-lg btn-outline-light" ngcDropdownToggle>Large button</button>
+                                <div class="dropdown-menu" ngcDropdownMenu>
+                                    <button class="dropdown-item">Action</button>
+                                    <button class="dropdown-item">Another action</button>
+                                    <button class="dropdown-item">Third action</button>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-lg btn-outline-light">Large split button</button>
+                                <div class="btn-group" ngcDropdown role="group" aria-label="Button group with nested dropdown">
+                                    <button class="btn btn-lg btn-outline-light" ngcDropdownToggle></button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator separator-space-md separator-border-dashed"></div>
+                            <div class="btn-group mr-3" ngcDropdown role="group">
+                                <button class="btn btn-sm btn-outline-light" ngcDropdownToggle>Small button</button>
+                                <div class="dropdown-menu" ngcDropdownMenu>
+                                    <button class="dropdown-item">Action</button>
+                                    <button class="dropdown-item">Another action</button>
+                                    <button class="dropdown-item">Third action</button>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-light">Small split button</button>
+                                <div class="btn-group" ngcDropdown role="group" aria-label="Button group with nested dropdown">
+                                    <button class="btn btn-sm btn-outline-light" ngcDropdownToggle></button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Menu items</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>You can create non-interactive dropdown items with <code>.dropdown-item-text</code>. Feel free to style further with custom CSS or text utilities.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3">
+                                <div class="btn-group" ngcDropdown role="group">
+                                    <button class="btn btn-outline-primary" ngcDropdownToggle>Dropdown</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <span class="dropdown-item-text">Dropdown item text</span>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>Add <code>.active</code> to items in the dropdown to style them as active.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3">
+                                <div class="btn-group" ngcDropdown role="group">
+                                    <button class="btn btn-outline-primary" ngcDropdownToggle>Dropdown</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item active">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>Add <code>.disabled</code> to items in the dropdown to style them as disabled.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3">
+                                <div class="btn-group" ngcDropdown role="group">
+                                    <button class="btn btn-outline-primary" ngcDropdownToggle>Dropdown</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item disabled">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Menu content</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <div class="card-section_title">Headers</div>
+                        <p>Add a header to label sections of actions in any dropdown menu.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3">
+                                <div class="btn-group" ngcDropdown role="group">
+                                    <button class="btn btn-outline-primary" ngcDropdownToggle>Dropdown</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <h6 class="dropdown-header">Dropdown header</h6>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <div class="card-section_title">Dividers</div>
+                        <p>Separate groups of related menu items with a divider.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3">
+                                <div class="btn-group" ngcDropdown role="group">
+                                    <button class="btn btn-outline-primary" ngcDropdownToggle>Dropdown</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <button class="dropdown-item">Action</button>
+                                        <button class="dropdown-item">Another action</button>
+                                        <div class="dropdown-divider"></div>
+                                        <button class="dropdown-item">Third action</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <div class="card-section_title">Text</div>
+                        <p>Place any freeform text within a dropdown menu with text and use spacing utilities. Note that you’ll likely need additional sizing styles to constrain the menu width.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3">
+                                <div class="btn-group" ngcDropdown role="group">
+                                    <button class="btn btn-outline-primary" ngcDropdownToggle>Dropdown</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <p>Some text</p>
+                                        <p class="mb-0">Another text</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <div class="card-section_title">Forms Example 1</div>
+                        <p>Put a form within a dropdown menu, or make it into a dropdown menu, and use margin or padding utilities to give it the negative space you require.</p>
+                        <div class="card-section_content -border">
+                            <div class="btn-group mr-3">
+                                <div class="btn-group" ngcDropdown [autoClose]="'outside'" role="group">
+                                    <button class="btn btn-outline-primary" ngcDropdownToggle>Dropdown</button>
+                                    <div class="dropdown-menu" ngcDropdownMenu>
+                                        <form class="px-4 py-3">
+                                            <div class="form-group">
+                                                <label for="exampleDropdownFormEmail1">Email address</label>
+                                                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleDropdownFormPassword1">Password</label>
+                                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Sign in</button>
+                                        </form>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">New around here? Sign up</a>
+                                        <a class="dropdown-item" href="#">Forgot password?</a>
                                     </div>
                                 </div>
                             </div>

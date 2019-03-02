@@ -7,7 +7,7 @@ import {Injectable} from '@angular/core';
  */
 @Injectable({providedIn: 'root'})
 export class NgcAccordionConfig {
-  closeOthers = false;
+  closeOthers = true;
   type: string;
   bg: string;
 }
