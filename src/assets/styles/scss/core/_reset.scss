@@ -82,7 +82,10 @@ input, select, button, textarea, form{
 	margin: 0;
 }
 
-input[type=button], input[type=submit], button{
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled){
 	cursor: pointer;
 }
 
