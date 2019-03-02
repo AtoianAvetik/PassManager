@@ -58,6 +58,46 @@
     }
 }
 
+@mixin button-hover-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%), $yiq-light-threshold: 240) {
+    background: transparent;
+
+    @include hover {
+        color: color-yiq($hover-background);
+        @include gradient-bg($hover-background);
+        border-color: $hover-border;
+    }
+
+    &:focus,
+    &.focus {
+        // Avoid using mixin so we can pass custom focus shadow properly
+        @if $enable-shadows {
+            box-shadow: $btn-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+        } @else {
+            box-shadow: 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+        }
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+        color: color-yiq($active-background);
+        background-color: $active-background;
+        @if $enable-gradients {
+            background-image: none; // Remove the gradient for the pressed/active state
+        }
+        border-color: $active-border;
+
+        &:focus {
+            // Avoid using mixin so we can pass custom focus shadow properly
+            @if $enable-shadows and $btn-active-box-shadow != none {
+                box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+            } @else {
+                box-shadow: 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+            }
+        }
+    }
+}
+
 @mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color, $yiq-light-threshold: 220) {
     color: if(yiq($color) > $yiq-light-threshold, darken($color, 55%),$color);
     border-color: if(yiq($color) > $yiq-light-threshold, darken($color, 7.5%),$color);
@@ -85,6 +125,42 @@
         color: color-yiq($active-background);
         background-color: if(yiq($active-background) > $yiq-light-threshold, darken($color, 7.5%),$active-background);
         border-color: if(yiq($active-border) > $yiq-light-threshold, darken($color, 7.5%),$active-border);
+
+        &:focus {
+            // Avoid using mixin so we can pass custom focus shadow properly
+            @if $enable-shadows and $btn-active-box-shadow != none {
+                box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba(if(yiq($color) > $yiq-light-threshold, darken($color, 7.5%),$color), .5);
+            } @else {
+                box-shadow: 0 0 0 $btn-focus-width rgba(if(yiq($color) > $yiq-light-threshold, darken($color, 7.5%),$color), .5);
+            }
+        }
+    }
+}
+
+@mixin button-outline-hover-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color, $yiq-light-threshold: 220) {
+    background: transparent;
+
+    @include hover {
+        color: if(yiq($color) > $yiq-light-threshold, darken($color, 55%),$color);
+        border-color: if(yiq($color) > $yiq-light-threshold, darken($color, 7.5%),$color);
+    }
+
+    &:focus,
+    &.focus {
+        box-shadow: 0 0 0 $btn-focus-width rgba(if(yiq($color) > $yiq-light-threshold, darken($color, 7.5%),$color), .5);
+    }
+
+    &.disabled,
+    &:disabled {
+        color: if(yiq($color) > $yiq-light-threshold, darken($color, 35%),$color);
+        background-color: transparent;
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+        color: if(yiq($color) > $yiq-light-threshold, darken($color, 55%),$color);
+        border-color: if(yiq($color) > $yiq-light-threshold, darken($color, 7.5%),$color);
 
         &:focus {
             // Avoid using mixin so we can pass custom focus shadow properly

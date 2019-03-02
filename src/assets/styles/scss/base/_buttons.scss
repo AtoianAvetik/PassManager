@@ -97,9 +97,17 @@ fieldset:disabled a.btn {
     .btn-#{$color} {
         @include button-variant($value, $value);
     }
+    // Hover buttons
+    .btn-hover-#{$color} {
+        @include button-hover-variant($value, $value);
+    }
     // Outline buttons
     .btn-outline-#{$color} {
         @include button-outline-variant($value);
+    }
+    // Outline hover buttons
+    .btn-outline-hover-#{$color} {
+        @include button-outline-hover-variant($value);
     }
     // Elevated buttons
     .btn-#{$color}.btn-elevate {
@@ -114,9 +122,17 @@ fieldset:disabled a.btn {
                 .btn-#{$color_name}.btn-#{map-get($color-types, $color_type)}{
                     @include button-variant($color_value, $color_value);
                 }
+                // Hover buttons
+                .btn-hover-#{$color_name}.btn-hover-#{map-get($color-types, $color_type)}{
+                    @include button-hover-variant($color_value, $color_value);
+                }
                 // Outline buttons
                 .btn-outline-#{$color_name}.btn-outline-#{map-get($color-types, $color_type)}{
                     @include button-outline-variant($color_value);
+                }
+                // Outline hover buttons
+                .btn-outline-hover-#{$color_name}.btn-outline-hover-#{map-get($color-types, $color_type)} {
+                    @include button-outline-hover-variant($color_value);
                 }
                 // Elevated buttons
                 .btn-#{$color_name}.btn-elevate-#{map-get($color-types, $color_type)} {
