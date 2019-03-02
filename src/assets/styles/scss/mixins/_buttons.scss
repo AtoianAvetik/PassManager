@@ -60,6 +60,7 @@
 
 @mixin button-hover-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%), $yiq-light-threshold: 240) {
     background: transparent;
+    color: $background;
 
     @include hover {
         color: color-yiq($hover-background);
@@ -74,6 +75,16 @@
             box-shadow: $btn-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
         } @else {
             box-shadow: 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
+        }
+    }
+
+    // Disabled comes first so active can properly restyle
+    &.disabled,
+    &:disabled {
+        color: $background;
+        // Remove CSS gradients if they're enabled
+        @if $enable-gradients {
+            background-image: none;
         }
     }
 
