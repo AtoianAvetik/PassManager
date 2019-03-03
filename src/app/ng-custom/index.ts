@@ -4,7 +4,7 @@ import { NgcAccordionModule } from './accordion/accordion.module';
 import { NgcAlertModule } from './alert/alert.module';
 import { NgcCollapseModule } from './collapse/collapse.module';
 import { NgcDropdownModule } from './dropdown/dropdown.module';
-import { NgcModalModule } from './modals/modal.module';
+import { NgcModalModule } from './modal/modal.module';
 import { NgcLoaderModule } from './loader/loader.module';
 import { NgcNotificationModule } from './notifications/notification.module';
 import { NgcPanelModule } from './panels/panel.module';
@@ -51,13 +51,11 @@ export {
 
 export {
     NgcModalModule,
-    NgcModal,
     NgcModalService,
     NgcModalComponent,
-    NgcModalsComponent,
     NgcModalOpenDirective,
     NgcModalCloseDirective
-} from './modals/modal.module';
+} from './modal/modal.module';
 
 export {
     NgcNotificationModule,

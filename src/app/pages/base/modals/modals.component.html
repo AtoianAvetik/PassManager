@@ -19,27 +19,46 @@
 	</div>
 </div>
 
-<ngc-modal id="modal-1">
-	<div class="modal">
-		<div class="modal-header">
-			<div class="modal-header_inner">
-				<h4>Modal</h4>
-			</div>
-			<div class="modal-header_buttons">
-				<a [ngcModalClose]="'modal-1'"><i class="ft-x font-medium-3"></i></a>
-			</div>
-		</div>
-		<div class="modal-content">
+<div class="d-none">
+    <ngc-modal #modal id="exampleModal1" [size]="'lg'">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Test
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" [ngcModalClose]="'exampleModal1'">Save</button>
+        </div>
+    </ngc-modal>
+</div>
 
-		</div>
-		<div class="modal-bottom">
-			<div class="row no-gutters -between">
-				<div class="btn-list">
-				</div>
-				<div class="btn-list">
-					<button class="btn btn-white" type="button" [ngcModalClose]="'modal-1'">Cancel</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</ngc-modal>
+<button class="btn btn-primary" [ngcModalOpen]="'exampleModal1'">OPEN MODAL</button>
+
+<!--<ngc-modal id="modal-1">-->
+	<!--<div class="modal">-->
+		<!--<div class="modal-header">-->
+			<!--<div class="modal-header_inner">-->
+				<!--<h4>Modal</h4>-->
+			<!--</div>-->
+			<!--<div class="modal-header_buttons">-->
+				<!--<a [ngcModalClose]="'modal-1'"><i class="ft-x font-medium-3"></i></a>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="modal-content">-->
+
+		<!--</div>-->
+		<!--<div class="modal-bottom">-->
+			<!--<div class="row no-gutters -between">-->
+				<!--<div class="btn-list">-->
+				<!--</div>-->
+				<!--<div class="btn-list">-->
+					<!--<button class="btn btn-white" type="button" [ngcModalClose]="'modal-1'">Cancel</button>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</ngc-modal>-->

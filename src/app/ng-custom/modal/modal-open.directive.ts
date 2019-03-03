@@ -3,16 +3,16 @@ import { Directive, HostListener, Input } from '@angular/core';
 import { NgcModalService } from './modal.service';
 
 @Directive( {
-    selector: '[ngcModalClose]'
+    selector: '[ngcModalOpen]'
 } )
-export class NgcModalCloseDirective {
-    @Input( 'ngcModalClose' ) id: string;
+export class NgcModalOpenDirective {
+    @Input( 'ngcModalOpen' ) id: string;
 
     constructor( private _modalService: NgcModalService ) {
     }
 
     @HostListener( 'click' )
     onClick() {
-        this._modalService.closeModal( this.id );
+        this._modalService.openById( this.id );
     }
 }
