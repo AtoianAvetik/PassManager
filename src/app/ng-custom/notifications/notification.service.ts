@@ -9,28 +9,23 @@ import { NgcNotification, NgcNotificationType } from './notification.model';
 })
 export class NgcNotificationService {
     private subject = new Subject<NgcNotification>();
-    private timeout = 2500;
+    timeout = 2500;
     notificationsData = {
         success: {
-            typeClass: 'success',
-            iconClass: 'ft-check',
-            title: 'Success'
+            typeClass: 'notification-success',
+            aside: '<i class="ft-check"></i>'
         },
         error: {
-            typeClass: 'danger',
-            iconClass: 'ft-x',
-            title: 'Error'
+            typeClass: 'notification-danger',
+            aside: '<i class="ft-x"></i>'
         },
         info: {
-            typeClass: 'info',
-            iconClass: 'ft-info',
-
-            title: 'Notification'
+            typeClass: 'notification-info',
+            aside: '<i class="ft-info"></i>'
         },
         warning: {
-            typeClass: 'warning',
-            iconClass: 'ft-alert-triangle',
-            title: 'Attention'
+            typeClass: 'notification-warning',
+            aside: '<i class="ft-alert-triangle"></i>'
         },
     };
 
@@ -59,24 +54,24 @@ export class NgcNotificationService {
         }
     }
 
-    success( message: string, timeout = this.timeout ) {
-        this.notification( NgcNotificationType.Success, message, timeout );
+    success( data ) {
+        this.notification( Object.assign({}, { type: NgcNotificationType.Success}, data) );
     }
 
-    error( message: string, timeout = this.timeout ) {
-        this.notification( NgcNotificationType.Error, message, timeout );
+    error( data ) {
+        this.notification( Object.assign({}, { type: NgcNotificationType.Error}, data) );
     }
 
-    info( message: string, timeout = this.timeout ) {
-        this.notification( NgcNotificationType.Info, message, timeout );
+    info( data ) {
+        this.notification( Object.assign({}, { type: NgcNotificationType.Info}, data) );
     }
 
-    warn( message: string, timeout = this.timeout ) {
-        this.notification( NgcNotificationType.Warning, message, timeout );
+    warn( data ) {
+        this.notification( Object.assign({}, { type: NgcNotificationType.Warning}, data) );
     }
 
-    notification( type: NgcNotificationType, message: string, timeout: number ) {
-        this.subject.next( <NgcNotification>{ type: type, message: message, timeout: timeout } );
+    notification( data ) {
+        this.subject.next( <NgcNotification>Object.assign({}, { timeout: this.timeout }, data) );
     }
 
     clear() {

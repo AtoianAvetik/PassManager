@@ -9,16 +9,16 @@ import { NgcNotificationService } from './notification.service';
     template: `
         <div
             (mouseenter)="onMouseenter()" (mouseleave)="onMouseleave()"
-            class="row no-gutters -middle notification -with-icon -dismissable -{{ typeClass }}">
-            <div class="notification_progress-bar"></div>
-            <div class="notification_icon">
-                <i class="{{ iconClass }}"></i>
+            class="notification show {{ typeClass }} {{ aside ? 'with-aside' : '' }}">
+            <div class="notification-progress-bar"></div>
+            <div *ngIf="aside" class="notification-aside" [innerHtml]="aside"></div>
+            <div class="notification-inner">
+                <div class="notification-header">
+                    <span class="notification-title" [innerHtml]="title"></span>
+                    <button (click)="closeNotification()" class="notification-close"><i class="ft-x"></i></button>
+                </div>
+                <div class="notification-body" [innerHtml]="message"></div>
             </div>
-            <div class="notification_inner">
-                <p class="notification_title">{{ title }}</p>
-                <span class="notification_message">{{ message }}</span>
-            </div>
-            <button (click)="closeNotification()" class="btn notification_close-btn"><i class="ft-x"></i></button>
         </div>
 
     `,
@@ -38,12 +38,12 @@ export class NgcNotificationComponent implements OnInit, AfterViewInit {
     @HostBinding( '@flyInOut' ) animation = true;
     @HostBinding( 'style.display' ) display = 'block';
     @Input() type: any;
+    @Input() typeClass: string;
+    @Input() title: string;
     @Input() message: string;
-    @Input() _ref: any;
+    @Input() aside = true;
     @Input() timeout: any;
-    typeClass: string;
-    iconClass: string;
-    title: string;
+    @Input() _ref: any;
     timer = new Subject<number>();
     progressBar: ElementRef;
     interval;
@@ -55,10 +55,17 @@ export class NgcNotificationComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        (this.timeout > 0) && this.initProgressBar();
-        this.typeClass = this.notificationService.getInfo( this.type, 'typeClass' );
-        this.iconClass = this.notificationService.getInfo( this.type, 'iconClass' );
-        this.title = this.notificationService.getInfo( this.type, 'title' );
+        if ( this.timeout > 0 ) {
+            this.initProgressBar();
+        }
+
+        if ( this.type || this.type === 0 ) {
+            this.typeClass = this.notificationService.getInfo( this.type, 'typeClass' );
+
+            if ( !this.aside ) {
+                this.aside = this.notificationService.getInfo( this.type, 'aside' );
+            }
+        }
     }
 
     ngAfterViewInit() {
@@ -67,7 +74,7 @@ export class NgcNotificationComponent implements OnInit, AfterViewInit {
 
     initProgressBar() {
         const k = this.timeout / 100;
-        this.progressBar = this.elRef.nativeElement.querySelector( '.notification_progress-bar' );
+        this.progressBar = this.elRef.nativeElement.querySelector( '.notification-progress-bar' );
         const sub = this.timer.subscribe(
             () => {
                 const started = new Date().getTime();

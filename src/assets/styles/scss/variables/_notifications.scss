@@ -1,0 +1,36 @@
+// Notifications
+
+$notification-max-width:                    350px !default;
+$notification-font-size:                    .875rem !default;
+$notification-spacer-y:                     .75rem !default;
+$notification-color:                        null !default;
+$notification-background-color:             rgba($white, .85) !default;
+$notification-border-width:                 1px !default;
+$notification-border-color:                 rgba(0, 0, 0, .1) !default;
+$notification-border-radius:                .25rem !default;
+$notification-box-shadow:                   0 .25rem .75rem rgba($black, .1) !default;
+
+$notification-header-color:                 $gray-600 !default;
+$notification-header-background-color:      rgba($white, .85) !default;
+$notification-header-border-color:          rgba(0, 0, 0, .05) !default;
+$notification-header-padding-x:             .75rem !default;
+$notification-header-padding-y:             .35rem !default;
+
+$notification-title-font-size:              1rem !default;
+$notification-title-font-weight:            $font-weight-medium !default;
+
+$notification-body-padding-x:               .75rem !default;
+$notification-body-padding-y:               .75rem !default;
+$notification-body-background-color:        rgba($white, .85) !default;
+
+$notification-aside-font-size:              25px !default;
+$notification-aside-width:                  50px !default;
+$notification-aside-background-color:       $gray-600 !default;
+$notification-aside-color:                  $white !default;
+
+$notification-close-color:                  $gray-300 !default;
+$notification-close-size:                   .75rem !default;
+$notification-close-padding:                .2rem !default;
+
+$notification-progress-height:              2px !default;
+$notification-progress-color:               $gray-800 !default;

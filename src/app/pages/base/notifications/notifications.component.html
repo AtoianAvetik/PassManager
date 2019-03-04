@@ -1,24 +1,72 @@
-<div class="row">
-	<div class="col-12">
-		<div class="content-header">Notifications</div>
-		<p class="content-sub-header"></p>
-	</div>
-</div>
-<div class="row" matchHeight ="card">
-	<div class="col-12">
-		<div class="card">
-			<div class="card-header">
-				<h4 class="card-title">Notifications</h4>
-			</div>
-			<div class="card-body">
-				<div class="card-section">
-					<button class="btn btn-raised btn-success" type="button" (click)="createSuccessNotification('This is notification!', 0)" title="Open">Create success notification</button>
-					<button class="btn btn-raised btn-red" type="button" (click)="createErrorNotification('This is notification!')" title="Open">Create error notification</button>
-					<button class="btn btn-raised btn-blue" type="button" (click)="createInfoNotification('This is notification!')" title="Open">Create info notification</button>
-					<button class="btn btn-raised btn-yellow" type="button" (click)="createWarningNotification('This is notification!')" title="Open">Create warning notification</button>
-					<button class="btn btn-raised btn-default" type="button" (click)="clearNotification()" title="Open">Clear notification</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<section id="notifications">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Basic Examples</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <div class="card-section_content -border">
+                            <div class="notification show" role="alert" aria-live="assertive" aria-atomic="true" id="notification_1">
+                                <div class="notification-inner">
+                                    <div class="notification-header">
+                                        <i class="ft-alert-triangle mr-1 font-medium-3"></i>
+                                        <span class="notification-title">New customer is joined</span>
+                                        <small class="notification-time">1 hour ago</small>
+                                        <button type="button" class="notification-close" data-dismiss="notification" aria-label="Close">
+                                            <i class="ft-x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="notification-body">
+                                        Hello, world! This is a notification message.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notification show with-aside">
+                                <div class="notification-progress-bar"></div>
+                                <div class="notification-aside">
+                                    <i class="ft-alert-triangle"></i>
+                                </div>
+                                <div class="notification-inner">
+                                    <div class="notification-header">
+                                        <span class="notification-title">Notification title</span>
+                                        <button class="notification-close">
+                                            <i class="ft-x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="notification-body">
+                                        <span class="notification_message">This is a notification message.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Basic Examples</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <div class="card-section_content -border">
+                            <div class="btn-list">
+                                <button class="btn btn-raised btn-light" type="button" (click)="createNotification('This is notification!', 'Default!', 0)" title="Open">Show notification</button>
+                                <button class="btn btn-raised btn-light" type="button" (click)="createNotification('This is notification!', 'Default!', 0, '', '<i class=ft-check></i>')" title="Open">Show notification with aside</button>
+                                <button class="btn btn-raised btn-success" type="button" (click)="createNotification('This is notification!', 'Default!', 0, 'notification-success')" title="Open">Show custom success notification</button>
+                                <button class="btn btn-raised btn-success" type="button" (click)="createSuccessNotification('This is notification!', 'Success!', 0)" title="Open">Show success notification</button>
+                                <button class="btn btn-raised btn-red" type="button" (click)="createErrorNotification('This is notification!', 'Error!')" title="Open">Create error notification</button>
+                                <button class="btn btn-raised btn-blue" type="button" (click)="createInfoNotification('This is notification!', 'Info!')" title="Open">Create info notification</button>
+                                <button class="btn btn-raised btn-yellow" type="button" (click)="createWarningNotification('This is notification!', 'Warning!')" title="Open">Create warning notification</button>
+                                <button class="btn btn-raised btn-default" type="button" (click)="clearNotification()" title="Open">Clear notification</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

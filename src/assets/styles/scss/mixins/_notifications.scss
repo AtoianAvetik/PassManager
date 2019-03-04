@@ -1,0 +1,30 @@
+// Notification variants
+//
+
+
+@mixin notification-variant($background, $border: $background, $yiq-light-threshold: 240) {
+    border-color: $background;
+
+    .notification-aside {
+        color: darken($background, 15%);
+        background-color: $background;
+    }
+
+    .notification-progress-bar {
+        background-color: darken($background, 15%);
+    }
+
+    &:not(.with-aside) {
+        color: if(yiq($background) > $yiq-light-threshold, darken($background, 55%),color-yiq($background));
+        background-color: $background;
+
+        .notification-header {
+            color: if(yiq($background) > $yiq-light-threshold, darken($background, 55%),color-yiq($background));
+            background-color: $background;
+        }
+
+        .notification-body {
+            background-color: $background;
+        }
+    }
+}

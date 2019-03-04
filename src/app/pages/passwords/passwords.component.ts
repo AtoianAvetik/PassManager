@@ -165,7 +165,7 @@ export class PasswordsComponent implements OnInit, AfterViewInit {
                     await this.dataService.passwordsAction( 'transferItem', item.listId, newId, item.data );
                 } catch ( e ) {
                     const message = 'Password was not transfer!';
-                    this.notificationService.error( message, 0 );
+                    this.notificationService.error( { message: message, title: 'Error!', timeout: 0 } );
                     console.error( e );
                 }
             } );
@@ -184,7 +184,7 @@ export class PasswordsComponent implements OnInit, AfterViewInit {
                     await this.dataService.passwordsAction( 'deleteItem', item.listId, item.id );
                 } catch ( e ) {
                     const message = 'Password was not deleted!';
-                    this.notificationService.error( message, 0 );
+                    this.notificationService.error( { message: message, title: 'Error!', timeout: 0 } );
                     console.error( e );
                 }
             } );
@@ -226,7 +226,7 @@ export class PasswordsComponent implements OnInit, AfterViewInit {
                 } ).catch( ( error ) => {
                     const message = this.folderMode === 'add' ? 'Folder was not added!' : 'Folder was not changed!';
                     this.folderFormLoader.dismiss();
-                    this.notificationService.error( message, 0 );
+                    this.notificationService.error( { message: message, title: 'Error!', timeout: 0 } );
                     console.error( error );
                 } );
             }
@@ -245,7 +245,7 @@ export class PasswordsComponent implements OnInit, AfterViewInit {
                 } ).catch( ( error ) => {
                     const message = this.folderMode === 'add' ? 'Password was not added!' : 'Password was not changed!';
                     this.passwordFormLoader.dismiss();
-                    this.notificationService.error( message, 0 );
+                    this.notificationService.error( { message: message, title: 'Error!', timeout: 0 } );
                     console.error( error );
                 } );
             }
@@ -261,7 +261,7 @@ export class PasswordsComponent implements OnInit, AfterViewInit {
         } ).catch( ( error ) => {
             const message = 'Folder was not deleted!';
             this.deleteFormLoader.dismiss();
-            this.notificationService.error( message, 0 );
+            this.notificationService.error( { message: message, title: 'Error!', timeout: 0 } );
             console.error( error );
         } );
     }
@@ -275,7 +275,7 @@ export class PasswordsComponent implements OnInit, AfterViewInit {
         } ).catch( ( error ) => {
             const message = 'Password was not deleted!';
             this.deleteFormLoader.dismiss();
-            this.notificationService.error( message, 0 );
+            this.notificationService.error( { message: message, title: 'Error!', timeout: 0 } );
             console.error( error );
         } );
     }

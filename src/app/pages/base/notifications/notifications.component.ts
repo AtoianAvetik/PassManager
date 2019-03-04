@@ -15,20 +15,24 @@ export class NotificationsComponent {
 
     // Notifications
 
-    createSuccessNotification(message = '', timeout) {
-        this._notificationService.success(message, timeout);
+    createNotification(message = '', title = '', timeout = null, typeClass = '', aside = '') {
+        this._notificationService.notification({ message, title, timeout, typeClass, aside});
     }
 
-    createErrorNotification(message = '') {
-        this._notificationService.error(message);
+    createSuccessNotification(message = '', title = '', timeout = null) {
+        this._notificationService.success({ message, title, timeout });
     }
 
-    createInfoNotification(message = '') {
-        this._notificationService.info(message);
+    createErrorNotification(message = '', title = '') {
+        this._notificationService.error({ message, title });
     }
 
-    createWarningNotification(message = '') {
-        this._notificationService.warn(message);
+    createInfoNotification(message = '', title = '') {
+        this._notificationService.info({ message, title });
+    }
+
+    createWarningNotification(message = '', title = '') {
+        this._notificationService.warn({ message, title });
     }
 
     clearNotification() {

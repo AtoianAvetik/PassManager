@@ -7,123 +7,113 @@
 }
 
 .notification {
-	padding: 10px 15px;
-	margin-bottom: 20px;
-	overflow: hidden;
-	border-radius: 4px;
-	position: relative;
-	background-color: #ffffff;
-	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    max-width: $notification-max-width;
+    overflow: hidden; // cheap rounded corners on nested items
+    @include font-size($notification-font-size);
+    color: $notification-color;
+    background-color: $notification-background-color;
+    background-clip: padding-box;
+    border: $notification-border-width solid $notification-border-color;
+    box-shadow: $notification-box-shadow;
+    opacity: 0;
+    @include border-radius($notification-border-radius);
+    margin-bottom: $notification-spacer-y;
 
-	&.-dismissable {
-		padding-right: 35px;
-	}
+    &.showing {
+        opacity: 1;
+    }
 
-	&.-with-icon {
-		padding-left: 40px;
-	}
+    &.show {
+        display: flex;
+        opacity: 1;
+    }
 
-	&.-success {
-		.notification_icon {
-			color: darken(theme-color("success"), 15%);
-			background-color: theme-color("success");
-		}
-		.notification_title {
-			color: theme-color("success");
-		}
-		.notification_progress-bar {
-			background-color: darken(theme-color("success"), 15%);
-		}
-	}
-	&.-danger {
-		.notification_icon {
-			color:darken(theme-color("danger"), 15%);
-			background-color: theme-color("danger");
-		}
-		.notification_title {
-			color: theme-color("danger");
-		}
-		.notification_progress-bar {
-			background-color: darken(theme-color("danger"), 15%);
-		}
-	}
-	&.-info {
-		.notification_icon {
-			color: darken(theme-color("info"), 15%);
-			background-color: theme-color("info");
-		}
-		.notification_title {
-			color: theme-color("info");
-		}
-		.notification_progress-bar {
-			background-color: darken(theme-color("info"), 15%);
-		}
-	}
-	&.-warning {
-		.notification_icon {
-			color: darken(theme-color("warning"), 15%);
-			background-color: theme-color("warning");
-		}
-		.notification_title {
-			color: theme-color("warning");
-		}
-		.notification_progress-bar {
-			background-color: darken(theme-color("warning"), 15%);
-		}
-	}
+    &.hide {
+        display: none;
+    }
+}
 
-	&_inner {
-		padding-left: 20px;
-	}
+.notification-inner {
+    width: 100%;
+}
 
-	&_icon {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		top: 0;
-		width: 40px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+.notification-header {
+    display: flex;
+    align-items: center;
+    padding: $notification-header-padding-y $notification-header-padding-x;
+    color: $notification-header-color;
+    background-color: $notification-header-background-color;
+    background-clip: padding-box;
+    border-bottom: $notification-border-width solid $notification-header-border-color;
+}
 
-		i, [class*='ft-'] {
-			font-size: 25px;
-			color: #ffffff !important;
-		}
-	}
+.notification-body {
+    padding: $notification-body-padding-y $notification-body-padding-x; // apply to both vertical and horizontal
+    background-color: $notification-body-background-color;
+}
 
-	&_title {
-		margin-bottom: 3px;
-	}
+.notification-aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $notification-aside-width;
+    background-color: $notification-aside-background-color;
+    font-size:$notification-aside-font-size;
+    color: $notification-aside-color;
+}
 
-	&_message {
-		font-size: 13px;
-	}
+.notification-title {
+    font-size: $notification-title-font-size;
+    font-weight: $notification-title-font-weight;
+    margin-right: auto;
+}
 
-	&_close-btn {
-		display: block;
-		position: absolute;
-		top: 7px;
-		padding: 4px;
-		line-height: 1;
-		font-size: 12px;
-		right: 7px;
-		border-radius: 50%;
-		//border: 1px solid $dark;
-		background: transparent;
-		color: $gray-300;
+.notification-icon {
+}
 
-		i {
-			display: block;
-		}
-	}
+.notification-close {
+    display: block;
+    padding: $notification-close-padding;
+    line-height: 1;
+    font-size: $notification-close-size;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: $notification-close-color;
 
-	&_progress-bar {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 2px;
-		z-index: 1;
-		width: 0;
-	}
+    i {
+        display: block;
+    }
+}
+
+.notification-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $notification-progress-height;
+    background-color: $notification-progress-color;
+    z-index: 1;
+    width: 0;
+}
+
+// Alternative notifications
+@each $color, $value in if($enable-colors, map-merge($theme-colors, $colors), $theme-colors) {
+    .notification-#{$color} {
+        @include notification-variant($value);
+    }
+
+}
+
+@if $enable-palettes {
+    @each $color_name, $color in if($enable-colors, map-merge($theme-colors-palettes, $colors-palettes), $theme-colors-palettes) {
+        @each $color_type, $color_value in $color {
+            @if type-of($color_value) == 'color' {
+                .notification-#{$color_name}.notification-#{map-get($color-types, $color_type)}{
+                    @include notification-variant($color_value);
+                }
+            }
+        }
+    }
 }

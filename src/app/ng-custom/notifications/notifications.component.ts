@@ -49,6 +49,9 @@ export class NgcNotificationsComponent implements OnInit {
         this.componentRef.instance.type = notification.type;
         this.componentRef.instance.message = notification.message;
         this.componentRef.instance.timeout = notification.timeout;
+        this.componentRef.instance.typeClass = notification.typeClass;
+        this.componentRef.instance.title = notification.title;
+        this.componentRef.instance.aside = notification.aside;
         this.componentRef.instance._ref = this.componentRef;
 
         this.elRef.nativeElement.querySelector( '.notification-wrapper' ).appendChild( this.componentRef.location.nativeElement );
