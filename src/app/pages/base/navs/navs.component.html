@@ -1,3 +1,405 @@
-<p>
-  navs works!
-</p>
+<section id="navs">
+    <div class="row">
+        <div class="col-6 col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Basic Example</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <div class="card-section_title">Base nav</div>
+                        <p>Navigation available by sharing general markup and styles, from the base <code>.nav</code> class to the active and disabled states. Swap modifier classes to switch between each style.</p>
+                        <p>The base <code>.nav</code> component is built with flexbox and provide a strong foundation for building all types of navigation components. It includes some style overrides (for working with lists), some link padding for larger hit areas, and basic disabled styling.</p>
+                        <strong>The base <code>.nav</code> component does not include any <code>.active</code> state. The following examples include the class, mainly to demonstrate that this particular class does not trigger any special styling.</strong>
+                        <br>
+                        <br>
+                        <div class="card-section_content -border">
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>Classes are used throughout, so your markup can be super flexible. Use <code>&lt;ul&gt;</code>s like above, <code>&lt;ol&gt;</code> if the order of your items is important, or roll your own with a <code>&lt;nav&gt;</code> element. Because the
+                        <code>.nav</code> uses <code>display: flex</code>, the nav links behave the same as nav items would, but without the extra markup.</p>
+                        <div class="card-section_content -border">
+                            <nav class="nav">
+                                <a class="nav-link active" href="#">Active</a>
+                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Horizontal alignment</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Change the horizontal alignment of your nav with flexbox utilities. By default, navs are left-aligned, but you can easily change them to center or right aligned.</p>
+                        <p>Centered with <code>.justify-content-center</code>:</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>Right-aligned with <code>.justify-content-end</code>:</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Vertical</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Stack your navigation by changing the flex item direction with the <code>.flex-column</code> utility. Need to stack them on some viewports but not others? Use the responsive versions (e.g.,
+                            <code>.flex-sm-column</code>).</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-vertical">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>As always, vertical navigation is possible without <code>&lt;ul&gt;</code>s, too.</p>
+                        <div class="card-section_content -border">
+                            <nav class="nav nav-vertical">
+                                <a class="nav-link active" href="#">Active</a>
+                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Tabs</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Takes the basic nav from above and adds the <code>.nav-tabs</code> class to generate a tabbed interface.</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>Vertical tabs:</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-tabs nav-vertical">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Lines</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Take that same HTML, but use <code>.nav-lines</code> instead:</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-lines">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>Vertical lines:</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-lines nav-vertical">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Pills</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Take that same HTML, but use <code>.nav-pills</code> instead:</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>Vertical pills:</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-pills nav-vertical">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Fill and justify</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Force your <code>.nav</code>’s contents to extend the full available width one of two modifier classes. To proportionately fill all available space with your
+                            <code>.nav-item</code>s, use <code>.nav-fill</code>. Notice that all horizontal space is occupied, but not every nav item has the same width.</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-pills nav-fill">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Much longer nav link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>When using a <code>&lt;nav&gt;</code>-based navigation, be sure to include <code>.nav-item</code> on the anchors.</p>
+                        <div class="card-section_content -border">
+                            <nav class="nav nav-pills nav-fill">
+                                <a class="nav-item nav-link active" href="#">Active</a>
+                                <a class="nav-item nav-link" href="#">Much longer nav link</a>
+                                <a class="nav-item nav-link" href="#">Link</a>
+                                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </nav>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>For equal-width elements, use <code>.nav-justified</code>. All horizontal space will be occupied by nav links, but unlike the <code>.nav-fill</code> above, every nav item will be the same width.</p>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Much longer nav link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <p>Similar to the <code>.nav-fill</code> example using a <code>&lt;nav&gt;</code>-based navigation, be sure to include <code>.nav-item</code> on the anchors.</p>
+                        <div class="card-section_content -border">
+                            <nav class="nav nav-pills nav-justified">
+                                <a class="nav-item nav-link active" href="#">Active</a>
+                                <a class="nav-item nav-link" href="#">Much longer nav link</a>
+                                <a class="nav-item nav-link" href="#">Link</a>
+                                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Using dropdowns</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <div class="card-section_title">Tabs with dropdowns</div>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li ngcDropdown class="nav-item">
+                                    <a href="javascript:void(0)" class="nav-link" id="dropdownBasic2" ngcDropdownToggle>Dropdown</a>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic2">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <div class="card-section_title">Pills with dropdowns</div>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li ngcDropdown class="nav-item">
+                                    <a href="javascript:void(0)" class="nav-link" id="dropdownBasic3" ngcDropdownToggle>Dropdown</a>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic3">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="separator separator-space-md separator-border-dashed"></div>
+                        <div class="card-section_title">Lines with dropdowns</div>
+                        <div class="card-section_content -border">
+                            <ul class="nav nav-lines">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Active</a>
+                                </li>
+                                <li ngcDropdown class="nav-item">
+                                    <a href="javascript:void(0)" class="nav-link" id="dropdownBasic4" ngcDropdownToggle>Dropdown</a>
+                                    <div ngcDropdownMenu aria-labelledby="dropdownBasic4">
+                                        <button ngcDropdownItem>Action - 1</button>
+                                        <button ngcDropdownItem>Another Action</button>
+                                        <button ngcDropdownItem>Something else is here</button>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
