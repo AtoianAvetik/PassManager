@@ -10,7 +10,7 @@ import { NgcModalBackdropComponent } from './modal-backdrop.component';
 export class NgcModalStack {
     private _modalRefs: NgcModalRef[] = [];
     private _backdropAttributes = ['backdropClass'];
-    private _windowAttributes = ['backdrop', 'centered', 'keyboard', 'size', 'windowClass'];
+    private _windowAttributes = ['backdrop', 'centered', 'keyboard', 'size', 'scrollableContent', 'windowClass'];
 
     constructor(
         private _applicationRef: ApplicationRef,

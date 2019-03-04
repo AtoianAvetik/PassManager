@@ -129,6 +129,7 @@
         &.-border {
             padding: $card-spacer-y $card-spacer-x;
             border: $card-section-content-border-width solid $card-border-color;
+            margin-bottom: $card-spacer-y;
         }
     }
 }

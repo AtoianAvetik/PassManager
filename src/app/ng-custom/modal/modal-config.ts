@@ -38,6 +38,11 @@ export interface NgcModalOptions {
     size?: 'sm' | 'lg';
 
     /**
+     * Scrollable content option
+     */
+    scrollableContent?: boolean;
+
+    /**
      * Custom class to append to the modal window
      */
     windowClass?: string;
@@ -59,5 +64,4 @@ export interface NgcModalOptions {
 export class NgcModalConfig implements NgcModalOptions {
     backdrop: boolean | 'static' = true;
     keyboard = true;
-    centered = true;
 }

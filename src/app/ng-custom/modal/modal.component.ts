@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ElementRef, HostBinding } from '@angular/core';
 
 import { NgcModalService } from './modal.service';
 import { NgcModalOptions } from './modal-config';
@@ -20,9 +20,11 @@ export class NgcModalComponent implements OnInit, OnDestroy {
     @Input() container: string;
     @Input() keyboard: boolean;
     @Input() size: 'sm' | 'lg';
+    @Input() scrollableContent: boolean;
     @Input() windowClass: string;
     @Input() backdropClass: string;
     options: NgcModalOptions = {};
+    @HostBinding('class') class = 'modal-content';
 
     constructor(private _modalService: NgcModalService,
                 private _elRef: ElementRef) {
@@ -41,6 +43,7 @@ export class NgcModalComponent implements OnInit, OnDestroy {
         if ( isDefined(this.container) ) { this.options.container = this.container; }
         if ( isDefined(this.keyboard) ) { this.options.keyboard = this.keyboard; }
         if ( isDefined(this.size) ) { this.options.size = this.size; }
+        if ( isDefined(this.scrollableContent) ) { this.options.scrollableContent = this.scrollableContent; }
         if ( isDefined(this.windowClass) ) { this.options.windowClass = this.windowClass; }
         if ( isDefined(this.backdropClass) ) { this.options.backdropClass = this.backdropClass; }
 

@@ -14,10 +14,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 @Component({
     selector: 'ngc-modal-window',
     template: `
-        <div [class]="'modal-dialog' + (size ? ' modal-' + size : '') + (centered ? ' modal-dialog-centered' : '')" role="document">
-            <div class="modal-content">
-                <ng-content></ng-content>
-            </div>
+        <div [class]="'modal-dialog' + (size ? ' modal-' + size : '') + (centered ? ' modal-dialog-centered' : '') + (scrollableContent ? ' modal-dialog-scrollable' : '')" role="document">
+            <ng-content></ng-content>
         </div>
     `,
     animations: [
@@ -37,7 +35,9 @@ export class NgcModalWindowComponent implements OnInit {
     @Input() centered: string;
     @Input() keyboard = true;
     @Input() size: string;
+    @Input() scrollableContent: string;
     @Input() windowClass: string;
+    @Input() dialogClass: string;
 
     @Output('dismiss') dismissEvent = new Subject();
     @Output('modalClosingDidStart') modalClosingDidStart = new Subject();
