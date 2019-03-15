@@ -41,7 +41,7 @@ export class NgcNotificationComponent implements OnInit, AfterViewInit {
     @Input() typeClass: string;
     @Input() title: string;
     @Input() message: string;
-    @Input() aside = true;
+    @Input() aside = false;
     @Input() timeout: any;
     @Input() _ref: any;
     timer = new Subject<number>();
@@ -50,8 +50,19 @@ export class NgcNotificationComponent implements OnInit, AfterViewInit {
     progress = 0;
     lastProgress = 0;
 
+    private _resolve: (result?: any) => void;
+    private _reject: (reason?: any) => void;
+    /**
+     * A promise that is resolved when the notification is closed
+     */
+    result: Promise<any>;
+
     constructor( private notificationService: NgcNotificationService,
                  private elRef: ElementRef ) {
+        this.result = new Promise((resolve, reject) => {
+            this._resolve = resolve;
+            this._reject = reject;
+        });
     }
 
     ngOnInit() {
@@ -94,6 +105,7 @@ export class NgcNotificationComponent implements OnInit, AfterViewInit {
     }
 
     closeNotification() {
+        this._resolve();
         clearInterval( this.interval );
         this._ref.destroy();
     }

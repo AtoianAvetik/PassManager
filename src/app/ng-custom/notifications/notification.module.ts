@@ -2,16 +2,16 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NgcNotificationService } from './notification.service';
+import { NgcNotificationStack } from './notification-stack';
 import { NgcNotificationComponent } from './notification.component';
-import { NgcNotificationsComponent } from './notifications.component';
 
 export { NgcNotificationService } from './notification.service';
+export { NgcNotificationStack } from './notification-stack';
 export { NgcNotificationComponent } from './notification.component';
-export { NgcNotificationsComponent } from './notifications.component';
 export { NgcNotification } from './notification.model';
 
 const NGC_MODAL_DIRECTIVES = [
-    NgcNotificationComponent, NgcNotificationsComponent
+    NgcNotificationComponent
 ];
 
 @NgModule( {

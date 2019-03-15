@@ -1,14 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
 
 import { NgcNotification, NgcNotificationType } from './notification.model';
+import { NgcNotificationStack } from './notification-stack';
 
 @Injectable({
     providedIn: 'root'
 })
 export class NgcNotificationService {
-    private subject = new Subject<NgcNotification>();
     timeout = 2500;
     notificationsData = {
         success: {
@@ -29,11 +27,8 @@ export class NgcNotificationService {
         },
     };
 
-    constructor() {
-    }
-
-    getNotification(): Observable<any> {
-        return this.subject.asObservable();
+    constructor(private stack: NgcNotificationStack,
+                private _moduleCFR: ComponentFactoryResolver) {
     }
 
     getInfo( type, kind ) {
@@ -71,11 +66,12 @@ export class NgcNotificationService {
     }
 
     notification( data ) {
-        this.subject.next( <NgcNotification>Object.assign({}, { timeout: this.timeout }, data) );
+        const combinedOptions = <NgcNotification>Object.assign({}, { timeout: this.timeout }, data);
+        this.stack.show( this._moduleCFR, combinedOptions);
     }
 
     clear() {
         // clear alerts
-        this.subject.next();
+        this.stack.clearAll();
     }
 }
