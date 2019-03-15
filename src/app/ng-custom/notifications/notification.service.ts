@@ -66,6 +66,13 @@ export class NgcNotificationService {
     }
 
     notification( data ) {
+        if ( data.type || data.type === 0 ) {
+            data.typeClass = this.getInfo( data.type, 'typeClass' );
+
+            if ( !data.aside ) {
+                data.aside = this.getInfo( data.type, 'aside' );
+            }
+        }
         const combinedOptions = <NgcNotification>Object.assign({}, { timeout: this.timeout }, data);
         this.stack.show( this._moduleCFR, combinedOptions);
     }

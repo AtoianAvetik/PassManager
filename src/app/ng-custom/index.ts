@@ -61,8 +61,8 @@ export {
     NgcNotificationModule,
     NgcNotification,
     NgcNotificationService,
+    NgcNotificationStack,
     NgcNotificationComponent,
-    NgcNotificationsComponent
 } from './notifications/notification.module';
 
 

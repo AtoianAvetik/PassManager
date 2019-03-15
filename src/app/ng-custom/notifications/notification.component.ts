@@ -57,8 +57,7 @@ export class NgcNotificationComponent implements OnInit, AfterViewInit {
      */
     result: Promise<any>;
 
-    constructor( private notificationService: NgcNotificationService,
-                 private elRef: ElementRef ) {
+    constructor( private elRef: ElementRef ) {
         this.result = new Promise((resolve, reject) => {
             this._resolve = resolve;
             this._reject = reject;
@@ -68,14 +67,6 @@ export class NgcNotificationComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         if ( this.timeout > 0 ) {
             this.initProgressBar();
-        }
-
-        if ( this.type || this.type === 0 ) {
-            this.typeClass = this.notificationService.getInfo( this.type, 'typeClass' );
-
-            if ( !this.aside ) {
-                this.aside = this.notificationService.getInfo( this.type, 'aside' );
-            }
         }
     }
 
