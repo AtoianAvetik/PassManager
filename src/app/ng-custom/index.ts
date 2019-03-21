@@ -9,6 +9,7 @@ import { NgcLoaderModule } from './loader/loader.module';
 import { NgcNotificationModule } from './notifications/notification.module';
 import { NgcPaginationModule } from './pagination/pagination.module';
 import { NgcPanelModule } from './panels/panel.module';
+import { NgcPopoverModule } from './popover/popover.module';
 
 export {
     NgcAccordionModule,
@@ -89,9 +90,15 @@ export {
     NGC_PANEL_CONFIG, DEFAULT_NGC_PANEL_CONFIG, NgcPanelConfigInterface
 } from './panels/panel.module';
 
+export {
+    NgcPopoverModule,
+    NgcPopover,
+    NgcPopoverConfig
+} from './popover/popover.module';
+
 const NGC_MODULES = [
     NgcAccordionModule, NgcAlertModule, NgcCollapseModule, NgcDropdownModule, NgcLoaderModule, NgcModalModule, NgcNotificationModule,
-    NgcPanelModule, NgcPaginationModule
+    NgcPanelModule, NgcPaginationModule, NgcPopoverModule
 ];
 
 @NgModule( {
