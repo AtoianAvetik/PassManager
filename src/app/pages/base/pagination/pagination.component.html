@@ -1,3 +1,119 @@
-<p>
-  pagination works!
-</p>
+<!--Pagination Starts-->
+<section id="pagination">
+    <div class="row" matchHeight ="card">
+        <div class="col-6 col-xl-12">
+            <!--Basic Pagination Starts-->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Basic pagination</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Default pagination:</p>
+                        <ngc-pagination [collectionSize]="70" [(page)]="page1" aria-label="Default pagination"></ngc-pagination>
+
+                        <p>No direction links:</p>
+                        <ngc-pagination [collectionSize]="70" [(page)]="page1" [directionLinks]="false"></ngc-pagination>
+
+                        <p>With boundary links:</p>
+                        <ngc-pagination [collectionSize]="70" [(page)]="page1" [boundaryLinks]="true"></ngc-pagination>
+
+                        <hr>
+
+                        <pre>Current page: {{page1}}</pre>
+                    </div>
+                </div>
+            </div>
+            <!--Basic Pagination Ends-->
+
+            <!--Advanced Pagination Starts-->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Advanced Pagination</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Restricted size, no rotation:</p>
+                        <ngc-pagination [collectionSize]="120" [(page)]="page2" [maxSize]="5" [boundaryLinks]="true"></ngc-pagination>
+
+                        <p>Restricted size with rotation:</p>
+                        <ngc-pagination [collectionSize]="120" [(page)]="page2" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngc-pagination>
+
+                        <p>Restricted size with rotation and no ellipses:</p>
+                        <ngc-pagination [collectionSize]="120" [(page)]="page2" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngc-pagination>
+
+                        <hr>
+
+                        <pre>Current page: {{page2}}</pre>
+                    </div>
+                </div>
+            </div>
+            <!--Advanced Pagination Ends-->
+
+            <!--Pagination Sizes Starts-->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Pagination size</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <ngc-pagination [collectionSize]="50" [(page)]="page3" size="lg"></ngc-pagination>
+                        <ngc-pagination [collectionSize]="50" [(page)]="page3"></ngc-pagination>
+                        <ngc-pagination [collectionSize]="50" [(page)]="page3" size="sm"></ngc-pagination>
+                    </div>
+                </div>
+            </div>
+            <!--Pagination Sizes Ends-->
+        </div>
+        <div class="col-6 col-xl-12">
+            <!--Pagination alignment Starts-->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Pagination alignment</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Change the alignment of pagination components with flexbox utilities.</p>
+                        <ngc-pagination class="d-flex justify-content-start" [collectionSize]="70" [(page)]="page4"></ngc-pagination>
+                        <ngc-pagination class="d-flex justify-content-center" [collectionSize]="70" [(page)]="page4"></ngc-pagination>
+                        <ngc-pagination class="d-flex justify-content-end" [collectionSize]="70" [(page)]="page4"></ngc-pagination>
+                    </div>
+                </div>
+            </div>
+            <!--Pagination alignment Ends-->
+
+            <!--Disabled Pagination Starts-->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Disabled pagination</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>Pagination control can be disabled:</p>
+                        <ngc-pagination [collectionSize]="70" [(page)]="page5" [disabled]='isDisabled'></ngc-pagination>
+                        <hr>
+                        <button class="btn btn-sm btn-outline-primary" (click)="toggleDisabled()">
+                            Toggle disabled
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--Disabled Pagination Ends-->
+
+            <!--Disabled Pagination Starts-->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Global configuration</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-section">
+                        <p>This pagination uses custom default values</p>
+                        <ngc-pagination [collectionSize]="70" [(page)]="page6"></ngc-pagination>
+                    </div>
+                </div>
+            </div>
+            <!--Disabled Pagination Ends-->
+        </div>
+    </div>
+</section>
+<!--Pagination Ends-->

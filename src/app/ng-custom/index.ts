@@ -7,6 +7,7 @@ import { NgcDropdownModule } from './dropdown/dropdown.module';
 import { NgcModalModule } from './modal/modal.module';
 import { NgcLoaderModule } from './loader/loader.module';
 import { NgcNotificationModule } from './notifications/notification.module';
+import { NgcPaginationModule } from './pagination/pagination.module';
 import { NgcPanelModule } from './panels/panel.module';
 
 export {
@@ -65,6 +66,17 @@ export {
     NgcNotificationComponent,
 } from './notifications/notification.module';
 
+export {
+    NgcPaginationModule,
+    NgcPagination,
+    NgcPaginationFirst,
+    NgcPaginationLast,
+    NgcPaginationPrevious,
+    NgcPaginationNext,
+    NgcPaginationEllipsis,
+    NgcPaginationNumber,
+    NgcPaginationConfig,
+} from './pagination/pagination.module';
 
 export {
     NgcPanelModule,
@@ -79,7 +91,7 @@ export {
 
 const NGC_MODULES = [
     NgcAccordionModule, NgcAlertModule, NgcCollapseModule, NgcDropdownModule, NgcLoaderModule, NgcModalModule, NgcNotificationModule,
-    NgcPanelModule
+    NgcPanelModule, NgcPaginationModule
 ];
 
 @NgModule( {
